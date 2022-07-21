@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Lock screen",
+    "exec": "swaylock",
+    "icon": "system-lock-screen"
+  },
+  {
+    "name": "Logout",
+    "exec": "swaymsg exit",
+    "icon": "system-log-out"
+  },
+  {
+    "name": "Reboot",
+    "exec": "sudo reboot",
+    "icon": "system-reboot"
+  },
+  {
+    "name": "Shutdown",
+    "exec": "sudo poweroff",
+    "icon": "system-shutdown"
+  }
+]

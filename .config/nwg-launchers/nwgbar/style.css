@@ -1,0 +1,35 @@
+#bar {
+    margin: 0px; /* affects top/bottom & left/right alignment */
+}
+
+image {
+    background: none;
+    border-style: none;
+    box-shadow: none;
+    color: #d8dee9;
+    padding: 10px;
+}
+button {
+    background: #bf616a;
+    border: none;
+    box-shadow: none;
+    color: #d8dee9;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+
+button:focus {
+    background-color: #d08770;
+    border: 1px solid #5e81ac;
+}
+button:hover {
+    transition: background-color 0.125s ease-in-out;
+    background-color: #d08770;
+}
+
+grid {
+    /* e.g. for common background to all buttons */
+
+}
