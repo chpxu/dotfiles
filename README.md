@@ -46,6 +46,8 @@ Applications or programs which setup my workspace
 - wl-clipboard (void repos)
 - lf (void repos)
 - alsamixer (void repos from relevant alsa packages)
+- alacritty
+- zsh
 
 ## Steps to use
 1. Clone the repository to somewhere safe, e.g. `$HOME`:
@@ -131,6 +133,9 @@ Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplac
 The config file contains all the commands and keybinds. Nothing else should need to be done.
 ### xournalpp
 TBD.
+
+### zsh
+1. Install and enable `zsh`, `zsh-syntax-highlighting` and `oh-my-zsh`
 ### Discord
 NOTE: theming the main Discord client or using third-party client is against ToS and if discovered, could get your account banned. Do this at your own risk.
 
