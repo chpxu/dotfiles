@@ -5,6 +5,12 @@ I will try to remember to give credits and links where possible but I'll probabl
 
 This repo will also be updated when I'm bothered
 - [ ] I should make a script copying the relevant files 
+
+## Screenshots
+![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/desktop.png)
+![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/firefox.png)
+![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/nwggrid.png)
+![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/vscode.png)
 ## Themes, Icons and Colour Palette
 These dotfiles use 2 themes. 
 1. The [Nord colour palette](https://nordtheme.com).
