@@ -1,12 +1,14 @@
 {
     // "layer": "top", // Waybar at top layer
     //"position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 10, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 2, // Gaps between modules (4px)
+    "height": 30, // Waybar height (to be removed for auto height)
+    //"width": 1900, // Waybar width
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        //"wlr/workspaces",
+        //"wlr/workspaces", need wayfire to implement ext-workspaces-unstable
         "custom/nwggrid",
         "custom/separator",
         "wlr/taskbar"
@@ -50,7 +52,7 @@
     "wlr/taskbar": {
         "all-outputs": true,
         "format": "{icon} {title}",
-        "icon-size": 20,
+        "icon-size": 18,
         "icon-theme": "candy-icons",
         "tooltip": "true",
         "tooltip-format": "{icon} {title}",
@@ -115,12 +117,13 @@
         "calendar-weeks-pos": "left",
         "format-calendar": "<b>{}</b>",
         "format-calendar-weeks": "<span>Week: <i>{}</i></span>",
-        "format": "{:%H:%M %Y-%m-%d}"
+        "format": " {:%H:%M  %Y-%m-%d}"
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": " {icon} {usage}%",
         //"format": "CPU: {usage}%",
         "format-icons": [
+	    "",
             "▁",
             "▂",
             "▃",
@@ -221,7 +224,8 @@
     },
     "custom/nwggrid": {
         "format": "",
-        "on-click": "exec nwggrid -b 2e3440 -o 1"
+        "on-click": "exec nwggrid -b 2e3440 -o 1",
+	"max-length": 50
     },
     "custom/separator": {
         "format": "|"

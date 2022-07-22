@@ -5,6 +5,9 @@ window#waybar {
 	font-family: 'FiraCode Nerd Font', Inconsolata, sans-serif;
 	font-weight: 700;
 	font-size: 12px;
+	border-radius: 5px;
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 /*WORKSPACE STYLES*/
@@ -105,6 +108,7 @@ tooltip label {
 /*Taskbar*/
 #taskbar button {
 	border: none;
+	color: #eceff4;
 }
 #taskbar button:hover {
 	transition: background-color 0.125s ease-in-out;
@@ -112,6 +116,7 @@ tooltip label {
 }
 #taskbar button.active {
 	border-bottom: 2px solid #81a1c1;
+	background-color: #3b4252;
 }
 .modules-left {
 	margin-left: 2.5px;

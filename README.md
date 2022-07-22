@@ -38,12 +38,13 @@ Applications or programs which I use for my work and studies
 - imv (void repos)
 - zathura (void repos)
 - xournalpp (void repos)
+- LibreOffice (flatpak, say what you want)
 ### Environment programs
 Applications or programs which setup my workspace
 - wayfire and wcm (void repos) 
 - waybar (void repos)
 - swayidle (void repos)
-- swaylock (void repos)
+- [swaylock-effects](https://github.com/mortie/swaylock-effects) (built from repo). Note: I got many errors relating to `omp.h`  not found. Install `libgomp-devel` (if using GCC) or `libomp-devel` from the void repos and compile.
 - mako (void repos)
 - bemenu (void repos)
 - [cliphist](https://github.com/sentriz/cliphist/releases/) (binary from github)
@@ -124,8 +125,9 @@ Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.
 Both files have had my own slight modifications.
 
 #### To-Do
-- [ ] Fix errors in certain `about:` pages. This may never be resolved however and will have to cope with defaults
-### Waybar, Wayfire, Swaylock, swayidle
+- [ ] Fix errors in certain `about:` pages. This may never be resolved however and will have to cope with defaults.
+- [ ] The hover effect on the Tab Center Reborn is not of the correct colour.
+### Waybar, Wayfire, Swaylock, swayidle, nwg-launchers
 Nothing else should need to be done if everything was copied correctly I think. 
 <!-- ### swaylock
 ### swayidle -->
@@ -135,11 +137,22 @@ Nothing else should need to be done if everything was copied correctly I think.
 Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplace.visualstudio.com/items?itemName=beastdestroyer.firefox-quantum-themes) :)
 
 - [ ] I plan to make my own Nord theme soon, after I update my theme to 2.0.0.
-### nwg-launchers
-The config file contains all the commands and keybinds. Nothing else should need to be done.
-### xournalpp
-TBD.
 
+### xournalpp
+1. Follow the `Installation` steps at @juansegaes's [XournalPP Nordic theme](https://github.com/juansegaes/xournalpp-nord).
+2. In Xournal++, enable the Nord theme in _View > Toolbars > Nord_<Dark|Light>_
+3. Go to _Edit > Preferences_ and change the following:
+   1. Have `Dark Theme` enabled.
+   2. In the _View_ tab, change `Border Color` to `#bf616a`.
+   3. In the same tab, change `Background color between pages` to `#2e3440`.
+   4. In the same tab, change `Selection color` to `#5e81ac`.
+   5. In the same tab, if you have `Cursor icon for pen` _not_ set to `No icon`, you have extra settings. 
+      1. Change `Circle color` to  `#ebcb8b` and drag the opacity slider to your preference
+      2. Change `Border color` to `#81a1c1`, again dragging the opacity slider to your preference.
+4. Now go to `Journal > Configure Page Template` and set the `Background Color` to `#2e3440`.
+
+#### To-Do
+- [ ] The background on the pages view is incorrect.
 ### zsh
 1. Install and enable `zsh`, `zsh-syntax-highlighting` and `oh-my-zsh`
 ### Discord
@@ -150,3 +163,6 @@ NOTE: theming the main Discord client or using third-party client is against ToS
 3. Enable the `nord-zelk` theme.
 
 Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme which I modified.
+
+#### To-Do
+- [ ]  Further modifications to make the theme consistent in colour.
