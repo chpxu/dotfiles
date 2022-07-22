@@ -8,9 +8,13 @@ This repo will also be updated when I'm bothered
 
 ## Screenshots
 ![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/desktop.png)
-![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/firefox.png)
-![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/nwggrid.png)
-![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/vscode.png)
+![Firefox](https://github.com/chpxu/dotfiles/blob/main/Screenshots/firefox.png)
+![nwggrid](https://github.com/chpxu/dotfiles/blob/main/Screenshots/nwggrid.png)
+![VSCode](https://github.com/chpxu/dotfiles/blob/main/Screenshots/vscode.png)
+![Xournal++](https://github.com/chpxu/dotfiles/blob/main/Screenshots/xournalpp.png)
+![Alacritty](https://github.com/chpxu/dotfiles/blob/main/Screenshots/alacritty.png)
+
+
 ## Themes, Icons and Colour Palette
 These dotfiles use 2 themes. 
 1. The [Nord colour palette](https://nordtheme.com).
@@ -38,7 +42,7 @@ Applications or programs which I use for my work and studies
 - imv (void repos)
 - zathura (void repos)
 - xournalpp (void repos)
-- LibreOffice (flatpak, say what you want)
+- LibreOffice (void repos)
 ### Environment programs
 Applications or programs which setup my workspace
 - wayfire and wcm (void repos) 
