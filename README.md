@@ -170,3 +170,13 @@ Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme 
 
 #### To-Do
 - [ ]  Further modifications to make the theme consistent in colour.
+
+### Inkscape
+1. Ensure the GTK Nordic theme is installed.
+2. In Inkscape, head to _Edit > Preferences > Interface > Themeing_ and set the theme to Nordic.
+
+### GIMP
+TBD.
+
+### Zathura
+TBD.

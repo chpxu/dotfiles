@@ -17,7 +17,6 @@
         //"wlr/window",
         //"tray"
     ],
-    // "modules-center": ["wlr/taskbar"],
     "modules-right": [
         "idle_inhibitor",
         "pulseaudio",
@@ -51,11 +50,11 @@
     },
     "wlr/taskbar": {
         "all-outputs": true,
-        "format": "{icon} {title}",
-        "icon-size": 18,
+        "format": "{icon} {app_id}",
+        "icon-size": 16,
         "icon-theme": "candy-icons",
         "tooltip": "true",
-        "tooltip-format": "{icon} {title}",
+        "tooltip-format": "{icon} {app_id}",
         "on-click": "minimize"
     },
     "keyboard-state": {
@@ -112,7 +111,7 @@
         "show-passive-icons": true
     },
     "clock": {
-        "timezone": "Europe/London",
+        "timezone": "GB",
         "tooltip-format": "<big>{:%Y %B}</big>\n{calendar}",
         "calendar-weeks-pos": "left",
         "format-calendar": "<b>{}</b>",
@@ -170,9 +169,6 @@
         // "format-full": "",
         "format-icons": ["", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         //"format-wifi": " {essid}",
@@ -225,7 +221,9 @@
     "custom/nwggrid": {
         "format": "",
         "on-click": "exec nwggrid -b 2e3440 -o 1",
-	"max-length": 50
+	"max-length": 50,
+	"tooltip": false,
+	"tooltip-format": " nwggrid "
     },
     "custom/separator": {
         "format": "|"
