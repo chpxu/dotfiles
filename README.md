@@ -13,8 +13,12 @@ This repo will also be updated when I'm bothered
 ![VSCode](https://github.com/chpxu/dotfiles/blob/main/Screenshots/vscode.png)
 ![Xournal++](https://github.com/chpxu/dotfiles/blob/main/Screenshots/xournalpp.png)
 ![Alacritty](https://github.com/chpxu/dotfiles/blob/main/Screenshots/alacritty.png)
+![Zathura](https://github.com/chpxu/dotfiles/blob/main/Screenshots/zathura.png)
+![GIMP](https://github.com/chpxu/dotfiles/blob/main/Screenshots/gimp.png)
+![Inkscape](https://github.com/chpxu/dotfiles/blob/main/Screenshots/inkscape.png)
 
 
+Unfortunately GIMP is running in XWayland Mode :(
 ## Themes, Icons and Colour Palette
 These dotfiles use 2 themes. 
 1. The [Nord colour palette](https://nordtheme.com).
