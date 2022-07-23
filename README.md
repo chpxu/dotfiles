@@ -142,7 +142,7 @@ Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplac
 
 - [ ] I plan to make my own Nord theme soon, after I update my theme to 2.0.0.
 
-### xournalpp
+### Xournal++
 1. Follow the `Installation` steps at @juansegaes's [XournalPP Nordic theme](https://github.com/juansegaes/xournalpp-nord).
 2. In Xournal++, enable the Nord theme in _View > Toolbars > Nord_<Dark|Light>_
 3. Go to _Edit > Preferences_ and change the following:
@@ -154,9 +154,13 @@ Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplac
       1. Change `Circle color` to  `#ebcb8b` and drag the opacity slider to your preference
       2. Change `Border color` to `#81a1c1`, again dragging the opacity slider to your preference.
 4. Now go to `Journal > Configure Page Template` and set the `Background Color` to `#2e3440`.
-
+5. We copy the xournal CSS file. Note: keep a backup of this file - when xournal updates, the CSS file gets overwritten. I will try to keep up with updates. This CSS file is verified for Xournal++ `>= 1.1.0`.
+```sh
+sudo cp dotfiles/.config/xournalpp/xournalpp.css /usr/share/xournalpp/ui/xournalpp.css
+```
+Make sure to restart Xournal++ for the changes to take effect.
 #### To-Do
-- [ ] The background on the pages view is incorrect.
+- [x] The background on the sidebar content is incorrect.
 ### zsh
 1. Install and enable `zsh`, `zsh-syntax-highlighting` and `oh-my-zsh`
 ### Discord
@@ -176,7 +180,15 @@ Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme 
 2. In Inkscape, head to _Edit > Preferences > Interface > Themeing_ and set the theme to Nordic.
 
 ### GIMP
-TBD.
-
-### Zathura
-TBD.
+1. In `$HOME/.config/GIMP/<x>.<y>/themes`, make a directory which is your theme name. Mine is called `Nord Dark`.
+2. From EliverLara's Nordic GitHub linked above, download and extract the repo to somewhere else safe. 
+3. Copy all the contents inside `gtk-2.0` to your folder in your GIMP themes directory (Step 1). For example, assuming we extracted the Nordic repo to `$HOME`:
+```sh
+sudo cp -r $HOME/Nordic/gtk-2.0/* '$HOME/.config/GIMP/2.10/themes/Nord Dark'
+```
+4. In GIMP, go to _Edit > Preferences > Interface > Theme_ and select the theme containing the Nord styling.
+  
+Note: I have the Icon theme set to `Symbolic - High Contrast`.
+#### To-Do
+- [ ] The hover effects are too light.
+- [ ] Some text is black.
