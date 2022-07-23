@@ -18,8 +18,9 @@ This repo will also be updated when I'm bothered
 ![Inkscape](https://github.com/chpxu/dotfiles/blob/main/Screenshots/inkscape.png)
 ![Thunderbird](https://github.com/chpxu/dotfiles/blob/main/Screenshots/thunderbird.png)
 
-
-Unfortunately GIMP is running in XWayland Mode :(
+Notes:
+- Unfortunately GIMP (and Discord) is running in XWayland Mode :(
+- The yellow box in Zathura is the select colour.
 ## Themes, Icons and Colour Palette
 These dotfiles use 2 themes. 
 1. The [Nord colour palette](https://nordtheme.com).
@@ -149,6 +150,9 @@ Make sure `MOZ_ENABLE_WAYLAND=1` is set, or in the `.desktop` file for Firefox, 
 
 Make sure `MOZ_ENABLE_WAYLAND=1` is set, or in the `.desktop` file for Thunderbird, replace the `Exec=/path/to/thunderbird/bin.` line with `Exec=env MOZ_ENABLE_WAYLAND=1 /path/to/thunderbird/bin `
 
+#### To-Do
+- [ ] Learn to theme Thunderbird with `userChrome`
+- [ ] Theme the rest of the UI and fix other colours
 ### Waybar, Wayfire, Swaylock, swayidle, nwg-launchers
 Nothing else should need to be done if everything was copied correctly I think. 
 <!-- ### swaylock
