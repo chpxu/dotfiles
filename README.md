@@ -16,6 +16,7 @@ This repo will also be updated when I'm bothered
 ![Zathura](https://github.com/chpxu/dotfiles/blob/main/Screenshots/zathura.png)
 ![GIMP](https://github.com/chpxu/dotfiles/blob/main/Screenshots/gimp.png)
 ![Inkscape](https://github.com/chpxu/dotfiles/blob/main/Screenshots/inkscape.png)
+![Thunderbird](https://github.com/chpxu/dotfiles/blob/main/Screenshots/thunderbird.png)
 
 
 Unfortunately GIMP is running in XWayland Mode :(
@@ -28,7 +29,9 @@ Follow the instructions on the page to use the GTK3/4 theme.
 4. I use the [candy-icons](https://www.gnome-look.org/p/1305251/) icon theme.
 5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme.
 
-I haven't been bothered to theme GTK2 (who uses it other than GIMP stable lol), and wasn't satisfied with any Nordic GTK2 themes, and so for a GTK2/3 compatible theme, I really enjoy [Olympic-Dark](https://www.gnome-look.org/p/1302313).
+I haven't been bothered to theme GTK2 (who uses it other than GIMP stable lol). Copying stuff from `gtk-2.0` into relevant GTK2 apps' themes folder seems to work.
+
+~~I wasn't satisfied with any Nordic GTK2 themes, and so for a GTK2/3 compatible theme, I really enjoy [Olympic-Dark](https://www.gnome-look.org/p/1302313). BTW Olympic Dark is still very nice!~~
 
 ## Applications
 These are the main applications and programs I use. Almost everything has been installed from the void repositories or with `xbps-src`. It is necessary to enable the [nonfree repos](https://docs.voidlinux.org/xbps/repositories/index.html) on Void, or the equivalent on your distro. 
@@ -38,7 +41,7 @@ Applications or programs which I use for my work and studies
 - firefox (void repos)
 - GIMP (void repos)
 - Inkscape (void repos)
-- Thunderbird (void repos)
+- Thunderbird (website)
 - VSCode Insiders (from the website)
 - Discord (from `xbps-src` as `discord`)
 - Microsoft Teams (from `xbps-src` as `teams-bin`)
@@ -130,11 +133,22 @@ cp -r ./.mozilla/firefox/this.default-default/* /path/to/your/.default-default
 
 Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.com/ranmaru22/firefox-vertical-tabs) and credits to  FILL_IN for the `oneline.css`.
 
-Both files have had my own slight modifications.
+Both CSS files have had my own slight modifications.
 
 #### To-Do
 - [ ] Fix errors in certain `about:` pages. This may never be resolved however and will have to cope with defaults.
 - [ ] The hover effect on the Tab Center Reborn is not of the correct colour.
+
+Make sure `MOZ_ENABLE_WAYLAND=1` is set, or in the `.desktop` file for Firefox, replace the `Exec=/path/to/firefox/bin.` line with `Exec=env MOZ_ENABLE_WAYLAND=1 /path/to/firefox/bin `
+### Thunderbird
+1. Install Thunderbird 102, which will be downloaded as a `.tar.bz2` file. Extract this to somewhere safe - we will always launch it from there. Currently the Void repos only have version `91.9`.
+2. Install the Nord theme from [addons.thunderbird.com](addons.thunderbird.com).
+3. Go to _Settings > General_ and scroll all the way down to the bottom, to _Config Editor_.
+4. Change the `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+5. Like in Firefox, get your profile directory and copy everything in its chrome folder to your thunderbird's chrome directory. (currently this doesn't have any effect but helps for further work, probably will write something from scratch as I figure out how to theme thunderbird).
+
+Make sure `MOZ_ENABLE_WAYLAND=1` is set, or in the `.desktop` file for Thunderbird, replace the `Exec=/path/to/thunderbird/bin.` line with `Exec=env MOZ_ENABLE_WAYLAND=1 /path/to/thunderbird/bin `
+
 ### Waybar, Wayfire, Swaylock, swayidle, nwg-launchers
 Nothing else should need to be done if everything was copied correctly I think. 
 <!-- ### swaylock
