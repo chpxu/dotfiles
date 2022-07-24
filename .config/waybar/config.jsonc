@@ -10,12 +10,11 @@
     "modules-left": [
         //"wlr/workspaces", need wayfire to implement ext-workspaces-unstable
         "custom/nwggrid",
+	"custom/virtboard",
+	"custom/virtboard_kill",
         "custom/separator",
-        "wlr/taskbar"
-        //"sway/mode",
-        //"custom/media",
-        //"wlr/window",
-        //"tray"
+        "wlr/taskbar",
+        "tray"
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -102,7 +101,9 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
-        }
+        },
+	"tooltip": true,
+	"tooltip-format": "Sleep: {status}"
     },
     "tray": {
         "icon-size": 21,
@@ -226,6 +227,22 @@
 	"tooltip-format": " nwggrid "
     },
     "custom/separator": {
-        "format": "|"
+        "format": "|",
+	"tooltip": false
+    },
+    "custom/virtboard": {
+	"format": "",
+	"tooltip": false,
+	"on-click": "exec virtboard",
+	"format-icons": {
+		"deactivated": "",
+		"activated": ""
+	},
+	"return-type": "json"
+    },
+    "custom/virtboard_kill": {
+        "format": "K",
+        "tooltip": false,
+        "on-click": "exec pkill -f virtboard",
     }
 }

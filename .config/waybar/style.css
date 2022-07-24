@@ -62,7 +62,9 @@ window#waybar {
 #idle_inhibitor,
 #pulseaudio,
 #custom-nwggrid,
-#custom-separator {
+#custom-separator,
+#custom-virtboard,
+#custom-virtboard_kill {
 	/*border-right: #d8dee9 solid 1px;*/
 	padding: 0 5px 0 5px;
 	/* background: #3b4252; */
