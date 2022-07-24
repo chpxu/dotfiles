@@ -6,8 +6,13 @@
   },
   {
     "name": "Logout",
-    "exec": "swaymsg exit",
+    "exec": "pkill -KILL -u chung",
     "icon": "system-log-out"
+  },
+  {
+    "name": "End Wayfire Session",
+    "exec": "pkill -f wayfire",
+    "icon": "wcm"
   },
   {
     "name": "Reboot",
