@@ -63,10 +63,9 @@ Applications or programs which setup my workspace
 - nwg-launchers (void repos)
 - kanshi (void repos)
 - wl-clipboard (void repos)
-- lf (void repos)
-- alsamixer (void repos from relevant alsa packages)
 - alacritty
 - zsh
+- virtboard (from repo on GitLab. Possibly to be replaced with `maliit`)
 
 ## Steps to use
 1. Clone the repository to somewhere safe, e.g. `$HOME`:
