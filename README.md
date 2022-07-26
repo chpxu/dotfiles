@@ -157,7 +157,9 @@ Nothing else should need to be done if everything was copied correctly I think.
 <!-- ### swaylock
 ### swayidle -->
 ### VSCode
-1. Install the Nord extension by Arctic Ice Studio and enable it.
+1. Ensure that VSCode has already created `$HOME/.config/Code`. It might not be `Code`, but `Code - OSS` or `Code - Insiders` instead.
+2. Copy the files in `dotfiles/Code - Insiders` to the same files in your home config
+3. Install the Nord extension by Arctic Ice Studio and enable it.
 
 Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplace.visualstudio.com/items?itemName=beastdestroyer.firefox-quantum-themes) :)
 

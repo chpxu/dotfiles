@@ -1,0 +1,80 @@
+{
+    "workbench.colorTheme": "Nord",
+    "editor.guides.bracketPairs": true,
+    "window.titleBarStyle": "custom",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lualatex ➞ biber ➞ lualatex × 2",
+            "tools": [
+                "lualatex",
+                "biber",
+                "lualatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+          "name": "lualatex",
+          "command": "lualatex",
+          "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "-outdir=%OUTDIR%",
+            "%DOC%"
+          ],
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.external.viewer.command": "zathura",
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "--synctex-editor-command",
+        "code-oss --reuse-window -g \"%{input}:%{line}\"",
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "zathura",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "--synctex-forward=%LINE:0:%TEX%",
+        "%PDF%"
+    ],
+    "latex-workshop.latex.rootFile.doNotPrompt": false,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "editor.wordWrap": "wordWrapColumn",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "'FiraCode Nerd Font','Source Code Pro', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "editor.language.colorizedBracketPairs": [
+    
+    ],
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.lineHeight": 25,
+    "telemetry.telemetryLevel": "off",
+    "code-runner.enableAppInsights": false,
+    "workbench.editor.historyBasedLanguageDetection": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.enableExperiments": false,
+    "update.showReleaseNotes": false,
+    "editor.renderWhitespace": "all",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.minimap.enabled": false,
+    "files.enableTrash": false,
+    "workbench.list.smoothScrolling": true,
+    "workbench.reduceMotion": "off",
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}",
+    "window.titleSeparator": " -",
+    "explorer.fileNesting.enabled": true,
+    "git.confirmSync": false,
+
+}
