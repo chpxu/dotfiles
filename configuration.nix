@@ -18,19 +18,17 @@ in {
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
   # Use xanmod custom kernel
-  # boot.initrd.kernelModules = [ "microcode" ];
   boot.kernelPackages = unstable.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "uinput"  "dpdk-kmods" ];
-#  boot.kernelPatches = [ unstable.linuxKernel.packages.linux_xanmod_latest.phc-intel ];
   # Define hostname
   networking.hostName = "nixos";
   # Pick only one of the below networking options.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.wireless.networks = {
-    VM7844537 = {
+    lolNiceTry = {
       hidden = true;
-      psk = "mfh7ncvhTmKm";
+      psk = "XDDDDDDDDDDDDDD";
     };
   };
   # Set your time zone.
@@ -79,9 +77,7 @@ in {
     nano
     curl
     # GTK
-    #unstable.gtk_engines
-    #unstable.gtk-engine-murrine
-    #unstable.gtk-layer-shell
+    unstable.gtk-layer-shell
     
     # glib
     unstable.glib
@@ -92,13 +88,9 @@ in {
     unstable.libdrm
     unstable.intel-ocl
     unstable.intel-gmmlib
-    #unstable.intel-media-sdk
     unstable.vaapiIntel
     unstable.intel-media-driver
     unstable.intel-compute-runtime
-    #unstable.libplacebo
-    #unstable.gegl
-    #unstable.libGL
     unstable.libGLU
     unstable.libglvnd
 
@@ -123,9 +115,6 @@ in {
     unstable.tlp
     unstable.libinput
     unstable.xdg-utils
-    unstable.libsecret
-    unstable.libgnome-keyring
-    unstable.gnome.gnome-keyring
   ];
   
   # Fonts
