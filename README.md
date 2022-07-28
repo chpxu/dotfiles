@@ -1,5 +1,5 @@
 # dotfiles
-This repository hosts my dotfiles and configs for various applications on Void Linux. I cannot guarantee this will work on another linux distribution (but with appropriate modifications, it should). These dotfiles are WIP (i.e., not every application is themed as I want them to be).
+This repository hosts my dotfiles and configs for various applications For NixOS. Heavily WIP.
 
 I will try to remember to give credits and links where possible but I'll probably forget.
 
@@ -7,6 +7,7 @@ This repo will also be updated when I'm bothered
 - [ ] I should make a script copying the relevant files 
 
 ## Screenshots
+these are out of date but more or less representative 
 ![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/desktop.png)
 ![Firefox](https://github.com/chpxu/dotfiles/blob/main/Screenshots/firefox.png)
 ![nwggrid](https://github.com/chpxu/dotfiles/blob/main/Screenshots/nwggrid.png)
@@ -19,7 +20,7 @@ This repo will also be updated when I'm bothered
 ![Thunderbird](https://github.com/chpxu/dotfiles/blob/main/Screenshots/thunderbird.png)
 
 Notes:
-- Unfortunately GIMP (and Discord) is running in XWayland Mode :(
+- Unfortunately GIMP is running in XWayland Mode :(
 - The yellow box in Zathura is the select colour.
 ## Themes, Icons and Colour Palette
 These dotfiles use 2 themes. 
@@ -27,46 +28,41 @@ These dotfiles use 2 themes.
 2. The GTK theme [Nordic](https://www.gnome-look.org/p/1267246/) by @EliverLara.
 Follow the instructions on the page to use the GTK3/4 theme.
 3. I use the [Fira Code Retina Nerd](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) fonts. Both are TTFs.
-4. I use the [candy-icons](https://www.gnome-look.org/p/1305251/) icon theme.
-5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme.
-
-I haven't been bothered to theme GTK2 (who uses it other than GIMP stable lol). Copying stuff from `gtk-2.0` into relevant GTK2 apps' themes folder seems to work.
-
-~~I wasn't satisfied with any Nordic GTK2 themes, and so for a GTK2/3 compatible theme, I really enjoy [Olympic-Dark](https://www.gnome-look.org/p/1302313). BTW Olympic Dark is still very nice!~~
+<!-- 4. I use the [candy-icons](https://www.gnome-look.org/p/1305251/) icon theme.
+5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme. -->
 
 ## Applications
-These are the main applications and programs I use. Almost everything has been installed from the void repositories or with `xbps-src`. It is necessary to enable the [nonfree repos](https://docs.voidlinux.org/xbps/repositories/index.html) on Void, or the equivalent on your distro. 
-
+These are the main applications and programs I use. Everything has been installed from `nixos-22.05` or `nixos-unstable` with preference to unstable. WIP.
 ### Productivity Applications
-Applications or programs which I use for my work and studies
-- firefox (void repos)
-- GIMP (void repos)
-- Inkscape (void repos)
-- Thunderbird (website)
-- VSCode Insiders (from the website)
-- Discord (from `xbps-src` as `discord`)
-- Microsoft Teams (from `xbps-src` as `teams-bin`)
-- mpv (void repos)
-- imv (void repos)
-- zathura (void repos)
-- xournalpp (void repos)
-- LibreOffice (void repos)
+- firefox-wayland (`unstable`)
+- GIMP (`unstable`)
+- Inkscape (`unstable`)
+- Thunderbird-wayland (`unstable`)
+- vscode (`unstable`)
+- discord (`unstable`)
+<!-- - Microsoft Teams (from `xbps-src` as `teams-bin`) -->
+- mpv (`unstable`)
+- imv (`unstable`)
+- zathura (`unstable`)
+- xournalpp (`unstable`)
+- betterdiscordctl (`unstable`)
+<!-- - LibreOffice (void repos) -->
 ### Environment programs
 Applications or programs which setup my workspace
-- wayfire and wcm (void repos) 
-- waybar (void repos)
-- swayidle (void repos)
-- [swaylock-effects](https://github.com/mortie/swaylock-effects) (built from repo). Note: I got many errors relating to `omp.h`  not found. Install `libgomp-devel` (if using GCC) or `libomp-devel` from the void repos and compile.
-- mako (void repos)
-- bemenu (void repos)
-- [cliphist](https://github.com/sentriz/cliphist/releases/) (binary from github)
-- nwg-launchers (void repos)
-- kanshi (void repos)
-- wl-clipboard (void repos)
-- alacritty
-- zsh
-- virtboard (from repo on GitLab. Possibly to be replaced with `maliit`)
+- wayfire, wcm, wf-config (`22.05`)
+- waybar (`unstable`)
+- swayidle (`unstable`)
+- swaylock-effects (`unstable`)
+- mako (`unstable`)
+- bemenu (`unstable`)
+- cliphist (`unstable`)
+- nwg-launchers (`unstable`)
+- kanshi (`unstable`)
+- wl-clipboard (`unstable`)
+- alacritty (`unstable`)
+- zsh (`22.05`)
 
+<!-- 
 ## Steps to use
 1. Clone the repository to somewhere safe, e.g. `$HOME`:
 ```sh
@@ -156,7 +152,7 @@ Make sure `MOZ_ENABLE_WAYLAND=1` is set, or in the `.desktop` file for Thunderbi
 Nothing else should need to be done if everything was copied correctly I think. 
 <!-- ### swaylock
 ### swayidle -->
-### VSCode
+<!-- ### VSCode
 1. Ensure that VSCode has already created `$HOME/.config/Code`. It might not be `Code`, but `Code - OSS` or `Code - Insiders` instead.
 2. Copy the files in `dotfiles/Code - Insiders` to the same files in your home config
 3. Install the Nord extension by Arctic Ice Studio and enable it.
@@ -214,4 +210,4 @@ sudo cp -r $HOME/Nordic/gtk-2.0/* '$HOME/.config/GIMP/2.10/themes/Nord Dark'
 Note: I have the Icon theme set to `Symbolic - High Contrast`.
 #### To-Do
 - [ ] The hover effects are too light.
-- [ ] Some text is black.
+- [ ] Some text is black.  -->

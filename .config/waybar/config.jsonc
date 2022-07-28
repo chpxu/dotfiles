@@ -1,20 +1,27 @@
 {
     // "layer": "top", // Waybar at top layer
     //"position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 25, // Waybar height (to be removed for auto height)
     //"width": 1900, // Waybar width
     "margin-left": 2,
     "margin-right": 2,
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        //"wlr/workspaces", need wayfire to implement ext-workspaces-unstable
+        "wlr/workspaces", //need wayfire to implement ext-workspaces-unstable
         "custom/nwggrid",
-	"custom/virtboard",
-	"custom/virtboard_kill",
         "custom/separator",
-        "wlr/taskbar",
+        "custom/workspace_view",
+        //"custom/separator",
+        //"custom/workspace_1",
+        //"custom/workspace_2",
+        //"custom/workspace_3",
+        //"custom/workspace_4",
+        "custom/separator",
         "tray"
+    ],
+    "modules-center": [
+        "wlr/taskbar"
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -28,21 +35,6 @@
         "clock"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "wlr/workspaces": {
         "format": "{name}",
         "on-click": "activate"
@@ -51,7 +43,7 @@
         "all-outputs": true,
         "format": "{icon} {app_id}",
         "icon-size": 16,
-        "icon-theme": "candy-icons",
+        "icon-theme": "zafiro-icons-dark",
         "tooltip": "true",
         "tooltip-format": "{icon} {app_id}",
         "on-click": "minimize"
@@ -64,9 +56,6 @@
             "locked": "",
             "unlocked": ""
         }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -102,11 +91,11 @@
             "activated": "",
             "deactivated": ""
         },
-	"tooltip": true,
-	"tooltip-format": "Sleep: {status}"
+        "tooltip": true,
+        "tooltip-format": "Sleep: {status}"
     },
     "tray": {
-        "icon-size": 21,
+        "icon-size": 16,
         "spacing": 15,
         "smooth-scrolling-threshold": 1.0,
         "show-passive-icons": true
@@ -120,10 +109,10 @@
         "format": " {:%H:%M  %Y-%m-%d}"
     },
     "cpu": {
-        "format": " {icon} {usage}%",
+        "format": " {usage}%",
         //"format": "CPU: {usage}%",
         "format-icons": [
-	    "",
+            "",
             "▁",
             "▂",
             "▃",
@@ -153,7 +142,17 @@
         // "device": "acpi_video1",
         //"format": " {percent}%",
         "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery": {
         "states": {
@@ -163,12 +162,17 @@
         },
         //"format": " {capacity}%",
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
+        "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -177,9 +181,9 @@
         //"format-ethernet": "{ipaddr}/{cidr}",
         "format-ethernet": " {essid}",
         "tooltip-format": "SSID: {essid}\nInterface: {ifname} via {gwaddr}\nIP: {ipaddr}\nSubnetmask: {netmask}-{cidr}\nConnection Strength: {signalStrength}%\nFrequency: {frequency}GHz\nUp Speed: {bandwidthUpBits}\nDown Speed: {bandwidthDownBits}",
-        //"format-linked": "{ifname} (No IP)"
-        "format-linked": "",
-        "format-disconnected": ""
+        "format-linked": "{ifname} (No IP)",
+        //"format-linked": "",
+        "format-disconnected": "(No Internet)"
         //"format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
@@ -187,7 +191,7 @@
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "M {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
@@ -222,27 +226,48 @@
     "custom/nwggrid": {
         "format": "",
         "on-click": "exec nwggrid -b 2e3440 -o 1",
-	"max-length": 50,
-	"tooltip": false,
-	"tooltip-format": " nwggrid "
+        "max-length": 50,
+        "tooltip": false,
+        "tooltip-format": " nwggrid "
     },
     "custom/separator": {
         "format": "|",
-	"tooltip": false
+        "tooltip": false
     },
     "custom/virtboard": {
-	"format": "",
-	"tooltip": false,
-	"on-click": "exec virtboard",
-	"format-icons": {
-		"deactivated": "",
-		"activated": ""
-	},
-	"return-type": "json"
-    },
-    "custom/virtboard_kill": {
-        "format": "K",
+        "format": "",
         "tooltip": false,
-        "on-click": "exec pkill -f virtboard",
+        "on-click": "exec virtboard",
+        "format-icons": {
+            "deactivated": "",
+            "activated": ""
+        },
+        "return-type": "json"
+    },
+    "custom/workspace_view": {
+        "format": " ",
+        "tooltip": true,
+        "tooltip-format": "View Open Windows on Current Workspace",
+        "on-click": "./ydotool.sh 'view'"
+    },
+    "custom/workspace_1": {
+        "format": "1",
+        "tooltip": false,
+        "on-click": "exec ./ydotool.sh 1"
+    },
+    "custom/workspace_2": {
+        "format": "2",
+        "tooltip": false,
+        "on-click": "zsh -c 'dotoold && ydotool key 125:1 3:1 && pkill -f ydotoold'"
+    },
+    "custom/workspace_3": {
+        "format": "3",
+        "tooltip": false,
+        "on-click": "zsh -c 'ydotoold && ydotool key 125:1 4:1 && pkill -f ydotoold'"
+    },
+    "custom/workspace_4": {
+        "format": "4",
+        "tooltip": false,
+        "on-click": "zsh -c 'ydotoold && ydotool key 125:1 5:1 && pkill -f ydotoold'"
     }
 }

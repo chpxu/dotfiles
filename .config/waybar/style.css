@@ -62,9 +62,7 @@ window#waybar {
 #idle_inhibitor,
 #pulseaudio,
 #custom-nwggrid,
-#custom-separator,
-#custom-virtboard,
-#custom-virtboard_kill {
+#custom-separator {
 	/*border-right: #d8dee9 solid 1px;*/
 	padding: 0 5px 0 5px;
 	/* background: #3b4252; */
@@ -112,7 +110,7 @@ tooltip label {
 	color: #eceff4;
 }
 #taskbar button:hover {
-	transition: background-color 0.125s ease-in-out;
+	/*transition: background-color 0.125s ease-in-out;*/
 	background-color: #434c5e;
 }
 #taskbar button.active {
@@ -129,7 +127,7 @@ tooltip label {
 #custom-separator {
 	color: #d8dee9;
 }
-#custom-nwggrid button:hover {
+#custom-nwggrid:hover {
 	transition: background-color 0.125s ease-in-out;
 	background-color: #434c5e;
 }
