@@ -7,16 +7,16 @@ This repo will also be updated when I'm bothered
 - [ ] I should make a script copying the relevant files 
 
 ## Screenshots
-![Desktop](https://github.com/chpxu/dotfiles/blob/main/Screenshots/desktop.png)
-![Firefox](https://github.com/chpxu/dotfiles/blob/main/Screenshots/firefox.png)
-![nwggrid](https://github.com/chpxu/dotfiles/blob/main/Screenshots/nwggrid.png)
-![VSCode](https://github.com/chpxu/dotfiles/blob/main/Screenshots/vscode.png)
-![Xournal++](https://github.com/chpxu/dotfiles/blob/main/Screenshots/xournalpp.png)
-![Alacritty](https://github.com/chpxu/dotfiles/blob/main/Screenshots/alacritty.png)
-![Zathura](https://github.com/chpxu/dotfiles/blob/main/Screenshots/zathura.png)
-![GIMP](https://github.com/chpxu/dotfiles/blob/main/Screenshots/gimp.png)
-![Inkscape](https://github.com/chpxu/dotfiles/blob/main/Screenshots/inkscape.png)
-![Thunderbird](https://github.com/chpxu/dotfiles/blob/main/Screenshots/thunderbird.png)
+![Desktop](https://github.com/chpxu/dotfiles/blob/void/Screenshots/desktop.png)
+![Firefox](https://github.com/chpxu/dotfiles/blob/void/Screenshots/firefox.png)
+![nwggrid](https://github.com/chpxu/dotfiles/blob/void/Screenshots/nwggrid.png)
+![VSCode](https://github.com/chpxu/dotfiles/blob/void/Screenshots/vscode.png)
+![Xournal++](https://github.com/chpxu/dotfiles/blob/void/Screenshots/xournalpp.png)
+![Alacritty](https://github.com/chpxu/dotfiles/blob/void/Screenshots/alacritty.png)
+![Zathura](https://github.com/chpxu/dotfiles/blob/void/Screenshots/zathura.png)
+![GIMP](https://github.com/chpxu/dotfiles/blob/void/Screenshots/gimp.png)
+![Inkscape](https://github.com/chpxu/dotfiles/blob/void/Screenshots/inkscape.png)
+![Thunderbird](https://github.com/chpxu/dotfiles/blob/void/Screenshots/thunderbird.png)
 
 Notes:
 - Unfortunately GIMP (and Discord) is running in XWayland Mode :(
