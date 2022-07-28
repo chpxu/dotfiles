@@ -39,11 +39,16 @@ in
     unstable.neofetch
     # Git and GitHub
     unstable.git
-    unstable.github-desktop
+    unstable.gh
     # TeXLive
     unstable.texlive.combined.scheme-basic
     # OneDrive
     unstable.onedrive
+    
+    #unstable.xdg-utils
+    #unstable.libsecret
+    #unstable.libgnome-keyring
+    #unstable.gnome.gnome-keyring
   ];
   #xdg = {
   #  portal = {
@@ -74,62 +79,6 @@ in
       "org.gnome.desktop.wm.preferences" = {
         "theme" = "Nordic";
       };
-    };
-  };
-  
-  # Config files
-  xdg.configFile = {
-    alacritty = {
-      source = /home/chunix/.config/alacritty;
-      recursive = true;
-    };
-    BetterDiscord = {
-      source = /home/chunix/.config/BetterDiscord;
-      recursive = true;
-    };
-    Code = {
-      source = /home/chunix/.config/Code;
-      recursive = true;
-    };
-    GIMP = {
-      source = /home/chunix/.config/GIMP/2.10;
-      recursive = true;
-    };
-    "GitHub Desktop" = {
-      source = "/home/chunix/.config/GitHub Desktop";
-      recursive = true;
-    };
-    Inkscape = {
-      source = /home/chunix/.config/inkscape;
-      recursive = true;
-    };
-    kanshi = {
-      source = /home/chunix/.config/kanshi;
-      recursive = true;
-    };
-    light = {
-      source = /home/chunix/.config/light;
-      recursive = true;
-    };
-    mako = {
-      source = /home/chunix/.config/mako;
-      recursive = true;
-    };
-    mpv = {
-      source = /home/chunix/.config/mpv;
-      recursive = true;
-    };
-    nano = {
-      source = /home/chunix/.config/nano;
-      recursive = true;
-    };
-    neofetch = {
-      source = /home/chunix/.config/neofetch;
-      recursive = true;
-    };
-    nwg-launchers = {
-      source = /home/chunix/.config/nwg-launchers;
-      recursive = true;
     };
   };
   home.stateVersion = "22.05";

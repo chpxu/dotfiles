@@ -122,6 +122,10 @@ in {
     ydotool
     unstable.tlp
     unstable.libinput
+    unstable.xdg-utils
+    unstable.libsecret
+    unstable.libgnome-keyring
+    unstable.gnome.gnome-keyring
   ];
   
   # Fonts
