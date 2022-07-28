@@ -20,6 +20,7 @@ in {
   # Use xanmod custom kernel
   boot.kernelPackages = unstable.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "uinput"  "dpdk-kmods" ];
+
   # Define hostname
   networking.hostName = "nixos";
   # Pick only one of the below networking options.
@@ -28,7 +29,7 @@ in {
   networking.wireless.networks = {
     lolNiceTry = {
       hidden = true;
-      psk = "XDDDDDDDDDDDDDD";
+      psk = "XDDDDDDDDDDDDDDD";
     };
   };
   # Set your time zone.
@@ -77,7 +78,9 @@ in {
     nano
     curl
     # GTK
-    unstable.gtk-layer-shell
+    #unstable.gtk_engines
+    #unstable.gtk-engine-murrine
+    #unstable.gtk-layer-shell
     
     # glib
     unstable.glib
@@ -88,9 +91,13 @@ in {
     unstable.libdrm
     unstable.intel-ocl
     unstable.intel-gmmlib
+    #unstable.intel-media-sdk
     unstable.vaapiIntel
     unstable.intel-media-driver
     unstable.intel-compute-runtime
+    #unstable.libplacebo
+    #unstable.gegl
+    #unstable.libGL
     unstable.libGLU
     unstable.libglvnd
 
@@ -115,6 +122,8 @@ in {
     unstable.tlp
     unstable.libinput
     unstable.xdg-utils
+    unstable.librsvg
+    unstable.rPackages.rsvg
   ];
   
   # Fonts
@@ -134,6 +143,8 @@ in {
       theme = "agnoster";
     };
   };
+  gtk.iconCache.enable = true;
+  xdg.icons.enable = true;
   programs = {
     waybar.enable = true;
     light.enable = true;

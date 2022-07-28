@@ -9,14 +9,9 @@
     // Choose the order of the modules
     "modules-left": [
         "wlr/workspaces", //need wayfire to implement ext-workspaces-unstable
-        "custom/nwggrid",
+        "custom/launcher",
         "custom/separator",
         "custom/workspace_view",
-        //"custom/separator",
-        //"custom/workspace_1",
-        //"custom/workspace_2",
-        //"custom/workspace_3",
-        //"custom/workspace_4",
         "custom/separator",
         "tray"
     ],
@@ -43,7 +38,7 @@
         "all-outputs": true,
         "format": "{icon} {app_id}",
         "icon-size": 16,
-        "icon-theme": "zafiro-icons-dark",
+        "icon-theme": "Nordzy",
         "tooltip": "true",
         "tooltip-format": "{icon} {app_id}",
         "on-click": "minimize"
@@ -86,7 +81,7 @@
     "idle_inhibitor": {
         //"format-activated": "Idle: Off",
         //"format-deactivated": "Idle: On"
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -168,10 +163,10 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": [
-            "",
-            "",
-            "",
-            ""
+            " " ,
+            " ",
+            " ",
+            " "
         ]
     },
     "network": {
@@ -193,7 +188,7 @@
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "M {format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": "",
+        "format-source-muted": "M",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -223,51 +218,21 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on nam
     },
-    "custom/nwggrid": {
+    "custom/launcher": {
         "format": "",
-        "on-click": "exec nwggrid -b 2e3440 -o 1",
+        "on-click": "wofi --show=run",
         "max-length": 50,
         "tooltip": false,
-        "tooltip-format": " nwggrid "
+        "tooltip-format": " wofi "
     },
     "custom/separator": {
         "format": "|",
         "tooltip": false
     },
-    "custom/virtboard": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "exec virtboard",
-        "format-icons": {
-            "deactivated": "",
-            "activated": ""
-        },
-        "return-type": "json"
-    },
     "custom/workspace_view": {
         "format": " ",
-        "tooltip": true,
+        "tooltip": false,
         "tooltip-format": "View Open Windows on Current Workspace",
         "on-click": "./ydotool.sh 'view'"
-    },
-    "custom/workspace_1": {
-        "format": "1",
-        "tooltip": false,
-        "on-click": "exec ./ydotool.sh 1"
-    },
-    "custom/workspace_2": {
-        "format": "2",
-        "tooltip": false,
-        "on-click": "zsh -c 'dotoold && ydotool key 125:1 3:1 && pkill -f ydotoold'"
-    },
-    "custom/workspace_3": {
-        "format": "3",
-        "tooltip": false,
-        "on-click": "zsh -c 'ydotoold && ydotool key 125:1 4:1 && pkill -f ydotoold'"
-    },
-    "custom/workspace_4": {
-        "format": "4",
-        "tooltip": false,
-        "on-click": "zsh -c 'ydotoold && ydotool key 125:1 5:1 && pkill -f ydotoold'"
     }
 }

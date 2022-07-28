@@ -2,7 +2,7 @@
 let
   unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
 in
-{
+{ 
   home.username = "chunix";
   home.homeDirectory = "/home/chunix";
   
@@ -15,7 +15,6 @@ in
     unstable.waybar
     unstable.bemenu
     unstable.cliphist
-    unstable.nwg-launchers
     unstable.mako
     unstable.grim
     unstable.slurp
@@ -23,6 +22,7 @@ in
     unstable.swayidle
     unstable.kanshi
     unstable.wl-clipboard
+    unstable.wlogout
     # viewers
     unstable.zathura
     unstable.mpv
@@ -37,6 +37,7 @@ in
     unstable.gimp-with-plugins
     unstable.alacritty
     unstable.neofetch
+    unstable.xournalpp
     # Git and GitHub
     unstable.git
     unstable.gh
@@ -44,43 +45,39 @@ in
     unstable.texlive.combined.scheme-basic
     # OneDrive
     unstable.onedrive
-    
-    #unstable.xdg-utils
-    #unstable.libsecret
-    #unstable.libgnome-keyring
-    #unstable.gnome.gnome-keyring
+    unstable.wofi
+    # Maliit for Touch keyboard (we love touch friendliness)
   ];
-  #xdg = {
-  #  portal = {
-  #    enable = true;
-  #    wlr.enable = true;
-  #  };
-  #};
   # GTK themes
   gtk = {
     enable = true;
     theme = {
       name = "Nordic";
-      package = pkgs.nordic;
+      package = unstable.nordic;
     };
     iconTheme = {
-      name = "zafiro-icons";
-      package = pkgs.zafiro-icons;
+      name = "Nordzy";
+      package = unstable.nordzy-icon-theme;
+    };
+    cursorTheme = {
+      name = "Nordzy-cursors";
+      package = unstable.nordzy-cursor-theme;
     };
   };
+  # Modify .desktop files for icons because they don't change automaticaly??
+  xdg.desktopEntries = {
+    firefox = {
+      exec = "firefox %u";
+      name = "Firefox";
+      genericName = "Web Browser";
+      icon = "/nix/store/2zylfzc7g8fwwnqvryi55s151k4580f3-nordzy-icon-theme-1.5/share/icons/Nordzy/apps/scalable/firefox.svg";
+      terminal = false;
+      type = "Application";
+      categories = [ "Network" "WebBrowser" ];
+    };
+  };
+  dconf = { enable = true; };
 
-  dconf = {
-    enable = true;
-    settings = {
-      "org.gnome.desktop.interface" = {
-        "gtk-theme" = "Nordic";
-        "icon-theme" = "zafiro-icons";
-      };
-      "org.gnome.desktop.wm.preferences" = {
-        "theme" = "Nordic";
-      };
-    };
-  };
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 }

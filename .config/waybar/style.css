@@ -61,7 +61,7 @@ window#waybar {
 #clock,
 #idle_inhibitor,
 #pulseaudio,
-#custom-nwggrid,
+#custom-launcher,
 #custom-separator {
 	/*border-right: #d8dee9 solid 1px;*/
 	padding: 0 5px 0 5px;
@@ -120,14 +120,11 @@ tooltip label {
 .modules-left {
 	margin-left: 2.5px;
 }
-/* Custom Module: Start Button for nwggrid  */
-#custom-nwggrid {
+/* Custom Module: Start Button for launcher  */
+#custom-launcher {
 	color: #5e81ac;
 }
 #custom-separator {
 	color: #d8dee9;
 }
-#custom-nwggrid:hover {
-	transition: background-color 0.125s ease-in-out;
-	background-color: #434c5e;
-}
+
