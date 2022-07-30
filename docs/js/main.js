@@ -2,36 +2,64 @@
 // // This means anchors are destroyed and regenerated once every click,
 const fileDownload = document.getElementById("file-download");
 const osContent = ["void-content", "nixos-content"];
-const nixPaths = [
-  `https://github.com/chpxu/dotfiles/blob/nixfiles/.config/alacritty/${fileNames[0]}`,
-  `https://github.com/chpxu/dotfiles/blob/nixfiles/.config/BetterDiscord/themes/${fileNames[1]}`,
-  `https://github.com/chpxu/dotfiles/blob/nixfiles/.config/BetterDiscord/themes/${fileNames[2]}`,
-];
-const fileNames = ["alacritty.yml", "nord-zelk.theme.css", "zelkBD.theme.css"];
-// This function only merely generates the HTMl.  This function does not modify CSS.
-let anchor = document
-    .createElement("a")
-    .setAttribute("target", "_blank")
-    .setAttribute("download", true);
 
-    // Generate the divs "nixos-content" and "void-content"
-let divNix = document.createElement("div").setAttribute("id", osContent[1]);
-let divVoid = document.createElement("div").setAttribute("id", osContent[0]);
+// This function only merely generates the HTMl.  This function does not modify CSS.
+// let anchor = document.createElement("a")
+// anchor.setAttribute("target", "_blank")
+// anchor.setAttribute("download", true);
+
+// Generate the divs "nixos-content" and "void-content"
+let divNix = document.createElement("div");
+divNix.setAttribute("id", osContent[1]);
+let divVoid = document.createElement("div");
+divVoid.setAttribute("id", osContent[0]);
+
 function generateIdDiv(id) {
   let div = document.createElement("div");
   div.setAttribute("id", id);
   fileDownload.appendChild(div);
   // Make the header
-  div.appendChild(document.createElement("h4").createTextNode(id + ":"));
-  div.appendChild(divNix);
+  let header = document.createElement("h4");
+  let headerText = document.createTextNode(id + ":");
+  header.appendChild(headerText);
+  div.appendChild(header);
   div.appendChild(divVoid);
+  div.appendChild(divNix);
 }
-function generateNixContent(id, path, filename) {
+function generateOSContent(osDiv, paths, filenames) {
+  paths.forEach((element, index) => {
+    let anchor = document.createElement("a");
+    anchor.setAttribute("target", "_blank");
+    anchor.setAttribute("download", filenames[index]);
+    anchor.setAttribute("class", "dl-links");
+
+    let linkText = document.createTextNode(filenames[index]);
+    anchor.appendChild(linkText);
+    anchor.setAttribute("href", element);
+    osDiv.appendChild(anchor);
+  });
+}
+function generateContent(id, voidPaths, nixPaths, voidFilenames, nixFilenames) {
   generateIdDiv(id);
-  
-  anchor.createTextNode(filename).setAttribute("href", path);
+  generateOSContent(divVoid, voidPaths, voidFilenames);
+  generateOSContent(divNix, nixPaths, nixFilenames);
 }
-function generateVoidContent(id, path, filename) {
-  generateIdDiv(id);
-  anchor.createTextNode(filename).setAttribute("href", path);
-}
+// Waybar, since it has 3 items
+const waybarURLs = [
+  [
+    "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/waybar/config.json",
+    "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/waybar/style.css",
+  ],
+  [
+    "https://raw.githubusercontent.com/chpxu/dotfiles/nixfiles/.config/waybar/config.jsonc",
+    "https://raw.githubusercontent.com/chpxu/dotfiles/nixfiles/.config/waybar/style.css",
+    "https://raw.githubusercontent.com/chpxu/dotfiles/nixfiles/.config/waybar/ydotool.sh",
+  ]
+];
+generateContent(
+  "waybar",
+  waybarURLs[0],
+  waybarURLs[1],
+  ["void-config.jsonc", "void-style.css"],
+  ["nixos-config.jsonc", "nixos-style.css", "nixos-ydotool.sh"]
+);
