@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
+  xournalpp-nord = import ./xournalpp/xournalpp-nordDark.nix;
 in
 { 
   home.username = "chunix";
@@ -23,6 +24,7 @@ in
     unstable.kanshi
     unstable.wl-clipboard
     unstable.wlogout
+    unstable.wofi
     # viewers
     unstable.zathura
     unstable.mpv
@@ -37,7 +39,7 @@ in
     unstable.gimp-with-plugins
     unstable.alacritty
     unstable.neofetch
-    unstable.xournalpp
+    #unstable.xournalpp
     # Git and GitHub
     unstable.git
     unstable.gh
@@ -45,14 +47,20 @@ in
     unstable.texlive.combined.scheme-basic
     # OneDrive
     unstable.onedrive
-    unstable.wofi
-    # Maliit for Touch keyboard (we love touch friendliness)
+    
+    # Virtual Keyboard
+    unstable.wvkbd
+    #pkgs.gdb
+    unstable.wgcf
+    unstable.unzip
+    xournalpp-nord
   ];
   # GTK themes
   gtk = {
     enable = true;
     theme = {
       name = "Nordic";
+
       package = unstable.nordic;
     };
     iconTheme = {
@@ -64,19 +72,30 @@ in
       package = unstable.nordzy-cursor-theme;
     };
   };
-  # Modify .desktop files for icons because they don't change automaticaly??
-  xdg.desktopEntries = {
-    firefox = {
-      exec = "firefox %u";
-      name = "Firefox";
-      genericName = "Web Browser";
-      icon = "/nix/store/2zylfzc7g8fwwnqvryi55s151k4580f3-nordzy-icon-theme-1.5/share/icons/Nordzy/apps/scalable/firefox.svg";
-      terminal = false;
-      type = "Application";
-      categories = [ "Network" "WebBrowser" ];
-    };
+  programs.zsh = {
+    loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
   };
-  dconf = { enable = true; };
+  # Install custom Xournal++ Version - this has the Nord theme plus modified Xournal++ CSS file.
+  # xournalpp = unstable.xournalpp.overrideAttrs (finalAttrs: previousAttrs: {
+  #   src = github:chpxu/xournalpp-nord/master/dir=xournalpp-1.1.1;
+  #   enableParallelBuilding = true;
+  #   buildInputs = with unstable; [ 
+  #     cmake
+  #     glib
+  #     pkg-config
+  #     gtk3
+  #     gettext
+  #     wrapGAppsHook
+  #     librsvg
+  #     libsndfile
+  #     libxml2
+  #     libzip
+  #     pcre
+  #     poppler
+  #     portaudio
+  #     zlib
+  #   ];
+  # });
 
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;

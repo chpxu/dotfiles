@@ -3,11 +3,6 @@
 const fileDownload = document.getElementById("file-download");
 const osContent = ["void-content", "nixos-content"];
 
-// This function only merely generates the HTMl.  This function does not modify CSS.
-// let anchor = document.createElement("a")
-// anchor.setAttribute("target", "_blank")
-// anchor.setAttribute("download", true);
-
 // Generate the divs "nixos-content" and "void-content"
 let divNix = document.createElement("div");
 divNix.setAttribute("id", osContent[1]);

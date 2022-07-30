@@ -11,7 +11,7 @@
         "wlr/workspaces", //need wayfire to implement ext-workspaces-unstable
         "custom/launcher",
         "custom/separator",
-        "custom/workspace_view",
+        "custom/keyboard",
         "custom/separator",
         "tray"
     ],
@@ -234,5 +234,10 @@
         "tooltip": false,
         "tooltip-format": "View Open Windows on Current Workspace",
         "on-click": "./ydotool.sh 'view'"
+    },
+    "custom/keyboard": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "exec ~/.config/waybar/wvkbd.sh"
     }
 }
