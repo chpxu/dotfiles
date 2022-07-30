@@ -1,0 +1,123 @@
+/* @import url("../static/SourceCodePro-Regular.ttf"); */
+/* @import url("../static/SourceCodePro-SemiBold.ttf"); */
+/* Import font. Should eventually source these locally in case fonts.googleapis.com goes down */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500&display=swap');
+@font-face {
+    font-family: 'Fira Code Nerd Regular';
+    src: url("../fonts/FCNRegular.ttf");
+}
+/* Font Awesome 6 Free Web */
+@import url("./all.min.css");
+/* CSS Variables for the Nord colours. These are named as according to*/
+/* https://nordtheme.com */
+:root {
+    /* Polar Dark */
+    --nord0: #2e3440;
+    --nord1: #3b4252;
+    --nord2: #434c5e;
+    --nord3: #4c566a;
+
+    /* Snow Storm */
+    --nord4: #d8dee9;
+    --nord5: #e5e9f0;
+    --nord6: #eceff4;
+
+    /* Frost */
+    --nord7: #8fbcbb;
+    --nord8: #88c0d0;
+    --nord9: #81a1c1;
+    --nord10: #5e81ac;
+
+    /* Aurora */
+    --nord11: #bf616a;
+    --nord12: #d08770;
+    --nord13: #ebcb8b;
+    --nord14: #a3be8c;
+    --nord15: #b48ead;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;    
+}
+body {
+    background-color: var(--nord0, #2e3440);
+    font-family: 'Fira Code Nerd Regular', monospace;
+    color: var(--nord4);
+    margin: 0em 5em 0em 5em;
+    text-align: center;
+}
+/* Define Global heading Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    color: var(--nord13);
+    padding: 10px;
+    text-align: center;
+}
+
+h1,
+h1 * {
+    font-size: 72px;
+}
+h2 {
+    font-size: 36px;
+}
+h3 {
+    font-size: 24px;
+}
+p {
+    padding: 10px;
+}
+a {
+    color: var(--nord10)
+}
+
+td.tablinks {
+    padding: 100px;
+}
+a:hover {
+    transition: color 0.25s ease-in-out;
+    color: var(--nord12);
+    text-decoration: underline;
+}
+a.active {
+    color: var(--nord13);
+}
+/* divs*/
+section.category, div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+} 
+
+div.void table {
+    border: 5px solid var(--nord14);
+    padding: 10px;
+}
+div.nixos table {
+    border: 5px solid var(--nord8);
+    padding: 10px;
+}
+/* Show and Hide Classes*/
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+#file-download {
+    text-align: center;
+}
+#file-download a {
+    display: block;
+}
