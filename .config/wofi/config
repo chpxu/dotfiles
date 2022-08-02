@@ -4,7 +4,7 @@ sec-output=HDMI-A-1
 stylesheet=style.css
 watch_css=true
 colors=colors
-term=alacritty
+term=kitty
 allow_images=true
 xoffset=480
 yoffset=0
@@ -12,5 +12,7 @@ height=60%
 sort_order=alphabetical
 gtk_dark=true
 columns=3
-prompt=
+prompt=run
 layer=overlay
+matching=contains
+insensitive

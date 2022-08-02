@@ -1,5 +1,4 @@
-// // This is a function which directly manipulates the DOM on first click.
-// // This means anchors are destroyed and regenerated once every click,
+// This is a function which directly manipulates the DOM on first click.
 const fileDownload = document.getElementById("file-download");
 const osContent = ["void-content", "nixos-content"];
 
@@ -39,6 +38,26 @@ function generateContent(id, voidPaths, nixPaths, voidFilenames, nixFilenames) {
   generateOSContent(divVoid, voidPaths, voidFilenames);
   generateOSContent(divNix, nixPaths, nixFilenames);
 }
+
+
+// Alacritty
+const alacrittyURLs = [
+  [
+    "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/alacritty/alacritty.yml"
+  ],
+  [""]
+  // [
+  //   "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/alacritty/alacritty.yml"
+  // ]
+];
+generateContent(
+  "alacritty",
+  alacrittyURLs[0],
+  alacrittyURLs[1],
+  ["alacritty.yml"],
+  [""]
+);
+
 // Waybar, since it has 3 items
 const waybarURLs = [
   [
@@ -58,3 +77,5 @@ generateContent(
   ["void-config.jsonc", "void-style.css"],
   ["nixos-config.jsonc", "nixos-style.css", "nixos-ydotool.sh"]
 );
+
+

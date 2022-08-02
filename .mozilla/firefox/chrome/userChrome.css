@@ -1,0 +1,31 @@
+@import url(./firefox-nordic-theme/userChrome.css);
+@import url(./verticaltabs.css);
+/* @import url(./oneline.css); */
+@import url(./userContent.css);
+:root {
+    --nordic-toolbar-background: #2e3440 !important;
+
+}
+/* === CUSTOM MODIFICATIONS=== */
+
+/* Start Page */
+/* Search box */
+input.fake-editable  {
+    background-color: var(--window-colour);
+}
+
+/* Tabs Toolbar transparent background so the tabs float */
+#TabsToolbar {
+    background: #2e344000 !important;
+} 
+
+
+/* Override Firefox Nordic Theme context menu styling */
+menuitem {
+    padding: 10px 12px !important;
+    border-radius: 5px;
+    margin: 0 10px !important;
+}
+menu {
+    border-radius: 5px !important;
+}

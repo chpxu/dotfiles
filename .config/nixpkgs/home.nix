@@ -2,6 +2,10 @@
 let
   unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
   xournalpp-nord = import ./xournalpp/xournalpp-nordDark.nix;
+  myTexInstall = (unstable.texlive.combine {
+      inherit (unstable.texlive) scheme-full;
+    });
+  
 in
 { 
   home.username = "chunix";
@@ -9,6 +13,17 @@ in
   
   # Install home packages
   home.packages = [
+    unstable.libdrm
+    unstable.intel-ocl
+    unstable.vaapiIntel
+    unstable.intel-media-driver
+    unstable.intel-compute-runtime
+    unstable.libGLU
+    unstable.libglvnd
+    # Audio
+    unstable.pipewire
+    unstable.wireplumber
+    unstable.alsa-utils
     # wayfire and making desktop
     pkgs.wayfire
     pkgs.wcm
@@ -34,33 +49,47 @@ in
     unstable.thunderbird-wayland
     unstable.discord-canary
     unstable.betterdiscordctl
-    unstable.vscode-with-extensions
     unstable.inkscape-with-extensions
     unstable.gimp-with-plugins
-    unstable.alacritty
+    unstable.kitty
     unstable.neofetch
-    #unstable.xournalpp
+ 
     # Git and GitHub
     unstable.git
     unstable.gh
-    # TeXLive
-    unstable.texlive.combined.scheme-basic
+    
     # OneDrive
     unstable.onedrive
     
     # Virtual Keyboard
     unstable.wvkbd
-    #pkgs.gdb
-    unstable.wgcf
+   
+    #unstable.wgcf
     unstable.unzip
-    xournalpp-nord
+
+    # Utils
+    unstable.linux-pam
+    unstable.dconf
+    unstable.tlp
+    unstable.xdg-utils
+   
+    # Game
+    unstable.osu-lazer
+    #unstable.lutris
+    ### Custom Packages or Derivations or Combinations etc
+    # TeXLive
+    myTexInstall
+    xournalpp-nord    
+  ];
+  imports = [
+    # Import my vscode configuration
+    ./vscode.nix
   ];
   # GTK themes
   gtk = {
     enable = true;
     theme = {
       name = "Nordic";
-
       package = unstable.nordic;
     };
     iconTheme = {
@@ -73,30 +102,11 @@ in
     };
   };
   programs.zsh = {
-    loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
-  };
-  # Install custom Xournal++ Version - this has the Nord theme plus modified Xournal++ CSS file.
-  # xournalpp = unstable.xournalpp.overrideAttrs (finalAttrs: previousAttrs: {
-  #   src = github:chpxu/xournalpp-nord/master/dir=xournalpp-1.1.1;
-  #   enableParallelBuilding = true;
-  #   buildInputs = with unstable; [ 
-  #     cmake
-  #     glib
-  #     pkg-config
-  #     gtk3
-  #     gettext
-  #     wrapGAppsHook
-  #     librsvg
-  #     libsndfile
-  #     libxml2
-  #     libzip
-  #     pcre
-  #     poppler
-  #     portaudio
-  #     zlib
-  #   ];
-  # });
-
+    shellAliases = {
+      od = "onedrive --synchronize --upload-only && onedrive --synchronize --no-remote-delete";
+    };
+    #loginShellInit = "wayfire";
+  }; 
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 }
