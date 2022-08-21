@@ -1,8 +1,1 @@
-profile {
-	output eDP-1 enable mode 3840x2160 position 0,0 scale 2
-	output DP-3 enable mode 1920x1080@144 position 1920,0
-}
-
-profile {
-        output eDP-1 enable mode 3840x2160 position 0,0 scale 2
-}
+/nix/store/fhz2ndxbvjjy2rxngrynh34ipg8vriq7-home-manager-files/.config/kanshi/config

@@ -1,11 +1,8 @@
 { config, pkgs, ...}:
-let
-  unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; };  };
-in
 {
-  programs.vscode = with unstable; {
+  programs.vscode = with pkgs; {
     enable = true;
-    package = vscode-fhs;
+    package = vscode;
     extensions = with vscode-extensions; [
       bbenoist.nix
       bungcip.better-toml
@@ -16,8 +13,7 @@ in
       dotjoshjohnson.xml
       formulahendry.auto-rename-tag
       formulahendry.auto-close-tag
-      gencer.html-slim-scss-css-class-completion
-      #glassit-linux.opacity
+      #gencer.html-slim-scss-css-class-completion
     ];
     userSettings = {
       "editor.guides.bracketPairs" =true;
@@ -25,7 +21,7 @@ in
       "latex-workshop.latex.recipes" = [
         {
           "name" = "lualatex ➞ biber ➞ lualatex × 2";
-          "tools" = [ "lualatex" "biber" "lualatex" ];
+          "tools" = [ "lualatex" ];
         }
       ]; 
       "latex-workshop.latex.tools" = [
@@ -36,8 +32,8 @@ in
             "-synctex=1"
             "-interaction=nonstopmode"
             "-file-line-error"
-            "-pdf"
-            "-outdir=%OUTDIR%"
+            "-output-format=pdf"
+            "-output-directory=%OUTDIR%"
             "%DOC%"
           ];
         }
@@ -53,7 +49,7 @@ in
       "latex-workshop.view.pdf.external.viewer.command" = "zathura";
       "latex-workshop.view.pdf.external.viewer.args" = [
         "--synctex-editor-command"
-        "code-oss --reuse-window -g \"%{input}:%{line}\""
+        "code --reuse-window -g \"%{input}:%{line}\""
         "%PDF%"
       ];
       "latex-workshop.view.pdf.external.synctex.command" = "zathura";
@@ -99,7 +95,8 @@ in
       "redhat.telemetry.enabled" = false;
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "latex-workshop.intellisense.citation.backend" = "biblatex";
-      "glassit-linux.opacity" = 50;
+      "editor.wordWrapColumn" = 120;
+      "editor.tabSize" = 2;
     };
   };  
 }

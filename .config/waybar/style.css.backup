@@ -1,0 +1,129 @@
+window#waybar {
+	background: #2e3440;
+	color: #eceff4; 
+	font-family: 'FiraCode Nerd Font', Inconsolata, sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	border: none;
+	border-radius: 0;
+}
+
+/*WORKSPACE STYLES*/
+#workspaces, #window {
+	background: #3b4252;
+	margin: 5px 0 5px 5px;
+	border-radius: 5px;
+}
+#workspaces button {
+	color: #eceff4;
+	background: #434c5e;
+	border: none;
+	padding: 0 5px 0 5px;
+	margin: 2.5px 2.5px 2.5px 2.5px;
+}
+#workspaces button:hover {
+	border: none;
+	background: #3b4252;
+	box-shadow: none;
+}
+
+#workspaces button.focused {
+	background: #2e3440;
+}
+#workspaces button.urgent {
+	transition: background 0.5s ease-in-out;
+	background: #bf616a;
+}
+#window {
+	margin-left: 5px;
+	color: #b48ead;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+/* #waybar.empty #window {
+	visibility: none;
+} */
+/*RIGHT-MODULES STYLES*/
+.modules-right {
+	margin-right: 2.5px;
+}
+
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#network,
+#state,
+#language,
+#tray,
+#clock,
+#idle_inhibitor,
+#pulseaudio,
+#custom-launcher,
+#custom-separator {
+	/*border-right: #d8dee9 solid 1px;*/
+	padding: 0 5px 0 5px;
+	/* background: #3b4252; */
+	margin: 5px 0 5px 0;
+	border-radius: 5px;
+
+}
+
+#battery,
+#backlight {
+	color: #ebcb8b;
+}
+
+#network {
+	color: #88c0d0;
+}
+#cpu,
+#memory {
+	color: #81a1c1; 
+}
+
+#clock,
+#tray {
+	color: #b48ead;
+}
+#pulseaudio {
+	color: #5e81ac;
+}
+
+/*Tooltips*/
+tooltip {
+	background: #434c5e;
+	/* box-shadow: 1px 2px 5px #4c566a; */
+	font-family: 'Source Code Pro', sans-serif;
+	font-size: 16px;
+	border-radius: 5px;
+}
+tooltip label {
+	color: #eceff4;
+}
+
+/*Taskbar*/
+#taskbar button {
+	border: none;
+	color: #eceff4;
+}
+#taskbar button:hover {
+	/*transition: background-color 0.125s ease-in-out;*/
+	background-color: #434c5e;
+}
+#taskbar button.active {
+	border-bottom: 2px solid #81a1c1;
+	background-color: #3b4252;
+}
+.modules-left {
+	margin-left: 2.5px;
+}
+/* Custom Module: Start Button for launcher  */
+#custom-launcher {
+	color: #5e81ac;
+}
+#custom-separator {
+	color: #d8dee9;
+}
+

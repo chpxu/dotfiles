@@ -3,9 +3,21 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
-let  unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
-in {
+rec {
+	nix = {
+		settings = {
+			experimental-features = [ "nix-command" "flakes" ];
+		};
+  };
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball {
+        url = "https://github.com/nix-community/NUR/archive/1f80e16537599cff4c125eb306b0af827818e97c.tar.gz";
+        sha256 = "1l28ds47xzn5aw8k6hg7j8arfq8pv22vpg6vy830ddwxa42jwwfv";
+    }) {
+      inherit pkgs;
+    };
+  };
   imports = [ 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -22,7 +34,7 @@ in {
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
   # Use xanmod custom kernel
-  boot.kernelPackages = unstable.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest; 
   boot.kernelModules = [ "uinput"  "dpdk-kmods" "acpi_call" ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" ];
   # Define hostname
@@ -31,13 +43,16 @@ in {
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.wireless.networks = {
-    lolNiceTry = {
+    VM7844537 = {
       hidden = true;
-      psk = "XDDDDDDDDDDDD";
+      psk = "mfh7ncvhTmKm";
+    };
+    "jon’s wireless" = {
+			psk = "JT404040";
     };
   };
   # Set your time zone.
-  time.timeZone = "UTC+1";
+  time.timeZone = "UTC+8";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -57,8 +72,6 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # allow unfree packages
-  nixpkgs.config.allowUnfree = true;
   # set environment variables
   environment.sessionVariables = rec { 
     #XDG_RUNTIME_DIR = "/run/user/$UID";
@@ -67,6 +80,7 @@ in {
     QT_QPA_WAYLAND = "wayland";
     BEMENU_BACKEND = "wayland";
     CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
+		LIBSEAT_BACKEND = "logind";
   }; 
    
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -75,18 +89,23 @@ in {
     extraGroups = [ "wheel" "audio" "video" "input" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
+  #home-manager.users.chunix = import /home/chunix/.config/nixpkgs/home.nix;
+  #home-manager.users.chunix.nixpkgs.home-manager.useGlobalPkgs = true;
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     nano
     curl
     cacert
     home-manager
+    tlp
+    dconf
+    linux-pam
   ];
   
   # Fonts
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DejaVuSansMono" "SourceCodePro" ]; })
-    unstable.times-newer-roman
+    pkgs.times-newer-roman
   ];
   # zsh
   programs.zsh = {
@@ -109,21 +128,49 @@ in {
 
     #Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
-    #mtr.enable = true;
-    #gnupg.agent = {
-    #  enable = true;
-    #  enableSSHSupport = true;
-    #};
+    mtr.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    nano = {
+      syntaxHighlight = true;
+      nanorc = ''
+        set autoindent
+        set afterends
+        set atblanks
+        set constantshow
+        unset casesensitive
+        set fill 80
+        set linenumbers
+        set minibar
+        set mouse
+        unset nowrap
+        set softwrap
+        set tabsize 2
+      '';
+    };
   };
   # RTKit
   security.rtkit.enable = true;
   # PAM and swaylock
   security.pam.services.swaylock = {};
+ 	security.polkit.enable = true;
   # OpenGL
   hardware.opengl = {
     enable = true;
-    extraPackages = [ pkgs.mesa.drivers ];
+    driSupport = true;
+    extraPackages = with pkgs; [ mesa.drivers libvdpau-va-gl vaapiVdpau 
+    intel-ocl libdrm libGLU libglvnd intel-media-driver intel-compute-runtime 
+    ];
   };
+  hardware.cpu = {
+		intel = {
+			updateMicrocode = true;
+			sgx.provision.enable = true;
+		};
+  };
+  hardware.video.hidpi.enable = true;
 
   # List services that you want to enable:
 
@@ -150,4 +197,3 @@ in {
   system.stateVersion = "22.05"; # Did you read the comment?
 
 }
-

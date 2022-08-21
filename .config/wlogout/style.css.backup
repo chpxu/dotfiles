@@ -1,0 +1,54 @@
+/*Credits to exdeniz  for the initial template
+https://gist.github.com/exdeniz/dea6b4817b8d35cecb8f21a13c6e7aa6
+
+*/
+* {
+	background-image: none;
+}
+window {
+	background-color: rgba(46, 52, 64, 0.9);
+        background-image: url("/home/chunix/Pictures/blue_swirl.png")
+}
+button {
+	background-color: #2e3440;
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	color: #5e81ac;
+}
+
+button:focus, button:active {
+	background-color: #434c5e;
+	color: #81a1c1;
+	outline-style: none;
+}
+button:hover {
+ 	background-color: #4c566a;
+        outline-style: none;
+}
+#lock {
+    background-image: image(url("./icons/lock.png"), url("./icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("./icons/logout.png"), url("./icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("./icons/suspend.png"), url("./icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("./icons/hibernate.png"), url("./icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("./icons/shutdown.png"), url("./icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("./icons/reboot.png"), url("./icons/reboot.png"));
+}

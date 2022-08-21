@@ -1,111 +1,152 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
-  unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
   xournalpp-nord = import ./xournalpp/xournalpp-nordDark.nix;
-  myTexInstall = (unstable.texlive.combine {
-      inherit (unstable.texlive) scheme-full;
-    });
-  
+	stable = import <nixos-stable> { config = { allowUnfree = true; }; };
 in
 { 
+  nixpkgs.config.allowUnfree = true;
   home.username = "chunix";
   home.homeDirectory = "/home/chunix";
-  
+    imports = [
+    ./vscode.nix
+    ./gh_git.nix
+    ./waybar.nix
+    ./zathura.nix
+    ./mpv.nix
+    ./kitty.nix
+    ./mako.nix
+    ./swaylock_swayidle.nix
+    ./kanshi.nix
+    ./xdg.nix
+    #./texlive.nix
+    #./firefox.nix
+  ];
   # Install home packages
-  home.packages = [
-    unstable.libdrm
-    unstable.intel-ocl
-    unstable.vaapiIntel
-    unstable.intel-media-driver
-    unstable.intel-compute-runtime
-    unstable.libGLU
-    unstable.libglvnd
+  home.packages = with pkgs; [
+    # Reserve this for programs which do not have config options n home-manager
     # Audio
-    unstable.pipewire
-    unstable.wireplumber
-    unstable.alsa-utils
-    # wayfire and making desktop
-    pkgs.wayfire
-    pkgs.wcm
-    pkgs.wf-config
-    unstable.waybar
-    unstable.bemenu
-    unstable.cliphist
-    unstable.mako
-    unstable.grim
-    unstable.slurp
-    unstable.swaylock-effects
-    unstable.swayidle
-    unstable.kanshi
-    unstable.wl-clipboard
-    unstable.wlogout
-    unstable.wofi
-    # viewers
-    unstable.zathura
-    unstable.mpv
-    unstable.imv
+    pipewire
+    wireplumber
+    alsa-utils
+		(pkgs.wayfire.overrideAttrs (oldAttrs: rec {
+			version = "0.7.4";
+			src = fetchurl {
+				url = 
+				"https://github.com/WayfireWM/wayfire/releases/download/v${version}/wayfire-${version}.tar.xz";
+				sha256 = 
+				"89e375f7320d7bd4023d9f9499f979ee7209594afbb5aa0cfd897934a7f0514d";
+			};
+    }))
+    wcm
+    wf-config
+    bemenu
+    cliphist
+    grim
+    slurp
+    swaylock-effects
+    swayidle
+    kanshi
+    wl-clipboard
+    wlogout
+    wofi
+    imv
     # applications
-    unstable.firefox-wayland
-    unstable.thunderbird-wayland
-    unstable.discord-canary
-    unstable.betterdiscordctl
-    unstable.inkscape-with-extensions
-    unstable.gimp-with-plugins
-    unstable.kitty
-    unstable.neofetch
- 
-    # Git and GitHub
-    unstable.git
-    unstable.gh
-    
+    firefox-wayland
+    thunderbird-wayland
+    discord-canary
+    betterdiscordctl
+    inkscape-with-extensions
+    gimp-with-plugins
+    neofetch
+    bitwarden
     # OneDrive
-    unstable.onedrive
-    
+    onedrive
     # Virtual Keyboard
-    unstable.wvkbd
+    wvkbd
    
     #unstable.wgcf
-    unstable.unzip
+    unzip
 
     # Utils
-    unstable.linux-pam
-    unstable.dconf
-    unstable.tlp
-    unstable.xdg-utils
-   
-    # Game
-    unstable.osu-lazer
-    #unstable.lutris
+    xdg-utils
+    yt-dlp
+    #ffmpeg_5-full
+    jmtpfs
+    #qespresso
+    quantum-espresso
+
     ### Custom Packages or Derivations or Combinations etc
     # TeXLive
-    myTexInstall
-    xournalpp-nord    
+    texlive.combined.scheme-full
+    #xournalpp-nord
+    (pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
+			src = fetchFromGitHub {
+        owner = "chpxu";
+        repo = "xournalpp";
+				rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214"; 
+				sha256 = "wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
+			};
+    }))
+    neovim
   ];
-  imports = [
-    # Import my vscode configuration
-    ./vscode.nix
-  ];
+  
   # GTK themes
-  gtk = {
+  gtk = rec {
     enable = true;
     theme = {
       name = "Nordic";
-      package = unstable.nordic;
+      package = pkgs.nordic;
     };
     iconTheme = {
       name = "Nordzy";
-      package = unstable.nordzy-icon-theme;
+      package = pkgs.nordzy-icon-theme;
     };
     cursorTheme = {
       name = "Nordzy-cursors";
-      package = unstable.nordzy-cursor-theme;
+      package = pkgs.nordzy-cursor-theme;
+    };
+    gtk2 = {
+      configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
+      extraConfig = ''
+        gtk-cursor-theme-name = "${cursorTheme.name}"
+        gtk-icon-theme-name = "${iconTheme.name}"
+        gtk-theme-name = "${theme.name}"
+      '';
     };
   };
+  dconf = {
+		settings = {
+			"org/gnome/desktop/interface" = {
+				gtk-theme = "Nordic";
+				cursor-theme = "Nordzy-cursors";
+			};
+			"org/gnome/desktop/wm/preferences" = {
+				theme = "Nordic";
+			};
+		};
+  };
   programs.zsh = {
+    dotDir = ".config/zsh";
+    history = {
+      path = "${config.xdg.configHome}/zsh/zsh_history";
+    };
     shellAliases = {
       od = "onedrive --synchronize --upload-only && onedrive --synchronize --no-remote-delete";
     };
-    #loginShellInit = "wayfire";
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    loginExtra = ''
+      wayfire
+      betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/install
+    '';
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = [
+        "git" "gh" "fzf" "npm" "thefuck" "zsh-interactive-cd"
+      ];
+    };
   }; 
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
