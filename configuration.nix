@@ -43,12 +43,9 @@ rec {
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.wireless.networks = {
-    VM7844537 = {
+    yes = {
       hidden = true;
-      psk = "mfh7ncvhTmKm";
-    };
-    "jon’s wireless" = {
-			psk = "JT404040";
+      psk = "nsfefew";
     };
   };
   # Set your time zone.
