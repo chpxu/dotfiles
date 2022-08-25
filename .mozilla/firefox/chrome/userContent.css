@@ -1,4 +1,5 @@
-:host, :root {
+
+ :host, :root {
    --in-content-page-background: #2e3440 !important;
    --in-content-page-color: #eceff4 !important;
    --in-content-deemphasized-text: #e5e9f0 !important;
@@ -28,13 +29,7 @@
    --card-outline-color: var(--grey-60);
    --dialog-warning-text-color: var(--red-40);
    scrollbar-color: #81a1c172 rgba(20,20,25,.3);
- }
- :host, :root {
-   /* --in-content-page-color: rgb(21, 20, 26); */
-   /* --in-content-page-background: #fff; */
    --in-content-text-color: var(--in-content-page-color);
-   /* --in-content-deemphasized-text: rgb(91, 91, 102); */
-   /* --in-content-box-background: #fff; */
    --in-content-box-background-odd: rgba(12, 12, 13, 0.05);
    --in-content-box-border-color: color-mix(in srgb, currentColor 41%, transparent);
    --in-content-box-info-background: #f0f0f4;
@@ -125,7 +120,7 @@
    --card-outline-color: var(--grey-30);
    --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color);
    accent-color: var(--in-content-accent-color);
-   color-scheme: light dark;
+   color-scheme: dark;
  }
  :root {
    color: -moz-DialogText;

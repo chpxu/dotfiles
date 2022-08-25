@@ -19,7 +19,7 @@ in
     ./kanshi.nix
     ./xdg.nix
     #./texlive.nix
-    #./firefox.nix
+    ./firefox.nix
   ];
   # Install home packages
   home.packages = with pkgs; [

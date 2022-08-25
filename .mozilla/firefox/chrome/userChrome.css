@@ -1,9 +1,10 @@
-@import url(./firefox-nordic-theme/userChrome.css);
+/* @import url(./firefox-nordic-theme/userChrome.css); */
 @import url(./verticaltabs.css);
-/* @import url(./oneline.css); */
+@import url(./oneline.css);
 @import url(./userContent.css);
 :root {
     --nordic-toolbar-background: #2e3440 !important;
+    --nordic-button-background: #2e3440 !important;
 
 }
 /* === CUSTOM MODIFICATIONS=== */
@@ -21,11 +22,43 @@ input.fake-editable  {
 
 
 /* Override Firefox Nordic Theme context menu styling */
-menuitem {
-    padding: 10px 12px !important;
-    border-radius: 5px;
-    margin: 0 10px !important;
+/* Toolbox colors */
+#navigator-toolbox {
+	border: 0 !important;
+	background: none !important;
 }
-menu {
-    border-radius: 5px !important;
+
+#nav-bar, #PersonalToolbar, #toolbar-menubar, #TabsToolbar, findbar {
+	border: 0 !important;
+	background: #2e3440 !important;
+	border-bottom: 1px solid none !important;
+}
+#nav-bar:-moz-window-inactive,
+#PersonalToolbar:-moz-window-inactive, #toolbar-menubar:-moz-window-inactive, 
+#TabsToolbar:-moz-window-inactive, findbar:-moz-window-inactive {
+	background: #2e3440 !important;
+	border-bottom: 1px solid none !important;
+}
+#context-navigation {
+	padding: 4px 8px 8px !important;
+}
+#context-navigation > menuitem > .menu-iconic-left {
+	margin: auto !important;
+}
+#context-navigation menuitem {
+	--toolbarbutton-active-background: transparent !important;
+	--toolbarbutton-hover-background: transparent !important;
+}
+menuitem, menupopup menu {
+	-moz-appearance: none !important;
+	padding: 4px 8px !important;
+	margin: 0 !important;
+}
+
+menuitem[type="checkbox"] image, menuitem[type="radio"] image {
+	visibility: visible !important;
+}
+
+menuitem[disabled="true"]:hover, menupopup menu[disabled="true"]:hover {
+	background: transparent !important;
 }

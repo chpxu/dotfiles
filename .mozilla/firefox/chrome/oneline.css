@@ -1,4 +1,11 @@
-
+* { 
+    --tab-corner-rounding: 7px;
+    --button-corner-rounding: 20px;
+    --menu-corner-rounding: 0px;
+    --menu-item-height: var(--urlbar-min-height);
+    --animation-speed: 0.2s;
+    --secondary-colour: #3b4252;
+}
 
 #context-navigation,
 #context-sep-navigation,
@@ -87,11 +94,14 @@ menuitem,
 menucaption {
     -moz-appearance: none !important;
     height: var(--menu-item-height) !important;
-    border: 1px var(--secondary-colour) !important;
+    /* border: 1px var(--secondary-colour) !important;
+     */
+    border: 1px blue !important;
+
     border-radius: var(--menu-corner-rounding)  !important;
 }
 
-menu,
+/* menu,
 menuitem, 
 menucaption {
     padding-left: 5px !important;
@@ -108,10 +118,7 @@ menu:not(.subviewbutton) > .menu-right image {
     margin-right: -5px !important;
     margin-top: -2px !important;
     border: 6px solid var(--toolbar-color) !important;
-    border-top-color: transparent !important;
-    border-right-color: transparent !important;
-    border-bottom-color: transparent !important;
-}
+} */
 
 panelview toolbarbutton:not(#fxa-manage-account-button) {
     height: var(--menu-item-height) !important;
@@ -129,10 +136,5 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
     margin-top: 0px !important;
 }
 
-* { 
-        --tab-corner-rounding: 7px;
-        --button-corner-rounding: 20px;
-        --menu-corner-rounding: 0px;
-        --menu-item-height: var(--urlbar-min-height);
-        --animation-speed: 0.2s;
-}
+
+
