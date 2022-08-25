@@ -1,14 +1,14 @@
 # dotfiles
-This repository hosts my dotfiles and configs for various applications on NixOS. Heavily WIP.
+This repository hosts my dotfiles and configs for various applications on NixOS. Heavily WIP and continually evolving.
 
 I will try to remember to give credits and links where possible but I'll probably forget.
 
 This repo will also be updated when I'm bothered
-- [ ] I should make a script copying the relevant files 
+- [ ] I should make a script copying the relevant files (WIP)
 
 ## Screenshots
-these are out of date but more or less representative 
-![Desktop](https://github.com/chpxu/dotfiles/blob/void/Screenshots/desktop.png)
+New SS coming soon. 
+<!-- ![Desktop](https://github.com/chpxu/dotfiles/blob/void/Screenshots/desktop.png)
 ![Firefox](https://github.com/chpxu/dotfiles/blob/void/Screenshots/firefox.png)
 ![nwggrid](https://github.com/chpxu/dotfiles/blob/void/Screenshots/nwggrid.png)
 ![VSCode](https://github.com/chpxu/dotfiles/blob/void/Screenshots/vscode.png)
@@ -17,11 +17,11 @@ these are out of date but more or less representative
 ![Zathura](https://github.com/chpxu/dotfiles/blob/void/Screenshots/zathura.png)
 ![GIMP](https://github.com/chpxu/dotfiles/blob/void/Screenshots/gimp.png)
 ![Inkscape](https://github.com/chpxu/dotfiles/blob/void/Screenshots/inkscape.png)
-![Thunderbird](https://github.com/chpxu/dotfiles/blob/void/Screenshots/thunderbird.png)
-
+![Thunderbird](https://github.com/chpxu/dotfiles/blob/void/Screenshots/thunderbird.png) -->
+<!-- 
 Notes:
 - Unfortunately GIMP is running in XWayland Mode :(
-- The yellow box in Zathura is the select colour.
+- The yellow box in Zathura is the select colour. -->
 ## Themes, Icons and Colour Palette
 These dotfiles use 2 themes. 
 1. The [Nord colour palette](https://nordtheme.com).
@@ -43,12 +43,13 @@ These are the main applications and programs I use. Everything has been installe
 - mpv (`unstable`)
 - imv (`unstable`)
 - zathura (`unstable`)
-- xournalpp (Custom derivation. See `$HOME/.config/nixpkgs`)
+- xournalpp (Custom derivation. See `$HOME/.config/home.nix`)
 - betterdiscordctl (`unstable`)
 <!-- - LibreOffice (void repos) -->
 ### Environment programs
 Applications or programs which setup my workspace
-- wayfire, wcm, wf-config (`22.05`)
+- wayfire (custom derivation to use `v0.7.4` for `src` instead)
+- wcm, wf-config (`unstable`)
 - waybar (`unstable`)
 - swayidle (`unstable`)
 - swaylock-effects (`unstable`)
@@ -69,51 +70,36 @@ Applications or programs which setup my workspace
 git clone https://github.com/chpxu/dotfiles.git
 cd ./dotfiles
 ```
-2. Move `configuration.nix` to `/etc/nixos/configuration.nix` (or wherever you have it installed) and run `sudo nixos-rebuild switch`. Check everything worked (e.g., you have home-manager, user has zsh etc).
-3. First move `home.nix` inside the repo to your `$HOME/.config/nixpkgs`, and in the terminal, run `home-manager switch`, which installs a lot of things. 
-4. Once that is done, copy all files and folders inside `./.config` to `$HOME/.config`:
+2. Move `configuration.nix` and `hardware-configuration.nix` to `/etc/nixos/` (or wherever you have it installed). Ensure `hardware-configuration.nix` is correct for your system!
+3. Then copy all files and folders inside `./.config` to `$HOME/.config`:
 ```sh
 cp -r ./.config/* $HOME/.config
 ```
-Some things to do here: `betterdiscordctl` likes to not enable itself after restart. Running TBD as a login script is the solution for now.
+4. Run `sudo nixos-rebuild switch`. Reboot to be sure and check everything is installed.
 5. Copy from the repo, the entire `Pictures` to `$HOME`:
 ```sh
 cp -r /path/to/dotfiles/Pictures/* $HOME/Pictures
 ```
+6. Run `home-manager switch`. Reboot to be sure and check everything is installed and copied to nix store. You may get warnings about files being the same or skipping delete. That is fine. If you get any errors (usually file conflicts), resolve as necessary (usually deleting the file works).
 
+Some things to do here: `betterdiscordctl` likes to not enable itself after restart. Running TBD as a login script is the solution for now.
+
+This section should eventually be handled automatically by the install script in `./scripts/copy.sh`, but that is WIP.
 Now there are application specific customisations. Not all of them are complete.
 
 ### Firefox
 Assuming Firefox is installed, follow these instructions:
-1. Locate your `.mozilla` folder. This is by default in `$HOME`. Enter into the `firefox`  folder in the repo.
-```sh
-cd /path/to/dotfiles/.mozilla/firefox
-```
-2. Locate your firefox profile that you want to theme. This is very important. In Firefox, go to `about:profiles` and find which profile is the default one. There should be a `.default` folder, and this is where we do our work.
-
-1. In Firefox, install the [Tab Center Reborn](https://addons.mozilla.org/en-GB/firefox/addon/tabcenter-reborn/) extension.
-
-2. In `about:addons`, navigate to Tab Center Reborn's Preferences. Enable `Compact Mode` and `Custom Stylesheet`.
-
-3. In the repo, open the file `.mozilla/firefox/this.default-default/tabCenterReborn.css`. Copy all its content into the `Custom Stylesheet` editor. Click `Save CSS` and you can leave that page.
-
-4. Copy everything in `this.default-default` into your `.default` folder:
-```sh
-cd /path/to/dotfiles
-cp -r ./.mozilla/firefox/this.default-default/* /path/to/your/.default
-```
-5. In `about:config` in Firefox, set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
-6. Follow instructions [here](https://github.com/EliverLara/firefox-nordic-theme) to enable EliverLara's Firefox Nordic Theme. Clone it inside the `chrome` folder  so it has a directory `firefox-nordic-theme`.
-7. Install this [Nordic Firefox theme](https://addons.mozilla.org/en-US/firefox/addon/nord-polar-night-theme/) from the Add-ons store.
-8. Restart Firefox.
+1. Enable the extensions. This is due to how Firefox handles extension side-loading.
+2. In the `Tab Center Reborn` extension preferences, copy and paste the contents of `./.mozilla.firefox/chrome/tabCenterReborn-chpxu.css`  inside the input box for Custom CSS
+3. Ensure Custom CSS/Styles whatever checkbox is enabled and restart firefox (or the extension). 
 
 Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.com/ranmaru22/firefox-vertical-tabs) and credits to  FILL_IN for the `oneline.css`.
 
-Both CSS files have had my own slight modifications.
+Both CSS files have had my own slight modifications. To edit `userChrome.css` or `userContent.css`, see `firefox.nix`.
 
 #### To-Do
-- [ ] Fix errors in certain `about:` pages. This may never be resolved however and will have to cope with defaults.
-- [ ] The hover effect on the Tab Center Reborn is not of the correct colour.
+- [ ] Fix errors in certain `about:` pages. This is pretty much done. There are a few minor changes to some pages that must be done, but the theming is much more consistent and less broken.
+- [x] The hover effect on the Tab Center Reborn is not of the correct colour.
 
 ### Thunderbird
 TBD.
@@ -123,21 +109,19 @@ TBD.
 ### Waybar, Wayfire, Swaylock, swayidle, wofi
 Nothing else should need to be done if everything was copied correctly I think. 
 
+- [ ] Swaylock does not work unless it is a system package. This is a known upstream issue. 
 ### VSCode
 1. Ensure that VSCode has already created `$HOME/.config/Code`. It might not be `Code`, but `Code - OSS` or `Code - Insiders` instead.
 2. Copy the files in `dotfiles/Code` to the same locations in your home
-3. Install the Nord extension by Arctic Ice Studio and enable it.
 
 Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplace.visualstudio.com/items?itemName=beastdestroyer.firefox-quantum-themes) :)
 
 #### To-Do
-- [ ] Add the settings and extensions I use to `home.nix`
+- [x] Add the settings and extensions I use to `home.nix`
 - [ ] I plan to make my own Nord theme soon, after I update my theme to 2.0.0.
 
 ### Xournal++
-1. When running `home-manager switch`, my custom build of Xournal++ will be installed. Its files currently live in `$HOME/.config/nixpkgs/xournalpp`.
-
-Make sure to restart Xournal++ for the changes to take effect.
+The `home-manager switch` should be good to go.
 #### To-Do
 - [x] The background on the sidebar content is incorrect.
 - [ ] Check settings have been applied.
