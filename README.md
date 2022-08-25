@@ -81,11 +81,12 @@ cp -r /path/to/dotfiles/Pictures/* $HOME/Pictures
 ```
 6. Run `home-manager switch`. Reboot to be sure and check everything is installed and copied to nix store. You may get warnings about files being the same or skipping delete. That is fine. If you get any errors (usually file conflicts), resolve as necessary (usually deleting the file works).
 
-Some things to do here: `betterdiscordctl` likes to not enable itself after restart. Running TBD as a login script is the solution for now.
+Some things to do here: `betterdiscordctl` likes to not enable itself after restart/rebuild. Running TBD as a login script is the solution for now.
 
 This section should eventually be handled automatically by the install script in `./scripts/copy.sh`, but that is WIP.
 Now there are application specific customisations. Not all of them are complete.
 
+Note: channels. I am subscribed to nixpkgs-unstable, nixos-22.05 and home-manager master
 ### Firefox
 Assuming Firefox is installed, follow these instructions:
 1. Enable the extensions. This is due to how Firefox handles extension side-loading.

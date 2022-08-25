@@ -97,6 +97,7 @@ rec {
     tlp
     dconf
     linux-pam
+    swaylock-effects
   ];
   
   # Fonts
