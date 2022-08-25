@@ -39,10 +39,10 @@ These are the main applications and programs I use. Everything has been installe
 - inkscape (`unstable`)
 - thunderbird-wayland (`unstable`)
 - vscode (`unstable`)
-- discord (`unstable`)
+- discord-canary (`unstable`)
 - mpv (`unstable`)
 - imv (`unstable`)
-- zathura (`unstable`)
+- zathura (`22.05`)
 - xournalpp (Custom derivation. See `$HOME/.config/home.nix`)
 - betterdiscordctl (`unstable`)
 <!-- - LibreOffice (void repos) -->
@@ -59,9 +59,8 @@ Applications or programs which setup my workspace
 - wofi (`unstable`)
 - kanshi (`unstable`)
 - wl-clipboard (`unstable`)
-- alacritty (`unstable`)
+- kitty (`unstable`)
 - zsh (`unstable`)
-- wlogout (`unstable`)
 - wvkbd (`unstable`)
 
 ## Steps to use
@@ -109,7 +108,7 @@ TBD.
 ### Waybar, Wayfire, Swaylock, swayidle, wofi
 Nothing else should need to be done if everything was copied correctly I think. 
 
-- [ ] Swaylock does not work unless it is a system package. This is a known upstream issue. 
+- [x] Swaylock does not work unless it is a system package. This is a known upstream issue. 
 ### VSCode
 1. Ensure that VSCode has already created `$HOME/.config/Code`. It might not be `Code`, but `Code - OSS` or `Code - Insiders` instead.
 2. Copy the files in `dotfiles/Code` to the same locations in your home

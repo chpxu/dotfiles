@@ -55,10 +55,6 @@
             wfShell = {
                 source = ~/.config/wf-shell.ini;
             };
-            wlogout = {
-                source = ~/.config/wlogout;
-                recursive = true;
-            };
             wofi = {
                 source = ~/.config/wofi;
                 recursive = true;

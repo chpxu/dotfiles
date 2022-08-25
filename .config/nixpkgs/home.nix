@@ -43,11 +43,11 @@ in
     cliphist
     grim
     slurp
-    swaylock-effects
+    # swaylock-effects
     swayidle
     kanshi
     wl-clipboard
-    wlogout
+    #wlogout
     wofi
     imv
     # applications
