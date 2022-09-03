@@ -1,13 +1,17 @@
-{ config, pkgs, lib, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   xournalpp-nord = import ./xournalpp/xournalpp-nordDark.nix;
-	stable = import <nixos-stable> { config = { allowUnfree = true; }; };
-in
-{ 
+  # stable = import <nixos-stable> {config = {allowUnfree = true;};};
+in {
   nixpkgs.config.allowUnfree = true;
-  home.username = "chunix";
-  home.homeDirectory = "/home/chunix";
-    imports = [
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
+  # home.username = "chunix";
+  # home.homeDirectory = "/home/chunix";
+  imports = [
     ./vscode.nix
     ./gh_git.nix
     ./waybar.nix
@@ -20,6 +24,7 @@ in
     ./xdg.nix
     #./texlive.nix
     ./firefox.nix
+    ./neovim.nix
   ];
   # Install home packages
   home.packages = with pkgs; [
@@ -28,14 +33,12 @@ in
     pipewire
     wireplumber
     alsa-utils
-		(pkgs.wayfire.overrideAttrs (oldAttrs: rec {
-			version = "0.7.4";
-			src = fetchurl {
-				url = 
-				"https://github.com/WayfireWM/wayfire/releases/download/v${version}/wayfire-${version}.tar.xz";
-				sha256 = 
-				"89e375f7320d7bd4023d9f9499f979ee7209594afbb5aa0cfd897934a7f0514d";
-			};
+    (pkgs.wayfire.overrideAttrs (oldAttrs: rec {
+      version = "0.7.4";
+      src = fetchurl {
+        url = "https://github.com/WayfireWM/wayfire/releases/download/v${version}/wayfire-${version}.tar.xz";
+        sha256 = "89e375f7320d7bd4023d9f9499f979ee7209594afbb5aa0cfd897934a7f0514d";
+      };
     }))
     wcm
     wf-config
@@ -62,8 +65,15 @@ in
     # OneDrive
     onedrive
     # Virtual Keyboard
-    wvkbd
-   
+    (pkgs.wvkbd.overrideAttrs (oldAttrs: rec {
+      src = fetchFromGitHub {
+        owner = "chpxu";
+        repo = "wvkbd";
+        rev = "6ee1764535a06b9888242ad4a9c42a7ac9821791";
+        sha256 = "TWd/CECWxZJ0WeFVjeuHWAq9fGKGOd6MLpjvzOpKGOo=";
+      };
+    }))
+
     #unstable.wgcf
     unzip
 
@@ -80,16 +90,15 @@ in
     texlive.combined.scheme-full
     #xournalpp-nord
     (pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
-			src = fetchFromGitHub {
+      src = fetchFromGitHub {
         owner = "chpxu";
         repo = "xournalpp";
-				rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214"; 
-				sha256 = "wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
-			};
+        rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214";
+        sha256 = "wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
+      };
     }))
-    neovim
   ];
-  
+
   # GTK themes
   gtk = rec {
     enable = true;
@@ -115,15 +124,15 @@ in
     };
   };
   dconf = {
-		settings = {
-			"org/gnome/desktop/interface" = {
-				gtk-theme = "Nordic";
-				cursor-theme = "Nordzy-cursors";
-			};
-			"org/gnome/desktop/wm/preferences" = {
-				theme = "Nordic";
-			};
-		};
+    settings = {
+      "org/gnome/desktop/interface" = {
+        gtk-theme = "Nordic";
+        cursor-theme = "Nordzy-cursors";
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        theme = "Nordic";
+      };
+    };
   };
   programs.zsh = {
     dotDir = ".config/zsh";
@@ -144,10 +153,15 @@ in
       enable = true;
       theme = "agnoster";
       plugins = [
-        "git" "gh" "fzf" "npm" "thefuck" "zsh-interactive-cd"
+        "git"
+        "gh"
+        "fzf"
+        "npm"
+        "thefuck"
+        "zsh-interactive-cd"
       ];
     };
-  }; 
-  home.stateVersion = "22.05";
+  };
+  # home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 }

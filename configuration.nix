@@ -18,7 +18,7 @@ rec {
       inherit pkgs;
     };
   };
-  imports = [ 
+  imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Import home-manager
@@ -28,13 +28,18 @@ rec {
     # tlp
     ./tlp.nix
   ];
+  boot = {
+
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.grub.device = "/dev/nvme0n1";
+    loader.grub.theme = pkgs.nixos-grub2-theme;
+    loader.grub.efiSupport = true;
+    loader.grub.useOSProber = true;
+  };
   # Use xanmod custom kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest; 
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "uinput"  "dpdk-kmods" "acpi_call" ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" ];
   # Define hostname
@@ -43,21 +48,25 @@ rec {
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.wireless.networks = {
-    yes = {
+    lolNiceTry = {
       hidden = true;
-      psk = "nsfefew";
+      psk = "XD";
     };
+
   };
   # Set your time zone.
   time.timeZone = "UTC+8";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
+  console = {
+  	packages = with pkgs; [
+			terminus_font
+  	];
+    font = "ter-i32n";
+    #keyMap = "us";
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -70,16 +79,16 @@ rec {
   # services.xserver.libinput.enable = true;
 
   # set environment variables
-  environment.sessionVariables = rec { 
+  environment.sessionVariables = rec {
     #XDG_RUNTIME_DIR = "/run/user/$UID";
-    NIXOS_OZONE_WL = "wayland"; 
+    NIXOS_OZONE_WL = "wayland";
     SDL_VIDEODRIVER = "wayland";
     QT_QPA_WAYLAND = "wayland";
     BEMENU_BACKEND = "wayland";
     CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
 		LIBSEAT_BACKEND = "logind";
-  }; 
-   
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chunix = {
     isNormalUser = true;
@@ -98,8 +107,9 @@ rec {
     dconf
     linux-pam
     swaylock-effects
+    gcc
   ];
-  
+
   # Fonts
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DejaVuSansMono" "SourceCodePro" ]; })
@@ -152,14 +162,16 @@ rec {
   # RTKit
   security.rtkit.enable = true;
   # PAM and swaylock
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = {
+		text = "auth include login";
+ 	};
  	security.polkit.enable = true;
   # OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
-    extraPackages = with pkgs; [ mesa.drivers libvdpau-va-gl vaapiVdpau 
-    intel-ocl libdrm libGLU libglvnd intel-media-driver intel-compute-runtime 
+    extraPackages = with pkgs; [ mesa.drivers libvdpau-va-gl vaapiVdpau
+    intel-ocl libdrm libGLU libglvnd intel-media-driver intel-compute-runtime
     ];
   };
   hardware.cpu = {
