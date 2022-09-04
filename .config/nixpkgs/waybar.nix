@@ -223,12 +223,9 @@
       #pulseaudio,
       #custom-launcher,
       #custom-separator {
-          /*border-right: #d8dee9 solid 1px;*/
           padding: 0 5px 0 5px;
-          /* background: #3b4252; */
           margin: 5px 0 5px 0;
           border-radius: 5px;
-
       }
 
       #battery,
