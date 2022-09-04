@@ -1,22 +1,25 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-rec {
-	nix = {
-		settings = {
-			experimental-features = [ "nix-command" "flakes" ];
-		};
+{
+  config,
+  pkgs,
+  ...
+}: rec {
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+    };
   };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball {
+    nur =
+      import (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/1f80e16537599cff4c125eb306b0af827818e97c.tar.gz";
         sha256 = "1l28ds47xzn5aw8k6hg7j8arfq8pv22vpg6vy830ddwxa42jwwfv";
-    }) {
-      inherit pkgs;
-    };
+      }) {
+        inherit pkgs;
+      };
   };
   imports = [
     # Include the results of the hardware scan.
@@ -29,8 +32,7 @@ rec {
     ./tlp.nix
   ];
   boot = {
-
-  # Use the systemd-boot EFI boot loader.
+    # Use the systemd-boot EFI boot loader.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     loader.grub.device = "/dev/nvme0n1";
@@ -40,19 +42,18 @@ rec {
   };
   # Use xanmod custom kernel
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  boot.kernelModules = [ "uinput"  "dpdk-kmods" "acpi_call" ];
-  boot.supportedFilesystems = [ "ntfs" "btrfs" ];
+  boot.kernelModules = ["uinput" "dpdk-kmods" "acpi_call"];
+  boot.supportedFilesystems = ["ntfs" "btrfs"];
   # Define hostname
   networking.hostName = "nixos";
   # Pick only one of the below networking options.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.wireless.networks = {
     lolNiceTry = {
       hidden = true;
       psk = "XD";
     };
-
   };
   # Set your time zone.
   time.timeZone = "UTC+8";
@@ -60,9 +61,9 @@ rec {
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
-  	packages = with pkgs; [
-			terminus_font
-  	];
+    packages = with pkgs; [
+      terminus_font
+    ];
     font = "ter-i32n";
     #keyMap = "us";
     useXkbConfig = true; # use xkbOptions in tty.
@@ -86,17 +87,15 @@ rec {
     QT_QPA_WAYLAND = "wayland";
     BEMENU_BACKEND = "wayland";
     CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
-		LIBSEAT_BACKEND = "logind";
+    LIBSEAT_BACKEND = "logind";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chunix = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "audio" "video" "input"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
-  #home-manager.users.chunix = import /home/chunix/.config/nixpkgs/home.nix;
-  #home-manager.users.chunix.nixpkgs.home-manager.useGlobalPkgs = true;
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     nano
@@ -112,7 +111,7 @@ rec {
 
   # Fonts
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DejaVuSansMono" "SourceCodePro" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "DejaVuSansMono" "SourceCodePro"];})
     pkgs.times-newer-roman
   ];
   # zsh
@@ -163,22 +162,30 @@ rec {
   security.rtkit.enable = true;
   # PAM and swaylock
   security.pam.services.swaylock = {
-		text = "auth include login";
- 	};
- 	security.polkit.enable = true;
+    text = "auth include login";
+  };
+  security.polkit.enable = true;
   # OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
-    extraPackages = with pkgs; [ mesa.drivers libvdpau-va-gl vaapiVdpau
-    intel-ocl libdrm libGLU libglvnd intel-media-driver intel-compute-runtime
+    extraPackages = with pkgs; [
+      mesa.drivers
+      libvdpau-va-gl
+      vaapiVdpau
+      intel-ocl
+      libdrm
+      libGLU
+      libglvnd
+      intel-media-driver
+      intel-compute-runtime
     ];
   };
   hardware.cpu = {
-		intel = {
-			updateMicrocode = true;
-			sgx.provision.enable = true;
-		};
+    intel = {
+      updateMicrocode = true;
+      sgx.provision.enable = true;
+    };
   };
   hardware.video.hidpi.enable = true;
 
@@ -205,5 +212,4 @@ rec {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

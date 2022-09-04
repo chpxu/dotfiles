@@ -46,11 +46,9 @@ in {
     cliphist
     grim
     slurp
-    # swaylock-effects
     swayidle
     kanshi
     wl-clipboard
-    #wlogout
     wofi
     imv
     # applications
@@ -147,7 +145,7 @@ in {
     enableCompletion = true;
     loginExtra = ''
       wayfire
-      betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/install
+      betterdiscordctl --d-modules ~/.config/discordcanary/0.0.137/modules/install
     '';
     oh-my-zsh = {
       enable = true;
