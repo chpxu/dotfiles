@@ -6,6 +6,64 @@ I will try to remember to give credits and links where possible but I'll probabl
 This repo will also be updated when I'm bothered
 - [ ] I should make a script copying the relevant files (WIP)
 
+## How the repository is structured
+Since getting more comfortable with NixOS and home-manager, I've been working towards a more declarative setup (for now, in home-manager only) where all config and text files are declared in `.nix` files. This means I will no longer be writing config files separately and then symlinking them to the appropriate destination. Instead, this will all happen at once.
+
+The repository structure should look something like this (using a `JSON`-like representation):
+```
+{
+  ".config_old" = {
+    // This will contain the same things in ".config" but the original configuration files, rather than the nix files
+  },
+  ".config" = {
+    "nixpkgs" = {
+      "common" = [
+        // Anything common to all nix files, like theme colours 
+      ],
+      "modules" = {
+        "programName" = [
+          "default.nix" "programName.nix" "xdg.nix" // Anything else
+      },
+      "overlays" = {
+        "overlayName" = [
+          // File for the overlay. used for things where I have a custom derivation
+        ]
+      },
+      "config.nix",
+      "home.nix",
+      "flake.nix",
+      "flake.lock",
+      // Other files not in use
+    }
+  },
+  ".mozilla" = {
+    // This folder will mostly be for backup, since I have firefox managed via home-manager and NUR
+  },
+  "docs" = {
+    // For the website. On pause whilst I significantly overhaul my repo
+  },
+  "Pictures" = [
+    // Pictures I use
+  ],
+  "Screenshots" = [
+    // SS for the repo
+  ],
+  "scripts" = [
+    // the install script. On hold whilst I update the repo.
+  ],
+  // Other files
+}
+```
+
+1. The `modules` subfolder of `nixpkgs` is a directory of folders containing configuration files.
+  - Each of these folders contains:
+    1.  A `default.nix` file. This file imports all the other files in the folder, and is ready to be imported by `home.nix`. This is always present.
+    2. A `programName.nix` file and other files/folders. These host the actual configuration for the programs if they can be managed through nix/home-manager.
+    3. An `xdg.nix` file. This file is used to source files to the appropriate directory. In cases where there is no home-manager configuration for a program, this file will act as the configuration file. Of course for the `xdg` subfolder, `xdg.nix` is the configuration file.
+      - I use `xdg.configFile` out of personal preference. I can directory control where I want XDG to point to, what files to create and so on.
+    4. A `config` folder containing either source files or more nix files for configuration of the program. Directory of this structure depends on how I prefer to organise it.
+      - I prefer `nix` files where I am able to use nix expressions to insert values to make life easier, otherwise I prefer `non .nix` config files.
+2. The `overlays` folder is a set of folders containing overlays. These will replace the various `overrideAttrs` I have in `home.nix` with something more flexible and cleaner. 
 ## Screenshots
 New SS coming soon. 
 <!-- ![Desktop](https://github.com/chpxu/dotfiles/blob/void/Screenshots/desktop.png)
@@ -35,16 +93,17 @@ Follow the instructions on the page to use the GTK3/4 theme.
 These are the main applications and programs I use. Everything has been installed from `nixos-22.05` or `nixos-unstable` with preference to unstable. WIP.
 ### Productivity Applications
 - firefox-wayland (`unstable`)
+- thunderbird-wayland (`unstable`)
 - gimp (2.10.32) (`unstable`)
 - inkscape (`unstable`)
-- thunderbird-wayland (`unstable`)
 - vscode (`unstable`)
+- neovim (`unstable`)
 - discord-canary (`unstable`)
+- betterdiscordctl (`unstable`)
 - mpv (`unstable`)
 - imv (`unstable`)
-- zathura (`22.05`)
-- xournalpp (Custom derivation. See `$HOME/.config/home.nix`)
-- betterdiscordctl (`unstable`)
+- xournalpp (Custom derivation. See my [repo](https://github.com/chpxu/xournalpp))
+- zathura (`unstable`)
 <!-- - LibreOffice (void repos) -->
 ### Environment programs
 Applications or programs which setup my workspace
@@ -61,7 +120,7 @@ Applications or programs which setup my workspace
 - wl-clipboard (`unstable`)
 - kitty (`unstable`)
 - zsh (`unstable`)
-- wvkbd (`unstable`)
+- wvkbd (custom derivation. See my [repo](https://github.com/chpxu/wvkbd))
 
 ## Steps to use
 1. Clone the repository to somewhere safe, e.g. `$HOME`:
@@ -79,14 +138,14 @@ cp -r ./.config/* $HOME/.config
 ```sh
 cp -r /path/to/dotfiles/Pictures/* $HOME/Pictures
 ```
-6. Run `home-manager switch`. Reboot to be sure and check everything is installed and copied to nix store. You may get warnings about files being the same or skipping delete. That is fine. If you get any errors (usually file conflicts), resolve as necessary (usually deleting the file works).
+6. In the repository folder, navigate to `.config/nixpkgs` and run `home-manager switch --flake .#chunix`. Reboot to be sure and check everything is installed and copied to nix store. You may get warnings about files being the same or skipping delete. That is fine. If you get any errors (usually file conflicts), resolve as necessary (usually deleting the file works).
 
 Some things to do here: `betterdiscordctl` likes to not enable itself after restart/rebuild. Running TBD as a login script is the solution for now.
 
 This section should eventually be handled automatically by the install script in `./scripts/copy.sh`, but that is WIP.
 Now there are application specific customisations. Not all of them are complete.
 
-Note: channels. I am subscribed to nixpkgs-unstable, nixos-22.05 and home-manager master
+Note: channels. I am subscribed to nixpkgs-unstable, nixos-22.05.
 ### Firefox
 Assuming Firefox is installed, follow these instructions:
 1. Enable the extensions. This is due to how Firefox handles extension side-loading.

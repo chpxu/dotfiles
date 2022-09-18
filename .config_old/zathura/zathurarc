@@ -1,0 +1,58 @@
+# Initial template from https://github.com/dracula/zathura/blob/84377993528c064270514453bc5bf3fa4b7fe33d/zathurarc
+# Credits!
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+# Nord colour theme for Zathura
+# Swap Foreground for Background to get a light version if you prefer
+
+#
+# Nord colour theme
+#
+
+set notification-error-bg       "#bf616a" # Red
+set notification-error-fg       "#d8dee9" # Foreground
+set notification-warning-bg     "#d08770" # Orange
+set notification-warning-fg     "#4c566a" # Selection
+set notification-bg             "#2e3440" # Background
+set notification-fg             "#d8dee9" # Foreground
+
+set completion-bg               "#2e3440" # Background
+set completion-fg               "#3b4252" # Comment
+set completion-group-bg         "#2e3440" # Background
+set completion-group-fg         "#3b4252" # Comment
+set completion-highlight-bg     "#4c566a" # Selection
+set completion-highlight-fg     "#d8dee9" # Foreground
+
+set index-bg                    "#2e3440" # Background
+set index-fg                    "#d8dee9" # Foreground
+set index-active-bg             "#4c566a" # Current Line
+set index-active-fg             "#d8dee9" # Foreground
+
+set inputbar-bg                 "#2e3440" # Background
+set inputbar-fg                 "#d8dee9" # Foreground
+set statusbar-bg                "#2e3440" # Background
+set statusbar-fg                "#d8dee9" # Foreground
+
+set highlight-color             "#d08770" # Orange
+set highlight-active-color      "#b48ead" # Pink
+
+set default-bg                  "#2e3440" # Background
+set default-fg                  "#d8dee9" # Foreground
+
+set render-loading              true
+set render-loading-fg           "#2e3440" # Background
+set render-loading-bg           "#d8dee9" # Foreground
+
+#
+# Recolor mode settings
+#
+
+set recolor-lightcolor          "#2e3440" # Background
+set recolor-darkcolor           "#d8dee9" # Foreground
+
+#
+# Startup options
+#
+set adjust-open width
+set recolor true

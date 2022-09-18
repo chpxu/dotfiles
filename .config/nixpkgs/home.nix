@@ -3,28 +3,30 @@
   pkgs,
   lib,
   ...
-}: let
-  xournalpp-nord = import ./xournalpp/xournalpp-nordDark.nix;
-  # stable = import <nixos-stable> {config = {allowUnfree = true;};};
-in {
+}: {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: true;
   # home.username = "chunix";
   # home.homeDirectory = "/home/chunix";
   imports = [
-    ./vscode.nix
-    ./gh_git.nix
-    ./waybar.nix
-    ./zathura.nix
-    ./mpv.nix
-    ./kitty.nix
-    ./mako.nix
-    ./swaylock_swayidle.nix
-    ./kanshi.nix
-    ./xdg.nix
-    #./texlive.nix
-    ./firefox.nix
-    ./neovim.nix
+    ./modules/wayfire
+    ./modules/Discord
+    ./modules/Code
+    ./modules/gh_git
+    ./modules/waybar
+    ./modules/zathura
+    ./modules/mpv
+    ./modules/kitty
+    ./modules/mako
+    ./modules/sway
+    ./modules/kanshi
+    ./modules/xdg/xdg.nix
+    #.modules//texlive.nix
+    ./modules/python
+    ./modules/firefox
+    ./modules/neovim
+    ./modules/wofi
+    # ./modules/wireplumber
   ];
   # Install home packages
   home.packages = with pkgs; [
@@ -54,12 +56,19 @@ in {
     # applications
     firefox-wayland
     thunderbird-wayland
-    discord-canary
+    (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
+      version = "0.0.139";
+      src = fetchurl {
+        url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
+        sha256 = "sha256-/PfO0TWRxMrK+V1XkYmdaXQ6SfyJNBFETaR9oV90itI=";
+      };
+    }))
     betterdiscordctl
     inkscape-with-extensions
     gimp-with-plugins
     neofetch
     bitwarden
+    teams
     # OneDrive
     onedrive
     # Virtual Keyboard
@@ -72,7 +81,6 @@ in {
       };
     }))
 
-    #unstable.wgcf
     unzip
 
     # Utils
@@ -80,8 +88,8 @@ in {
     yt-dlp
     #ffmpeg_5-full
     jmtpfs
-    #qespresso
-    quantum-espresso
+    # Python
+    python310Full
 
     ### Custom Packages or Derivations or Combinations etc
     # TeXLive
@@ -108,27 +116,22 @@ in {
       name = "Nordzy";
       package = pkgs.nordzy-icon-theme;
     };
-    cursorTheme = {
-      name = "Nordzy-cursors";
-      package = pkgs.nordzy-cursor-theme;
-    };
+    # cursorTheme = {
+    #   name = "Nordzy-cursors";
+    #   package = pkgs.nordzy-cursor-theme;
+    # };
     gtk2 = {
       configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
-      extraConfig = ''
-        gtk-cursor-theme-name = "${cursorTheme.name}"
-        gtk-icon-theme-name = "${iconTheme.name}"
-        gtk-theme-name = "${theme.name}"
-      '';
     };
   };
   dconf = {
     settings = {
       "org/gnome/desktop/interface" = {
-        gtk-theme = "Nordic";
-        cursor-theme = "Nordzy-cursors";
+        gtk-theme = "${config.gtk.theme.name}";
+        # cursor-theme = "${config.gtk.cursorTheme.name}";
       };
       "org/gnome/desktop/wm/preferences" = {
-        theme = "Nordic";
+        theme = "${config.gtk.theme.name}";
       };
     };
   };
@@ -138,7 +141,9 @@ in {
       path = "${config.xdg.configHome}/zsh/zsh_history";
     };
     shellAliases = {
-      od = "onedrive --synchronize --upload-only && onedrive --synchronize --no-remote-delete";
+      odsu = "onedrive --synchronize --upload-only";
+      ods = "onedrive --synchronize --no-remote-delete";
+      teams = "teams --enable-features=UseOzonePlatform --ozone-platform=wayland";
     };
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
@@ -153,9 +158,7 @@ in {
       plugins = [
         "git"
         "gh"
-        "fzf"
         "npm"
-        "thefuck"
         "zsh-interactive-cd"
       ];
     };

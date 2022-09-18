@@ -106,7 +106,6 @@
     dconf
     linux-pam
     swaylock-effects
-    gcc
   ];
 
   # Fonts
@@ -115,18 +114,18 @@
     pkgs.times-newer-roman
   ];
   # zsh
-  programs.zsh = {
-    enable = true;
-    #loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-    };
-    loginShellInit = "wayfire";
-  };
+  # programs.zsh = {
+  #   enable = true;
+  #   #loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
+  #   autosuggestions.enable = true;
+  #   syntaxHighlighting.enable = true;
+  #   enableCompletion = true;
+  #   ohMyZsh = {
+  #     enable = true;
+  #     theme = "agnoster";
+  #   };
+  #   loginShellInit = "wayfire";
+  # };
   gtk.iconCache.enable = true;
   xdg.icons.enable = true;
   programs = {
