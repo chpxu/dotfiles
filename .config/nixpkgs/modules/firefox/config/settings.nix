@@ -50,21 +50,18 @@
     "font.name.monospace.x-western" = "FiraCode Nerd Font";
     "font.name.serif.x-western" = "Times Newer Roman";
     "gecko.handlerService.defaultHandlersVersion" = 1;
-    "gfx.canvas.accelerated" = true;
+    "gfx.canvas.accelerated" = false;
     "gfx.font_rendering.ahem_antialias_none" = true;
-    "gfx.webgpu.force-enabled" = true;
+    "gfx.webgpu.force-enabled" = false;
     "gfx.webrender.all" = true;
-    "gfx.webrender.compositor" = true;
+    "gfx.webrender.compositor" = false;
     "gfx.webrender.enabled" = true;
+    "gfx.webrender.quality.force-subpixel-aa-where-possible" = true;
     "layout.css.osx-font-smoothing.enabled" = true;
     "layout.css.prefers-color-scheme.content-override" = 0;
     "layout.spellcheckDefault" = 0;
     "media.eme.enabled" = true;
-    "media.ffmpeg.vaapi.enabled" = true;
-    "media.gmp-gmpopenh264.abi" = "x86_64-gcc3";
-    "media.gmp-gmpopenh264.version" = "1.8.1.2";
-    "media.gmp-widevinecdm.abi" = "x86_64-gcc3";
-    "media.gmp-widevinecdm.version" = "4.10.2449.0";
+    "media.ffmpeg.vaapi.enabled" = false;
     "media.gmp.storage.version.observed" = 1;
     "media.videocontrols.picture-in-picture.video-toggle.has-used" = true;
     "network.dns.disablePrefetch" = true;
@@ -82,6 +79,6 @@
     "privacy.userContext.extension" = "tabcenter-reborn@ariasuni";
     "privacy.userContext.ui.enabled" = true;
     "webgl.dxgl.enabled" = true;
-    "webgl.force-enabled " = true;
+    "webgl.force-enabled " = false;
   };
 }

@@ -82,6 +82,7 @@
     }))
 
     unzip
+    stress-ng
 
     # Utils
     xdg-utils
@@ -90,7 +91,11 @@
     jmtpfs
     # Python
     python310Full
-
+    # chromium
+    # === Audio ===
+    easyeffects
+    lsp-plugins
+    calf
     ### Custom Packages or Derivations or Combinations etc
     # TeXLive
     texlive.combined.scheme-full
@@ -103,7 +108,19 @@
         sha256 = "wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
       };
     }))
+    # (pkgs.osu-lazer.overrideAttrs (oldAttrs: rec {
+    #   version = "2022.911.0";
+    #   src = fetchFromGitHub {
+    #     owner = "ppy";
+    #     repo = "osu";
+    #     rev = version;
+    #     sha256 = "1skEAwd2WAtsyvmDfjCxaCU3YC3gOfXtrFWjmJ5rZrI=";
+    #   };
+    # }))
   ];
+  home.sessionVariables = {
+    # MOZ_ENABLE_WAYLAND = 1;
+  };
 
   # GTK themes
   gtk = rec {

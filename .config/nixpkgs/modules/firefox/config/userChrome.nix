@@ -4,7 +4,7 @@ in {
   userChrome = ''
     @import url(./verticaltabs.css);
     @import url(./oneline.css);
-    @import url(./userContent.css);
+    /*@import url(./components/menupopup/menupopup.css);*/
     /* === CUSTOM MODIFICATIONS=== */
 
     /* Start Page */
@@ -13,13 +13,6 @@ in {
         background-color: ${nord.nord0};
     }
 
-    /* Tabs Toolbar transparent background so the tabs float */
-    /*#TabsToolbar {
-        background: #2e344000 !important;
-    }*/
-
-
-    /* Override Firefox Nordic Theme context menu styling */
     /* Toolbox colors */
     #navigator-toolbox {
         border: 0 !important;
@@ -37,6 +30,7 @@ in {
         background: ${nord.nord0} !important;
         border-bottom: 1px solid none !important;
     }
+    /*
     #context-navigation {
         padding: 4px 8px 8px !important;
     }
@@ -59,6 +53,6 @@ in {
 
     menuitem[disabled="true"]:hover, menupopup menu[disabled="true"]:hover {
         background: transparent !important;
-    }
+    }*/
   '';
 }

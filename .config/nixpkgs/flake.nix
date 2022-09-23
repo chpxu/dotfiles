@@ -9,12 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    firefox-nightly.url = "github:mozilla/nixpkgs-mozilla";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nur,
+    firefox-nightly,
     ...
   }: let
     system = "x86_64-linux";

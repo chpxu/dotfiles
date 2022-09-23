@@ -12,7 +12,7 @@
       ao = "pulse,alsa";
       audio-channels = "auto";
       ytdl-format = "bestvideo+bestaudio";
-      cache-default = 4000000;
+      # cache-default = 4000000;/
     };
   };
 }
