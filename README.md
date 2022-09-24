@@ -48,9 +48,7 @@ The repository structure should look something like this (using a `JSON`-like re
   "Screenshots" = [
     // SS for the repo
   ],
-  "scripts" = [
-    // the install script. On hold whilst I update the repo.
-  ],
+  install.sh
   // Other files
 }
 ```
@@ -62,8 +60,8 @@ The repository structure should look something like this (using a `JSON`-like re
     3. An `xdg.nix` file. This file is used to source files to the appropriate directory. In cases where there is no home-manager configuration for a program, this file will act as the configuration file. Of course for the `xdg` subfolder, `xdg.nix` is the configuration file.
       - I use `xdg.configFile` out of personal preference. I can directory control where I want XDG to point to, what files to create and so on.
     4. A `config` folder containing either source files or more nix files for configuration of the program. Directory of this structure depends on how I prefer to organise it.
-      - I prefer `nix` files where I am able to use nix expressions to insert values to make life easier, otherwise I prefer `non .nix` config files.
-2. The `overlays` folder is a set of folders containing overlays. These will replace the various `overrideAttrs` I have in `home.nix` with something more flexible and cleaner. 
+      - I prefer `nix` files where I am able to use nix expressions to insert values to make life easier, otherwise I prefer `non .nix` config files where I do not need nix abstractions.
+2. The `overlays` folder is a set of folders containing overlays. These will replace the various `overrideAttrs` I have in `home.nix` with something more flexible and cleaner, eventually... 
 ## Screenshots
 New SS coming soon. 
 <!-- ![Desktop](https://github.com/chpxu/dotfiles/blob/void/Screenshots/desktop.png)
@@ -104,14 +102,14 @@ These are the main applications and programs I use. Everything has been installe
 - imv (`unstable`)
 - xournalpp (Custom derivation. See my [repo](https://github.com/chpxu/xournalpp))
 - zathura (`unstable`)
-<!-- - LibreOffice (void repos) -->
+- libreoffice-fresh (`unstable`)
 ### Environment programs
 Applications or programs which setup my workspace
 - wayfire (custom derivation to use `v0.7.4` for `src` instead)
 - wcm, wf-config (`unstable`)
 - waybar (`unstable`)
 - swayidle (`unstable`)
-- swaylock-effects (`unstable`)
+- swaylock-effects (`unstable`) (installed via system due to issue)
 - mako (`unstable`)
 - bemenu (`unstable`)
 - cliphist (`unstable`)
@@ -128,24 +126,10 @@ Applications or programs which setup my workspace
 git clone https://github.com/chpxu/dotfiles.git
 cd ./dotfiles
 ```
-2. Move `configuration.nix` and `hardware-configuration.nix` to `/etc/nixos/` (or wherever you have it installed). Ensure `hardware-configuration.nix` is correct for your system!
-3. Then copy all files and folders inside `./.config` to `$HOME/.config`:
-```sh
-cp -r ./.config/* $HOME/.config
-```
-4. Run `sudo nixos-rebuild switch`. Reboot to be sure and check everything is installed.
-5. Copy from the repo, the entire `Pictures` to `$HOME`:
-```sh
-cp -r /path/to/dotfiles/Pictures/* $HOME/Pictures
-```
-6. In the repository folder, navigate to `.config/nixpkgs` and run `home-manager switch --flake .#chunix`. Reboot to be sure and check everything is installed and copied to nix store. You may get warnings about files being the same or skipping delete. That is fine. If you get any errors (usually file conflicts), resolve as necessary (usually deleting the file works).
+2. Give `install.sh` permissions (`sudo chmod u+x install.sh` or something)
+3. Run `./install.sh`
 
-Some things to do here: `betterdiscordctl` likes to not enable itself after restart/rebuild. Running TBD as a login script is the solution for now.
-
-This section should eventually be handled automatically by the install script in `./scripts/copy.sh`, but that is WIP.
-Now there are application specific customisations. Not all of them are complete.
-
-Note: channels. I am subscribed to nixpkgs-unstable, nixos-22.05.
+This script will erase everything in `/etc/nixos` so please back up!!
 ### Firefox
 Assuming Firefox is installed, follow these instructions:
 1. Enable the extensions. This is due to how Firefox handles extension side-loading.

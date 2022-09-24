@@ -12,61 +12,75 @@
     };
   };
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur =
-      import (builtins.fetchTarball {
-        url = "https://github.com/nix-community/NUR/archive/1f80e16537599cff4c125eb306b0af827818e97c.tar.gz";
-        sha256 = "1l28ds47xzn5aw8k6hg7j8arfq8pv22vpg6vy830ddwxa42jwwfv";
-      }) {
-        inherit pkgs;
-      };
-  };
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Import home-manager
     <home-manager/nixos>
     # Pipewire
-    ./pipewire.nix
+    ./modules/pipewire.nix
     # tlp
-    ./tlp.nix
+    ./modules/tlp.nix
   ];
-  boot = {
-    # Use the systemd-boot EFI boot loader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    loader.grub.device = "/dev/nvme0n1";
-    loader.grub.theme = pkgs.nixos-grub2-theme;
-    loader.grub.efiSupport = true;
-    loader.grub.useOSProber = true;
+  fileSystems = {
+    "/".options = ["compress-force=zstd:6"];
   };
-  # Use xanmod custom kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  boot.kernelModules = ["uinput" "dpdk-kmods" "acpi_call"];
-  boot.supportedFilesystems = ["ntfs" "btrfs"];
-  # Define hostname
-  networking.hostName = "nixos";
-  # Pick only one of the below networking options.
-  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.wireless.networks = {
-    lolNiceTry = {
-      hidden = true;
-      psk = "XD";
+  boot = {
+    loader = {
+      # Use the systemd-boot EFI boot loader.
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      grub.device = "/dev/nvme0n1";
+      grub.theme = pkgs.nixos-grub2-theme;
+      grub.efiSupport = true;
+      grub.useOSProber = true;
+    };
+    # Kernel things
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelModules = ["uinput" "acpi_call"];
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    initrd.supportedFilesystems = ["btrfs"];
+    supportedFilesystems = ["ntfs" "btrfs"];
+  };
+  networking = {
+    # Define hostname
+    hostName = "nixos";
+    # Pick only one of the below networking options.
+    # Enables wireless support via wpa_supplicant.
+    wireless.enable = true;
+    # Easiest to use and most distros use this by default.
+    # networking.networkmanager.enable = true;
+    wireless.networks = {
     };
   };
-  # Set your time zone.
-  time.timeZone = "UTC+8";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
+  time.timeZone = "Europe/London";
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+    inputMethod = {
+      enabled = "ibus";
+      uim.toolbar = "gtk";
+      ibus = {
+        engines = with pkgs.ibus-engines; [anthy];
+      };
+    };
+    extraLocaleSettings = {
+      LC_MESSAGES = "en_GB.UTF-8";
+      LC_TIME = "en_GB.UTF-8";
+    };
+  };
   console = {
     packages = with pkgs; [
       terminus_font
     ];
     font = "ter-i32n";
     #keyMap = "us";
-    useXkbConfig = true; # use xkbOptions in tty.
+    #useXkbConfig = true; # use xkbOptions in tty.
+  };
+
+  # systemd stuff
+  systemd = {
+    watchdog.rebootTime = "0s";
   };
 
   # Enable CUPS to print documents.
@@ -76,12 +90,8 @@
   # sound.enable = true;
   hardware.pulseaudio.enable = false;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # set environment variables
   environment.sessionVariables = rec {
-    #XDG_RUNTIME_DIR = "/run/user/$UID";
     NIXOS_OZONE_WL = "wayland";
     SDL_VIDEODRIVER = "wayland";
     QT_QPA_WAYLAND = "wayland";
@@ -97,6 +107,7 @@
     shell = pkgs.zsh;
   };
   # List packages installed in system profile.
+  # Trying to keep as lean as possible.
   environment.systemPackages = with pkgs; [
     nano
     curl
@@ -109,25 +120,65 @@
   ];
 
   # Fonts
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "DejaVuSansMono" "SourceCodePro"];})
-    pkgs.times-newer-roman
-  ];
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [
+      (
+        nerdfonts.override {
+          fonts = ["FiraCode" "DejaVuSansMono" "SourceCodePro"];
+        }
+      )
+      pkgs.times-newer-roman
+    ];
+    fontconfig = {
+      hinting = {
+        enable = true;
+        style = "hintmedium";
+      };
+      defaultFonts = {
+        serif = "Times Newer Roman";
+        monospace = "FiraCode Nerd Font";
+        sansSerif = "DejaVu Sans Mono";
+      };
+    };
+  };
   # zsh
-  # programs.zsh = {
-  #   enable = true;
-  #   #loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
-  #   autosuggestions.enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   enableCompletion = true;
-  #   ohMyZsh = {
-  #     enable = true;
-  #     theme = "agnoster";
-  #   };
-  #   loginShellInit = "wayfire";
-  # };
+  programs.zsh = {
+    enable = true;
+    #loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = true;
+  };
   gtk.iconCache.enable = true;
-  xdg.icons.enable = true;
+  xdg = {
+    icons.enable = true;
+    #portal = {
+    #	enable = true;
+    #	extraPortals = with pkgs; [
+    #		xdg-desktop-portal-wlr
+    #		xdg-desktop-portal-gtk
+    #	];
+    #gtkUsePortal = true;
+    #};
+  };
+  # sddm??
+  #services.xserver.enable = true;
+  #services.xserver.displayManager.sddm = {
+  #	enable = true;
+  #	enableHidpi = true;
+  #	settings = {
+  #		General = {
+  #			DisplayServer = "wayland";
+  #			GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
+  #			InputMethod = "ibus";
+  #		};
+  #		Wayland = {
+  #			CompositorCommand = "wayfire";
+  #		};
+  #	};
+  #	theme = "";
+  #};
   programs = {
     light.enable = true;
     dconf.enable = true;
@@ -171,6 +222,7 @@
     extraPackages = with pkgs; [
       mesa.drivers
       libvdpau-va-gl
+      vaapiIntel
       vaapiVdpau
       intel-ocl
       libdrm
@@ -187,9 +239,6 @@
     };
   };
   hardware.video.hidpi.enable = true;
-
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 

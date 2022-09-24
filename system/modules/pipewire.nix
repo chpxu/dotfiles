@@ -1,7 +1,5 @@
 { config, pkgs, ...}:
-let
-  unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; };  };
-in {
+{
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -13,9 +11,9 @@ in {
         "link.max-buffers" = 16;
         "log.level" = 2;
         "default.clock.rate" = 48000;
-        "default.clock.quantum" = 1024;
-        "default.clock.min-quantum" = 32;
-        "default.clock.max-quantum" = 2048;
+        "default.clock.quantum" = 64;
+        "default.clock.min-quantum" = 2;
+        "default.clock.max-quantum" = 256;
         "core.daemon" = true;
         "core-name" = "pipewire-0";
       };
@@ -23,7 +21,7 @@ in {
         {
           name = "libpipewire-module-rtkit";
           args = {
-            "nice.level" = -11;
+            "nice.level" = -15;
             "rt.prio" = 88;
             "rt.time.soft" = -1;
             "rt.time.hard" = -1;
@@ -58,7 +56,7 @@ in {
         {
           name = "libpipewire-module-rtkit";
           args = {
-            "nice.level" = -11;
+            "nice.level" = -15;
             "rt.prio" = 88;
             "rt.time.soft" = -1;
             "rt.time.hard" = -1;
@@ -71,7 +69,14 @@ in {
         { name = "libpipewire-module-metadata"; }
         {
           name = "libpipewire-module-protocol-pulse";
-          args = {};
+          args = {
+	    			"pulse.min.req" = "32/48000";
+	    			"pulse.default.req" = "32/48000";
+	    			"pulse.max.req" = "32/48000";
+	    			"pulse.min.quantum" = "32/48000";
+	    			"pulse.max.quantum" = "32/48000";
+      	    "server.address" = [ "unix:native" ];
+	  			};
         }
       ];
       "stream.properties" = {

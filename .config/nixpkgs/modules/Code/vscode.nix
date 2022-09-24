@@ -39,6 +39,12 @@
           version = "1.2.3";
           sha256 = "zs7tVrevvWNCpOrLyGIHeIpjRweVj9GG0KpV9j5NN0w=";
         }
+        # {
+        #   name = "vscode-custom-css";
+        #   publisher = "be5invis";
+        #   version = "7.1.0";
+        #   sha256 = "";
+        # }
       ];
     userSettings = (import ./config/settings.nix).settings;
   };

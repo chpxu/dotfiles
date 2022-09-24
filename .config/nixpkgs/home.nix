@@ -9,24 +9,7 @@
   # home.username = "chunix";
   # home.homeDirectory = "/home/chunix";
   imports = [
-    ./modules/wayfire
-    ./modules/Discord
-    ./modules/Code
-    ./modules/gh_git
-    ./modules/waybar
-    ./modules/zathura
-    ./modules/mpv
-    ./modules/kitty
-    ./modules/mako
-    ./modules/sway
-    ./modules/kanshi
-    ./modules/xdg/xdg.nix
-    #.modules//texlive.nix
-    ./modules/python
-    ./modules/firefox
-    ./modules/neovim
-    ./modules/wofi
-    # ./modules/wireplumber
+    ./modules/default.nix
   ];
   # Install home packages
   home.packages = with pkgs; [
@@ -53,8 +36,9 @@
     wl-clipboard
     wofi
     imv
+    zsh-powerlevel10k
     # applications
-    firefox-wayland
+    # firefox-wayland
     thunderbird-wayland
     (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
       version = "0.0.139";
@@ -69,6 +53,7 @@
     neofetch
     bitwarden
     teams
+    libreoffice-fresh
     # OneDrive
     onedrive
     # Virtual Keyboard
@@ -108,19 +93,10 @@
         sha256 = "wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
       };
     }))
-    # (pkgs.osu-lazer.overrideAttrs (oldAttrs: rec {
-    #   version = "2022.911.0";
-    #   src = fetchFromGitHub {
-    #     owner = "ppy";
-    #     repo = "osu";
-    #     rev = version;
-    #     sha256 = "1skEAwd2WAtsyvmDfjCxaCU3YC3gOfXtrFWjmJ5rZrI=";
-    #   };
-    # }))
+
+    # game again
+    # bottles
   ];
-  home.sessionVariables = {
-    # MOZ_ENABLE_WAYLAND = 1;
-  };
 
   # GTK themes
   gtk = rec {
@@ -150,34 +126,6 @@
       "org/gnome/desktop/wm/preferences" = {
         theme = "${config.gtk.theme.name}";
       };
-    };
-  };
-  programs.zsh = {
-    dotDir = ".config/zsh";
-    history = {
-      path = "${config.xdg.configHome}/zsh/zsh_history";
-    };
-    shellAliases = {
-      odsu = "onedrive --synchronize --upload-only";
-      ods = "onedrive --synchronize --no-remote-delete";
-      teams = "teams --enable-features=UseOzonePlatform --ozone-platform=wayland";
-    };
-    enableSyntaxHighlighting = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    loginExtra = ''
-      wayfire
-      betterdiscordctl --d-modules ~/.config/discordcanary/0.0.137/modules/install
-    '';
-    oh-my-zsh = {
-      enable = true;
-      theme = "agnoster";
-      plugins = [
-        "git"
-        "gh"
-        "npm"
-        "zsh-interactive-cd"
-      ];
     };
   };
   # home.stateVersion = "22.05";
