@@ -4,52 +4,52 @@ This repository hosts my dotfiles and configs for various applications on NixOS.
 I will try to remember to give credits and links where possible but I'll probably forget.
 
 This repo will also be updated when I'm bothered
-- [ ] I should make a script copying the relevant files (WIP)
+- [x] I should make a script doing things
 
 ## How the repository is structured
 Since getting more comfortable with NixOS and home-manager, I've been working towards a more declarative setup (for now, in home-manager only) where all config and text files are declared in `.nix` files. This means I will no longer be writing config files separately and then symlinking them to the appropriate destination. Instead, this will all happen at once.
 
-The repository structure should look something like this (using a `JSON`-like representation):
-```
+The repository structure should look something like this (using a `YAML`-like representation):
+```yaml
 {
-  ".config_old" = {
-    // This will contain the same things in ".config" but the original configuration files, rather than the nix files
-  },
   ".config" = {
     "nixpkgs" = {
       "common" = [
-        // Anything common to all nix files, like theme colours 
+        # Anything common to all nix files, like theme colours 
       ],
       "modules" = {
         "programName" = [
-          "default.nix" "programName.nix" "xdg.nix" // Anything else
+          "default.nix" "programName.nix" "xdg.nix" # Anything else
       },
       "overlays" = {
         "overlayName" = [
-          // File for the overlay. used for things where I have a custom derivation
+          # File for the overlay. used for things where I have a custom derivation
         ]
       },
       "config.nix",
       "home.nix",
       "flake.nix",
       "flake.lock",
-      // Other files not in use
+      # Other files not in use
     }
   },
-  ".mozilla" = {
-    // This folder will mostly be for backup, since I have firefox managed via home-manager and NUR
+  "system" = {
+    # This folder is for the system configuration/ This has not been flakified
+  },
+  "old" = {
+    # This folder will mostly be for backup, since I have pretty much everything managed via home-manager and NUR
   },
   "docs" = {
-    // For the website. On pause whilst I significantly overhaul my repo
+    # For the website. On pause whilst I significantly overhaul my repo
   },
   "Pictures" = [
-    // Pictures I use
+    # Pictures I use
   ],
   "Screenshots" = [
-    // SS for the repo
+    # SS for the repo
   ],
   install.sh
-  // Other files
+  # Other files
 }
 ```
 
@@ -138,11 +138,13 @@ Assuming Firefox is installed, follow these instructions:
 
 Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.com/ranmaru22/firefox-vertical-tabs) and credits to  FILL_IN for the `oneline.css`.
 
-Both CSS files have had my own slight modifications. To edit `userChrome.css` or `userContent.css`, see `firefox.nix`.
+Both CSS files have had my own slight modifications. To edit `userChrome.css` or `userContent.css`, see `firefox.nix` and appropriate subdirectories (an absolute mess right now).
+
 
 #### To-Do
 - [ ] Fix errors in certain `about:` pages. This is pretty much done. There are a few minor changes to some pages that must be done, but the theming is much more consistent and less broken.
 - [x] The hover effect on the Tab Center Reborn is not of the correct colour.
+- [] Attempt to configure extensions declaratively.
 
 ### Thunderbird
 TBD.
@@ -154,8 +156,6 @@ Nothing else should need to be done if everything was copied correctly I think.
 
 - [x] Swaylock does not work unless it is a system package. This is a known upstream issue. 
 ### VSCode
-1. Ensure that VSCode has already created `$HOME/.config/Code`. It might not be `Code`, but `Code - OSS` or `Code - Insiders` instead.
-2. Copy the files in `dotfiles/Code` to the same locations in your home
 
 Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplace.visualstudio.com/items?itemName=beastdestroyer.firefox-quantum-themes) :)
 
@@ -167,7 +167,7 @@ Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplac
 The `home-manager switch` should be good to go.
 #### To-Do
 - [x] The background on the sidebar content is incorrect.
-- [ ] Check settings have been applied.
+- [x] Check settings have been applied. Achieved with symlinking.
 ### Discord
 NOTE: theming the main Discord client or using third-party client is against ToS and if discovered, could get your account banned. Do this at your own risk.
 
@@ -178,7 +178,8 @@ NOTE: theming the main Discord client or using third-party client is against ToS
 Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme which I modified.
 
 #### To-Do
-- [ ]  Further modifications to make the theme consistent in colour.
+- [ ] Further modifications to make the theme consistent in colour.
+- [ ] BetterDiscord actually starts everytime.
 
 ### Inkscape
 1. Ensure the GTK Nordic theme is installed.
