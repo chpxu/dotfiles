@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of Jane Doe";
+  description = "Home Manager configuration of chpxu";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -9,14 +9,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    firefox-nightly.url = "github:mozilla/nixpkgs-mozilla";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    #firefox-nightly.url = "github:mozilla/nixpkgs-mozilla";
   };
 
-  outputs = {
+  outputs = inputs @ {
     nixpkgs,
     home-manager,
     nur,
-    firefox-nightly,
+    nix-gaming,
+    #firefox-nightly,
     ...
   }: let
     system = "x86_64-linux";
@@ -33,6 +35,9 @@
       modules = [
         nur.nixosModules.nur
         ./home.nix
+        ./modules/default.nix
+        ./packages/environment.nix
+        ./packages/python.nix
         {
           home = {
             username = "chunix";
@@ -44,6 +49,9 @@
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
+      extraSpecialArgs = {
+        inherit inputs;
+      };
     };
   };
 }

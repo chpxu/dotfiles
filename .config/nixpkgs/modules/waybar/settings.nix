@@ -147,9 +147,9 @@
         tooltip = false;
       };
       "custom/keyboard" = {
-        format = "";
+        format = " ";
         tooltip = false;
-        on-click = "exec ~/.config/waybar/wvkbd.sh";
+        on-click = "exec ./wvkbd.sh";
       };
     };
   };

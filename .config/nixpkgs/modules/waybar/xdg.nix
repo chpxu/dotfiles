@@ -4,6 +4,7 @@
   options,
   specialArgs,
   modulesPath,
+  ...
 }: let
   paths = import ./. + "../../common/paths.nix";
 in {

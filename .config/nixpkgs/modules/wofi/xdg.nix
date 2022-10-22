@@ -4,6 +4,7 @@
   options,
   specialArgs,
   modulesPath,
+  ...
 }: {
   xdg.configFile = {
     "wofi/config" = {

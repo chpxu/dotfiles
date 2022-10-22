@@ -2,102 +2,82 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: true;
-  # home.username = "chunix";
-  # home.homeDirectory = "/home/chunix";
-  imports = [
-    ./modules/default.nix
-  ];
-  # Install home packages
-  home.packages = with pkgs; [
-    # Reserve this for programs which do not have config options n home-manager
-    # Audio
-    pipewire
-    wireplumber
-    alsa-utils
-    (pkgs.wayfire.overrideAttrs (oldAttrs: rec {
-      version = "0.7.4";
-      src = fetchurl {
-        url = "https://github.com/WayfireWM/wayfire/releases/download/v${version}/wayfire-${version}.tar.xz";
-        sha256 = "89e375f7320d7bd4023d9f9499f979ee7209594afbb5aa0cfd897934a7f0514d";
-      };
-    }))
-    wcm
-    wf-config
-    bemenu
-    cliphist
-    grim
-    slurp
-    swayidle
-    kanshi
-    wl-clipboard
-    wofi
-    imv
-    zsh-powerlevel10k
-    # applications
-    # firefox-wayland
-    thunderbird-wayland
-    (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
-      version = "0.0.139";
-      src = fetchurl {
-        url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
-        sha256 = "sha256-/PfO0TWRxMrK+V1XkYmdaXQ6SfyJNBFETaR9oV90itI=";
-      };
-    }))
-    betterdiscordctl
-    inkscape-with-extensions
-    gimp-with-plugins
-    neofetch
-    bitwarden
-    teams
-    libreoffice-fresh
-    # OneDrive
-    onedrive
-    # Virtual Keyboard
-    (pkgs.wvkbd.overrideAttrs (oldAttrs: rec {
-      src = fetchFromGitHub {
-        owner = "chpxu";
-        repo = "wvkbd";
-        rev = "6ee1764535a06b9888242ad4a9c42a7ac9821791";
-        sha256 = "TWd/CECWxZJ0WeFVjeuHWAq9fGKGOd6MLpjvzOpKGOo=";
-      };
-    }))
+  manual.manpages.enable = false;
+  # Install ohome packages
+  home.packages = with pkgs;
+    [
+    	dolphin
+      thunderbird-wayland
+      (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
+        version = "0.0.139";
+        src = fetchurl {
+          url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
+          sha256 = "sha256-/PfO0TWRxMrK+V1XkYmdaXQ6SfyJNBFETaR9oV90itI=";
+        };
+      }))
+      betterdiscordctl
+      inkscape-with-extensions
+      gimp-with-plugins
+      neofetch
+      bitwarden
+      teams
+      libreoffice-fresh
+      # OneDrive
+      onedrive
+      # Virtual Keyboard
+      (pkgs.wvkbd.overrideAttrs (oldAttrs: rec {
+        src = fetchFromGitHub {
+          owner = "chpxu";
+          repo = "wvkbd";
+          rev = "6ee1764535a06b9888242ad4a9c42a7ac9821791";
+          sha256 = "TWd/CECWxZJ0WeFVjeuHWAq9fGKGOd6MLpjvzOpKGOo=";
+        };
+      }))
 
-    unzip
-    stress-ng
+      unzip
 
-    # Utils
-    xdg-utils
-    yt-dlp
-    #ffmpeg_5-full
-    jmtpfs
-    # Python
-    python310Full
-    # chromium
-    # === Audio ===
-    easyeffects
-    lsp-plugins
-    calf
-    ### Custom Packages or Derivations or Combinations etc
-    # TeXLive
-    texlive.combined.scheme-full
-    #xournalpp-nord
-    (pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
-      src = fetchFromGitHub {
-        owner = "chpxu";
-        repo = "xournalpp";
-        rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214";
-        sha256 = "wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
-      };
-    }))
+      # Utils
+      xdg-utils
+      yt-dlp
+      #ffmpeg_5-full
+      jmtpfs
 
-    # game again
-    # bottles
-  ];
+      # chromium
+      # === Audio ===
+      # easyeffects
+      # lsp-plugins
+      # calf
+      ### Custom Packages or Derivations or Combinations etc
+      # TeXLive
+      texlive.combined.scheme-full
+      ltex-ls
+      tikzit
 
+      #(pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
+      #  src = fetchFromGitHub {
+      #    owner = "chpxu";
+      #    repo = "xournalpp1";
+      #    rev = "3b7a80b6e2f516befa8a06ef281cee47bdecdcf9";
+      #    sha256 = "sha256-wfR0SqjTTZTta2VBQ9vRWyCaNFTzC0KaFpInrKn/FBU=";
+      #  };
+      #}))
+      xournalpp
+      lammps
+      # opentabletdriver
+    ]
+    ++ [
+      pkgs.gamemode
+      inputs.nix-gaming.packages.${pkgs.system}.osu-stable
+      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    ];
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 1;
+  };
   # GTK themes
   gtk = rec {
     enable = true;

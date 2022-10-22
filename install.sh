@@ -9,6 +9,13 @@
 # 5. Go to home-manager configuration and run `home-manager switch --flake path:.`
 
 pwd=$(pwd)
+# This script also uses sed to change a line in the root flake.nix:
+#  modules = [
+# - ./system/modified/configuration.nix
+# + ./system/configuration.nix
+# ]
+# This is because I use a private config with more personal data
+sed -i "s/modified\/configuration.nix/configuration.nix/g" flake.nix
 # 1
 sudo mkdir -p /etc/nixos/old
 sudo mv -r /etc/nixos/*.* /etc/nios/old/

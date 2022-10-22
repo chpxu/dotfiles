@@ -5,7 +5,9 @@
   config,
   pkgs,
   ...
-}: rec {
+}: let
+  caudex = pkgs.callPackage ../modules/caudex/default.nix {};
+in rec {
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -80,7 +82,19 @@
 
   # systemd stuff
   systemd = {
-    watchdog.rebootTime = "0s";
+    watchdog.runtimeTime = "10s";
+    services = {
+      secrets = {
+        script = ''
+          if [ -L /run/p.env ]; then
+            rm /run/p.env
+          else
+            ln -s /home/chunix/git_projects/dotfiles/system/modified/p.env /run/p.env || exit 1
+          fi
+        '';
+        wantedBy = ["multi-user.target"];
+      };
+    };
   };
 
   # Enable CUPS to print documents.
@@ -123,6 +137,7 @@
   fonts = {
     enableDefaultFonts = true;
     fonts = with pkgs; [
+      caudex
       (
         nerdfonts.override {
           fonts = ["FiraCode" "DejaVuSansMono" "SourceCodePro"];

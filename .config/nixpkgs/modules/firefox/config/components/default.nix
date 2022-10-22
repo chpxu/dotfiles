@@ -94,7 +94,7 @@ in {
       --checkbox-checked-border-color: transparent;
       --checkbox-checked-hover-bgcolor: var(--in-content-primary-button-background-hover);
       --checkbox-checked-active-bgcolor: var(--in-content-primary-button-background-active);
-      color-scheme: dark;
+      color-scheme: light dark;
     }
     /*:root {
       color: -moz-DialogText;

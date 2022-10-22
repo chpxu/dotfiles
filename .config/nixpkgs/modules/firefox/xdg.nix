@@ -4,6 +4,7 @@
   options,
   specialArgs,
   modulesPath,
+  ...
 }: {
   home.file = {
     ".config/firefox/chrome/oneline.css" = {
