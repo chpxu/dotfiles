@@ -9,8 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+
     nix-gaming.url = "github:fufexan/nix-gaming";
-    #firefox-nightly.url = "github:mozilla/nixpkgs-mozilla";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -18,6 +23,7 @@
     home-manager,
     nur,
     nix-gaming,
+    hyprland,
     #firefox-nightly,
     ...
   }: let
@@ -34,6 +40,11 @@
       # the path to your home.nix.
       modules = [
         nur.nixosModules.nur
+        hyprland.homeManagerModules.default
+        {
+          # programs.hyprland.enable = true;
+          wayland.windowManager.hyprland.enable = true;
+        }
         ./home.nix
         ./modules/default.nix
         ./packages/environment.nix

@@ -4,8 +4,8 @@
       layer = "bottom";
       position = "top";
       height = 30;
-      margin-left = 2;
-      margin-right = 2;
+      # margin-left = 2;
+      # margin-right = 2;
       spacing = 0;
       modules-left = [
         "custom/launcher"
@@ -33,11 +33,11 @@
         on-click = "activate";
       };
       "wlr/taskbar" = {
-        all-outputs = false;
-        format = "{icon}";
+        all-outputs = true;
+        format = "{icon} {app_id}";
         icon-size = 20;
         icon-theme = "Nordzy";
-        tooltip = true;
+        tooltip = false;
         tooltip-format = "{icon} {app_id}";
         on-click = "minimize-raise";
       };
@@ -98,10 +98,10 @@
         format-plugged = " {capacity}%";
         format-alt = "{time} {icon}";
         format-icons = [
-          ""
-          ""
-          ""
-          ""
+          " "
+          " "
+          " "
+          " "
         ];
       };
       network = {
@@ -147,9 +147,11 @@
         tooltip = false;
       };
       "custom/keyboard" = {
-        format = " ";
+        format = "";
         tooltip = false;
-        on-click = "exec ./wvkbd.sh";
+        # exec = "exec $HOME/.config/waybar/wvkbd.sh";
+        on-click = "exec $HOME/.config/waybar/wvkbd.sh";
+        exec-on-event = false;
       };
     };
   };

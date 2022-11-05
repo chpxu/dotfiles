@@ -4,20 +4,23 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  discordver = "0.0.140";
+in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: true;
   manual.manpages.enable = false;
   # Install ohome packages
+
   home.packages = with pkgs;
     [
-    	dolphin
+      dolphin
       thunderbird-wayland
       (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
-        version = "0.0.139";
+        version = discordver;
         src = fetchurl {
           url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
-          sha256 = "sha256-/PfO0TWRxMrK+V1XkYmdaXQ6SfyJNBFETaR9oV90itI=";
+          sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0=";
         };
       }))
       betterdiscordctl
@@ -47,32 +50,27 @@
       #ffmpeg_5-full
       jmtpfs
 
-      # chromium
-      # === Audio ===
-      # easyeffects
-      # lsp-plugins
-      # calf
-      ### Custom Packages or Derivations or Combinations etc
       # TeXLive
       texlive.combined.scheme-full
       ltex-ls
       tikzit
 
-      #(pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
-      #  src = fetchFromGitHub {
-      #    owner = "chpxu";
-      #    repo = "xournalpp1";
-      #    rev = "3b7a80b6e2f516befa8a06ef281cee47bdecdcf9";
-      #    sha256 = "sha256-wfR0SqjTTZTta2VBQ9vRWyCaNFTzC0KaFpInrKn/FBU=";
-      #  };
-      #}))
-      xournalpp
+      (pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
+        src = fetchFromGitHub {
+          owner = "chpxu";
+          repo = "xournalpp";
+          rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214";
+          sha256 = "sha256-wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
+        };
+      }))
+      # xournalpp
+      rnote
       lammps
       # opentabletdriver
     ]
     ++ [
       pkgs.gamemode
-      inputs.nix-gaming.packages.${pkgs.system}.osu-stable
+      # inputs.nix-gaming.packages.${pkgs.system}.osu-stable
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     ];
   home.sessionVariables = {
@@ -89,10 +87,11 @@
       name = "Nordzy";
       package = pkgs.nordzy-icon-theme;
     };
-    # cursorTheme = {
-    #   name = "Nordzy-cursors";
-    #   package = pkgs.nordzy-cursor-theme;
-    # };
+    cursorTheme = {
+      name = "Nordzy-cursors";
+      package = pkgs.nordzy-cursor-theme;
+      size = 32;
+    };
     gtk2 = {
       configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
     };
@@ -108,6 +107,5 @@
       };
     };
   };
-  # home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 }

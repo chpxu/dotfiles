@@ -62,10 +62,12 @@ in {
     #idle_inhibitor,
     #pulseaudio,
     #custom-launcher,
-    #custom-separator {
+    #custom-separator,
+    #custom-keyboard {
       padding: 0 5px 0 5px;
       margin: 5px 0 5px 0;
       border-radius: 5px;
+      color: inherit;
     }
 
     #battery,
@@ -104,7 +106,9 @@ in {
         border: none;
         color: ${nord.nord6};
     }
-    #taskbar button:hover {
+    #taskbar button:hover,
+    #custom-launcher:hover,
+    #custom-keyboard:hover {
         /*transition: background-color 0.125s ease-in-out;*/
         background-color: ${nord.nord2};
     }
@@ -118,6 +122,9 @@ in {
     /* Custom Module: Start Button for launcher  */
     #custom-launcher {
         color: ${nord.nord10};
+    }
+    #custom-launcher:hover {
+      background-color: ${nord.nord2};
     }
     #custom-separator {
         color: ${nord.nord4};

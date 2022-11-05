@@ -26,6 +26,7 @@
       bitwarden
       tabcenter-reborn
       ublock-origin
+      auto-tab-discard
     ];
     profiles = {
       chunix = {
