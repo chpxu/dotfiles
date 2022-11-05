@@ -4,6 +4,8 @@
   options,
   specialArgs,
   modulesPath,
+  inputs,
+  ...
 }: {
   imports = [
     ./wayfire

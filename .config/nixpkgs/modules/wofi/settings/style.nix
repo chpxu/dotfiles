@@ -49,10 +49,6 @@ in {
       outline: none;
     }
     #outer-box {
-      /* border: 1px solid ${theme.nord4}; */
-      border-left: 2px solid black;
-      border-right: 2px solid black;
-      border-bottom: 2px solid black;
       outline: none;
     }
   '';

@@ -6,8 +6,8 @@
   <property name="pressureMultiplier" value="1.00000000"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Nord_Dark"/>
-  <property name="lastSavePath" value="/home/chung/OneDrive/Mathematics/Number Theory"/>
-  <property name="lastOpenPath" value="/home/chung/.config/xournalpp"/>
+  <property name="lastSavePath" value=""/>
+  <property name="lastOpenPath" value=""/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20.00000000"/>
   <property name="edgePanMaxMult" value="5.00000000"/>
@@ -52,7 +52,7 @@
   <property name="autoloadPdfXoj" value="false"/>
   <property name="defaultSaveName" value="%F-Note-%H-%M"/>
   <property name="autosaveEnabled" value="true"/>
-  <property name="autosaveTimeout" value="3"/>
+  <property name="autosaveTimeout" value="1"/>
   <property name="addHorizontalSpace" value="false"/>
   <property name="addHorizontalSpaceAmount" value="150"/>
   <property name="addVerticalSpace" value="false"/>
@@ -73,9 +73,9 @@
   <property name="pageRerenderThreshold" value="5.00000000"/>
   <!--The count of rendered PDF pages which will be cached.-->
   <property name="pdfPageCacheSize" value="10"/>
-  <property name="preloadPagesBefore" value="2"/>
+  <property name="preloadPagesBefore" value="4"/>
   <property name="preloadPagesAfter" value="4"/>
-  <property name="eagerPageCleanup" value="true"/>
+  <property name="eagerPageCleanup" value="false"/>
   <!--Config for new pages-->
   <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=plain&#10;backgroundColor=#ff2e3440&#10;"/>
   <property name="sizeUnit" value="cm"/>
@@ -102,7 +102,7 @@
   <property name="stabilizerAveragingMethod" value="0"/>
   <property name="stabilizerPreprocessor" value="0"/>
   <property name="stabilizerBuffersize" value="20"/>
-  <property name="stabilizerSigma" value="0.50000000"/>
+  <property name="stabilizerSigma" value="0.60000000"/>
   <property name="stabilizerDeadzoneRadius" value="1.30000000"/>
   <property name="stabilizerDrag" value="0.40000000"/>
   <property name="stabilizerMass" value="5.00000000"/>

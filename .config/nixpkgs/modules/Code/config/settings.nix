@@ -6,7 +6,7 @@ in {
     "latex-workshop.latex.recipes" = [
       {
         "name" = "lualatex ➞ biber ➞ lualatex × 2";
-        "tools" = ["lualatex"];
+        "tools" = ["lualatex" "lualatex"];
       }
     ];
     "latex-workshop.latex.tools" = [
@@ -34,7 +34,7 @@ in {
     "latex-workshop.view.pdf.external.viewer.command" = "zathura";
     "latex-workshop.view.pdf.external.viewer.args" = [
       "--synctex-editor-command"
-      "code --reuse-window -g \"%{input}:%{line}\""
+      "code --no-sandbox --reuse-window -g \"%{input}:%{line}\""
       "%PDF%"
     ];
     "latex-workshop.view.pdf.external.synctex.command" = "zathura";
@@ -45,15 +45,42 @@ in {
     "latex-workshop.latex.rootFile.doNotPrompt" = true;
     "latex-workshop.latex.autoBuild.run" = "never";
     "latex-workshop.intellisense.citation.backend" = "biblatex";
+    "latex-workshop.hover.preview.enabled" = true;
+    "latex-workshop.hover.preview.mathjax.extensions" = [
+      "amscd"
+      "bbox"
+      "boldsymbol"
+      "braket"
+      "cases"
+      "colortbl"
+      "mathtools"
+      "physics"
+      "unicode"
+      "upgreek"
+    ];
+    "latex-workshop.linting.chktex.enabled" = true;
+    "latex-workshop.linting.chktex.exec.args" = [
+			"-wall"
+    	"-n22"
+    	"-n21"
+    	"-n30"
+    	"-e16"
+    	"-q"
+    ];
+    "latex-workshop.linting.lacheck.enabled" = true;
     "editor.guides.bracketPairs" = true;
     "editor.fontFamily" = "'FiraCode Nerd Font','Source Code Pro', 'monospace', monospace";
     "editor.fontLigatures" = true;
+    "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
+    "editor.formatOnSave" = true;
     "editor.cursorSmoothCaretAnimation" = true;
     "editor.smoothScrolling" = true;
     "editor.cursorBlinking" = "smooth";
     "editor.lineHeight" = 22;
+    "editor.minimap.enabled" = false;
     "editor.wordWrap" = "wordWrapColumn";
     "editor.wordWrapColumn" = 120;
+    "editor.renderWhitespace" = "all";
     "editor.tabSize" = 2;
     "security.workspace.trust.untrustedFiles" = "open";
     "redhat.telemetry.enabled" = false;
@@ -63,9 +90,6 @@ in {
     "workbench.settings.enableNaturalLanguageSearch" = false;
     "workbench.enableExperiments" = false;
     "update.showReleaseNotes" = false;
-    "editor.renderWhitespace" = "all";
-    "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
-    "editor.minimap.enabled" = false;
     "files.enableTrash" = false;
     "workbench.list.smoothScrolling" = true;
     "workbench.reduceMotion" = "off";
@@ -96,7 +120,10 @@ in {
     "[python]" = {
       "editor.defaultFormatter" = "ms-python.python";
     };
-    "editor.defaultFormatter" = editorDefaultFormatter;
+    "[latex]" = {
+      "editor.defaultFormatter" = "James-Yu.latex-workshop";
+    };
+    #"editor.defaultFormatter" = editorDefaultFormatter;
     # ESLint
     "eslint.enable" = true;
     "eslint.runtime" = "node";
@@ -105,8 +132,24 @@ in {
     # Python time!
     "python.languageServer" = "Pylance";
     "python.linting.pylintEnabled" = true;
+    "python.diagnostics.sourceMapsEnabled" = true;
+    "python.globalModuleInstallation" = true;
+    #"python.defaultInterpreterPath" = "${pkgs.python310Full}/bin/python";
     ## Configure Pylance
     "python.analysis.typeCheckingMode" = "strict";
     "python.analysis.completeFunctionParens" = true;
+    "ltex.enabled" = true;
+    "ltex.language" = "en-GB";
+    "ltex.dictionary" = {
+      "en" = [
+      	"monic"
+      	"infimum"
+      	"supremum"
+      	"bolzano"
+      	"weierstrass"
+      	"euler"
+      ];
+    };
+    "ltex.statusBarItem" = true;
   };
 }

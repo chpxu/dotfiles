@@ -5,6 +5,7 @@
   options,
   specialArgs,
   modulesPath,
+  ...
 }: {
   programs.zsh = {
     # dotDir = ".config/zsh";

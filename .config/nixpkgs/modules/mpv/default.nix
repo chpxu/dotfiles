@@ -4,6 +4,7 @@
   options,
   specialArgs,
   modulesPath,
+  ...
 }: {
   imports = [./mpv.nix];
 }

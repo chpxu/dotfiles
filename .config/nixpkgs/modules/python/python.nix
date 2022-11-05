@@ -6,7 +6,7 @@
   # Apparently pylint can be managed through HM so let's try
   programs.pylint = {
     enable = true;
-    package = pkgs.python310Packages.pylint;
+    package = pkgs.pylint;
     settings = {
       "[MASTER]" = {
         "profile" = "no";

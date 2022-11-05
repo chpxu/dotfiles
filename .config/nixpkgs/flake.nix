@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of Jane Doe";
+  description = "Home Manager configuration of chpxu";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -9,14 +9,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    firefox-nightly.url = "github:mozilla/nixpkgs-mozilla";
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
+  outputs = inputs @ {
     nixpkgs,
     home-manager,
     nur,
-    firefox-nightly,
+    nix-gaming,
+    hyprland,
+    #firefox-nightly,
     ...
   }: let
     system = "x86_64-linux";
@@ -32,7 +40,15 @@
       # the path to your home.nix.
       modules = [
         nur.nixosModules.nur
+        hyprland.homeManagerModules.default
+        {
+          # programs.hyprland.enable = true;
+          wayland.windowManager.hyprland.enable = true;
+        }
         ./home.nix
+        ./modules/default.nix
+        ./packages/environment.nix
+        ./packages/python.nix
         {
           home = {
             username = "chunix";
@@ -44,6 +60,9 @@
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
+      extraSpecialArgs = {
+        inherit inputs;
+      };
     };
   };
 }

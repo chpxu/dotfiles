@@ -5,6 +5,8 @@
   options,
   specialArgs,
   modulesPath,
+  inputs,
+  ...
 }: let
   paths = import ../../common/paths.nix;
 in {
