@@ -6,8 +6,8 @@
   ...
 }: {
   imports = [
-    ./packages/python.nix
-    ./packages/environment.nix
-    ./packages/applications.nix
+    ./python.nix
+    ./environment.nix
+    ./applications.nix
   ];
 }
