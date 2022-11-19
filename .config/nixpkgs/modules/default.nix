@@ -8,7 +8,7 @@
   ...
 }: {
   imports = [
-    ./wayfire
+    # ./wayfire
     ./Discord
     ./Code
     ./gh_git
@@ -26,6 +26,8 @@
     ./neovim
     ./wofi
     ./zsh
+    ./hyprland
+    ./starship
     # ./modules/osu-stable
     # ./modules/wireplumber
   ];

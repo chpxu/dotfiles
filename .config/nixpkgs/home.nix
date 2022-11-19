@@ -14,7 +14,9 @@ in {
 
   home.packages = with pkgs;
     [
-      dolphin
+      # dolphin
+      neovide
+      appimage-run
       thunderbird-wayland
       (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
         version = discordver;
@@ -65,8 +67,10 @@ in {
       }))
       # xournalpp
       rnote
-      lammps
-      # opentabletdriver
+      # lammps
+      xorg.xprop
+      wev
+      pdfarranger
     ]
     ++ [
       pkgs.gamemode

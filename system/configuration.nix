@@ -112,6 +112,8 @@ in rec {
     BEMENU_BACKEND = "wayland";
     CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
     LIBSEAT_BACKEND = "logind";
+    GDK_SCALE = "2";
+    XCURSOR_SIZE = "32";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -130,7 +132,14 @@ in rec {
     tlp
     dconf
     linux-pam
-    swaylock-effects
+    (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
+      src = fetchFromGitHub {
+        owner = "jirutka";
+        repo = "swaylock-effects";
+        rev = "b2736c5bef3add118183654305d05903c5947668";
+        sha256 = "";
+      };
+    }))
   ];
 
   # Fonts

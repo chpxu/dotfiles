@@ -18,7 +18,8 @@ in {
       margin: 5px 0 5px 5px;
       border-radius: 5px;
     }
-    #workspaces button {
+    #workspaces button
+    custom-addWorkspace {
       color: ${nord.nord6};
       background: ${nord.nord3};
       border: none;
@@ -38,6 +39,14 @@ in {
       transition: background 0.5s ease-in-out;
       background: ${nord.nord11};
     }
+     #custom-launcher,
+     #custom-separator,
+     #custom-keyboard {
+      padding: 0 5px 0 5px;
+      margin: 5px 0 5px 0;
+      border-radius: 5px;
+      color: inherit;
+     }
     #window {
       margin-left: 5px;
       color: ${nord.nord15};
@@ -60,10 +69,8 @@ in {
     #tray,
     #clock,
     #idle_inhibitor,
-    #pulseaudio,
-    #custom-launcher,
-    #custom-separator,
-    #custom-keyboard {
+    #pulseaudio
+    {
       padding: 0 5px 0 5px;
       margin: 5px 0 5px 0;
       border-radius: 5px;

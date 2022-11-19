@@ -1,9 +1,9 @@
 {
   settings = {
     mainBar = {
-      layer = "bottom";
+      layer = "top";
       position = "top";
-      height = 30;
+      height = 35;
       # margin-left = 2;
       # margin-right = 2;
       spacing = 0;
@@ -13,6 +13,8 @@
         "custom/keyboard"
         "custom/separator"
         "tray"
+        "custom/separator"
+        "wlr/workspaces"
       ];
       modules-center = [
         "wlr/taskbar"
@@ -30,6 +32,8 @@
       # Modules configuration
       "wlr/workspaces" = {
         format = "{name}";
+        on-scroll-up = "hyprctl dispatch workspace e+1";
+        on-scroll-down = "hyprctl dispatch workspace e-1";
         on-click = "activate";
       };
       "wlr/taskbar" = {
@@ -147,10 +151,17 @@
         tooltip = false;
       };
       "custom/keyboard" = {
-        format = "";
+        format = " ";
         tooltip = false;
         # exec = "exec $HOME/.config/waybar/wvkbd.sh";
         on-click = "exec $HOME/.config/waybar/wvkbd.sh";
+        exec-on-event = false;
+      };
+      "custom/addWorkspace" = {
+        format = "+";
+        tooltip = false;
+        # exec = "exec $HOME/.config/waybar/wvkbd.sh";
+        on-click = "hyperctl dispatch workspace +1";
         exec-on-event = false;
       };
     };

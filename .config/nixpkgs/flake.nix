@@ -10,9 +10,17 @@
     };
     nur.url = "github:nix-community/NUR";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
       # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -24,6 +32,7 @@
     nur,
     nix-gaming,
     hyprland,
+    hyprpaper,
     #firefox-nightly,
     ...
   }: let
@@ -38,17 +47,22 @@
 
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
+
       modules = [
         nur.nixosModules.nur
         hyprland.homeManagerModules.default
         {
           # programs.hyprland.enable = true;
-          wayland.windowManager.hyprland.enable = true;
+          wayland.windowManager.hyprland = {
+            enable = true;
+            extraConfig = (import ./modules/hyprland/hyprland.nix).extraConfig;
+          };
         }
-        ./home.nix
-        ./modules/default.nix
-        ./packages/environment.nix
         ./packages/python.nix
+        ./packages/environment.nix
+        ./modules/default.nix
+        ./home.nix
+
         {
           home = {
             username = "chunix";

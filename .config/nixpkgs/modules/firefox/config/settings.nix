@@ -61,9 +61,10 @@
     "gecko.handlerService.defaultHandlersVersion" = 1;
     "gfx.canvas.accelerated" = true;
     "gfx.font_rendering.ahem_antialias_none" = true;
-    "gfx.webgpu.force-enabled" = false;
+    "gfx.webgpu.force-enabled" = true;
     "gfx.webrender.all" = true;
-    "gfx.webrender.compositor" = false;
+    "gfx.webrender.compositor" = true;
+    "gfx.webrender.compositor.force-enabled" = false;
     "gfx.webrender.enabled" = true;
     "gfx.webrender.quality.force-subpixel-aa-where-possible" = true;
     "layout.css.osx-font-smoothing.enabled" = true;
@@ -106,6 +107,11 @@
     "toolkit.telemetry.updatePing.enabled" = false;
     "webgl.dxgl.enabled" = true;
     "webgl.disabled" = false;
-    "webgl.force-enabled" = false;
+    "webgl.force-enabled" = true;
+    "widget.dmabuf.force-enabled" = false;
+    "widget.wayland-dmabuf-webgl.enabled" = true;
+    "widget.wayland-dmabuf-textures.enabled" = true;
+    "widget.dmabuf-textures.enabled" = true;
+    "widget.wayland-dmabuf-vaapi.enabled" = true;
   };
 }

@@ -60,12 +60,12 @@ in {
     ];
     "latex-workshop.linting.chktex.enabled" = true;
     "latex-workshop.linting.chktex.exec.args" = [
-			"-wall"
-    	"-n22"
-    	"-n21"
-    	"-n30"
-    	"-e16"
-    	"-q"
+      "-wall"
+      "-n22"
+      "-n21"
+      "-n30"
+      "-e16"
+      "-q"
     ];
     "latex-workshop.linting.lacheck.enabled" = true;
     "editor.guides.bracketPairs" = true;
@@ -81,7 +81,7 @@ in {
     "editor.wordWrap" = "wordWrapColumn";
     "editor.wordWrapColumn" = 120;
     "editor.renderWhitespace" = "all";
-    "editor.tabSize" = 2;
+    "editor.tabSize" = 4;
     "security.workspace.trust.untrustedFiles" = "open";
     "redhat.telemetry.enabled" = false;
     "telemetry.telemetryLevel" = "off";
@@ -118,12 +118,12 @@ in {
       "editor.defaultFormatter" = "kamadorueda.alejandra";
     };
     "[python]" = {
-      "editor.defaultFormatter" = "ms-python.python";
+      "editor.defaultFormatter" = "black";
     };
     "[latex]" = {
       "editor.defaultFormatter" = "James-Yu.latex-workshop";
     };
-    #"editor.defaultFormatter" = editorDefaultFormatter;
+    "editor.defaultFormatter" = "";
     # ESLint
     "eslint.enable" = true;
     "eslint.runtime" = "node";
@@ -138,16 +138,34 @@ in {
     ## Configure Pylance
     "python.analysis.typeCheckingMode" = "strict";
     "python.analysis.completeFunctionParens" = true;
+    "python.analysis.autoImportCompletions" = true;
+    "python.analysis.packageIndexDepths" = [
+      {
+        "name" = "matplotlib";
+        "depth" = 2;
+        "includeAllSymbols" = true;
+      }
+      {
+        "name" = "scipy";
+        "depth" = 3;
+        "includeAllSymbols" = true;
+      }
+      {
+        "name" = "numpy";
+        "depth" = 3;
+        "includeAllSymbols" = true;
+      }
+    ];
     "ltex.enabled" = true;
     "ltex.language" = "en-GB";
     "ltex.dictionary" = {
       "en" = [
-      	"monic"
-      	"infimum"
-      	"supremum"
-      	"bolzano"
-      	"weierstrass"
-      	"euler"
+        "monic"
+        "infimum"
+        "supremum"
+        "bolzano"
+        "weierstrass"
+        "euler"
       ];
     };
     "ltex.statusBarItem" = true;
