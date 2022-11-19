@@ -16,9 +16,9 @@ in {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/themes/${zelk}";
       target = "BetterDiscord/themes/${zelk}";
     };
-    "settings.json" = {
-      text = (import ./config/settings.nix).settings;
-      target = "discordcanary/settings.json";
-    };
+    # "settings.json" = {
+    #   text = (import ./config/settings.nix).settings;
+    #   target = "discordcanary/settings.json";
+    # };
   };
 }

@@ -108,7 +108,7 @@ These dotfiles use 2 themes.
 
 These are the main applications and programs I use. Everything has been installed from`nixos-unstable` by default unless mentioned otherwise. WIP
 
-### Productivity Applications
+### Applications
 
 - firefox-wayland
 - thunderbird-wayland
@@ -124,6 +124,7 @@ These are the main applications and programs I use. Everything has been installe
 - xournalpp (liked to crash on wayfire, haven't tested on hyprland) (Custom derivation. See my [repo](https://github.com/chpxu/xournalpp))
 - zathura
 - libreoffice-fresh
+- osu-lazer (nix-gaming flake)
 
 ### Environment programs
 
@@ -131,7 +132,8 @@ Applications or programs which affect my workspace
 
 - ~~wayfire~~ (phasing out for Hyprland) (custom derivation to use `v0.7.4` for `src` instead)
 - ~~wcm, wf-config~~ (phasing out for Hyprland)
-- Hyprland. This is my current WM and will be phasing out wayfire from daily use..
+- Hyprland (This is my current WM and will be phasing out wayfire from daily use).
+- hyprpaper
 - waybar (built with `-Dexperimental=true`)
 - swayidle
 - swaylock-effects (Using [this fork](https://github.com/jirutka/swaylock-effects)) (installed via `configuration.nix` due to auth issue)
@@ -164,7 +166,7 @@ This script will erase everything in `/etc/nixos` so please back up!!
 Assuming Firefox is installed, follow these instructions:
 
 1. Enable the extensions. This is due to how Firefox handles extension side-loading.
-2. In the `Tab Center Reborn` extension preferences, copy and paste the contents of `./.mozilla.firefox/chrome/tabCenterReborn-chpxu.css` inside the input box for Custom CSS
+2. In the `Tab Center Reborn` extension preferences, copy and paste the contents of `./.config/nixpkgs/modules/firefox/config/tabCenterReborn-chpxu.css` inside the input box for Custom CSS.
 3. Ensure Custom CSS/Styles whatever checkbox is enabled and restart firefox (or the extension).
 
 Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.com/ranmaru22/firefox-vertical-tabs) and credits to FILL_IN for the `oneline.css`.
@@ -175,7 +177,7 @@ Both CSS files have had my own slight modifications. To edit `userChrome.css` or
 
 - [ ] Fix errors in certain `about:` pages. This is pretty much done. There are a few minor changes to some pages that must be done, but the theming is much more consistent and less broken.
 - [x] The hover effect on the Tab Center Reborn is not of the correct colour.
-- [] Attempt to configure extensions declaratively.
+- [] Attempt to configure extensions declaratively. (BIG)
 
 ### Thunderbird
 

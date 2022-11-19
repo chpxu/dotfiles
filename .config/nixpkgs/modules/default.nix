@@ -18,7 +18,7 @@
     ./kitty
     ./mako
     ./sway
-    ./kanshi
+    # ./kanshi
     ./xdg/xdg.nix
     #//texlive.nix
     ./python

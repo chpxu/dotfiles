@@ -37,5 +37,10 @@
     wofi
     imv
     krusader
+    xdg-utils
+    unzip
+    jmtpfs
+    xorg.xprop
+    wev
   ];
 }

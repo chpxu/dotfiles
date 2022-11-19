@@ -4,79 +4,11 @@
   lib,
   inputs,
   ...
-}: let
-  discordver = "0.0.140";
-in {
+}: {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: true;
   manual.manpages.enable = false;
-  # Install ohome packages
 
-  home.packages = with pkgs;
-    [
-      # dolphin
-      neovide
-      appimage-run
-      thunderbird-wayland
-      (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
-        version = discordver;
-        src = fetchurl {
-          url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
-          sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0=";
-        };
-      }))
-      betterdiscordctl
-      inkscape-with-extensions
-      gimp-with-plugins
-      neofetch
-      bitwarden
-      teams
-      libreoffice-fresh
-      # OneDrive
-      onedrive
-      # Virtual Keyboard
-      (pkgs.wvkbd.overrideAttrs (oldAttrs: rec {
-        src = fetchFromGitHub {
-          owner = "chpxu";
-          repo = "wvkbd";
-          rev = "6ee1764535a06b9888242ad4a9c42a7ac9821791";
-          sha256 = "TWd/CECWxZJ0WeFVjeuHWAq9fGKGOd6MLpjvzOpKGOo=";
-        };
-      }))
-
-      unzip
-
-      # Utils
-      xdg-utils
-      yt-dlp
-      #ffmpeg_5-full
-      jmtpfs
-
-      # TeXLive
-      texlive.combined.scheme-full
-      ltex-ls
-      tikzit
-
-      (pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
-        src = fetchFromGitHub {
-          owner = "chpxu";
-          repo = "xournalpp";
-          rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214";
-          sha256 = "sha256-wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
-        };
-      }))
-      # xournalpp
-      rnote
-      # lammps
-      xorg.xprop
-      wev
-      pdfarranger
-    ]
-    ++ [
-      pkgs.gamemode
-      # inputs.nix-gaming.packages.${pkgs.system}.osu-stable
-      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
-    ];
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
   };

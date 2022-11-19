@@ -58,8 +58,10 @@
             extraConfig = (import ./modules/hyprland/hyprland.nix).extraConfig;
           };
         }
-        ./packages/python.nix
-        ./packages/environment.nix
+        # ./packages/python.nix
+        # ./packages/environment.nix
+        # ./packages/applications.nix
+        ./packages/default.nix
         ./modules/default.nix
         ./home.nix
 
