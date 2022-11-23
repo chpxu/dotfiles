@@ -2,6 +2,16 @@ let
   nord = import ../../common/nordtheme.nix;
 in {
   style = ''
+    /*Fix regression from 0.9.15*/
+    button,
+    label{
+      all: unset;
+    }
+    label:disabled,
+    button:disabled {
+      color: inherit;
+      background-image: none;
+    }
     window#waybar {
       background: ${nord.nord0};
       color: ${nord.nord6};
@@ -19,7 +29,7 @@ in {
       border-radius: 5px;
     }
     #workspaces button
-    custom-addWorkspace {
+    {
       color: ${nord.nord6};
       background: ${nord.nord3};
       border: none;
@@ -39,14 +49,14 @@ in {
       transition: background 0.5s ease-in-out;
       background: ${nord.nord11};
     }
-     #custom-launcher,
-     #custom-separator,
-     #custom-keyboard {
+    #custom-launcher,
+    #custom-separator,
+    #custom-keyboard {
       padding: 0 5px 0 5px;
       margin: 5px 0 5px 0;
       border-radius: 5px;
       color: inherit;
-     }
+    }
     #window {
       margin-left: 5px;
       color: ${nord.nord15};

@@ -23,7 +23,7 @@
     #//texlive.nix
     ./python
     ./firefox
-    ./neovim
+    # ./neovim
     ./wofi
     ./zsh
     ./hyprland

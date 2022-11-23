@@ -32,7 +32,7 @@
     grim
     slurp
     swayidle
-    kanshi
+    # kanshi
     wl-clipboard
     wofi
     imv

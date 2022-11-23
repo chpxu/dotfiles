@@ -4,24 +4,21 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
-
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
-      # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -44,10 +41,6 @@
 
     homeConfigurations.chunix = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
-
       modules = [
         nur.nixosModules.nur
         hyprland.homeManagerModules.default
@@ -58,9 +51,6 @@
             extraConfig = (import ./modules/hyprland/hyprland.nix).extraConfig;
           };
         }
-        # ./packages/python.nix
-        # ./packages/environment.nix
-        # ./packages/applications.nix
         ./packages/default.nix
         ./modules/default.nix
         ./home.nix

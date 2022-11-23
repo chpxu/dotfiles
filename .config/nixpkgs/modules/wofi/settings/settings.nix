@@ -7,7 +7,7 @@
     colors=colors
     term=kitty
     allow_images=true
-    xoffset=480
+    xoffset=0
     yoffset=0
     height=60%
     sort_order=alphabetical
