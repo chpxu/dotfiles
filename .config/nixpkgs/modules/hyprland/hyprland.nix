@@ -83,7 +83,7 @@ in {
         animation = border, 1, 10, default
         animation = fade, 1, 7, default
         animation = workspaces, 1, 6, default
-        use_resize_transitions = off
+        #use_resize_transitions = off
     }
 
     dwindle {
@@ -186,6 +186,7 @@ in {
         mouse_move_enables_dpms = on
         animate_manual_resizes = off
         enable_swallow = on
+        swallow_regex = "^(kitty)$,^(zathura)$"
         no_vfr = false
     }
   '';

@@ -28,6 +28,7 @@
     ./zsh
     ./hyprland
     ./starship
+    ./jq
     # ./modules/osu-stable
     # ./modules/wireplumber
   ];

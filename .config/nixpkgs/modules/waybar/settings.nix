@@ -58,14 +58,15 @@
         icon-size = 20;
         spacing = 15;
         smooth-scolling-threshold = 1.0;
-        show-passve-icons = true;
+        show-passive-icons = true;
+        # on-update = "makoctl invoke";
       };
       clock = {
         timezone = "GB";
         tooltip-format = "<big>{:%Y %B}</big>\n{calendar}";
         calendar-weeks-pos = "left";
         format-calendar = "<b>{}</b>";
-        format-calendar-weeks = "<span>Week: <i>{}</i></span>";
+        # format-calendar-weeks = "<span>Week: <i>{}</i></span>";
         format = " {:%H:%M  %Y-%m-%d}";
       };
       cpu = {
@@ -140,7 +141,7 @@
         tooltip-format = "{icon} {desc}\nVolume: {volume}\n{format_source}";
       };
       "custom/launcher" = {
-        format = "";
+        format = " ";
         on-click = "wofi --show=run";
         max-length = 50;
         tooltip = false;

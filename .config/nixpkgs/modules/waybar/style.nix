@@ -16,7 +16,7 @@ in {
       background: ${nord.nord0};
       color: ${nord.nord6};
       font-family: 'FiraCode Nerd Font', Inconsolata, sans-serif;
-      font-weight: 700;
+      font-weight: 400;
       font-size: 12px;
       border: none;
       border-radius: 0;
@@ -33,7 +33,7 @@ in {
       color: ${nord.nord6};
       background: ${nord.nord3};
       border: none;
-      padding: 0 5px 0 5px;
+      padding: 0 10px 0 10px;
       margin: 2.5px 2.5px 2.5px 2.5px;
     }
     #workspaces button:hover {
@@ -50,9 +50,8 @@ in {
       background: ${nord.nord11};
     }
     #custom-launcher,
-    #custom-separator,
     #custom-keyboard {
-      padding: 0 5px 0 5px;
+      padding: 0 10px 0 10px;
       margin: 5px 0 5px 0;
       border-radius: 5px;
       color: inherit;
@@ -63,9 +62,10 @@ in {
       padding-left: 5px;
       padding-right: 5px;
     }
+
     /*RIGHT-MODULES STYLES*/
     .modules-right {
-      margin-right: 2.5px;
+      margin-right: 5px;
     }
 
     #cpu,
@@ -106,6 +106,11 @@ in {
         color: ${nord.nord10};
     }
 
+    /*TRAY*/
+    #tray > .needs-attention {
+      background-color: ${nord.nord11}
+    }
+
     /*Tooltips*/
     tooltip {
         background: ${nord.nord2};
@@ -122,19 +127,21 @@ in {
     #taskbar button {
         border: none;
         color: ${nord.nord6};
+        padding: 0 10px 0 10px;
+        margin: 0 2.5px 0 2.5px;
     }
     #taskbar button:hover,
     #custom-launcher:hover,
     #custom-keyboard:hover {
-        /*transition: background-color 0.125s ease-in-out;*/
+        transition: background-color 0.125s ease-in-out;
         background-color: ${nord.nord2};
     }
     #taskbar button.active {
-        border-bottom: 2px solid ${nord.nord9};
+        border-top: 2px solid ${nord.nord9};
         background-color: ${nord.nord1};
     }
     .modules-left {
-        margin-left: 2.5px;
+        margin-left: 5px;
     }
     /* Custom Module: Start Button for launcher  */
     #custom-launcher {
@@ -144,7 +151,8 @@ in {
       background-color: ${nord.nord2};
     }
     #custom-separator {
-        color: ${nord.nord4};
+      margin: 0 2.5px 0 2.5px;
+      color: ${nord.nord4};
     }
   '';
 }
