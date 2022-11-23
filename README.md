@@ -115,7 +115,7 @@ These are the main applications and programs I use. Everything has been installe
 - gimp
 - inkscape
 - vscode (must fix python global env - import resolution fails)
-- neovim (NEED TO FIX)
+<!-- - neovim (NEED TO FIX) -->
 - discord-canary
 - betterdiscordctl
 - mpv
@@ -146,6 +146,7 @@ Applications or programs which affect my workspace
 - kitty
 - zsh
 - wvkbd (custom derivation to add theming. See my [repo](https://github.com/chpxu/wvkbd))
+- nano
 
 ## Steps to use
 
