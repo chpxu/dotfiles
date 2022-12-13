@@ -1,9 +1,4 @@
-let
-  system = "x86_64-linux";
-  user = "chunix";
-  pkgs = nixpkgs.legacyPackages.${system};
-  colour-palette = import ./home-manager/common/nordtheme.nix;
-in {
+{
   description = "My NixOS setup";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -35,7 +30,13 @@ in {
     hyprland,
     hyprpaper,
     ...
-  }: {
+  } @ inputs: let
+    inherit (self) outputs;
+    system = "x86_64-linux";
+    user = "chunix";
+    colour-palette = import ./home-manager/common/nordtheme.nix;
+    pkgs = nixpkgs.legacyPackages.${system};
+  in rec {
     nixpkgs.config.allowUnfreePredicate = pkg: true;
     nixpkgs.config.allowUnfree = true;
     manual.manpages.enable = false;
@@ -55,7 +56,7 @@ in {
 
     homeConfigurations = {
       # yoga
-      "${user}@nixos" = home-manager.lib.homeManagerConfiguration {
+      "chunix@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
         modules = [
@@ -64,11 +65,11 @@ in {
           {
             wayland.windowManager.hyprland = {
               enable = true;
-              extraConfig = (import ./modules/hyprland/hyprland.nix).extraConfig;
+              extraConfig = (import ./home-manager/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          ./packages/default.nix
-          ./modules/default.nix
+          home-manager/common/packages
+          ./home-manager/common/modules
           ./home-manager/yoga/chunix/home.nix
           {
             home = {
@@ -91,11 +92,11 @@ in {
           {
             wayland.windowManager.hyprland = {
               enable = true;
-              extraConfig = (import ./modules/hyprland/hyprland.nix).extraConfig;
+              extraConfig = (import ./home-manager/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          ./packages/default.nix
-          ./modules/default.nix
+          home-manager/common/packages
+          ./home-manager/common/modules
           ./home-manager/legion/chunix/home.nix
           {
             home = {
