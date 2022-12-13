@@ -1,29 +1,30 @@
-{ config, pkgs, ...}:
-let
-  unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; };  };
-in
 {
+  config,
+  pkgs,
+  ...
+}: {
   services.tlp = {
     enable = true;
     settings = {
       TLP_WARN_LEVEL = 0;
       # Audio
-      SOUND_POWER_SAVE_ON_AC = 1;
+      SOUND_POWER_SAVE_ON_AC = 0;
       SOUND_POWER_SAVE_ON_BAT = 1;
       SOUND_POWER_SAVE_CONTROLLER = "Y";
       # Battery Care
       START_CHARGE_THRESH_BAT1 = 0;
-      STOP_CHARGE_THRESH_BAT1 = 60;
+      STOP_CHARGE_THRESH_BAT1 = 100;
       RESTORE_THRESHOLDS_ON_BAT = 1;
       NATACPI_ENABLE = 1;
       # Drive Bay - don't have one so all features on
       BAY_POWEROFF_ON_AC = 1;
       BAY_POWEROFF_ON_BAT = 1;
       # DIsks and Controllers
-      DISK_APM_LEVEL_ON_AC = "254 254";
-      DISK_APM_LEVEL_ON_BAT = "100 100";
-      SATA_LINKPWR_ON_AC = "max_performance max_performance";
-      SATA_LINKPWR_ON_BAT = "min_power min_power";
+      DISK_DEVICES = "nvme0n1";
+      DISK_APM_LEVEL_ON_AC = "254";
+      DISK_APM_LEVEL_ON_BAT = "100";
+      SATA_LINKPWR_ON_AC = "max_performance";
+      SATA_LINKPWR_ON_BAT = "min_power";
       AHCI_RUNTIME_PM_ON_AC = "on";
       AHCI_RUNTIME_PM_ON_BAT = "auto";
       AHCI_RUNTIME_PM_TIMEOUT = 15;
@@ -53,7 +54,7 @@ in
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 75;
+      CPU_MAX_PERF_ON_BAT = 50;
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;
       SCHED_POWERSAVE_ON_AC = 0;

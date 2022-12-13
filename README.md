@@ -10,69 +10,41 @@ This repo will also be updated when I'm bothered
 
 ## General To-Do
 
-1. [] Make system configuration a flake
+1. [ ] Make system configuration a flake (WIP)
 
 ## How the repository is structured
 
-Since getting more comfortable with NixOS and home-manager, I've been working towards a more declarative setup (for now, in home-manager only) where all config and text files are declared in `.nix` files. This means I will no longer be writing config files separately and then symlinking them to the appropriate destination. Instead, this will all happen at once.
-
-The repository structure should look something like this (using a `YAML`-like representation):
+This structure was heavily inspired, and has some code taken from [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-starter-configs). This was extremely helpful in getting me to have a refactored and cleaner NixOS setup.
 
 ```
-{
-  ".config" = {
-    "nixpkgs" = {
-      "common" = [
-        # Anything common to all nix files, like theme colours
-      ],
-      "modules" = {
-        "programName" = [
-          "default.nix" "programName.nix" "xdg.nix" # Anything else
-      },
-      "overlays" = {
-        "overlayName" = [
-          # File for the overlay. used for things where I have a custom derivation
-        ]
-      },
-      "config.nix",
-      "home.nix",
-      "flake.nix",
-      "flake.lock",
-      # Other files not in use
-    }
-  },
-  "system" = {
-    # This folder is for the system configuration/ This has not been flakified
-  },
-  "old" = {
-    # This folder will mostly be for backup, since I have pretty much everything managed via home-manager and NUR
-    # This folder now lives in a different branch.
-  },
-  "docs" = {
-    # For the website. On pause whilst I significantly overhaul my repo
-  },
-  "Pictures" = [
-    # Pictures I use
-  ],
-  "Screenshots" = [
-    # SS for the repo
-  ],
-  install.sh
-  # Other files
-}
+.
+├── home-manager/
+│   ├── common/
+│   │   ├── packages/
+│   │   │   └── # A set of common packages I share across my users where no configuration is required
+│   │   └── configs/
+│   │       └── # A set of common configurations for programs I share across my users
+│   ├── chunix/
+│   │   ├── home.nix
+│   │   └── ...
+│   └── dummy/
+│       ├── # dummy user account for testing
+│       ├── home.nix
+│       └── ...
+├── overlays # a set of overlays
+├── systems/
+│   ├── common/
+│   │   └── # A set of common packages/configurations I share across my systems
+│   ├── yoga # configuration for my Yoga C940
+│   └── legion # Configuration for my Legion 5 Pro Gen 7 (WIP)
+├── docs/
+│   └── ...
+├── Pictures/
+│   └── ...
+├── flake.nix
+├── flake.lock
+└── locknixpkgs.nix
 ```
-
-1. The `modules` subfolder of `nixpkgs` is a directory of folders containing configuration files.
-
-- Each of these folders contains:
-  1.  A `default.nix` file. This file imports all the other files in the folder, and is ready to be imported by `home.nix`. This is always present.
-  2.  A `programName.nix` file and other files/folders. These host the actual configuration for the programs if they can be managed through nix/home-manager.
-  3.  A `xdg.nix` file. This file is used to source files to the appropriate directory. In cases where there is no home-manager configuration for a program, this file will act as the configuration file. Of course for the `xdg` subfolder, `xdg.nix` is the configuration file.
-  - I use `xdg.configFile` out of personal preference. I can directly control where I want XDG to point to, what files to create and so on.
-  4. A `config` folder containing either source files or more nix files for configuration of the program. Directory of this structure depends on how I prefer to organise it. Need to be more consistent though.
-  - I prefer `nix` files where I am able to use nix expressions to insert values to make life easier, otherwise I prefer `non .nix` config files where I do not need nix abstractions.
-
-2. The `overlays` folder is a set of folders containing overlays. These will replace the various `overrideAttrs` I have in `home.nix` with something more flexible and cleaner, eventually...
 
 ## Screenshots
 

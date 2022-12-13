@@ -9,7 +9,6 @@
 in {
   home.packages = with pkgs;
     [
-      appimage-run
       thunderbird-wayland
       betterdiscordctl
       inkscape-with-extensions
@@ -24,6 +23,7 @@ in {
       yt-dlp
       texlive.combined.scheme-full
       ltex-ls
+      osu-lazer
       (pkgs.discord-canary.overrideAttrs (oldAttrs: rec {
         version = discordver;
         src = fetchurl {
@@ -42,15 +42,14 @@ in {
       (pkgs.xournalpp.overrideAttrs (oldAttrs: rec {
         src = fetchFromGitHub {
           owner = "chpxu";
-          repo = "xournalpp";
-          rev = "8f44c87edf5367efc1f86f0ac8ab7234e98db214";
-          sha256 = "sha256-wSP5BwluLDtScuK1/CuJUWbdTSJErNXUnlsECl7xbtU=";
+          repo = "xournalpp1";
+          rev = "0f9ff2d756cb59746b6a863fca25f5ee5318b0ce";
+          sha256 = "sha256-w9kR7Qy6wRf7U6PmyUVpEuD5U1Lp+04FXHO/aCmDPrU=";
         };
       }))
     ]
     ++ [
       pkgs.gamemode
-      # inputs.nix-gaming.packages.${pkgs.system}.osu-stable
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     ];
 }

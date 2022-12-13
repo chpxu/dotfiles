@@ -1,0 +1,21 @@
+{
+  wofiConfig = ''
+    prim-output=eDP-1
+    sec-output=DP-3
+    stylesheet=style.css
+    watch_css=true
+    colors=colors
+    term=kitty
+    allow_images=true
+    xoffset=0
+    yoffset=0
+    height=60%
+    sort_order=alphabetical
+    gtk_dark=true
+    columns=3
+    prompt=run
+    layer=overlay
+    matching=contains
+    insensitive
+  '';
+}
