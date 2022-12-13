@@ -7,9 +7,7 @@
   modulesPath,
   inputs,
   ...
-}: let
-  paths = import ../../common/paths.nix;
-in {
+}: {
   xdg.configFile = {
     "wayfire.ini" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/config/wayfire.ini";

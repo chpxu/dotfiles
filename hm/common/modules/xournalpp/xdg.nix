@@ -2,10 +2,7 @@
   config,
   builtins,
   ...
-}: let
-  # xournalVars = import ./xournalpp.nix;
-  # paths = import /. + "${config.home.homeDirectory}/git_projects/dotfiles/.config/nixpkgs/common/paths.nix";
-in {
+}: {
   xdg.configFile = {
     "xournalpp/settings.xml" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/config/settings.xml";

@@ -5,9 +5,7 @@
   specialArgs,
   modulesPath,
   ...
-}: let
-  paths = import ./. + "../../common/paths.nix";
-in {
+}: {
   xdg.configFile = {
     "hypr/hyprpaper.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprpaper.conf";

@@ -34,7 +34,7 @@
     inherit (self) outputs;
     system = "x86_64-linux";
     user = "chunix";
-    colour-palette = import ./home-manager/common/nordtheme.nix;
+    colour-palette = import ./hm/common/nordtheme.nix;
     pkgs = nixpkgs.legacyPackages.${system};
   in rec {
     nixpkgs.config.allowUnfreePredicate = pkg: true;
@@ -65,7 +65,7 @@
           {
             wayland.windowManager.hyprland = {
               enable = true;
-              extraConfig = (import ./home-manager/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
+              extraConfig = (import ./hm/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
           (./. + "/hm/common/packages")
@@ -92,7 +92,7 @@
           {
             wayland.windowManager.hyprland = {
               enable = true;
-              extraConfig = (import ./home-manager/legion/common/modules/hyprland/hyprland.nix).extraConfig;
+              extraConfig = (import ./hm/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
           ./hm/common/packages

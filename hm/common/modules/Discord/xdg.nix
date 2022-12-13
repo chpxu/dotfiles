@@ -5,7 +5,6 @@
 }: let
   nord-zelk = "nord-zelk.theme.css";
   zelk = "zelkBD.theme.css";
-  # paths = import ../../common/paths.nix;
 in {
   xdg.configFile = {
     "nord-zelk.theme.css" = {
@@ -18,7 +17,7 @@ in {
     };
     "settings.json" = {
       text = (import ./config/settings.nix).settings;
-    	target = "discordcanary/settings.json";
+      target = "discordcanary/settings.json";
     };
   };
 }
