@@ -1,5 +1,5 @@
 let
-  theme = import ../../../common/nordtheme.nix;
+  theme = import ../../../nordtheme.nix;
   ten = "10";
   tw = "20";
 in {

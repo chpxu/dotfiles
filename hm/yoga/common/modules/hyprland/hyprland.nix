@@ -1,6 +1,4 @@
-let
-  nord = import ../../common/nordtheme.nix;
-in {
+{
   extraConfig = ''
         # This is an example Hyprland config file.
     #

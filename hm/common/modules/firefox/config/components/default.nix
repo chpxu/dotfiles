@@ -1,5 +1,5 @@
 let
-  nord = import ../../../../common/nordtheme.nix;
+  nord = import ../../../../nordtheme.nix;
 in {
   root = ''
       :host, :root {
