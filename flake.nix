@@ -68,9 +68,9 @@
               extraConfig = (import ./home-manager/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          home-manager/common/packages
-          ./home-manager/common/modules
-          ./home-manager/yoga/chunix/home.nix
+          (./. + "/hm/common/packages")
+          ./hm/common/modules
+          ./hm/yoga/chunix/home.nix
           {
             home = {
               username = "chunix";
@@ -95,9 +95,9 @@
               extraConfig = (import ./home-manager/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          home-manager/common/packages
-          ./home-manager/common/modules
-          ./home-manager/legion/chunix/home.nix
+          ./hm/common/packages
+          ./hm/common/modules
+          ./hm/legion/chunix/home.nix
           {
             home = {
               username = "chunix";
