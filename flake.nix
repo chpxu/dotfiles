@@ -40,7 +40,7 @@
     nixpkgs.config.allowUnfreePredicate = pkg: true;
     nixpkgs.config.allowUnfree = true;
     manual.manpages.enable = false;
-    overlays = import ./overlays/waybar.nix;
+    overlays = import ./overlays;
     nixosConfigurations = rec {
       # Yoga
       nixos = nixpkgs.lib.nixosSystem {
