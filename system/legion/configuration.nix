@@ -151,21 +151,21 @@ in {
     '';
     services = {
       secrets = {
-      #   script = ''
-      #     if [ -L /run/p.env ]; then
-      #       rm /run/p.env
-      #     fi
-      #     ln -s /home/chunix/git_projects/dotfiles/system/modified/p.env /run/p.env || exit 1
-      #   '';
-      #   wantedBy = ["multi-user.target"];
-      # };
-      # restartWPA = {
-      #   script = ''
-      #     systemctl restart wpa_supplicant.service
-      #   '';
-      #   wantedBy = ["default.target"];
-      #   after = ["default.target"];
-      # };
+        #   script = ''
+        #     if [ -L /run/p.env ]; then
+        #       rm /run/p.env
+        #     fi
+        #     ln -s /home/chunix/git_projects/dotfiles/system/modified/p.env /run/p.env || exit 1
+        #   '';
+        #   wantedBy = ["multi-user.target"];
+        # };
+        # restartWPA = {
+        #   script = ''
+        #     systemctl restart wpa_supplicant.service
+        #   '';
+        #   wantedBy = ["default.target"];
+        #   after = ["default.target"];
+      };
     };
   };
 
