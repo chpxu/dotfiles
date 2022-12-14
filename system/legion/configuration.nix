@@ -311,7 +311,7 @@
       offload.enable = true;
       sync.enable = true;
       # FIXME: fix these bus IDs as appropriate
-      amdgpuBusId = "PCI:5:0:0";
+      intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
   };
