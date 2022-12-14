@@ -124,7 +124,7 @@
   console = {
     earlySetup = true;
     packages = with pkgs; [terminus_font];
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
     keyMap = "us";
     #keyMap = "us";
     #useXkbConfig = true; # use xkbOptions in tty.
@@ -194,6 +194,7 @@
     tlp
     dconf
     linux-pam
+    pciutils
     (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
       src = fetchFromGitHub {
         owner = "jirutka";
@@ -202,7 +203,7 @@
         sha256 = "sha256-umxEwegKuJd/DUjaUQ88lbcQNxSY99yepBnQaFr3fDI=";
       };
     }))
-    nvidia-offload
+    # nvidia-offload
   ];
 
   # Fonts
@@ -297,21 +298,21 @@
     text = "auth include login";
   };
   # OpenGL
-  environment.systemPackages = [];
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     #uses beta drivers
     package = config.boot.kernelPackages.nvidiaPackages.beta;
-
+    nvidiaSettings = true;
     #Fixes a glitch
     nvidiaPersistenced = true;
     #Required for amdgpu and nvidia gpu pairings
     modesetting.enable = true;
     prime = {
       offload.enable = true;
-      #sync.enable = true;
-      # amdgpuBusId = "PCI:5:0:0";
-      # nvidiaBusId = "PCI:1:0:0";
+      sync.enable = true;
+      # FIXME: fix these bus IDs as appropriate
+      amdgpuBusId = "PCI:5:0:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
   };
   hardware.opengl = {
@@ -322,6 +323,7 @@
       mesa.drivers
       libvdpau-va-gl
       vaapiVdpau
+      nvidia-vaapi-driver
       libdrm
       libGLU
       libglvnd

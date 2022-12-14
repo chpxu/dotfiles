@@ -27,7 +27,7 @@
     # ./neovim
     ./wofi
     ./zsh
-    # ./hyprland
+    ./hyprland/xdg.nix
     # ./starship
     ./jq
     # ./modules/osu-stable
