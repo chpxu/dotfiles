@@ -1,5 +1,10 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{
+  pkgs,
+  # lib,
+  isLegion ? false,
+  ...
+}: let
+  normalPackages = with pkgs; [
     pipewire
     wireplumber
     alsa-utils
@@ -40,7 +45,12 @@
     xdg-utils
     unzip
     jmtpfs
-    xorg.xprop
     wev
   ];
+  xprop = [pkgs.xorg.xprop];
+in {
+  home.packages =
+    if isLegion == false
+    then normalPackages ++ xprop
+    else normalPackages;
 }
