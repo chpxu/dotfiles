@@ -4,9 +4,7 @@
   lib,
   inputs,
   ...
-}: let
-  discordver = "0.0.140";
-in {
+}: {
   home.packages = with pkgs;
     [
       thunderbird-wayland
