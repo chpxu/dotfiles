@@ -108,7 +108,7 @@ in {
     hostName = "legion";
     # Pick only one of the below networking options.
     # Enables wireless support via wpa_supplicant.
-    wireless.enable = true;
+    # wireless.enable = true;
     wireless.scanOnLowSignal = false;
     wireless.environmentFile = "/run/p.env";
     # Easiest to use and most distros use this by default.
