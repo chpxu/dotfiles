@@ -21,16 +21,17 @@ etcNixos="/etc/nixos"
 sudo mkdir -p "$etcNixos/old"
 sudo mv -r $etcNixos/*.* $etcNixos/old/
 # 2
-sudo ln -s "$pwd/system/configuration.nix" "/etc/nixos/configuration.nix"
-sudo ln -s "$pwd/system/hardware-configuration.nix" "/etc/nixos/hardware-configuration.nix"
+# sudo ln -s "$pwd/system/configuration.nix" "/etc/nixos/configuration.nix"
+# sudo ln -s "$pwd/system/hardware-configuration.nix" "/etc/nixos/hardware-configuration.nix"
 # 3
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-nix-channel --update
+sudo nixos-rebuild switch --flake .\#legion
+# nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+# nix-channel --update
 # 4
-sudo nixos-rebuild switch --upgrade
+# sudo nixos-rebuild switch --upgrade
 
 # 5
-cd "$pwd/.config/nixpkgs" || echo "Directory not found" && exit
+# cd "$pwd/.config/nixpkgs" || echo "Directory not found" && exit
 # Use --show-trace in case build fails and issue can be directly analysed
-home-manager switch --flake path:. --show-trace 
+home-manager switch --flake .\#chunix@legion --show-trace 
 
