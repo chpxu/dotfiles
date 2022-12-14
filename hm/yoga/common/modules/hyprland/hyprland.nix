@@ -189,5 +189,5 @@
       #     no_vfr = false
       # }
     ''
-    + (import ../../../common/modules/hyprland/commonConfig.nix).commonConfig;
+    + (import ../../../../common/modules/hyprland/commonConfig.nix).commonConfig;
 }
