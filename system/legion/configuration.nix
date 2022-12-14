@@ -98,7 +98,6 @@ in {
     in
       pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor xanmodFor);
     kernelModules = ["uinput" "acpi_call"];
-    kernelParams = ["nomodeset"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];
