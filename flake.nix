@@ -41,7 +41,7 @@
     nixpkgs.config.allowUnfree = true;
     manual.manpages.enable = false;
     overlays = import ./overlays;
-    nixosConfigurations = rec {
+    nixosConfigurations = {
       # Yoga
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
