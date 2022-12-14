@@ -39,6 +39,7 @@
     };
     # Kernel things
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelParams = ["nomodeset"];
     kernelPackages = let
       rtVer = "14";
       xanmod = {

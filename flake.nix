@@ -44,11 +44,13 @@
     nixosConfigurations = {
       # Yoga
       nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {inherit inputs outputs;};
         modules = [./system/yoga/configuration.nix];
       };
       # Legion
       legion = nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {inherit inputs outputs;};
         modules = [./system/legion/configuration.nix];
       };
