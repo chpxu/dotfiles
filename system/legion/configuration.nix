@@ -6,7 +6,15 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
+  '';
+in {
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -188,24 +196,26 @@
   };
   # List packages installed in system profile.
   # Trying to keep as lean as possible.
-  environment.systemPackages = with pkgs; [
-    nano
-    curl
-    cacert
-    tlp
-    dconf
-    linux-pam
-    pciutils
-    (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
-      src = fetchFromGitHub {
-        owner = "jirutka";
-        repo = "swaylock-effects";
-        rev = "b2736c5bef3add118183654305d05903c5947668";
-        sha256 = "sha256-umxEwegKuJd/DUjaUQ88lbcQNxSY99yepBnQaFr3fDI=";
-      };
-    }))
-    # nvidia-offload
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      nano
+      curl
+      cacert
+      tlp
+      dconf
+      linux-pam
+      pciutils
+      (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
+        src = fetchFromGitHub {
+          owner = "jirutka";
+          repo = "swaylock-effects";
+          rev = "b2736c5bef3add118183654305d05903c5947668";
+          sha256 = "sha256-umxEwegKuJd/DUjaUQ88lbcQNxSY99yepBnQaFr3fDI=";
+        };
+      }))
+      # nvidia-offload
+    ]
+    ++ [nvidia-offload];
 
   # Fonts
   fonts = {
@@ -310,7 +320,7 @@
     modesetting.enable = true;
     prime = {
       offload.enable = true;
-      sync.enable = true;
+      # sync.enable = true;
       # FIXME: fix these bus IDs as appropriate
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
