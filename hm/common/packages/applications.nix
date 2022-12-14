@@ -25,7 +25,7 @@ in {
       ltex-ls
       osu-lazer
       # other applications may be in overlays
-      discord
+      discord-canary
       waybar
       hyprpaper
       wvkbd
