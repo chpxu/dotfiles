@@ -15,7 +15,7 @@ pwd=$(pwd)
 # + ./system/configuration.nix
 # ]
 # This is because I use a private config with more personal data
-sed -i "s/modified\/configuration.nix/configuration.nix/g" flake.nix
+# sed -i "s/modified\/configuration.nix/configuration.nix/g" flake.nix
 # 1
 etcNixos="/etc/nixos"
 sudo mkdir -p "$etcNixos/old"
