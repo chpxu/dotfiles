@@ -13,11 +13,11 @@ rec {
         owner = "hyprwm";
         repo = "hyprpaper";
         rev = "88d99f99546d3ba42ed40f9b371471b320423f63";
-        sha256 = "";
+        sha256 = "sha256-ssWr9KskwbfTA3s93AeV24khVYLyWUFL2XRDyn6XB14=";
       };
     });
   };
-  discord = self: super: {
+  discord-canary = self: super: {
     discord-canary = super.discord-canary.overrideAttrs (oldAttrs: rec {
       version = discordver;
       src = super.fetchurl {

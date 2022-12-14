@@ -47,7 +47,7 @@
       hyprpaper
       xournalpp
       waybar
-      discord
+      discord-canary
       wvkbd
       # outputs.overlays.additions
       # outputs.overlays
