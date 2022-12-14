@@ -28,13 +28,13 @@ in {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Pipewire
-    ../modules/pipewire.nix
+    ../common/modules/pipewire.nix
     # tlp
-    ../modules/tlp.nix
+    ../common/modules/tlp.nix
   ];
-  fileSystems = {
-    "/".options = ["compress-force=zstd:6"];
-  };
+  # fileSystems = {
+  #   "/".options = ["compress-force=zstd:6"];
+  # };
   boot = {
     loader = {
       # Use the systemd-boot EFI boot loader.
@@ -98,6 +98,7 @@ in {
     in
       pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor xanmodFor);
     kernelModules = ["uinput" "acpi_call"];
+    kernelParams = ["nomodeset"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];

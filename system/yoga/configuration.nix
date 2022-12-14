@@ -20,9 +20,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Pipewire
-    ../modules/pipewire.nix
+    ../common/modules/pipewire.nix
     # tlp
-    ../modules/tlp.nix
+    ../common/modules/tlp.nix
   ];
   fileSystems = {
     "/".options = ["compress-force=zstd:6"];
