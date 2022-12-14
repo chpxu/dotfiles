@@ -28,6 +28,8 @@ in {
       discord
       waybar
       hyprpaper
+      wvkbd
+      xournalpp
     ]
     ++ [
       pkgs.gamemode
