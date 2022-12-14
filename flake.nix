@@ -43,13 +43,13 @@
     overlays = import ./overlays;
     nixosConfigurations = {
       # Yoga
-      nixos = nixpkgs.lib.nixosSystem {
+      nixos = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs outputs;};
         modules = [./system/yoga/configuration.nix];
       };
       # Legion
-      legion = nixpkgs.lib.nixosSystem {
+      legion = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs outputs;};
         modules = [./system/legion/configuration.nix];
