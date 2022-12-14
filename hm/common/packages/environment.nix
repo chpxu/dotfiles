@@ -21,14 +21,14 @@
     #     sha256 = "sha256-UkM/DPJixG75i3FJ88HCAglxajmcpYjxffhST8lsyZk=";
     #   };
     # }))
-    (pkgs.hyprpaper.overrideAttrs (oldAttrs: rec {
-      src = fetchFromGitHub {
-        owner = "hyprwm";
-        repo = "hyprpaper";
-        rev = "6d3a15f33cedaa8f01b0f96c8d2a1f8de24bbb33";
-        hash = "sha256-+k/21qDW+RKBKFKkjRmntWemJR8/5bZyyoDTKr/emCU=";
-      };
-    }))
+    # (pkgs.hyprpaper.overrideAttrs (oldAttrs: rec {
+    #   src = fetchFromGitHub {
+    #     owner = "hyprwm";
+    #     repo = "hyprpaper";
+    #     rev = "6d3a15f33cedaa8f01b0f96c8d2a1f8de24bbb33";
+    #     hash = "sha256-+k/21qDW+RKBKFKkjRmntWemJR8/5bZyyoDTKr/emCU=";
+    #   };
+    # }))
     # wcm
     # wf-config
     # hyprland

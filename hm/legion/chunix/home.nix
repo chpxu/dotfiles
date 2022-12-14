@@ -42,11 +42,15 @@
   };
   nixpkgs = {
     # You can add overlays here
-    overlays = [
+    overlays = with outputs.overlays; [
       # If you want to use overlays your own flake exports (from overlays dir):
-      outputs.overlays.modifications
+      hyprpaper
+      xournalpp
+      waybar
+      discord
+      wvkbd
       # outputs.overlays.additions
-
+      # outputs.overlays
       # Or overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 

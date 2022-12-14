@@ -68,13 +68,13 @@
               extraConfig = (import ./hm/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
+          ./hm/yoga/chunix/home.nix
           ./hm/common/packages
           (import ./hm/common/packages/environment.nix {
             inherit pkgs;
             isLegion = false;
           })
           ./hm/common/modules
-          ./hm/yoga/chunix/home.nix
           {
             home = {
               username = "chunix";
@@ -99,13 +99,13 @@
               extraConfig = (import ./hm/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
+          ./hm/legion/chunix/home.nix
           ./hm/common/packages
           (import ./hm/common/packages/environment.nix {
             inherit pkgs;
             isLegion = true;
           })
           ./hm/common/modules
-          ./hm/legion/chunix/home.nix
           {
             home = {
               username = "chunix";
