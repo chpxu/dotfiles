@@ -110,7 +110,7 @@
         };
         modules = [
           nur.nixosModules.nur
-          hyprland.homeManagerModules.defult
+          hyprland.homeManagerModules.default
           {
             wayland.windowManager.hyprland = {
               enable = true;
