@@ -55,7 +55,12 @@
       # Yoga
       nixos = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          needsNvidia = false;
+          needsIntel = true;
+          hostname = "nixos";
+        };
         modules = [
           ./system/yoga/configuration.nix
           sops-nix.nixosModules.sops
@@ -64,7 +69,12 @@
       # Legion
       legion = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          needsNvidia = true;
+          needsIntel = true;
+          hostname = "legion";
+        };
         modules = [
           ./system/legion/configuration.nix
           sops-nix.nixosModules.sops

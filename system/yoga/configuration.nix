@@ -5,6 +5,9 @@
   config,
   pkgs,
   lib,
+  needsNvidia ? false,
+  needsIntel ? true,
+  hostname,
   ...
 }: {
   nix = {
@@ -16,14 +19,18 @@
   };
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    # Pipewire
-    ../common/modules/pipewire.nix
-    # tlp
-    ../common/modules/tlp.nix
-  ];
+  imports =
+    [
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      (../common/modules {inherit hostname;})
+      (../common/packages {inherit needsNvidia needsIntel;})
+      # tlp
+      ./tlp.nix
+      ../common/hardware/global
+    ]
+    ++ lib.optional needsNvidia [../common/hardware/nvidia]
+    ++ lib.optional needsIntel [../common/hardware/intel];
   fileSystems = {
     "/".options = ["compress-force=zstd:6"];
   };
@@ -92,20 +99,6 @@
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];
-  };
-
-  networking = {
-    # Define hostname
-    hostName = "nixos";
-    # Pick only one of the below networking options.
-    # Enables wireless support via wpa_supplicant.
-    wireless.enable = true;
-    wireless.scanOnLowSignal = false;
-    wireless.environmentFile = "/run/p.env";
-    # Easiest to use and most distros use this by default.
-    # networking.networkmanager.enable = true;
-    wireless.networks = {
-    };
   };
   time.timeZone = "Europe/London";
   i18n = {
@@ -186,158 +179,7 @@
     extraGroups = ["wheel" "audio" "video" "input"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
-  # List packages installed in system profile.
-  # Trying to keep as lean as possible.
-  environment.systemPackages = with pkgs; [
-    nano
-    curl
-    cacert
-    home-manager
-    tlp
-    dconf
-    linux-pam
-    (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
-      src = fetchFromGitHub {
-        owner = "jirutka";
-        repo = "swaylock-effects";
-        rev = "b2736c5bef3add118183654305d05903c5947668";
-        sha256 = "sha256-umxEwegKuJd/DUjaUQ88lbcQNxSY99yepBnQaFr3fDI=";
-      };
-    }))
-  ];
 
-  # Fonts
-  fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
-      # caudex
-      (
-        nerdfonts.override {
-          fonts = ["FiraCode" "DejaVuSansMono" "SourceCodePro"];
-        }
-      )
-      pkgs.times-newer-roman
-    ];
-    fontconfig = {
-      hinting = {
-        enable = true;
-        style = "hintmedium";
-      };
-      defaultFonts = {
-        serif = ["Times Newer Roman"];
-        monospace = ["FiraCode Nerd Font"];
-        sansSerif = ["DejaVu Sans Mono"];
-      };
-    };
-  };
-  # zsh
-  programs.zsh = {
-    enable = true;
-    #loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      customPkgs = with pkgs; [
-        starship
-      ];
-    };
-  };
-  gtk.iconCache.enable = true;
-  xdg = {
-    icons.enable = true;
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        #		xdg-desktop-portal-gtk
-      ];
-      #gtkUsePortal = true;
-    };
-  };
-  qt5 = {
-    enable = true;
-    style = "gtk2";
-    platformTheme = "gtk2";
-  };
-  programs = {
-    light.enable = true;
-    dconf.enable = true;
-
-    #Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    mtr.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    nano = {
-      syntaxHighlight = true;
-      nanorc = ''
-        set autoindent
-        set afterends
-        set atblanks
-        set constantshow
-        unset casesensitive
-        set fill 80
-        set linenumbers
-        set minibar
-        unset nowrap
-        set softwrap
-        set tabsize 2
-      '';
-    };
-  };
-  # RTKit
-  security.rtkit.enable = true;
-  security.polkit.enable = true;
-  # PAM and swaylock
-  security.pam.services.swaylock = {
-    text = "auth include login";
-  };
-  # OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      mesa.drivers
-      libvdpau-va-gl
-      vaapiIntel
-      vaapiVdpau
-      # intel-ocl
-      libdrm
-      libGLU
-      libglvnd
-      intel-media-driver
-      # intel-compute-runtime
-    ];
-    # extraPackages32 = with pkgs.pkgsi686Linux; [
-    #   mesa.drivers
-    #   libdrm
-    #   libGLU
-    #   libva
-    #   libglvnd
-    #   intel-media-driver
-    # ];
-  };
-  hardware.cpu = {
-    intel = {
-      updateMicrocode = true;
-      # sgx.provision.enable = true;
-    };
-  };
-  powerManagement.cpuFreqGovernor = "powersave";
-  powerManagement.cpufreq.min = 300000;
-  hardware.video.hidpi.enable = true;
-  hardware.uinput.enable = true;
-  hardware.opentabletdriver = {
-    enable = true;
-    package = pkgs.opentabletdriver;
-    daemon.enable = true;
-  };
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
