@@ -25,8 +25,8 @@
       ./hardware-configuration.nix
       # Custom modules
       # ../common/modules
-      (../common/modules {inherit hostname;})
-      (../common/packages {inherit needsNvidia needsIntel;})
+      (import ../common/modules/default.nix {inherit hostname;})
+      (import ../common/packages/default.nix {inherit needsNvidia needsIntel;})
       ../common/hardware/global
     ]
     ++ lib.optional needsNvidia [../common/hardware/nvidia]
