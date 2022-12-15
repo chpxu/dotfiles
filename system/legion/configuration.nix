@@ -26,7 +26,7 @@
       ./hardware-configuration.nix
       # Custom modules
       # ../common/modules
-      (import ../common/modules/default.nix {inherit hostname pkgs;})
+      (import ../common/modules/default.nix {inherit hostname builtins pkgs;})
       (import ../common/packages/default.nix {inherit pkgs needsNvidia needsIntel;})
       (import ../common/hardware/global {inherit pkgs;})
     ]

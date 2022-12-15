@@ -1,4 +1,5 @@
 {
+  builtins,
   pkgs,
   hostname,
   ...
@@ -8,7 +9,7 @@
     ./nano.nix
     ./zsh.nix
     ./security.nix
-    (import ./networking.nix {inherit hostname;})
+    (import ./networking.nix {inherit hostname builtins;})
     ./fonts.nix
     (import ./xdg.nix {inherit pkgs;})
     ./gtk_qt.nix
