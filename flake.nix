@@ -74,7 +74,7 @@
 
     homeConfigurations = {
       # yoga
-      "chunix@nixos" = home-manager.lib.homeManagerConfiguration {
+      "${user}@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
         modules = [
@@ -117,7 +117,7 @@
               extraConfig = (import ./hm/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          xdph.default
+          xdph
           ./hm/common/packages
           ./hm/legion/chunix/home.nix
           (import ./hm/common/packages/environment.nix {
