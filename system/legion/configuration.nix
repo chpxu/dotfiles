@@ -26,7 +26,7 @@
       # Custom modules
       # ../common/modules
       (import ../common/modules/default.nix {inherit hostname pkgs;})
-      (import ../common/packages/default.nix {inherit needsNvidia needsIntel;})
+      (import ../common/packages/default.nix {inherit pkgs needsNvidia needsIntel;})
       ../common/hardware/global
     ]
     ++ lib.optional needsNvidia [../common/hardware/nvidia]
