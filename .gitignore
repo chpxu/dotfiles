@@ -2,3 +2,5 @@
 static/
 fontawe*/
 system/modified
+**/secrets.*
+**/*.env

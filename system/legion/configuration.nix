@@ -5,6 +5,7 @@
   config,
   pkgs,
   lib,
+  builtins,
   needsNvidia ? true,
   needsIntel ? true,
   hostname,
