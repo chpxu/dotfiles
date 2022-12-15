@@ -29,8 +29,8 @@
       (import ../common/packages/default.nix {inherit pkgs needsNvidia needsIntel;})
       (import ../common/hardware/global {inherit pkgs;})
     ]
-    ++ lib.optional needsNvidia [../common/hardware/nvidia]
-    ++ lib.optional needsIntel [../common/hardware/intel];
+    ++ lib.optional needsNvidia ../common/hardware/nvidia
+    ++ lib.optional needsIntel ../common/hardware/intel;
 
   boot = {
     loader = {

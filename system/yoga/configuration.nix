@@ -29,8 +29,8 @@
       ./tlp.nix
       (import ../common/hardware/global {inherit pkgs;})
     ]
-    ++ lib.optional needsNvidia [../common/hardware/nvidia]
-    ++ lib.optional needsIntel [../common/hardware/intel];
+    ++ lib.optional needsNvidia ../common/hardware/nvidia
+    ++ lib.optional needsIntel ../common/hardware/intel;
   fileSystems = {
     "/".options = ["compress-force=zstd:6"];
   };

@@ -23,12 +23,8 @@ in {
     driSupport32Bit = true;
     extraPackages =
       commonExtraPkgs
-      ++ lib.optional needsNvidia [
-        pkgs.nvidia-vaapi-driver
-      ]
-      ++ lib.optional needsIntel [
-        pkgs.vaapiIntel
-        pkgs.intel-media-driver
-      ];
+      ++ lib.optional needsNvidia pkgs.nvidia-vaapi-driver
+      ++ lib.optional needsIntel pkgs.vaapiIntel
+      ++ lib.optional needsIntel pkgs.intel-media-driver;
   };
 }
