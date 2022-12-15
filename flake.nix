@@ -23,6 +23,10 @@
       url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xdph = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -34,6 +38,7 @@
     nix-gaming,
     hyprland,
     hyprpaper,
+    xdph,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -112,6 +117,7 @@
               extraConfig = (import ./hm/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
+          xdph.default
           ./hm/common/packages
           ./hm/legion/chunix/home.nix
           (import ./hm/common/packages/environment.nix {

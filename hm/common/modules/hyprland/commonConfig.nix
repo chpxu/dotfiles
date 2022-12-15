@@ -4,8 +4,8 @@
 
     # Execute your favorite apps at launch
     exec-once = waybar & hyprpaper
-    exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-    exec = swayidle -w timeout 300 'swaylock -f' timeout 600 'hyprctl dispatch dpms off"' resume 'hyprctl dispatch dpms on"' before-sleep 'swaylock -f'
+
+    exec = swayidle -w timeout 120 'swaylock -f' timeout 600 'hyprctl dispatch dpms off"' resume 'hyprctl dispatch dpms on"' before-sleep 'swaylock -f'
     exec-once = wl-paste -w cliphist store
 
     $cliphistShow = "cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '##3b4252' --nf '##eceff4' --tb '##3b4252' --tf '##eceff4' --fb '##2e3440' -ff '##eceff4'  --hb '##434c5e"  --hf '##bf616a' --sb '\##4c566a' --fn 'FiraCode Nerd Font 12' | cliphist decode | wl-copy"
@@ -16,10 +16,10 @@
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input {
         kb_layout = us
-        kb_variant =
-        kb_model =
-        kb_options =
-        kb_rules =
+        # kb_variant =
+        # kb_model =
+        # kb_options =
+        # kb_rules =
 
         follow_mouse = 1
 
@@ -46,7 +46,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         rounding = 5
-        blur = no
+        # blur = no
         blur_size = 2
         blur_passes = 1
         blur_new_optimizations = on
