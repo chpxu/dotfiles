@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   xdg = {
     icons.enable = true;
     portal = {

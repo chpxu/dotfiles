@@ -23,7 +23,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../common/modules/default.nix {inherit hostname;})
+      (import ../common/modules/default.nix {inherit hostname pkgs;})
       (import ../common/packages/default.nix {inherit needsNvidia needsIntel;})
       # tlp
       ./tlp.nix
