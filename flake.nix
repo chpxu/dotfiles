@@ -32,13 +32,13 @@
   outputs = {
     self,
     nixpkgs,
-    sops-nix,
+    sops-nix, # TODO working on managing wireless secrets
     home-manager,
     nur,
     nix-gaming,
     hyprland,
     hyprpaper,
-    xdph,
+    xdph, # FIXME need to report issue on this
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -110,14 +110,14 @@
         };
         modules = [
           nur.nixosModules.nur
-          hyprland.homeManagerModules.default
+          hyprland.homeManagerModules.defult
           {
             wayland.windowManager.hyprland = {
               enable = true;
               extraConfig = (import ./hm/legion/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          xdph
+          # xdph
           ./hm/common/packages
           ./hm/legion/chunix/home.nix
           (import ./hm/common/packages/environment.nix {
@@ -137,3 +137,4 @@
     };
   };
 }
+a

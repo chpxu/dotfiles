@@ -18,21 +18,18 @@ This structure was heavily inspired, and has some code taken from [Misterio77's 
 
 ```
 .
-├── home-manager/
+├── hm/
 │   ├── common/
 │   │   ├── packages/
 │   │   │   └── # A set of common packages I share across my users where no configuration is required
-│   │   └── configs/
+│   │   └── modules/
 │   │       └── # A set of common configurations for programs I share across my users
 │   ├── chunix/
-│   │   ├── home.nix
-│   │   └── ...
-│   └── dummy/
-│       ├── # dummy user account for testing
 │       ├── home.nix
 │       └── ...
+│
 ├── overlays # a set of overlays
-├── systems/
+├── system/
 │   ├── common/
 │   │   └── # A set of common packages/configurations I share across my systems
 │   ├── yoga # configuration for my Yoga C940
@@ -43,7 +40,7 @@ This structure was heavily inspired, and has some code taken from [Misterio77's 
 │   └── ...
 ├── flake.nix
 ├── flake.lock
-└── locknixpkgs.nix
+└── install.sh
 ```
 
 ## Screenshots
@@ -86,24 +83,25 @@ These are the main applications and programs I use. Everything has been installe
 - thunderbird-wayland
 - gimp
 - inkscape
-- vscode (must fix python global env - import resolution fails)
+- vscode (submodule resolution fails)
 <!-- - neovim (NEED TO FIX) -->
 - discord-canary
 - betterdiscordctl
 - mpv
 - imv
 - rnote (nice to use, but memory intensive and scrolling lags on touch input. doesn't crash though!)
-- xournalpp (liked to crash on wayfire, haven't tested on hyprland) (Custom derivation. See my [repo](https://github.com/chpxu/xournalpp))
+- xournalpp (crash haven) (Custom derivation. See my [repo](https://github.com/chpxu/xournalpp))
 - zathura
 - libreoffice-fresh
-- osu-lazer (nix-gaming flake)
+- osu-lazer
 
 ### Environment programs
 
 Applications or programs which affect my workspace
 
-- ~~wayfire~~ (phasing out for Hyprland) (custom derivation to use `v0.7.4` for `src` instead)
-- ~~wcm, wf-config~~ (phasing out for Hyprland)
+<!-- - ~~wayfire~~ (phasing out for Hyprland) (custom derivation to use `v0.7.4` for `src` instead)
+- ~~wcm, wf-config~~ (phasing out for Hyprland) -->
+
 - Hyprland (This is my current WM and will be phasing out wayfire from daily use).
 - hyprpaper
 - waybar (built with `-Dexperimental=true`)
@@ -113,7 +111,7 @@ Applications or programs which affect my workspace
 - bemenu (planning to phase this out once I figure out a nice way to make cliphist work with wofi)
 - cliphist
 - wofi
-- ~~kanshi~~ (Will be phasing out due to move to Hyprland)
+<!-- - ~~kanshi~~ (Will be phasing out due to move to Hyprland) -->
 - wl-clipboard
 - kitty
 - zsh
@@ -141,16 +139,17 @@ Assuming Firefox is installed, follow these instructions:
 1. Enable the extensions. This is due to how Firefox handles extension side-loading.
 2. In the `Tab Center Reborn` extension preferences, copy and paste the contents of `./.config/nixpkgs/modules/firefox/config/tabCenterReborn-chpxu.css` inside the input box for Custom CSS.
 3. Ensure Custom CSS/Styles whatever checkbox is enabled and restart firefox (or the extension).
-
+<!-- 
 Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.com/ranmaru22/firefox-vertical-tabs) and credits to FILL_IN for the `oneline.css`.
 
-Both CSS files have had my own slight modifications. To edit `userChrome.css` or `userContent.css`, see `firefox.nix` and appropriate subdirectories (an absolute mess right now).
+Both CSS files have had my own slight modifications. To edit `userChrome.css` or `userContent.css`, see `firefox.nix` and appropriate subdirectories (an absolute mess right now). -->
 
 #### To-Do
 
-- [ ] Fix errors in certain `about:` pages. This is pretty much done. There are a few minor changes to some pages that must be done, but the theming is much more consistent and less broken.
+- [ ] Fix theming. Going for a much cleaner look.
+- [ ] Multiple profiles, rather than using one profile and container tabs for better separation
 - [x] The hover effect on the Tab Center Reborn is not of the correct colour.
-- [] Attempt to configure extensions declaratively. (BIG)
+- [ ] Attempt to configure extensions declaratively. (BIG)
 
 ### Thunderbird
 
@@ -160,12 +159,6 @@ TBD.
 
 - [ ] Learn to theme Thunderbird with `userChrome`
 - [ ] Theme the rest of the UI and fix other colours
-
-### Waybar, Wayfire, Swaylock, swayidle, wofi
-
-Nothing else should need to be done if everything was copied correctly I think.
-
-- [x] Swaylock does not work unless it is a system package. This is a known upstream issue.
 
 ### VSCode
 
@@ -182,8 +175,7 @@ The `home-manager switch` should be good to go.
 
 #### To-Do
 
-- [x] The background on the sidebar content is incorrect.
-- [x] Check settings have been applied. Achieved with symlinking.
+- [ ] Fix custom derivation not working due to `libasound`
 
 ### Discord
 
