@@ -24,10 +24,10 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import ../common/modules/default.nix {inherit hostname pkgs;})
-      (import ../common/packages/default.nix {inherit needsNvidia needsIntel;})
+      (import ../common/packages/default.nix {inherit pkgs needsNvidia needsIntel;})
       # tlp
       ./tlp.nix
-      ../common/hardware/global
+      (import ../common/hardware/global {inherit pkgs;})
     ]
     ++ lib.optional needsNvidia [../common/hardware/nvidia]
     ++ lib.optional needsIntel [../common/hardware/intel];
