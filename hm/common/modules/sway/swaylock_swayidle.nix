@@ -38,7 +38,7 @@
     text-caps-lock-color = "d8dee9";
     indicator-idle-visible = true;
     daemonize = true;
-    image = "${config.xdg.userDirs.pictures}/blue_swirl.png";
+    image = "./blue_swirl.png";
     scaling = "fill";
     # swaylock-effects specific
     effect-blur = "20x2";

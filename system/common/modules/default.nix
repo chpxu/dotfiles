@@ -22,5 +22,6 @@
     (import ./xdg.nix {inherit pkgs;})
     ./gtk_qt.nix
     ./opengl.nix
+    ./time_i18n.nix
   ];
 }

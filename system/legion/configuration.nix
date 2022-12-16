@@ -50,21 +50,6 @@
     supportedFilesystems = ["ntfs" "btrfs"];
   };
 
-  time.timeZone = "Europe/London";
-  i18n = {
-    defaultLocale = "en_GB.UTF-8";
-    inputMethod = {
-      enabled = "ibus";
-      uim.toolbar = "gtk";
-      ibus = {
-        engines = with pkgs.ibus-engines; [anthy];
-      };
-    };
-    extraLocaleSettings = {
-      LC_MESSAGES = "en_GB.UTF-8";
-      LC_TIME = "en_GB.UTF-8";
-    };
-  };
   console = {
     earlySetup = true;
     packages = with pkgs; [terminus_font];
