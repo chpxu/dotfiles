@@ -47,9 +47,6 @@
     colour-palette = import ./hm/common/nordtheme.nix;
     pkgs = nixpkgs.legacyPackages.${system};
   in rec {
-    nixpkgs.config.allowUnfreePredicate = pkg: true;
-    nixpkgs.config.allowUnfree = true;
-    manual.manpages.enable = false;
     overlays = import ./overlays;
     nixosConfigurations = {
       # Yoga
@@ -64,6 +61,7 @@
         modules = [
           ./system/yoga/configuration.nix
           sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
         ];
       };
       # Legion
@@ -78,6 +76,7 @@
         modules = [
           ./system/legion/configuration.nix
           sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
         ];
       };
     };

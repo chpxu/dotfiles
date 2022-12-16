@@ -39,5 +39,6 @@
     # Workaround for https://github.com/nix-community/home-manager/issues/2942
     allowUnfreePredicate = _: true;
   };
+  manual.manpages.enable = false;
   programs.home-manager.enable = true;
 }
