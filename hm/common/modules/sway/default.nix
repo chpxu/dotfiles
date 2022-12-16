@@ -9,5 +9,5 @@
   colour-palette,
   ...
 }: {
-  imports = [./swaylock_swayidle.nix];
+  imports = [./swaylock_swayidle.nix ./xdg.nix];
 }
