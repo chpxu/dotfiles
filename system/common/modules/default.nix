@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./nix.nix
+    ./boot.nix
     (import ./console.nix {inherit pkgs;})
     (import ./kernel.nix {
       inherit pkgs lib;
