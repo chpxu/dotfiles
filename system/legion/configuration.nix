@@ -26,7 +26,7 @@
       ./hardware-configuration.nix
       # Custom modules
       # ../common/modules
-      (import ../common/modules/default.nix {inherit hostname builtins lib pkgs;})
+      (import ../common/modules/default.nix {inherit hostname config builtins lib pkgs;})
       (import ../common/packages/default.nix {inherit pkgs needsNvidia needsIntel;})
       (import ../common/hardware/global {inherit pkgs;})
     ]
@@ -43,58 +43,7 @@
       grub.efiSupport = true;
       grub.useOSProber = true;
     };
-    # Kernel things
-    #kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    # kernelParams = ["nomodeset"];
-    kernelPackages = let
-      rtVer = "14";
-      xanmod = {
-        fetchFromGitHub,
-        buildLinux,
-        ...
-      } @ args:
-        buildLinux (args
-          // rec {
-            version = "6.0.7";
-            modDirVersion = "${version}-rt${rtVer}-xanmod1";
-            src = fetchFromGitHub {
-              owner = "xanmod";
-              repo = "linux";
-              rev = modDirVersion;
-              sha256 = "sha256-4S1MMbGH1Q22S1UbmmvCkBiDhdbziroU9AZzhYgFcOg=";
-            };
-            kernelPatches = [];
-            structuredExtraConfig = with lib.kernel; {
-              EXPERT = yes;
-              RCU_EXPERT = yes;
-              # X86_PSTATE_DRIVER = yes;
-              TCP_CONG_BBR2 = yes;
-              DEFAULT_BBR2 = yes;
-              NET_SCH_DEFAULT = yes;
-              DEFAULT_FQ_PIE = yes;
-              FUTEX = yes;
-              FUTEX_PI = yes;
-              WINESYNC = module;
-              PREEMPT_RT = no;
-              # PREEMPT_RT_FULL = yes;
-              PREEMPT_VOLUNTARY = yes;
-              LRU_GEN = yes;
-              LRU_GEN_ENABLED = yes;
-              DEBUG_OBJECTS = no;
-              DEBUG_PREEMPT = no;
-              NO_HZ = yes;
-              # NO_HZ_IDLE = yes;
-              # HZ = freeform "500";
-              # HZ_500 = yes;
-              # HZ_1000 = no;
-              # RCU_PERF_TEST = no;
-            };
-            extraMeta.branch = "6.0";
-          }
-          // (args.argsOverride or {}));
-      xanmodFor = pkgs.callPackage xanmod {};
-    in
-      pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor xanmodFor);
+
     kernelModules = ["uinput" "acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     initrd.supportedFilesystems = ["btrfs"];
