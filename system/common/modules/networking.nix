@@ -26,4 +26,5 @@
     wireless.scanOnLowSignal = false;
     # wireless.networks = import ../secrets.nix;
   };
+  services.openssh.enable = true;
 }

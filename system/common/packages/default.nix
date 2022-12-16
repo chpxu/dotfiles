@@ -18,6 +18,7 @@
     dconf
     linux-pam
     pciutils
+    age
     (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
       src = fetchFromGitHub {
         owner = "jirutka";
