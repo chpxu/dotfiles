@@ -35,8 +35,8 @@
         isDefault = true;
         path = "chunix";
         settings = (import ./config/settings.nix).settings;
-        userChrome = (import ./config/userChrome.nix).userChrome;
-        userContent = (import ./config/userContent.nix).userContent;
+        # userChrome = (import ./config/userChrome.nix).userChrome;
+        # userContent = (import ./config/userContent.nix).userContent;
       };
       dummy = {
         id = 1;
