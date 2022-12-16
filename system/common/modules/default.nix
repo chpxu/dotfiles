@@ -7,6 +7,8 @@
   ...
 }: {
   imports = [
+    ./nix.nix
+    (import ./console.nix {inherit pkgs;})
     (import ./kernel.nix {
       inherit pkgs lib;
       rtVer = "14";

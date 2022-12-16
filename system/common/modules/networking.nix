@@ -26,6 +26,7 @@
   };
   networking = {
     hostName = hostname;
+    firewall.enable = true;
     wireless.enable = true;
     wireless.scanOnLowSignal = false;
     wireless.environmentFile = config.sops.secrets."wireless.env".path;

@@ -19,6 +19,7 @@
     linux-pam
     pciutils
     age
+    alsa-utils
     (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
       src = fetchFromGitHub {
         owner = "jirutka";

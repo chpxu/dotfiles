@@ -6,4 +6,7 @@
     package = pkgs.opentabletdriver;
     daemon.enable = true;
   };
+  # Enable PulseAudio sound.
+  # sound.enable = true;
+  hardware.pulseaudio.enable = false;
 }
