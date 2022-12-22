@@ -15,6 +15,7 @@
     };
     kernelModules = ["uinput" "acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    kernelParams = ["ibt=off"];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];
   };

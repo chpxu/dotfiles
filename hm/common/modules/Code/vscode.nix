@@ -8,12 +8,13 @@
 in {
   programs.vscode = with pkgs; {
     enable = true;
-    package = vscode.fhs;
+    package = vscode;
     extensions = with vscode-extensions;
       [
         arcticicestudio.nord-visual-studio-code
         # Nix
-        bbenoist.nix # Better Nix Syntax highlighting
+        #bbenoist.nix # Better Nix Syntax highlighting
+				jnoortheen.nix-ide
         kamadorueda.alejandra # Nix formatter
         # TeX stuff
         james-yu.latex-workshop

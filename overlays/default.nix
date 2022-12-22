@@ -1,5 +1,13 @@
 rec {
   discordver = "0.0.140";
+  clisp =  (final: prev: {
+      clisp = prev.clisp.override {
+        # On newer readline8 fails as:
+        #  #<FOREIGN-VARIABLE "rl_readline_state" #x...>
+        #   does not have the required size or alignment
+        readline = prev.readline6;
+      };
+    });
   waybar = self: super: {
     # waybar overlay to build with experimental
     waybar = super.waybar.overrideAttrs (oldAttrs: {

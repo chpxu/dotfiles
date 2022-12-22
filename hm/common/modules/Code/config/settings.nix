@@ -168,5 +168,7 @@ in {
       ];
     };
     "ltex.statusBarItem" = true;
+    "nix.enableLanguageServer" = true;
+    "nix.serverPath" = "nil";
   };
 }

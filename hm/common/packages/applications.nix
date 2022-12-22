@@ -21,8 +21,9 @@
       yt-dlp
       texlive.combined.scheme-full
       ltex-ls
-      osu-lazer
+      #osu-lazer
       # other applications may be in overlays
+			clisp
       discord-canary
       waybar
       hyprpaper

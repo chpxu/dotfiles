@@ -12,5 +12,8 @@
       if needsScale
       then "2"
       else "1";
+    EGL_PLATFORM = "wayland";
+    GBM_BACKEND = "nvidia-drm";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 }

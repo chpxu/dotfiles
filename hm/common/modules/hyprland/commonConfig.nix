@@ -173,7 +173,7 @@
         animate_manual_resizes = off
         enable_swallow = on
         swallow_regex = "^(kitty)$,^(zathura)$"
-        no_vfr = false
+        # no_vfr = false
     }
   '';
 }

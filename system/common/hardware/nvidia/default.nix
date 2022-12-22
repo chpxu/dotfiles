@@ -3,14 +3,16 @@
   hardware.nvidia = {
     #uses beta drivers
     package = config.boot.kernelPackages.nvidiaPackages.beta;
-    nvidiaSettings = true;
-    #Fixes a glitch
+		powerManagement = {
+			enable = true;
+			finegrained = true;
+		};
+    #nvidiaSettings = true;
     nvidiaPersistenced = true;
-    #Required for amdgpu and nvidia gpu pairingspjgs, ...
     modesetting.enable = true;
     prime = {
       offload.enable = true;
-      # sync.enable = true;
+      #sync.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };

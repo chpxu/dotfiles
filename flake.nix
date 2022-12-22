@@ -1,7 +1,8 @@
 {
   description = "My NixOS setup";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = 
+    "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -92,6 +93,9 @@
           {
             wayland.windowManager.hyprland = {
               enable = true;
+              nvidiaPatches = true;
+              systemdIntegration = true;
+              recommendedEnvironment = true;
               extraConfig = (import ./hm/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
