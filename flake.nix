@@ -24,22 +24,17 @@
       url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xdph = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
     self,
     nixpkgs,
-    sops-nix, # TODO working on managing wireless secrets
+    sops-nix, # TODO work on pure secret evaluation
     home-manager,
     nur,
     nix-gaming,
     hyprland,
     hyprpaper,
-    xdph, # FIXME need to report issue on this
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -69,13 +64,11 @@
               extraConfig = (import ./hm/${hostname}/common/modules/hyprland/hyprland.nix).extraConfig;
             };
           }
-          ./hm/common/packages
           ./hm/${hostname}/${username}/home.nix
-          (import ./hm/common/packages/environment.nix {
+          (import ./hm/common/packages/default.nix {
             inherit pkgs isLegion;
           })
           ./hm/common/modules
-          # (homeDetails {inherit username stateVersion;})
           {
             home = {
               inherit username stateVersion;
@@ -104,10 +97,10 @@
     overlays = import ./overlays;
     nixosConfigurations = {
       # Yoga
-      nixos = mkSystemConfiguration {
+      yoga = mkSystemConfiguration {
         needsNvidia = false;
         needsIntel = true;
-        hostname = "nixos";
+        hostname = "yoga";
       };
       # Legion
       legion = mkSystemConfiguration {
@@ -119,7 +112,7 @@
 
     homeConfigurations = {
       # Yoga
-      "${user}@nixos" = mkHomeConfiguration {
+      "${user}@yoga" = mkHomeConfiguration {
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
         hostname = "nixos";
         isLegion = false;

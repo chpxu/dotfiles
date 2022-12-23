@@ -99,10 +99,7 @@ These are the main applications and programs I use. Everything has been installe
 
 Applications or programs which affect my workspace
 
-<!-- - ~~wayfire~~ (phasing out for Hyprland) (custom derivation to use `v0.7.4` for `src` instead)
-- ~~wcm, wf-config~~ (phasing out for Hyprland) -->
-
-- Hyprland (This is my current WM and will be phasing out wayfire from daily use).
+- Hyprland
 - hyprpaper
 - waybar (built with `-Dexperimental=true`)
 - swayidle
@@ -111,7 +108,6 @@ Applications or programs which affect my workspace
 - bemenu (planning to phase this out once I figure out a nice way to make cliphist work with wofi)
 - cliphist
 - wofi
-<!-- - ~~kanshi~~ (Will be phasing out due to move to Hyprland) -->
 - wl-clipboard
 - kitty
 - zsh
@@ -169,14 +165,6 @@ Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplac
 - [x] Add the settings and extensions I use to `home.nix`
 - [ ] I plan to make my own Nord theme soon, after I update my theme to 2.0.0.
 
-### Xournal++
-
-The `home-manager switch` should be good to go.
-
-#### To-Do
-
-- [ ] Fix custom derivation not working due to `libasound`
-
 ### Discord
 
 NOTE: theming the main Discord client or using third-party client is against ToS and if discovered, could get your account banned. Do this at your own risk.
@@ -192,11 +180,6 @@ Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme 
 - [ ] Further modifications to make the theme consistent in colour.
 - [ ] BetterDiscord actually starts everytime.
 
-### Inkscape
-
-1. Ensure the GTK Nordic theme is installed.
-2. In Inkscape, head to _Edit > Preferences > Interface > Theming_ and set the theme to Nordic.
-
 ### GIMP
 
 1. Copy the files in the repo to the same location in your home. If the copying above was done correctly, this should be fine.
@@ -204,6 +187,30 @@ Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme 
 
 Note: I have the Icon theme set to `Symbolic - High Contrast`.
 
-#### To-Do
+## Configuration Deep Dive
 
-- [ ] Wayland when
+This section is more information about the configuration, mainly for those who want to extend/use this configuration (though you're probably better off using Misterio77's boilerplate).
+
+### `flake.nix` structure
+
+The `flake.nix` looks like quite a mess right now, most of it is due to my own inability to maintain and create a flexible, modular, declarative setup. There are however, multiple important sections as described by the NixOS wiki on [flake schema](https://nixos.wiki/wiki/Flakes):
+
+1. Description. Self-explanatory. Edit it to whatever `string` you want.
+2. `inputs` attribute set contain the flake inputs. Where possible, I have tried to use flake inputs or overlays for as many (environment) programs as possible.
+3. A bunch of `let` bindings. Namely:
+   - `system`, `user`, `pkgs` for some easy reusable keywords
+   - `colour-palette` which is the file containing the RGB hex codes for the Nord theme.
+   - `mkHomeConfiguration` a function which creates a home for a user and hostname. Creates a full-fledged user based off my specifications
+   - `mkSystemConfiguration` a function which creates a NixOS system with given hostname, users and minimal modules.
+4. `outputs`. What the flake returns and allows you to access.
+
+#### Roadmap
+
+- [ ] Explore decomposing programs into _bundles_. Bundles consist of a list of programs. Current idea is:
+  - `env` for programs which set-up my display and system (e.g. Hyprland, wofi).
+  - `daily` for programs to do day-to-day tasks (e.g. LibreOffice, Thunderbird)
+  - `dev` for development purposes: python, front-end web development, vscode-extensions (finally)
+  - `misc` is self-explanatory
+- Properly parse inputs down to every nix file, to reduce the use of stray `import` statements
+
+TBD

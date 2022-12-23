@@ -2,11 +2,14 @@
   config,
   pkgs,
   lib,
+  isLegion ? false,
   inputs,
   ...
 }: {
   imports = [
-    ./python.nix
-    ./applications.nix
+    ./python/python.nix
+    ./daily
+    ./dev
+    (import ./environment.nix {inherit pkgs isLegion;})
   ];
 }
