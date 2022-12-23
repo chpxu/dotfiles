@@ -5,7 +5,7 @@
       #exec-once=systemctl --user import-environment WAYLAND_DISPLAY 
       #XDG_CURRENT_DESKTOP
       #FIXME
-      monitor=eDP-1,2560x1600@165.003998,0x0,1,bitdepth,10
+      monitor=,2560x1600@165.003998,0x0,1,bitdepth,10
 
       decoration {
         blur = true
