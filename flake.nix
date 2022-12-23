@@ -2,7 +2,7 @@
   description = "My NixOS setup";
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nur.url = "github:nix-community/NUR";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -47,105 +47,92 @@
     user = "chunix";
     colour-palette = import ./hm/common/nordtheme.nix;
     pkgs = nixpkgs.legacyPackages.${system};
-  in rec {
-    overlays = import ./overlays;
-    nixosConfigurations = {
-      # Yoga
-      nixos = inputs.nixpkgs.lib.nixosSystem {
+    mkHomeConfiguration = {
+      extraSpecialArgs,
+      hostname,
+      isLegion,
+      username,
+      stateVersion,
+      ...
+    }:
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs extraSpecialArgs;
+        modules = [
+          nur.nixosModules.nur
+          hyprland.homeManagerModules.default
+          {
+            wayland.windowManager.hyprland = {
+              enable = true;
+              nvidiaPatches = isLegion;
+              systemdIntegration = true;
+              recommendedEnvironment = true;
+              extraConfig = (import ./hm/${hostname}/common/modules/hyprland/hyprland.nix).extraConfig;
+            };
+          }
+          ./hm/common/packages
+          ./hm/${hostname}/${username}/home.nix
+          (import ./hm/common/packages/environment.nix {
+            inherit pkgs isLegion;
+          })
+          ./hm/common/modules
+          # (homeDetails {inherit username stateVersion;})
+          {
+            home = {
+              inherit username stateVersion;
+              homeDirectory = "/home/${username}";
+            };
+          }
+        ];
+      };
+    mkSystemConfiguration = {
+      needsNvidia,
+      needsIntel,
+      hostname,
+    }:
+      inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs outputs;
-          needsNvidia = false;
-          needsIntel = true;
-          hostname = "nixos";
+          inherit inputs outputs needsIntel needsNvidia hostname;
         };
         modules = [
-          ./system/yoga/configuration.nix
+          ./system/${hostname}/configuration.nix
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
         ];
       };
+  in {
+    overlays = import ./overlays;
+    nixosConfigurations = {
+      # Yoga
+      nixos = mkSystemConfiguration {
+        needsNvidia = false;
+        needsIntel = true;
+        hostname = "nixos";
+      };
       # Legion
-      legion = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs outputs;
-          needsNvidia = true;
-          needsIntel = true;
-          hostname = "legion";
-        };
-        modules = [
-          ./system/legion/configuration.nix
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-        ];
+      legion = mkSystemConfiguration {
+        needsNvidia = true;
+        needsIntel = true;
+        hostname = "legion";
       };
     };
 
     homeConfigurations = {
-      # yoga
-      "${user}@nixos" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      # Yoga
+      "${user}@nixos" = mkHomeConfiguration {
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
-        modules = [
-          nur.nixosModules.nur
-          hyprland.homeManagerModules.default
-          {
-            wayland.windowManager.hyprland = {
-              enable = true;
-              nvidiaPatches = true;
-              systemdIntegration = true;
-              recommendedEnvironment = true;
-              extraConfig = (import ./hm/yoga/common/modules/hyprland/hyprland.nix).extraConfig;
-            };
-          }
-          ./hm/common/packages
-          ./hm/yoga/chunix/home.nix
-          (import ./hm/common/packages/environment.nix {
-            inherit pkgs;
-            isLegion = false;
-          })
-          ./hm/common/modules
-          {
-            home = {
-              username = "chunix";
-              homeDirectory = "/home/chunix";
-              stateVersion = "22.05";
-            };
-          }
-        ];
+        hostname = "nixos";
+        isLegion = false;
+        username = user;
+        stateVersion = "22.05";
       };
-      # legion
-      "${user}@legion" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs outputs colour-palette;
-        };
-        modules = [
-          nur.nixosModules.nur
-          hyprland.homeManagerModules.default
-          {
-            wayland.windowManager.hyprland = {
-              enable = true;
-              extraConfig = (import ./hm/legion/common/modules/hyprland/hyprland.nix).extraConfig;
-            };
-          }
-          # xdph
-          ./hm/common/packages
-          ./hm/legion/chunix/home.nix
-          (import ./hm/common/packages/environment.nix {
-            inherit pkgs;
-            isLegion = true;
-          })
-          ./hm/common/modules
-          {
-            home = {
-              username = "chunix";
-              homeDirectory = "/home/chunix";
-              stateVersion = "22.05";
-            };
-          }
-        ];
+      # Legion
+      "${user}@legion" = mkHomeConfiguration {
+        extraSpecialArgs = {inherit inputs outputs colour-palette;};
+        hostname = "legion";
+        isLegion = true;
+        username = user;
+        stateVersion = "22.05";
       };
     };
   };
