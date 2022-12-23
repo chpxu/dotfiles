@@ -22,8 +22,9 @@
       texlive.combined.scheme-full
       ltex-ls
       #osu-lazer
+      nil
       # other applications may be in overlays
-			clisp
+      clisp
       discord-canary
       waybar
       hyprpaper
