@@ -20,7 +20,8 @@
     pciutils
     age
     alsa-utils
-    (pkgs.swaylock-effects.overrideAttrs (oldAttrs: rec {
+    home-manager
+    (pkgs.swaylock-effects.overrideAttrs (oldAttrs: {
       src = fetchFromGitHub {
         owner = "jirutka";
         repo = "swaylock-effects";

@@ -1,9 +1,6 @@
 {
-  config,
   pkgs,
-  lib,
   isLegion ? false,
-  inputs,
   ...
 }: {
   imports = [

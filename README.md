@@ -4,14 +4,6 @@ This repository hosts my dotfiles and configs for various applications on NixOS.
 
 I will try to remember to give credits and links where possible but I'll probably forget.
 
-This repo will also be updated when I'm bothered
-
-- [x] I should make a script doing things
-
-## General To-Do
-
-1. [ ] Make system configuration a flake (WIP)
-
 ## How the repository is structured
 
 This structure was heavily inspired, and has some code taken from [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-starter-configs). This was extremely helpful in getting me to have a refactored and cleaner NixOS setup.
@@ -62,6 +54,15 @@ Notes:
 - Unfortunately GIMP is running in XWayland Mode :(
 - The yellow box in Zathura is the select colour. -->
 
+## Installation Instructions
+
+This setup uses home-manager as a standalone module, and so must be installed separately, alongside `git` to get the repo. Alternatively, one may have the repo on external storage, in which case skip to Step 4.
+
+1. Download and Install NixOS. No need to configure channels or extra users or anything (though you may wish to create a minimal, dummy user to check everything works, beware of bad reproducibility!)
+2. Install git temporarily and get the repo into current directory: `nix-shell -p git --run "git clone https://github.com/chpxu/dotfiles.git"`
+3. `cd` into `dotfiles`
+4. Run `install.sh`. You may need to give permissions to run as root.
+
 ## Themes, Icons and Colour Palette
 
 These dotfiles use 2 themes.
@@ -84,7 +85,6 @@ These are the main applications and programs I use. Everything has been installe
 - gimp
 - inkscape
 - vscode (submodule resolution fails)
-<!-- - neovim (NEED TO FIX) -->
 - discord-canary
 - betterdiscordctl
 - mpv
@@ -114,19 +114,7 @@ Applications or programs which affect my workspace
 - wvkbd (custom derivation to add theming. See my [repo](https://github.com/chpxu/wvkbd))
 - nano
 
-## Steps to use
-
-1. Clone the repository to somewhere safe, e.g. `$HOME`:
-
-```sh
-git clone https://github.com/chpxu/dotfiles.git
-cd ./dotfiles
-```
-
-2. Give `install.sh` permissions (`sudo chmod u+x install.sh` or something)
-3. Run `./install.sh`
-
-This script will erase everything in `/etc/nixos` so please back up!!
+## Program-specific steps
 
 ### Firefox
 
@@ -191,6 +179,10 @@ Note: I have the Icon theme set to `Symbolic - High Contrast`.
 
 This section is more information about the configuration, mainly for those who want to extend/use this configuration (though you're probably better off using Misterio77's boilerplate).
 
+### Why have an installer script?
+
+Why not? Nix makes it easy to have a common configuration that is easy to _install_ after running a bunch of commands. The install script exists to have, in some ways, a much simpler interface to the flake. Please do check it to know what is happening (those commands are essential!)
+
 ### `flake.nix` structure
 
 The `flake.nix` looks like quite a mess right now, most of it is due to my own inability to maintain and create a flexible, modular, declarative setup. There are however, multiple important sections as described by the NixOS wiki on [flake schema](https://nixos.wiki/wiki/Flakes):
@@ -213,4 +205,10 @@ The `flake.nix` looks like quite a mess right now, most of it is due to my own i
   - `misc` is self-explanatory
 - Properly parse inputs down to every nix file, to reduce the use of stray `import` statements
 
-TBD
+### Why separate home-manager and system?
+
+This is a personal choice. Whilst it might make more sense to some people to have any change equal an entire system change (well, because any user change _is_ a system change), I prefer having user-only changes not have to affect the system. This allows me, for example, to:
+
+- Test package changes as user if necessary without risking 'breakage' of the system
+
+More stuff TBD

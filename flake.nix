@@ -90,7 +90,6 @@
         modules = [
           ./system/${hostname}/configuration.nix
           sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
         ];
       };
   in {
