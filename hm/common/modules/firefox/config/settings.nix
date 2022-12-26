@@ -67,7 +67,7 @@
     "gfx.webrender.compositor.force-enabled" = true;
     "gfx.webrender.enabled" = true;
     "gfx.webrender.quality.force-subpixel-aa-where-possible" = true;
-		"gfx.x11-egl.force-enabled" = true;
+    "gfx.x11-egl.force-enabled" = true;
     "layers.acceleration.force-enabled" = true;
     "layers.force-active" = true;
     "layers.offmainthreadcomposition.enabled" = true;
