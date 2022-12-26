@@ -39,6 +39,7 @@
       "wlr/taskbar" = {
         all-outputs = true;
         format = "{icon} {title}";
+        max-length = 50;
         icon-size = 20;
         icon-theme = "Nordzy";
         tooltip = false;
@@ -145,7 +146,6 @@
         on-click = "wofi --show=run";
         max-length = 50;
         tooltip = false;
-        tooltip-format = " wofi ";
       };
       "custom/separator" = {
         format = "|";

@@ -17,9 +17,10 @@
       kernelModules = ["nvidia"];
     };
     kernelModules = ["uinput" "acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call nvidiaPackages.beta];
     blacklistedKernelModules = ["nouveau"];
-    kernelParams = ["ibt=off" "i915.enable_psr=0" "i915.enable_fbc=1" "i915.fastboot=0" "i915.enable_dc=0" "i915.enable_guc=3"];
+    kernelParams = ["ibt=off" "module_blacklist=nouveau" "i915.enable_psr=0" "i915.enable_fbc=1" "i915.fastboot=0" "i915.enable_dc=0" "i915.enable_guc=3"];
+		#kernelParams = ["ibt=off" "module_blacklist=nouveau"];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];
   };

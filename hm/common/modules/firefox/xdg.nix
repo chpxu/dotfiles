@@ -40,10 +40,10 @@
       recursive = true;
     };
   };
-  home.activation = {
-    symlinkChrome = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      $DRY_RUN_CMD ln -s -f $VERBOSE_ARG \
-          ${config.xdg.configHome}/firefox/chrome $HOME/.mozilla/firefox/chunix
-    '';
-  };
+  # home.activation = {
+  #   symlinkChrome = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #     $DRY_RUN_CMD ln -s -f $VERBOSE_ARG \
+  #         ${config.xdg.configHome}/firefox/chrome $HOME/.mozilla/firefox/main
+  #   '';
+  # };
 }

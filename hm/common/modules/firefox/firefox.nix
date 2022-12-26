@@ -4,20 +4,21 @@
   lib,
   ...
 }: {
-  nixpkgs.overlays = let
-    # Change this to a rev sha to pin
-    moz-rev = "80627b282705101e7b38e19ca6e8df105031b072";
-    moz-url = builtins.fetchTarball {
-      url = "https://github.com/mozilla/nixpkgs-mozilla/archive/${moz-rev}.tar.gz";
-      sha256 = "11g9lppm53f5aq7a0fnwh5hivdhn2p1wmhwgmz1052x10hfqjrah";
-    };
-    nightlyOverlay = import "${moz-url}/firefox-overlay.nix";
-  in [
-    nightlyOverlay
-  ];
+  # nixpkgs.overlays = let
+  #   # Change this to a rev sha to pin
+  #   moz-rev = "80627b282705101e7b38e19ca6e8df105031b072";
+  #   moz-url = builtins.fetchTarball {
+  #     url = "https://github.com/mozilla/nixpkgs-mozilla/archive/${moz-rev}.tar.gz";
+  #     sha256 = "11g9lppm53f5aq7a0fnwh5hivdhn2p1wmhwgmz1052x10hfqjrah";
+  #   };
+  #   nightlyOverlay = import "${moz-url}/firefox-overlay.nix";
+  # in [
+  #   nightlyOverlay
+  # ];
   programs.firefox = {
     enable = true;
-    package = pkgs.latest.firefox-nightly-bin;
+    # package = pkgs.latest.firefox-nightly-bin;
+    package = pkgs.firefox-devedition-bin;
     extensions = with config.nur.repos.rycee.firefox-addons; [
       # Main issue is configuring extensions declaratively
       # 1. The .xpi file must be extracted
@@ -29,17 +30,20 @@
       auto-tab-discard
     ];
     profiles = {
-      chunix = {
-        id = 0;
-        name = "chunix";
+      dev-edition-default = {
+        path = "q7h52to1.dev-edition-default";
         isDefault = true;
-        path = "chunix";
         settings = (import ./config/settings.nix).settings;
-        # userChrome = (import ./config/userChrome.nix).userChrome;
-        # userContent = (import ./config/userContent.nix).userContent;
+      };
+      dev-edition-uni = {
+        id = 1;
+        name = "University";
+        path = "uni";
+        settings = (import ./config/settings.nix).settings;
+        userChrome = '''';
       };
       dummy = {
-        id = 1;
+        id = 9999;
         isDefault = false;
       };
     };
