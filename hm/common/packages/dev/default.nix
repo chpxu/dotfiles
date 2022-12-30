@@ -9,5 +9,7 @@
     texlive.combined.scheme-full
     ltex-ls
     nil
+    zmqpp
+    spyder
   ];
 }

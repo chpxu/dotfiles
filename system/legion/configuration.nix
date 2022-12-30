@@ -15,6 +15,7 @@
       inherit config builtins pkgs lib needsIntel needsNvidia hostname;
       needsScale = false;
     })
+    (import ./modules/power/power.nix {inherit pkgs;})
   ];
   # systemd stuff
   systemd = {
@@ -35,6 +36,7 @@
     extraGroups = ["wheel" "audio" "video" "input"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.

@@ -23,13 +23,6 @@
       ltex-ls
       #osu-lazer
       nil
-      # other applications may be in overlays
-      clisp
-      discord-canary
-      waybar
-      hyprpaper
-      wvkbd
-      xournalpp
     ]
     ++ [
       pkgs.gamemode

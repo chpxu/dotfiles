@@ -63,6 +63,12 @@ in {
           version = "2022.9.1202862440";
           sha256 = "sha256-0F6eTEXt0PJY0+1o/qZEuUcD9sjHSnUrI1OS4IO2WLc=";
         }
+        {
+					name = "volar";
+					publisher = "vue";
+					version = "1.0.18";
+					sha256 = "sha256-X4Wvu4jgLfbDE2DDb65iwcEE2uZb1vCTt2/zofMai9Q=";
+        }
         # {
         #   name = "vscode-custom-css";
         #   publisher = "be5invis";

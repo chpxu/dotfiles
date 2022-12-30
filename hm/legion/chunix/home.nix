@@ -15,14 +15,14 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = 1;
     MOZ_DISABLE_RDD_SANDBOX = 1;
-    MOZ_X11_EGL =1;
-   # __EGL_VENDOR_LIBRARY_FILENAMES = 
-    #"${config.boot.kernelPackages.nvidiaPackages.beta}/share/glvnd/egl_vendor.d/10_nvidia.json"; 
- 	};
+    MOZ_X11_EGL = 1;
+    # __EGL_VENDOR_LIBRARY_FILENAMES =
+    #"${config.boot.kernelPackages.nvidiaPackages.beta}/share/glvnd/egl_vendor.d/10_nvidia.json";
+  };
 
   nixpkgs = {
     overlays = with outputs.overlays; [
-			clisp
+      clisp
       hyprpaper
       xournalpp
       waybar
@@ -30,5 +30,14 @@
       wvkbd
     ];
   };
+  home.packages = with pkgs; [
+    # other applications may be in overlays
+    clisp
+    discord-canary
+    waybar
+    hyprpaper
+    wvkbd
+    xournalpp
+  ];
   imports = [../../common/commonHome.nix];
 }

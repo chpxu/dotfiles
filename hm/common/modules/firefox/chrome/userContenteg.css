@@ -1,0 +1,97 @@
+@import "includes/cascade-colours.css";
+@import "custom/custom-ui.css";
+:root {
+  /* Nord Theme Colours */
+  /* Polar Night: Darkest */
+  --nord0: "#2e3440";
+  --nord1: "#3b4252";
+  --nord2: "#434c5e";
+  /* # Polar Night: Lightest */
+  --nord3: "#4c566a";
+  /* # Snow Storm: Darkest */
+  --nord4: "#d8dee9";
+  --nord5: "#e5e9f0";
+  /* Snow Storm: lightest */
+  --nord6: "#eceff4";
+  /* Frost: Turquoise */
+  --nord7: "#8fbcbb";
+  /* Frost: Light Blue */
+  --nord8: "#88c0d0";
+  /* Frost Blue */
+  --nord9: "#81a1c1";
+  /* Frost: darker blue/purple */
+  --nord10: "#5e81ac";
+  /* Aurora: red */
+  --nord11: "#bf616a";
+  /* Aurora: orange */
+  --nord12: "#d08770";
+  /* Aurora: yellow */
+  --nord13: "#ebcb8b";
+  /* Aurora: green */
+  --nord14: "#a3be8c";
+  /* Aurora: pink */
+  --nord15: "#b48ead";
+  /* These colours are (mainly) used by the
+     Container Tabs Plugin */
+  --uc-identity-colour-blue: var(--nord9);
+  --uc-identity-colour-turquoise: var(--nord7);
+  --uc-identity-colour-green: var(--nord14);
+  --uc-identity-colour-yellow: var(--nord13);
+  --uc-identity-colour-orange: var(--nord12);
+  --uc-identity-colour-red: var(--nord11);
+  --uc-identity-colour-pink: var(-nord15);
+  --uc-identity-colour-purple: var(--10);
+
+  /*  Cascades main Colour Scheme */
+  --uc-base-colour: var(--nord0);
+  --uc-selected-colour: var(--nord1);
+  --uc-highlight-colour: var(--nord4);
+  --uc-inverted-colour: var(--nord6);
+  --uc-muted-colour: var(--nord4);
+  --uc-accent-colour: var(--uc-identity-colour-purple);
+}
+@-moz-document url("about:home"),
+          url("about:newtab"),
+          url("about:preferences"),
+          url("about:config"),
+          url("about:addons"),
+          url("about:memory") {
+  html,
+  body,
+  addon-page-header,
+  .main-content {
+    background: var(--uc-base-colour) !important;
+  }
+}
+@-moz-document url("about:memory") {
+  div:not([class="opsRow"]) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  .opsRow,
+  .section {
+    background: var(--uc-base-colour) !important;
+    color: var(--uc-inverted-colour) !important;
+    padding: 20px !important;
+  }
+  .opsRowLabel {
+    padding: 10px;
+  }
+  button {
+    background: var(--uc-base-colour) !important;
+    padding: 10px;
+    margin: 5px !important;
+    border: 1px solid var(--nord9) !important;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: var(--uc-base-colour) !important;
+    border: 1px solid var(--uc-inverted-colour) !important;
+  }
+  button:active {
+    background: var(--uc-base-colour) !important;
+    border: 1px solid var(--nord9) !important;
+  }
+}

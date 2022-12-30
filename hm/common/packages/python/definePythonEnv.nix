@@ -13,5 +13,6 @@
       black
       pytest-black
       pytest
+      pyzmq
     ];
 }
