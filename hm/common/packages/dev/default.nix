@@ -9,7 +9,7 @@
     texlive.combined.scheme-full # TODO: remove? replace with rlt to reduce closure
     ltex-ls
     nil
-    zmqpp
-    spyder
+    # zmqpp
+    # spyder
   ];
 }
