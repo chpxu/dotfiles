@@ -12,20 +12,16 @@
       inkscape-with-extensions
       gimp-with-plugins
       neofetch
-      bitwarden
+      # bitwarden
       teams
       libreoffice-fresh
       onedrive
       rnote
       pdfarranger
       yt-dlp
-      texlive.combined.scheme-full
-      ltex-ls
-      #osu-lazer
-      nil
     ]
     ++ [
-      pkgs.gamemode
-      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+      # pkgs.gamemode
+      # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     ];
 }

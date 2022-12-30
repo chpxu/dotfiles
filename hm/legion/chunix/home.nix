@@ -28,12 +28,14 @@
       waybar
       discord-canary
       wvkbd
+      bitwarden
     ];
   };
   home.packages = with pkgs; [
     # other applications may be in overlays
     clisp
     discord-canary
+    bitwarden
     waybar
     hyprpaper
     wvkbd

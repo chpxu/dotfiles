@@ -1,10 +1,11 @@
 rec {
-  discordver = "0.0.140";
+  discordver = "0.0.145";
+  bitwardenver = "2022.12.0";
   clisp = final: prev: {
     clisp = prev.clisp.override {
       # On newer readline8 fails as:
       #  #<FOREIGN-VARIABLE "rl_readline_state" #x...>
-      #   does not have the required size or alignment
+      #   does not have the required size or alignmen
       readline = prev.readline63;
     };
   };
@@ -30,7 +31,17 @@ rec {
       version = discordver;
       src = super.fetchurl {
         url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
-        sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0=";
+        # sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0="; #ver 0.0.140
+        sha256 = "sha256-TF+7SnCTsbh+Z8AeEESEFVLSpD3c5HOAwpU1UBuB1BU="; #0.0.145
+      };
+    });
+  };
+  bitwarden = self: super: {
+    bitwarden = super.bitwarden.overrideAttrs (oldAttrs: rec {
+      version = bitwardenver;
+      src = super.fetchurl {
+        url = "https://github.com/bitwarden/clients/releases/download/desktop-v${version}/Bitwarden-${version}-amd64.deb";
+        sha256 = "sha256-deQG1GEYmnQmO5+jASsiQmDphb+4Jyq9aSn/A4z++uE=";
       };
     });
   };
