@@ -12,9 +12,9 @@
         "custom/separator"
         "custom/keyboard"
         "custom/separator"
-        "tray"
-        "custom/separator"
         "wlr/workspaces"
+        "custom/separator"
+        "tray"
       ];
       modules-center = [
         "wlr/taskbar"
@@ -39,7 +39,7 @@
       "wlr/taskbar" = {
         all-outputs = true;
         format = "{icon} {title}";
-        max-length = 50;
+        max-length = 20;
         icon-size = 20;
         icon-theme = "Nordzy";
         tooltip = false;

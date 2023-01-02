@@ -5,6 +5,14 @@
       substituters = ["https://nix-gaming.cachix.org"];
       trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
     };
+    optimise = {
+			automatic = true;
+			dates = ["weekly"];
+    };
+    gc = {
+			automatic = true;
+			dates = "weekly";
+    };
   };
   nixpkgs.config.allowUnfree = true;
   # This value determines the NixOS release from which the default

@@ -1,4 +1,5 @@
 {pkgs}: {
+  imports = [./tlp.nix];
   services = {
     auto-cpufreq.enable = true;
     thermald = {

@@ -13,6 +13,11 @@
       black
       pytest-black
       pytest
-      pyzmq
+      pandas
+      #scikits-odes
+      #sklearn-deap
+      scikit-learn
+   		scikit-learn-extra
+   		scikit-misc
     ];
 }

@@ -45,10 +45,10 @@
     decoration {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        rounding = 5
+        rounding = 2
         # blur = no
-        blur_size = 2
-        blur_passes = 1
+        blur_size = 3
+        blur_passes = 2
         blur_new_optimizations = on
 
         drop_shadow = no

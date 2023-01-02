@@ -13,7 +13,7 @@
         blur = true
       }
       misc {
-        no_vfr = yes
+        no_vfr = false
       }
     ''
     + (import ../../../../common/modules/hyprland/commonConfig.nix).commonConfig;

@@ -42,4 +42,15 @@
     xournalpp
   ];
   imports = [../../common/commonHome.nix];
+  # home.activation = {
+  #   fix-vscode = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #     # rm -r $HOME/.vscode/extension-old
+  #     cp -LR $HOME/.vscode/extensions $HOME/.vscode/old
+  #     mv $HOME/.vscode/extensions $HOME/.vscode/extension-old
+  #     mv $HOME/.vscode/old $HOME/.vscode/extensions
+  #     sleep 1
+  #     chmod 775 -R $HOME/.vscode/extensions
+  #     # chmod 775 -R $HOME/.vscode/extensions
+  #   '';
+  # };
 }

@@ -13,7 +13,7 @@ in {
       background-image: none;
     }
     window#waybar {
-      background: ${nord.nord0};
+      background: rgba(46, 52, 64, 0.9);
       color: ${nord.nord6};
       font-family: 'FiraCode Nerd Font', Inconsolata, sans-serif;
       font-weight: 400;
