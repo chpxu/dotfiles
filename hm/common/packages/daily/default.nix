@@ -19,9 +19,10 @@
       rnote
       pdfarranger
       yt-dlp
+      obs-studio
     ]
     ++ [
-      pkgs.gamemode
-      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+      # pkgs.gamemode
+      # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     ];
 }
