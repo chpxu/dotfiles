@@ -2,16 +2,22 @@
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
-      substituters = ["https://nix-gaming.cachix.org"];
-      trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+      substituters = [
+        "https://nix-gaming.cachix.org"
+        "https://hyprland.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      ];
     };
     optimise = {
-			automatic = true;
-			dates = ["weekly"];
+      automatic = true;
+      dates = ["weekly"];
     };
     gc = {
-			automatic = true;
-			dates = "weekly";
+      automatic = true;
+      dates = "weekly";
     };
   };
   nixpkgs.config.allowUnfree = true;
@@ -21,5 +27,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 }

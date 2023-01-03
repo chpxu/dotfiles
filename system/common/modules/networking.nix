@@ -2,10 +2,11 @@
   config,
   builtins,
   lib,
-  hostname ? "",
+  hostname,
   ...
 }: {
   services.openssh.enable = true;
+  services.nscd.enableNsncd = true;
   # imports = [<sops-nix/modules/sops>];
   # This will add secrets.yml to the nix store
   # You can avoid this by adding a string to the full path instead, i.e.

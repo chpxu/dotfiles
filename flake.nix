@@ -2,7 +2,7 @@
   description = "My NixOS setup";
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nur.url = "github:nix-community/NUR";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -18,7 +18,7 @@
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
@@ -116,7 +116,7 @@
         hostname = "nixos";
         isLegion = false;
         username = user;
-        stateVersion = "22.05";
+        stateVersion = "22.11";
       };
       # Legion
       "${user}@legion" = mkHomeConfiguration {
@@ -124,7 +124,7 @@
         hostname = "legion";
         isLegion = true;
         username = user;
-        stateVersion = "22.05";
+        stateVersion = "22.11";
       };
     };
   };
