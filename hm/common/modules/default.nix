@@ -26,7 +26,7 @@
     ./firefox
     # ./neovim
     ./wofi
-    ./zsh
+    # ./zsh
     ./hyprland/xdg.nix
     # ./starship
     ./jq
