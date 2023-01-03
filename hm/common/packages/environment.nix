@@ -1,6 +1,6 @@
 {
   pkgs,
-  isLegion ? false,
+  needsNvidia ? false,
   ...
 }: let
   normalPackages = with pkgs; [
@@ -21,7 +21,7 @@
   xprop = [pkgs.xorg.xprop];
 in {
   home.packages =
-    if isLegion == false
+    if needsNvidia == false
     then normalPackages ++ xprop
     else normalPackages;
 }

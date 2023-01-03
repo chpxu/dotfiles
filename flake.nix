@@ -50,7 +50,7 @@
     mkHomeConfiguration = {
       extraSpecialArgs,
       hostname,
-      isLegion,
+      needsNvidia,
       username,
       stateVersion,
       ...
@@ -60,21 +60,19 @@
         modules = [
           nur.nixosModules.nur
           hyprland.homeManagerModules.default
+          ./hm/${hostname}/${username}/home.nix
+          (import ./hm/common/packages/default.nix {
+            inherit pkgs needsNvidia;
+          })
+          ./hm/common/modules
           {
             wayland.windowManager.hyprland = {
               enable = true;
-              nvidiaPatches = isLegion;
+              nvidiaPatches = needsNvidia;
               systemdIntegration = true;
               recommendedEnvironment = true;
               extraConfig = (import ./hm/${hostname}/common/modules/hyprland/hyprland.nix).extraConfig;
             };
-          }
-          ./hm/${hostname}/${username}/home.nix
-          (import ./hm/common/packages/default.nix {
-            inherit pkgs isLegion;
-          })
-          ./hm/common/modules
-          {
             home = {
               inherit username stateVersion;
               homeDirectory = "/home/${username}";
@@ -119,7 +117,7 @@
       "${user}@yoga" = mkHomeConfiguration {
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
         hostname = "nixos";
-        isLegion = false;
+        needsNvidia = false;
         username = user;
         stateVersion = "22.11";
       };
@@ -127,7 +125,7 @@
       "${user}@legion" = mkHomeConfiguration {
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
         hostname = "legion";
-        isLegion = true;
+        needsNvidia = true;
         username = user;
         stateVersion = "22.11";
       };

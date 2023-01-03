@@ -1,4 +1,4 @@
-rec {
+{
   clisp = final: prev: {
     clisp = prev.clisp.override {
       # On newer readline8 fails as:
@@ -15,7 +15,7 @@ rec {
   };
   # Hyprpaper overlay since the nix flake does not work (issue with formatter/alejandra?)
   hyprpaper = self: super: {
-    hyprpaper = super.hyprpaper.overrideAttrs (oldAttrs: rec {
+    hyprpaper = super.hyprpaper.overrideAttrs (oldAttrs: {
       src = super.fetchFromGitHub {
         owner = "hyprwm";
         repo = "hyprpaper";
@@ -46,7 +46,7 @@ rec {
     });
   };
   wvkbd = self: super: {
-    wvkbd = super.wvkbd.overrideAttrs (oldAttrs: rec {
+    wvkbd = super.wvkbd.overrideAttrs (oldAttrs: {
       src = super.fetchFromGitHub {
         owner = "chpxu";
         repo = "wvkbd";
@@ -56,7 +56,7 @@ rec {
     });
   };
   xournalpp = self: super: {
-    xournalpp = super.xournalpp.overrideAttrs (oldAttrs: rec {
+    xournalpp = super.xournalpp.overrideAttrs (oldAttrs: {
       src = super.fetchFromGitHub {
         owner = "chpxu";
         repo = "xournalpp1";
@@ -66,7 +66,7 @@ rec {
     });
   };
   wayfire = self: super: {
-    wayfire = super.wayfire.overrideAttrs (oldAttrs: rec {
+    wayfire = super.wayfire.overrideAttrs (oldAttrs: {
       version = "0.7.4";
       src = super.fetchFromGitHub {
         owner = "WayfireWM";

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  gtk = rec {
+  gtk = {
     enable = true;
     theme = {
       name = "Nordic";
