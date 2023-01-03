@@ -1,8 +1,4 @@
-{
-  config,
-  builtins,
-  ...
-}: {
+{config, ...}: {
   xdg.configFile = {
     "xournalpp/settings.xml" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/config/settings.xml";

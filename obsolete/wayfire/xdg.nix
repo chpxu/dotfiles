@@ -2,9 +2,7 @@
   pkgs,
   config,
   lib,
-  options,
-  specialArgs,
-  modulesPath,
+  ,
   inputs,
   ...
 }: {

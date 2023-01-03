@@ -37,7 +37,7 @@
     hyprpaper,
     ...
   } @ inputs: let
-    inherit (self) outputs;
+    inherit (self) outputs config lib;
     system = "x86_64-linux";
     user = "chunix";
     colour-palette = import ./hm/common/nordtheme.nix;
@@ -64,7 +64,11 @@
           (import ./hm/common/packages/default.nix {
             inherit pkgs needsNvidia;
           })
-          ./hm/common/modules
+          (import ./hm/common/modules {
+            inherit pkgs colour-palette;
+            config = nixpkgs.config;
+            lib = nixpkgs.lib;
+          })
           {
             wayland.windowManager.hyprland = {
               enable = true;

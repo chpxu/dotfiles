@@ -1,9 +1,6 @@
 {
   config,
   lib,
-  options,
-  specialArgs,
-  modulesPath,
   ...
 }: {
   # home.file = {

@@ -1,8 +1,4 @@
-{
-  config,
-  builtins,
-  ...
-}: let
+{config, ...}: let
   nord-zelk = "nord-zelk.theme.css";
   zelk = "zelkBD.theme.css";
 in {

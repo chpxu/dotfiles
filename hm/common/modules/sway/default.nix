@@ -1,12 +1,6 @@
 {
   config,
-  lib,
-  options,
-  specialArgs,
-  modulesPath,
-  inputs,
-  outputs,
-  colour-palette,
+  pkgs,
   ...
 }: {
   imports = [./swaylock_swayidle.nix ./xdg.nix];

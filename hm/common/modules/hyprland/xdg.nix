@@ -1,9 +1,7 @@
 {
   config,
   lib,
-  options,
-  specialArgs,
-  modulesPath,
+  ,
   ...
 }: {
   xdg.configFile = {

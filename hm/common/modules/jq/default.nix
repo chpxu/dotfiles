@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  outputs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.jq = {
     enable = true;
     package = pkgs.jq;
