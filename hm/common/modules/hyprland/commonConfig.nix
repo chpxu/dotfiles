@@ -7,9 +7,10 @@
 
     exec = swayidle -w timeout 120 'swaylock -f' timeout 600 'hyprctl dispatch dpms off"' resume 'hyprctl dispatch dpms on"' before-sleep 'swaylock -f'
     exec-once = wl-paste -w cliphist store
+    exec-once = hyprctl setcursor Nordzy-cursors 32
 
-    $cliphistShow = "cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '##3b4252' --nf '##eceff4' --tb '##3b4252' --tf '##eceff4' --fb '##2e3440' -ff '##eceff4'  --hb '##434c5e"  --hf '##bf616a' --sb '\##4c566a' --fn 'FiraCode Nerd Font 12' | cliphist decode | wl-copy"
-    $cliphistDel = "cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '##3b4252' --nf '##eceff4' --tb '##3b4252' --tf '##eceff4' --fb '##2e3440' -ff '##eceff4'  --hb '##434c5e"  --hf '##bf616a' --sb '\##4c566a' --fn 'FiraCode Nerd Font 12' | cliphist delete"
+    $cliphistShow = cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '##3b4252' --nf '##eceff4' --tb '##3b4252' --tf '##eceff4' --fb '##2e3440' -ff '##eceff4'  --hb '##434c5e"  --hf '##bf616a' --sb '\##4c566a' --fn 'FiraCode Nerd Font 12' | cliphist decode | wl-copy
+    $cliphistDel = cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '##3b4252' --nf '##eceff4' --tb '##3b4252' --tf '##eceff4' --fb '##2e3440' -ff '##eceff4'  --hb '##434c5e"  --hf '##bf616a' --sb '\##4c566a' --fn 'FiraCode Nerd Font 12' | cliphist delete
     # Source a file (multi-file configs)
     # source = ~/.config/hypr/myColors.conf
 
@@ -51,7 +52,7 @@
         blur_passes = 2
         blur_new_optimizations = on
 
-        drop_shadow = no
+        drop_shadow = false
         shadow_range = 2
         shadow_render_power = 1
         col.shadow = rgba(1a1a1aee)
@@ -62,7 +63,7 @@
 
         # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-        bezier = myBezier, 0.06, 0.9, 0.1, 1.05
+        bezier = myBezier, 0.1, 0.9, 0.1, 1.05
 
         animation = windows, 1, 7, myBezier
         animation = windowsOut, 1, 7, default, popin 80%

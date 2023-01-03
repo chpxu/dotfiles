@@ -1,6 +1,4 @@
 rec {
-  discordver = "0.0.145";
-  bitwardenver = "2022.12.0";
   clisp = final: prev: {
     clisp = prev.clisp.override {
       # On newer readline8 fails as:
@@ -28,7 +26,8 @@ rec {
   };
   discord-canary = self: super: {
     discord-canary = super.discord-canary.overrideAttrs (oldAttrs: rec {
-      version = discordver;
+      # version = "0.0.140";
+      version = "0.0.145";
       src = super.fetchurl {
         url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
         # sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0="; #ver 0.0.140
@@ -38,7 +37,8 @@ rec {
   };
   bitwarden = self: super: {
     bitwarden = super.bitwarden.overrideAttrs (oldAttrs: rec {
-      version = bitwardenver;
+      # bitwardenver = "2022.12.0";
+      version = "2022.12.0";
       src = super.fetchurl {
         url = "https://github.com/bitwarden/clients/releases/download/desktop-v${version}/Bitwarden-${version}-amd64.deb";
         sha256 = "sha256-deQG1GEYmnQmO5+jASsiQmDphb+4Jyq9aSn/A4z++uE=";

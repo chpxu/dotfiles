@@ -41,7 +41,12 @@
     system = "x86_64-linux";
     user = "chunix";
     colour-palette = import ./hm/common/nordtheme.nix;
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      config.allowUnfreePredicate = _: true;
+      overlays = builtins.attrValues outputs.overlays;
+    };
     mkHomeConfiguration = {
       extraSpecialArgs,
       hostname,
