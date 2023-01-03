@@ -28,18 +28,20 @@
       waybar
       discord-canary
       wvkbd
-      bitwarden
+      # rnote
+      # bitwarden
     ];
   };
   home.packages = with pkgs; [
     # other applications may be in overlays
     clisp
     discord-canary
-    bitwarden
+    # bitwarden
     waybar
     hyprpaper
     wvkbd
     xournalpp
+    # rnote
   ];
   imports = [../../common/commonHome.nix];
   # home.activation = {

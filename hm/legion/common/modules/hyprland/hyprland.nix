@@ -10,7 +10,7 @@
       monitor=HDMI-A-1,1920x1080@144.001007,2560x0,1
 
       decoration {
-        blur = true
+        blur = false
       }
       misc {
         no_vfr = false

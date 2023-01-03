@@ -16,5 +16,10 @@
       target = "hypr/starry_night.png";
       # credit: https://www.pixiv.net/en/artworks/93958957
     };
+    "hypr/yor-forger.png" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./. + "/yor-forger.png";
+      target = "hypr/yor-forger.png";
+      # credit: TODO
+    };
   };
 }
