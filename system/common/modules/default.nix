@@ -18,7 +18,7 @@
     })
     ./pipewire.nix
     ./nano.nix
-    ./zsh.nix
+    (import ./zsh.nix {inherit lib;})
     ./security.nix
     (import ./networking.nix {inherit hostname config lib builtins;})
     ./fonts.nix

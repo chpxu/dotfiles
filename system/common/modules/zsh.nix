@@ -1,21 +1,18 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   # zsh
   programs.zsh = {
     enable = true;
-    #loginExtra = "betterdiscordctl --d-modules ~/.config/discordcanary/0.0.136/modules/ install";
+    #loginExtra = "betterdiscordctl --d-modules ~/config/discordcanary/00136/modules/ install";
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      customPkgs = with pkgs; [
-        starship
-      ];
-    };
+    # ohMyZsh = {
+    #   enable = true;
+    #   theme = "agnoster";
+    # };
+  };
+  programs.starship = {
+    enable = true;
+    settings = builtins.fromTOML (builtins.readFile ./starship/startship.toml);
   };
 }

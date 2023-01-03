@@ -29,6 +29,7 @@
         sha256 = "sha256-umxEwegKuJd/DUjaUQ88lbcQNxSY99yepBnQaFr3fDI=";
       };
     }))
+    starship
   ];
 in {
   # List packages installed in system profile.
