@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  ,
-  ...
-}: {
+{config, ...}: {
   xdg.configFile = {
     "hypr/hyprpaper.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprpaper.conf";

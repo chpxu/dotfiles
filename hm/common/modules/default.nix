@@ -1,7 +1,7 @@
 {
-  config,
+  # config,
   pkgs,
-  lib,
+  # lib,
   colour-palette,
   ...
 }: {
@@ -13,7 +13,7 @@
   #   ./waybar
   #   ./zathura
   #   ./mpv
-  #   (import ./kitty {inherit colour-palette;})
+  #   (import ./kitty {inherit pkgs colour-palette;})
   #   ./mako
   #   ./sway
   #   # ./kanshi
@@ -30,5 +30,5 @@
   #   # ./modules/osu-stable
   #   # ./modules/wireplumber
   # ];
-  imports = builtins.map (dir: (import (builtins.toPath ./. + "/${dir}") {inherit config pkgs lib colour-palette;})) (builtins.attrNames (builtins.readDir ./.));
+  imports = builtins.map (dir: (import (builtins.toPath ./. + "/${dir}") {inherit pkgs colour-palette;})) (builtins.attrNames (builtins.readDir ./.));
 }

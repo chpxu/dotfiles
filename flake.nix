@@ -37,7 +37,7 @@
     hyprpaper,
     ...
   } @ inputs: let
-    inherit (self) outputs config lib;
+    inherit (self) outputs;
     system = "x86_64-linux";
     user = "chunix";
     colour-palette = import ./hm/common/nordtheme.nix;
@@ -47,6 +47,7 @@
       config.allowUnfreePredicate = _: true;
       overlays = builtins.attrValues outputs.overlays;
     };
+    inherit (nixpkgs) config lib;
     mkHomeConfiguration = {
       extraSpecialArgs,
       hostname,
@@ -66,8 +67,8 @@
           })
           (import ./hm/common/modules {
             inherit pkgs colour-palette;
-            config = nixpkgs.config;
-            lib = nixpkgs.lib;
+            # config = config;
+            # lib = lib;
           })
           {
             wayland.windowManager.hyprland = {

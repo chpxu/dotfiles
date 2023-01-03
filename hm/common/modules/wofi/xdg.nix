@@ -1,16 +1,11 @@
-{
-  config,
-  lib,
-  colour-palette,
-  ...
-}: {
+{colour-palette, ...}: {
   xdg.configFile = {
     "wofi/config" = {
-      text = import ./settings/settings.nix {inherit colour-palette;};
+      text = (import ./settings/settings.nix).wofiConfig;
       target = "wofi/config";
     };
     "wofi/style.css" = {
-      text = (import ./settings/style.nix).style;
+      text = (import ./settings/style.nix {inherit colour-palette;}).style;
       target = "wofi/style.css";
     };
   };
