@@ -2,9 +2,9 @@
   pythonEnv = import ../../packages/python/definePythonEnv.nix;
   customPythonEnv = pkgs.python310.withPackages pythonEnv.my-python-pkgs;
 in {
-  programs.vscode = {
+  programs.vscode = with pkgs;{
     enable = true;
-    package = pkgs.vscode.fhs;
+    package = vscode.fhs;
     extensions = with vscode-extensions;
       [
         arcticicestudio.nord-visual-studio-code
