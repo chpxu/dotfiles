@@ -2,7 +2,7 @@
   pythonEnv = import ../../packages/python/definePythonEnv.nix;
   customPythonEnv = pkgs.python310.withPackages pythonEnv.my-python-pkgs;
 in {
-  programs.vscode = with pkgs;{
+  programs.vscode = with pkgs; {
     enable = true;
     package = vscode.fhs;
     extensions = with vscode-extensions;
