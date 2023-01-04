@@ -99,6 +99,7 @@ in {
         color: ${nord.nord9};
     }
     #clock,
+    #language,
     #tray {
         color: ${nord.nord15};
     }

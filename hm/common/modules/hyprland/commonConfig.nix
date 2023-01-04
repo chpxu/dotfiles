@@ -16,13 +16,13 @@
 
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input {
-        kb_layout = us
+        kb_layout = gb,us
         # kb_variant =
-        # kb_model =
-        # kb_options =
+        kb_model = at-translated-set-2-keyboard
+        kb_options = grp:alt_shift_toggle
         # kb_rules =
-
-        follow_mouse = 1
+        repeat_delay = 300
+        follow_mouse = 2
 
         touchpad {
             natural_scroll = no
@@ -64,12 +64,15 @@
         # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
         bezier = myBezier, 0.1, 0.9, 0.1, 1.05
-
+        bezier = windowsSlideIn, 0.67, 0.08, 0.34, 0.96
+        bezier = workspaceSlide, 0.48, -0.01, 0.89, 0.63
+        bezier = fading, 0.17, 0.96, 0.66, 0.94
         animation = windows, 1, 7, myBezier
-        animation = windowsOut, 1, 7, default, popin 80%
-        animation = border, 1, 10, default
-        animation = fade, 1, 7, default
-        animation = workspaces, 1, 6, default
+        animation = windowsIn 1, 5, windowsSlideIn, slide
+        animation = windowsOut, 1, 7, default, popin 70%
+        animation = border, 1, 5, default
+        animation = fade, 1, 5, fading
+        animation = workspaces, 1, 5, workspaceSlide, slide
         #use_resize_transitions = off
     }
 
@@ -87,6 +90,7 @@
     gestures {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
         workspace_swipe = on
+        workspace_swipe_forever = true
     }
 
     # Example per-device config

@@ -25,9 +25,8 @@ in {
     #   target = "discordcanary/settings.json";
     # };
   };
-  home.extraBuilderCommands = ''
-    nix-env -i --set-flag 0 betterdiscordctl
-    betterdiscordctl --d-modules "$HOME/.config/discordcanary/0.0.145/modules" reinstall
-    nix-env --uninstall betterdiscordctl
-  '';
+  # home.extraBuilderCommands = ''
+  #   nix-env -i --set-flag 0 betterdiscordctl
+  #   betterdiscordctl --d-modules "$HOME/.config/discordcanary/0.0.145/modules" reinstall
+  # '';
 }

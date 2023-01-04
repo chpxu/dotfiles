@@ -4,6 +4,7 @@
       layer = "top";
       position = "top";
       height = 35;
+      max-length = 20;
       # margin-left = 2;
       # margin-right = 2;
       spacing = 0;
@@ -27,6 +28,7 @@
         "memory"
         "backlight"
         "battery"
+        "hyprland/language"
         "clock"
       ];
       # Modules configuration
@@ -45,6 +47,12 @@
         tooltip = false;
         tooltip-format = "{icon} {title}: {app_id}";
         on-click = "minimize-raise";
+      };
+      "hyprland/language" = {
+        format = "{}";
+        format-us = "ENG US";
+        format-gb = "ENG GB";
+        keyboard-name = "at-translated-set-2-keyboard";
       };
       idle_inhibitor = {
         format = "{icon} ";
