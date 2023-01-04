@@ -65,14 +65,14 @@
 
         bezier = myBezier, 0.1, 0.9, 0.1, 1.05
         bezier = windowsSlideIn, 0.67, 0.08, 0.34, 0.96
-        bezier = workspaceSlide, 0.48, -0.01, 0.89, 0.63
+        bezier = workspaceSlide, 0, 0, 1, 1
         bezier = fading, 0.17, 0.96, 0.66, 0.94
-        animation = windows, 1, 7, myBezier
-        animation = windowsIn 1, 5, windowsSlideIn, slide
-        animation = windowsOut, 1, 7, default, popin 70%
+        animation = windows, 1, 5, myBezier, slide
+        #animation = windowsIn 1, 3, windowsSlideIn
+        animation = windowsOut, 1, 3, default, popin 70%
         animation = border, 1, 5, default
-        animation = fade, 1, 5, fading
-        animation = workspaces, 1, 5, workspaceSlide, slide
+        animation = fade, 1, 3, fading
+        animation = workspaces, 1, 3, workspaceSlide, slide
         #use_resize_transitions = off
     }
 
