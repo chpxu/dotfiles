@@ -16,7 +16,7 @@
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
   # This is using an age key that is expected to already be in the filesystem
   # sops.age.keyFile = "/var/lib/sops-nix/key.txt";
-  sops.age.keyFile = ./keys.txt;
+  sops.age.keyFile = /home/chunix/.config/sops/age/keys.txt;
   # This will generate a new key if the key specified above does not exist
   sops.age.generateKey = true;
   sops.secrets."wireless.env" = {
