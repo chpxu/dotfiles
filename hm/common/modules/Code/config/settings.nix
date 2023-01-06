@@ -129,7 +129,7 @@ in {
     };
     "editor.defaultFormatter" = "";
     # ESLint
-    "eslint.enable" = true;
+    "eslint.enable" = false;
     "eslint.runtime" = "node";
     "eslint.lintTask.enable" = true;
     # "eslint.format.enable" = true;

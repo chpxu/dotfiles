@@ -18,6 +18,13 @@
     libGLU
     libglvnd
   ];
+  nvidiaPackages = with pkgs; [
+    nvidia-vaapi-driver
+  ];
+  intelPackages = with pkgs; [
+    vaapiIntel
+    intel-media-driver
+  ];
 in {
   # OpenGL
   hardware.opengl = {
@@ -26,9 +33,7 @@ in {
     driSupport32Bit = true;
     extraPackages =
       commonExtraPkgs
-      ++ lib.optional needsNvidia pkgs.nvidia-vaapi-driver
-      ++ lib.optional needsNvidia pkgs.egl-wayland
-      ++ lib.optional needsIntel pkgs.vaapiIntel
-      ++ lib.optional needsIntel pkgs.intel-media-driver;
+      ++ lib.optionals needsNvidia nvidiaPackages
+      ++ lib.optionals needsIntel intelPackages;
   };
 }

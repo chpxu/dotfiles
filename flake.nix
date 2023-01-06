@@ -47,7 +47,6 @@
       config.allowUnfreePredicate = _: true;
       overlays = builtins.attrValues outputs.overlays;
     };
-    inherit (nixpkgs) config lib;
     mkHomeConfiguration = {
       extraSpecialArgs,
       hostname,
@@ -67,8 +66,6 @@
           })
           (import ./hm/common/modules {
             inherit pkgs colour-palette;
-            # config = config;
-            # lib = lib;
           })
           {
             wayland.windowManager.hyprland = {

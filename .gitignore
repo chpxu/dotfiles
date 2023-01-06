@@ -5,3 +5,5 @@ system/modified
 **/secrets.nix
 **/*.env
 **/wpa*
+secrets/keys.txt
+**/obsolete

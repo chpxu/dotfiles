@@ -5,7 +5,7 @@
     # Execute your favorite apps at launch
     exec-once = waybar & hyprpaper
 
-    exec = swayidle -w timeout 120 'swaylock -f' timeout 600 'hyprctl dispatch dpms off"' resume 'hyprctl dispatch dpms on"' before-sleep 'swaylock -f'
+    exec = swayidle -w timeout 120 'swaylock -f' timeout 300 'hyprctl dispatch dpms off"' resume 'hyprctl dispatch dpms on"' before-sleep 'swaylock -f'
     exec-once = wl-paste -w cliphist store
     exec-once = hyprctl setcursor Nordzy-cursors 32
 
@@ -72,7 +72,7 @@
         animation = windowsOut, 1, 3, default, popin 70%
         animation = border, 1, 5, default
         animation = fade, 1, 3, fading
-        animation = workspaces, 1, 3, workspaceSlide, slide
+        animation = workspaces, 1, 2, workspaceSlide, slide
         #use_resize_transitions = off
     }
 

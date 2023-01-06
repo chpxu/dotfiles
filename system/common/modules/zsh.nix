@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   # zsh
   programs.zsh = {
     enable = true;
@@ -6,10 +6,9 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    # ohMyZsh = {
-    #   enable = true;
-    #   theme = "agnoster";
-    # };
+    ohMyZsh = {
+      enable = true;
+    };
   };
   programs.starship = {
     enable = true;
