@@ -3,13 +3,14 @@
     [
       arcticicestudio.nord-visual-studio-code
       # Nix
-      bbenoist.nix # Better Nix Syntax highlighting
+      #bbenoist.nix # Better Nix Syntax highlighting
+      jnoortheen.nix-ide
       kamadorueda.alejandra # Nix formatter
       # TeX stuff
       james-yu.latex-workshop
       valentjn.vscode-ltex
       eamodio.gitlens
-      #bungcip.better-toml
+      bungcip.better-toml
       # Markup languages and CSS
       dotjoshjohnson.xml
       formulahendry.auto-rename-tag
@@ -20,6 +21,8 @@
       esbenp.prettier-vscode
       # Shell
       timonwong.shellcheck
+      # Python
+      ms-toolsai.jupyter
     ]
     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
@@ -31,8 +34,8 @@
       {
         name = "python";
         publisher = "ms-python";
-        version = "2022.19.13351014";
-        sha256 = "sha256-GvE4tWTnLMjDFvV3qGGZB6uDm/+FSbocD9ecDRZxwpQ=";
+        version = "2022.20.1";
+        sha256 = "sha256-UJOIhd5fsxRCw0a9oNsfY+SJ4Hjyi96DkgHRINZDr84=";
       }
       {
         name = "pylint";
@@ -43,20 +46,20 @@
       {
         name = "vscode-pylance";
         publisher = "ms-python";
-        version = "2022.12.11";
-        sha256 = "sha256-KWb+8ltLCbg1YUces607N89owT2QZ0ImvhM6mPiu8iA=";
+        version = "2022.12.21";
+        sha256 = "sha256-tM1wtc6k60i5hdfYRVs0wtvC+0aiN3xNavrJLYWedAI=";
       }
       {
-        name = "jupyter";
-        publisher = "ms-toolsai";
-        version = "2022.11.1003381023";
-        sha256 = "sha256-EKmpk1+OnHYogQHoVAUi1KDws3cx++9JNNwDfEXJdjE=";
+        name = "volar";
+        publisher = "vue";
+        version = "1.0.18";
+        sha256 = "sha256-X4Wvu4jgLfbDE2DDb65iwcEE2uZb1vCTt2/zofMai9Q=";
       }
-      # {
-      #   name = "vscode-custom-css";
-      #   publisher = "be5invis";
-      #   version = "7.1.0";
-      #   sha256 = "";
-      # }
+      {
+        name = "path-intellisense";
+        publisher = "christian-kohler";
+        version = "2.8.4";
+        sha256 = "sha256-FEBYcjJHOwmxVHhhyxqOpk/V6hvtMkhkvLVpmJCMSZw=";
+      }
     ];
 }
