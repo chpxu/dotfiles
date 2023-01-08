@@ -12,7 +12,7 @@
       inkscape-with-extensions
       gimp-with-plugins
       neofetch
-      bitwarden
+      bitwarden-cli
       teams
       libreoffice-fresh
       onedrive

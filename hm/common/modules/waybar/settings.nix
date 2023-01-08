@@ -50,8 +50,8 @@
       };
       "hyprland/language" = {
         format = "{}";
-        format-us = "ENG US";
-        format-gb = "ENG GB";
+        "format-en" = "ENG US";
+        # "format-en" = "ENG GB";
         keyboard-name = "at-translated-set-2-keyboard";
       };
       idle_inhibitor = {

@@ -1,6 +1,6 @@
 {
   pkgs,
-  needsNvidia ? false,
+  needsNvidia,
   ...
 }: {
   imports = [
