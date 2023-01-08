@@ -30,7 +30,7 @@
     firewall.enable = true;
     wireless.enable = true;
     wireless.scanOnLowSignal = false;
-    # wireless.environmentFile = config.sops.secrets."wireless.env".path;
+    wireless.environmentFile = config.sops.secrets."wireless.env".path;
     wireless.networks = {
       "@home_uuid@" = {
         hidden = true;
