@@ -118,7 +118,7 @@
       # Yoga
       "${user}@yoga" = mkHomeConfiguration {
         extraSpecialArgs = {inherit inputs outputs colour-palette;};
-        hostname = "nixos";
+        hostname = "yoga";
         needsNvidia = false;
         username = user;
         stateVersion = "22.11";
