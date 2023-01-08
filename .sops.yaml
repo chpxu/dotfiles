@@ -1,5 +1,6 @@
 keys:
   - &admin_chunix age1xjaws5828wj4qxmwzp0lt7azy4j9ftxjnv67wk644dvczknyu5xspmsuvl
+  - &admin_chunixy age172x77t8075uurrgf8f848khsn3q6s2xvefnmsanghayxqhwr83kqppkv3q
   - &server_legion age13d9n4rmht23vsvpecjn2wzmzkzqmdqjz5je7gv4u5hsr3js6au5s92w7al
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
