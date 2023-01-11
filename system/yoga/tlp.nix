@@ -13,7 +13,7 @@
       SOUND_POWER_SAVE_CONTROLLER = "Y";
       # Battery Care
       START_CHARGE_THRESH_BAT1 = 0;
-      STOP_CHARGE_THRESH_BAT1 = 100;
+      STOP_CHARGE_THRESH_BAT1 = 90;
       RESTORE_THRESHOLDS_ON_BAT = 1;
       NATACPI_ENABLE = 1;
       # Drive Bay - don't have one so all features on
@@ -34,7 +34,7 @@
       INTEL_GPU_MAX_FREQ_ON_AC = 1100;
       INTEL_GPU_MAX_FREQ_ON_BAT = 1000;
       INTEL_GPU_BOOST_FREQ_ON_AC = 1100;
-      INTEL_GPU_BOOST_FREQ_ON_BAT = 1000;
+      INTEL_GPU_BOOST_FREQ_ON_BAT = 800;
       # Kernel
       NMI_WATCHDOG = 0;
       # Networking
@@ -47,6 +47,8 @@
       # Processor
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      # CPU_SCALING_MIN_FREQ_ON_BAT = 400000;
+      # CPU_SCALING_MAX_FREQ_ON_BAT = 2000000;
       CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       #CPU_HWP_ON_AC = "balance_performance";
@@ -54,9 +56,10 @@
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 50;
+      CPU_MAX_PERF_ON_BAT = 30;
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;
+      CPU_HWP_DYN_BOOST_ON_BAT = 0;
       SCHED_POWERSAVE_ON_AC = 0;
       SCHED_POWERSAVE_ON_BAT = 1;
       # Radio Device Switching - see rfkill also
