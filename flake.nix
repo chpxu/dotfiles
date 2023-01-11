@@ -64,10 +64,10 @@
           (import ./hm/common/packages/default.nix {
             inherit pkgs needsNvidia;
           })
-          (import ./hm/common/modules {
-            inherit (nixpkgs) config;
-            inherit pkgs colour-palette;
-          })
+          # (import ./hm/common/modules {
+          #   inherit pkgs colour-palette;
+          # })
+          ./hm/common/modules
           {
             wayland.windowManager.hyprland = {
               enable = true;
