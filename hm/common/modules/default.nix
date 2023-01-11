@@ -1,5 +1,5 @@
 {
-  # config,
+  config,
   pkgs,
   # lib,
   colour-palette,
@@ -24,7 +24,7 @@
     # ./neovim
     ./wofi
     # ./zsh
-    ./hyprland/xdg.nix
+    (import ./hyprland/xdg.nix {inherit config;})
     # ./starship
     ./jq
     # ./modules/osu-stable

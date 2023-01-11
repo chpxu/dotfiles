@@ -65,6 +65,7 @@
             inherit pkgs needsNvidia;
           })
           (import ./hm/common/modules {
+            inherit (nixpkgs) config;
             inherit pkgs colour-palette;
           })
           {
