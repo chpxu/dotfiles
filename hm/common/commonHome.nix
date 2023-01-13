@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  outputs,
   ...
 }: {
   gtk = {
@@ -37,6 +38,29 @@
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
+  nixpkgs = {
+    overlays = with outputs.overlays; [
+      clisp
+      hyprpaper
+      xournalpp
+      waybar
+      discord-canary
+      wvkbd
+      # rnote
+      # bitwarden
+    ];
+  };
+  home.packages = with pkgs; [
+    # other applications may be in overlays
+    clisp
+    discord-canary
+    # bitwarden
+    waybar
+    hyprpaper
+    wvkbd
+    xournalpp
+    # rnote
+  ];
   manual.manpages.enable = false;
   programs.home-manager.enable = true;
 }
