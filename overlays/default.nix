@@ -60,8 +60,8 @@
       src = super.fetchFromGitHub {
         owner = "chpxu";
         repo = "xournalpp1";
-        rev = "0f9ff2d756cb59746b6a863fca25f5ee5318b0ce";
-        sha256 = "sha256-w9kR7Qy6wRf7U6PmyUVpEuD5U1Lp+04FXHO/aCmDPrU=";
+        rev = "a855de6fd90c26615787b47a8fcb29084003a4d3";
+        sha256 = "sha256-ltfyJGTAa14ze7+dTzvGmNQ+nqG/7a3kaMDWjrjTeUs=";
       };
     });
   };

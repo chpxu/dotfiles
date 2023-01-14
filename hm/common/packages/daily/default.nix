@@ -19,7 +19,9 @@
       rnote
       pdfarranger
       yt-dlp
-      obs-studio
+      # obs-studio
+      masterpdfeditor4
+      obsidian
     ]
     ++ [
       # pkgs.gamemode
