@@ -22,6 +22,7 @@
       # obs-studio
       masterpdfeditor4
       obsidian
+      mathpix-snipping-tool
     ]
     ++ [
       # pkgs.gamemode
