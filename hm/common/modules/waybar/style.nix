@@ -2,9 +2,18 @@ let
   nord = import ../../nordtheme.nix;
 in {
   style = ''
+    /*Define urgent animation*/
+    @keyframes urgent {
+      from {
+        background-color: ${nord.nord0};
+      }
+      to {
+        background-color: ${nord.nord11};
+      }
+    }
     /*Fix regression from 0.9.15*/
     button,
-    label{
+    label {
       all: unset;
     }
     label:disabled,
@@ -13,9 +22,9 @@ in {
       background-image: none;
     }
     window#waybar {
-      background: rgba(46, 52, 64, 0.9);
+      background: rgba(46, 52, 64, 1.0);
       color: ${nord.nord6};
-      font-family: 'FiraCode Nerd Font', Inconsolata, sans-serif;
+      font-family: 'FiraCode Nerd Font', Inconsolata, monospace;
       font-weight: 400;
       font-size: 12px;
       border: none;
@@ -42,12 +51,16 @@ in {
       box-shadow: none;
     }
 
-    #workspaces button.focused {
+    #workspaces button.focused,
+    #workspaces button.active {
       background: ${nord.nord0};
+      outline: ${nord.nord14} solid 1px;
     }
     #workspaces button.urgent {
-      transition: background 0.5s ease-in-out;
-      background: ${nord.nord11};
+      animation-duration: 0.1s;
+      animation-name: changewidth;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
     #custom-launcher,
     #custom-keyboard {
@@ -64,9 +77,9 @@ in {
     }
 
     /*RIGHT-MODULES STYLES*/
-    .modules-right {
+    /*.modules-right {
       margin-right: 5px;
-    }
+    }*/
 
     #cpu,
     #memory,
@@ -82,9 +95,10 @@ in {
     #pulseaudio
     {
       padding: 0 5px 0 5px;
-      margin: 5px 0 5px 0;
+      margin: 5px 5px 5px 0;
       border-radius: 5px;
       color: inherit;
+      background: ${nord.nord1};
     }
 
     #battery,
@@ -154,6 +168,13 @@ in {
     #custom-separator {
       margin: 0 2.5px 0 2.5px;
       color: ${nord.nord4};
+    }
+    /*Custom Module: Poweroff*/
+    #custom-poweroff {
+      background: ${nord.nord11};
+      color: ${nord.nord0};
+      margin: 2.5px 0 2.5px 0;
+      padding: 0 10px 0 10px;
     }
   '';
 }

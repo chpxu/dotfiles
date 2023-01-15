@@ -3,7 +3,7 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "wayland";
     SDL_VIDEODRIVER = "wayland";
-    QT_QPA_WAYLAND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
     BEMENU_BACKEND = "wayland";
     CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
     LIBSEAT_BACKEND = "logind";

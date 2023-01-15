@@ -10,9 +10,7 @@
       spacing = 0;
       modules-left = [
         "custom/launcher"
-        "custom/separator"
         "custom/keyboard"
-        "custom/separator"
         "wlr/workspaces"
         "custom/separator"
         "tray"
@@ -30,6 +28,7 @@
         "battery"
         "hyprland/language"
         "clock"
+        "custom/poweroff"
       ];
       # Modules configuration
       "wlr/workspaces" = {
@@ -40,7 +39,7 @@
       };
       "wlr/taskbar" = {
         all-outputs = true;
-        format = "{icon} {title}";
+        format = "{icon}";
         max-length = 20;
         icon-size = 20;
         icon-theme = "Nordzy";
@@ -49,7 +48,7 @@
         on-click = "minimize-raise";
       };
       "hyprland/language" = {
-        format = "{}";
+        format = "  {}";
         "format-en" = "ENG US";
         # "format-en" = "ENG GB";
         keyboard-name = "at-translated-set-2-keyboard";
@@ -166,11 +165,10 @@
         on-click = "exec $HOME/.config/waybar/wvkbd.sh";
         exec-on-event = false;
       };
-      "custom/addWorkspace" = {
-        format = "+";
+      "custom/poweroff" = {
+        format = "";
         tooltip = false;
-        # exec = "exec $HOME/.config/waybar/wvkbd.sh";
-        on-click = "hyperctl dispatch workspace +1";
+        on-click = "poweroff";
         exec-on-event = false;
       };
     };

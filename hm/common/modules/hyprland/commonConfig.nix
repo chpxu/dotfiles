@@ -35,7 +35,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         gaps_in = 1
-        gaps_out = 1
+        gaps_out = 0
         border_size = 2
         col.active_border = rgba(eceff4ee)
         col.inactive_border = rgba(e5e9f0aa)

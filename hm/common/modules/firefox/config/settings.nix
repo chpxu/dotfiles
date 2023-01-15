@@ -16,6 +16,7 @@
                     " = true;
     "browser.download.viewableInternally.typeWasRegistered.webp" = true;
     "browser.engagement.ctrlTab.has-used" = true;
+    "browser.startup.homepage" = "about:profiles";
     "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
     "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
     "browser.newtabpage.activity-stream.feeds.telemetry" = false;

@@ -1,6 +1,6 @@
 {
   gtk.iconCache.enable = true;
-  qt5 = {
+  qt = {
     enable = true;
     style = "gtk2";
     platformTheme = "gtk2";
