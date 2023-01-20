@@ -11,13 +11,13 @@
       mypy
       #pylint
       black
-      pytest-black
-      pytest
-      pandas
+      # pytest-black
+      # pytest
+      # pandas
       #scikits-odes
       #sklearn-deap
-      scikit-learn
-   		scikit-learn-extra
-   		scikit-misc
+      # scikit-learn
+      # scikit-learn-extra
+      # scikit-misc
     ];
 }
