@@ -10,12 +10,12 @@
     ./nix.nix
     ./boot.nix
     (import ./console.nix {inherit pkgs;})
-    (import ./kernel.nix {
-      inherit pkgs lib;
-      rtVer = "14";
-      version = "6.0.11";
-      sha256 = "sha256-O91YPsyzr8sbpXF+aYZTNSj88DQnAigZMsEovw5Veok=";
-    })
+    # (import ./kernel.nix {
+    #   inherit pkgs lib;
+    #   rtVer = "14";
+    #   version = "6.0.11";
+    #   sha256 = "sha256-O91YPsyzr8sbpXF+aYZTNSj88DQnAigZMsEovw5Veok=";
+    # })
     ./nano.nix
     ./zsh.nix
     ./security.nix
