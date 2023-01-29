@@ -11,6 +11,8 @@
       mypy
       #pylint
       black
+      numba
+      numba-scipy
       # pytest-black
       # pytest
       # pandas
