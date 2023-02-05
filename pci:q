@@ -1,0 +1,281 @@
+Feb 04 12:41:28 legion systemd[1]: Starting NVIDIA Persistence Daemon...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 73.[0m
+Feb 04 12:41:28 legion nvidia-persistenced[999]: Verbose syslog connection opened
+Feb 04 12:41:28 legion nvidia-persistenced[999]: [0;1;39m[0;1;31m[0;1;39mStarted (999)[0m
+Feb 04 12:41:28 legion nvidia-persistenced[999]: [0;38;5;245m[0;1;31m[0;38;5;245mdevice 0000:01:00.0 - registered[0m
+Feb 04 12:41:30 legion nvidia-persistenced[999]: [0;1;39m[0;1;31m[0;1;39mdevice 0000:01:00.0 - persistence mode enabled.[0m
+Feb 04 12:41:30 legion nvidia-persistenced[999]: [0;1;39m[0;1;31m[0;1;39mdevice 0000:01:00.0 - NUMA memory onlined.[0m
+Feb 04 12:41:30 legion nvidia-persistenced[999]: Local RPC services initialized
+Feb 04 12:41:30 legion systemd[1]: Started NVIDIA Persistence Daemon.
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 73.[0m
+Feb 04 13:14:54 legion systemd[1]: Stopping NVIDIA Persistence Daemon...
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit nvidia-persistenced.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit nvidia-persistenced.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 851.[0m
+Feb 04 13:14:54 legion nvidia-persistenced[999]: [0;38;5;245m[0;1;31m[0;38;5;245mReceived signal 15[0m
+Feb 04 13:14:54 legion nvidia-persistenced[999]: Socket closed.
+Feb 04 13:14:54 legion nvidia-persistenced[999]: [0;1;39m[0;1;31m[0;1;39mdevice 0000:01:00.0 - persistence mode disabled.[0m
+Feb 04 13:14:54 legion nvidia-persistenced[999]: [0;1;39m[0;1;31m[0;1;39mdevice 0000:01:00.0 - NUMA memory offlined.[0m
+Feb 04 13:14:54 legion nvidia-persistenced[999]: PID file unlocked.
+Feb 04 13:14:54 legion nvidia-persistenced[999]: PID file closed.
+Feb 04 13:14:54 legion nvidia-persistenced[999]: [0;1;39m[0;1;31m[0;1;39mShutdown (999)[0m
+Feb 04 13:14:54 legion systemd[1]: nvidia-persistenced.service: Deactivated successfully.
+[0;38;5;245m░░ [0m[0;32mSubject: Unit succeeded[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service has successfully entered the 'dead' state.[0m
+Feb 04 13:14:54 legion systemd[1]: Stopped NVIDIA Persistence Daemon.
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit nvidia-persistenced.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit nvidia-persistenced.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 851 and the job result is done.[0m
+Feb 04 13:14:54 legion systemd[1]: nvidia-persistenced.service: Consumed 1.282s CPU time, received 240B IP traffic, sent 320B IP traffic.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service completed and consumed the indicated resources.[0m
+Feb 04 13:14:57 legion systemd[1]: [0;1;39m]8;;file://legion/etc/systemd/system/nvidia-persistenced.service/etc/s[0;1;31m[0;1;39mystemd/system/nvidia-persistenced.service]8;;:13: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nvidia-persistenced/nvidia-persistenced.pid → /run/nvidia-persistenced/nvidia-persistenced.pid; please update the unit file accordingly.[0m
+Feb 04 13:15:28 legion systemd[1]: Starting NVIDIA Persistence Daemon...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 1849.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150411]: Verbose syslog connection opened
+Feb 04 13:15:28 legion nvidia-persistenced[150411]: [0;1;39m[0;1;31m[0;1;39mStarted (150411)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150411]: [0;1;31m[0;1;39m[0;1;31mFailed to query NVIDIA devices. Please ensure that the NVIDIA device files (/dev/nvidia*) exist, and that user 0 has read and write permissions for those files.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150411]: PID file unlocked.
+Feb 04 13:15:28 legion nvidia-persistenced[150411]: PID file closed.
+Feb 04 13:15:28 legion nvidia-persistenced[150408]: nvidia-persistenced failed to initialize. Check syslog for more details.
+Feb 04 13:15:28 legion nvidia-persistenced[150411]: [0;1;39m[0;1;31m[0;1;39mShutdown (150411)[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;39m[0;1;31m[0;1;39mnvidia-persistenced.service: Control process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit nvidia-persistenced.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnvidia-persistenced.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service has entered the 'failed' state with result 'exit-code'.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start NVIDIA Persistence Daemon.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 1849 and the job result is failed.[0m
+Feb 04 13:15:28 legion systemd[1]: nvidia-persistenced.service: Scheduled restart job, restart counter is at 1.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit nvidia-persistenced.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Feb 04 13:15:28 legion systemd[1]: Stopped NVIDIA Persistence Daemon.
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit nvidia-persistenced.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit nvidia-persistenced.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 2198 and the job result is done.[0m
+Feb 04 13:15:28 legion systemd[1]: Starting NVIDIA Persistence Daemon...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 2198.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150556]: Verbose syslog connection opened
+Feb 04 13:15:28 legion nvidia-persistenced[150556]: [0;1;39m[0;1;31m[0;1;39mStarted (150556)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150556]: [0;1;31m[0;1;39m[0;1;31mFailed to query NVIDIA devices. Please ensure that the NVIDIA device files (/dev/nvidia*) exist, and that user 0 has read and write permissions for those files.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150556]: PID file unlocked.
+Feb 04 13:15:28 legion nvidia-persistenced[150556]: PID file closed.
+Feb 04 13:15:28 legion nvidia-persistenced[150556]: [0;1;39m[0;1;31m[0;1;39mShutdown (150556)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150554]: nvidia-persistenced failed to initialize. Check syslog for more details.
+Feb 04 13:15:28 legion systemd[1]: [0;1;39m[0;1;31m[0;1;39mnvidia-persistenced.service: Control process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit nvidia-persistenced.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnvidia-persistenced.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service has entered the 'failed' state with result 'exit-code'.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start NVIDIA Persistence Daemon.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 2198 and the job result is failed.[0m
+Feb 04 13:15:28 legion systemd[1]: nvidia-persistenced.service: Scheduled restart job, restart counter is at 2.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit nvidia-persistenced.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Feb 04 13:15:28 legion systemd[1]: Stopped NVIDIA Persistence Daemon.
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit nvidia-persistenced.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit nvidia-persistenced.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 2934 and the job result is done.[0m
+Feb 04 13:15:28 legion systemd[1]: Starting NVIDIA Persistence Daemon...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 2934.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150637]: Verbose syslog connection opened
+Feb 04 13:15:28 legion nvidia-persistenced[150637]: [0;1;39m[0;1;31m[0;1;39mStarted (150637)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150637]: [0;1;31m[0;1;39m[0;1;31mFailed to query NVIDIA devices. Please ensure that the NVIDIA device files (/dev/nvidia*) exist, and that user 0 has read and write permissions for those files.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150637]: PID file unlocked.
+Feb 04 13:15:28 legion nvidia-persistenced[150637]: PID file closed.
+Feb 04 13:15:28 legion nvidia-persistenced[150637]: [0;1;39m[0;1;31m[0;1;39mShutdown (150637)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150635]: nvidia-persistenced failed to initialize. Check syslog for more details.
+Feb 04 13:15:28 legion systemd[1]: [0;1;39m[0;1;31m[0;1;39mnvidia-persistenced.service: Control process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit nvidia-persistenced.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnvidia-persistenced.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service has entered the 'failed' state with result 'exit-code'.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start NVIDIA Persistence Daemon.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 2934 and the job result is failed.[0m
+Feb 04 13:15:28 legion systemd[1]: nvidia-persistenced.service: Scheduled restart job, restart counter is at 3.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit nvidia-persistenced.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Feb 04 13:15:28 legion systemd[1]: Stopped NVIDIA Persistence Daemon.
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit nvidia-persistenced.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit nvidia-persistenced.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 3009 and the job result is done.[0m
+Feb 04 13:15:28 legion systemd[1]: Starting NVIDIA Persistence Daemon...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 3009.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150676]: Verbose syslog connection opened
+Feb 04 13:15:28 legion nvidia-persistenced[150676]: [0;1;39m[0;1;31m[0;1;39mStarted (150676)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150676]: [0;1;31m[0;1;39m[0;1;31mFailed to query NVIDIA devices. Please ensure that the NVIDIA device files (/dev/nvidia*) exist, and that user 0 has read and write permissions for those files.[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150676]: PID file unlocked.
+Feb 04 13:15:28 legion nvidia-persistenced[150676]: PID file closed.
+Feb 04 13:15:28 legion nvidia-persistenced[150676]: [0;1;39m[0;1;31m[0;1;39mShutdown (150676)[0m
+Feb 04 13:15:28 legion nvidia-persistenced[150673]: nvidia-persistenced failed to initialize. Check syslog for more details.
+Feb 04 13:15:28 legion systemd[1]: [0;1;39m[0;1;31m[0;1;39mnvidia-persistenced.service: Control process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit nvidia-persistenced.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnvidia-persistenced.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service has entered the 'failed' state with result 'exit-code'.[0m
+Feb 04 13:15:28 legion systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start NVIDIA Persistence Daemon.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 3009 and the job result is failed.[0m
+Feb 04 13:15:29 legion systemd[1]: nvidia-persistenced.service: Scheduled restart job, restart counter is at 4.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit nvidia-persistenced.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Feb 04 13:15:29 legion systemd[1]: Stopped NVIDIA Persistence Daemon.
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit nvidia-persistenced.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit nvidia-persistenced.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 3084 and the job result is done.[0m
+Feb 04 13:15:29 legion systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnvidia-persistenced.service: Start request repeated too quickly.[0m
+Feb 04 13:15:29 legion systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnvidia-persistenced.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit nvidia-persistenced.service has entered the 'failed' state with result 'exit-code'.[0m
+Feb 04 13:15:29 legion systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start NVIDIA Persistence Daemon.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit nvidia-persistenced.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: https://lists.freedesktop.org/mailman/listinfo/systemd-devel[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit nvidia-persistenced.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 3084 and the job result is failed.[0m

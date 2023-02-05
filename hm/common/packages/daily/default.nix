@@ -10,7 +10,7 @@
       thunderbird-wayland
       betterdiscordctl
       inkscape-with-extensions
-      gimp-with-plugins
+      gimp
       neofetch
       bitwarden-cli
       teams
