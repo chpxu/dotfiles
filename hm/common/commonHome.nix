@@ -42,7 +42,7 @@
     overlays = with outputs.overlays; [
       clisp
       hyprpaper
-      xournalpp
+      #xournalpp
       waybar
       discord-canary
       wvkbd
@@ -52,13 +52,13 @@
   };
   home.packages = with pkgs; [
     # other applications may be in overlays
-    clisp
+    #clisp
     discord-canary
     # bitwarden
     waybar
     hyprpaper
     wvkbd
-    xournalpp
+    #xournalpp
     # rnote
   ];
   manual.manpages.enable = false;
