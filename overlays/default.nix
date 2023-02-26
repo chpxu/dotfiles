@@ -27,11 +27,13 @@
   discord-canary = self: super: {
     discord-canary = super.discord-canary.overrideAttrs (oldAttrs: rec {
       # version = "0.0.140";
-      version = "0.0.145";
+      version = "0.0.148";
       src = super.fetchurl {
         url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
         # sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0="; #ver 0.0.140
-        sha256 = "sha256-TF+7SnCTsbh+Z8AeEESEFVLSpD3c5HOAwpU1UBuB1BU="; #0.0.145
+        #sha256 = "sha256-TF+7SnCTsbh+Z8AeEESEFVLSpD3c5HOAwpU1UBuB1BU="; 
+        #0.0.145
+        sha256 = "sha256-2ZrSDyPj3AHriCWZ/bb303H3J97TTun//WjmInNEmwk=";
       };
     });
   };

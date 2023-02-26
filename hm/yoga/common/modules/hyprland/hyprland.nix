@@ -6,10 +6,6 @@
 
       decoration {
         blur = false
-
-      }
-      misc {
-        no_vfr = false
       }
     ''
     + (import ../../../../common/modules/hyprland/commonConfig.nix).commonConfig;

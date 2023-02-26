@@ -25,7 +25,7 @@
         follow_mouse = 2
 
         touchpad {
-            natural_scroll = no
+            natural_scroll = false
         }
 
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
@@ -47,10 +47,10 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         rounding = 2
-        # blur = no
+        blur = false
         blur_size = 3
         blur_passes = 2
-        blur_new_optimizations = on
+        blur_new_optimizations = true
 
         drop_shadow = false
         shadow_range = 2
@@ -65,7 +65,7 @@
 
         bezier = myBezier, 0.1, 0.9, 0.1, 1.05
         bezier = windowsSlideIn, 0.67, 0.08, 0.34, 0.96
-        bezier = workspaceSlide, 0, 0, 1, 1
+        bezier = workspaceSlide, 0,0.56,0.98,0.29
         bezier = fading, 0.17, 0.96, 0.66, 0.94
         animation = windows, 1, 5, myBezier, slide
         #animation = windowsIn 1, 3, windowsSlideIn
@@ -73,13 +73,12 @@
         animation = border, 1, 5, default
         animation = fade, 1, 3, fading
         animation = workspaces, 1, 2, workspaceSlide, slide
-        #use_resize_transitions = off
     }
 
     dwindle {
         # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-        pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-        preserve_split = yes # you probably want this
+        pseudotile = true # master switch for pseudotiling.
+        preserve_split = true
     }
 
     master {
@@ -89,7 +88,7 @@
 
     gestures {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
-        workspace_swipe = on
+        workspace_swipe = true
         workspace_swipe_forever = true
     }
 
@@ -174,11 +173,12 @@
     bindm = $mainMod, mouse:273, resizewindow
 
     misc {
-        mouse_move_enables_dpms = on
-        animate_manual_resizes = off
-        enable_swallow = on
+        mouse_move_enables_dpms = true
+        animate_manual_resizes = false
+        enable_swallow = true
         swallow_regex = "kitty"
-        # no_vfr = false
+        vfr = true
+        vrr = 1
     }
   '';
 }

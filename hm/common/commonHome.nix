@@ -44,7 +44,7 @@
       hyprpaper
       #xournalpp
       waybar
-      discord-canary
+      #discord-canary
       wvkbd
       # rnote
       # bitwarden
