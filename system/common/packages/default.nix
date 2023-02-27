@@ -21,14 +21,7 @@
     age
     alsa-utils
     home-manager
-    (pkgs.swaylock-effects.overrideAttrs (oldAttrs: {
-      src = fetchFromGitHub {
-        owner = "jirutka";
-        repo = "swaylock-effects";
-        rev = "b2736c5bef3add118183654305d05903c5947668";
-        sha256 = "sha256-umxEwegKuJd/DUjaUQ88lbcQNxSY99yepBnQaFr3fDI=";
-      };
-    }))
+    swaylock-effects
     starship
   ];
 in {
