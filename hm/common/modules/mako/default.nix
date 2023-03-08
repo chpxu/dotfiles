@@ -4,7 +4,7 @@
   colour-palette,
   ...
 }: {
-  programs.mako = {
+  services.mako = {
     enable = true;
     # package = pkgs.mako;
     actions = true;

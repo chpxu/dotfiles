@@ -74,7 +74,8 @@
               nvidiaPatches = needsNvidia;
               systemdIntegration = true;
               recommendedEnvironment = true;
-              extraConfig = (import ./hm/${hostname}/common/modules/hyprland/hyprland.nix).extraConfig;
+              extraConfig = (import 
+              ./hm/${hostname}/common/modules/hyprland/hyprland.nix).extraConfig;
             };
             home = {
               inherit username stateVersion;
