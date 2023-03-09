@@ -16,4 +16,5 @@
     GBM_BACKEND = "nvidia-drm";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
+  environment.pathsToLink = ["/share/zsh"];
 }

@@ -17,7 +17,7 @@
     #   sha256 = "sha256-O91YPsyzr8sbpXF+aYZTNSj88DQnAigZMsEovw5Veok=";
     # })
     ./nano.nix
-    ./zsh.nix
+    # ./zsh.nix
     ./security.nix
     (import ./networking.nix {inherit hostname config lib builtins;})
     ./fonts.nix

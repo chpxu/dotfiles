@@ -18,9 +18,9 @@
         "link.max-buffers" = 16;
         "log.level" = 2;
         "default.clock.rate" = 48000;
-        "default.clock.quantum" = 48;
+        "default.clock.quantum" = 64;
         "default.clock.min-quantum" = 2;
-        "default.clock.max-quantum" = 128;
+        "default.clock.max-quantum" = 256;
         "core.daemon" = true;
         "core-name" = "pipewire-0";
       };
