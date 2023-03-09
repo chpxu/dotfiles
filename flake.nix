@@ -2,7 +2,7 @@
   description = "My NixOS setup";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-   # nixpkgs.url = "github:nixos/nixpkgs";
+    # nixpkgs.url = "github:nixos/nixpkgs";
     nur.url = "github:nix-community/NUR";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -12,17 +12,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       # inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -32,9 +24,7 @@
     sops-nix, # TODO work on pure secret evaluation
     home-manager,
     nur,
-    nix-gaming,
     hyprland,
-    hyprpaper,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -64,9 +54,6 @@
           (import ./hm/common/packages/default.nix {
             inherit pkgs needsNvidia;
           })
-          # (import ./hm/common/modules {
-          #   inherit pkgs colour-palette;
-          # })
           ./hm/common/modules
           {
             wayland.windowManager.hyprland = {
@@ -74,8 +61,10 @@
               nvidiaPatches = needsNvidia;
               systemdIntegration = true;
               recommendedEnvironment = true;
-              extraConfig = (import 
-              ./hm/${hostname}/common/modules/hyprland/hyprland.nix).extraConfig;
+              extraConfig =
+                (import
+                  ./hm/${hostname}/common/modules/hyprland/hyprland.nix)
+                .extraConfig;
             };
             home = {
               inherit username stateVersion;

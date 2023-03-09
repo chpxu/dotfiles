@@ -63,46 +63,6 @@
         "type": "github"
       }
     },
-    "hyprpaper": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1677282271,
-        "narHash": "sha256-wNooEHZpKMJN2jj2qPa1jRhi6f5q1yTYCxQcXEJ32eM=",
-        "owner": "hyprwm",
-        "repo": "hyprpaper",
-        "rev": "83867464c523c3ac2f7ce53d2c4b8d4f9b7551cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "hyprpaper",
-        "type": "github"
-      }
-    },
-    "nix-gaming": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1678139301,
-        "narHash": "sha256-RLabMb1YvI5hmlQLD/YdUU9Y7gH0XJGTUNrPBq8ZGtY=",
-        "owner": "fufexan",
-        "repo": "nix-gaming",
-        "rev": "a54e76782639df4e752b2388938d271f43f9e2e6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fufexan",
-        "repo": "nix-gaming",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1677676435,
@@ -170,8 +130,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "hyprpaper": "hyprpaper",
-        "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "sops-nix": "sops-nix"
