@@ -29,7 +29,7 @@ in {
   # Trying to keep as lean as possible.
   environment.systemPackages =
     if needsNvidia
-    then systemPackages ++ [nvidia-offload pkgs.egl-wayland]
+    then systemPackages ++ [nvidia-offload]
     else systemPackages;
 
   programs = {

@@ -17,15 +17,6 @@
     })
     (import ./modules/power/power.nix {inherit pkgs;})
   ];
-  # systemd stuff
-  systemd = {
-    watchdog = {
-      device = "/dev/watchdog";
-    };
-    extraConfig = ''
-      DefaultTimeoutStopSec=10s
-    '';
-  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
