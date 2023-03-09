@@ -58,8 +58,6 @@
     waybar
     hyprpaper
     wvkbd
-    #xournalpp
-    # rnote
   ];
   manual.manpages.enable = false;
   programs.home-manager.enable = true;

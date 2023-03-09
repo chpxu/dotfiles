@@ -19,8 +19,8 @@
       src = super.fetchFromGitHub {
         owner = "hyprwm";
         repo = "hyprpaper";
-        rev = "88d99f99546d3ba42ed40f9b371471b320423f63";
-        sha256 = "sha256-ssWr9KskwbfTA3s93AeV24khVYLyWUFL2XRDyn6XB14=";
+        rev = "83867464c523c3ac2f7ce53d2c4b8d4f9b7551cd";
+        sha256 = "sha256-wNooEHZpKMJN2jj2qPa1jRhi6f5q1yTYCxQcXEJ32eM=";
       };
     });
   };
@@ -31,7 +31,7 @@
       src = super.fetchurl {
         url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
         # sha256 = "sha256-AEbjkAMeOJ48RVgbVj35Rp26klCsCsDCX+VD5u1xCM0="; #ver 0.0.140
-        #sha256 = "sha256-TF+7SnCTsbh+Z8AeEESEFVLSpD3c5HOAwpU1UBuB1BU="; 
+        #sha256 = "sha256-TF+7SnCTsbh+Z8AeEESEFVLSpD3c5HOAwpU1UBuB1BU=";
         #0.0.145
         sha256 = "sha256-2ZrSDyPj3AHriCWZ/bb303H3J97TTun//WjmInNEmwk=";
       };
