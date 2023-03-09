@@ -7,28 +7,24 @@
 }: {
   imports = [
     # ./wayfire
+    (import ./hyprland/xdg.nix {inherit config;})
+    ./zsh
+    ./starship
     ./Discord
     ./Code
     ./gh_git
+    ./direnv
     ./waybar
     ./zathura
     ./mpv
     (import ./kitty {inherit pkgs colour-palette;})
     ./mako
     ./sway
-    # ./kanshi
     ./xdg/xdg.nix
-    #//texlive.nix
     ./python
     ./firefox
-    # ./neovim
     ./wofi
-    # ./zsh
-    (import ./hyprland/xdg.nix {inherit config;})
-    # ./starship
     ./jq
-    # ./modules/osu-stable
-    # ./modules/wireplumber
   ];
   # imports = builtins.map (dir: (import (./. + "/${dir}") {inherit pkgs colour-palette;})) (builtins.attrNames (builtins.readDir (builtins.toPath ./. + "/")));
 }
