@@ -6,6 +6,7 @@
       #bbenoist.nix # Better Nix Syntax highlighting
       jnoortheen.nix-ide
       kamadorueda.alejandra # Nix formatter
+      mkhl.direnv
       # TeX stuff
       james-yu.latex-workshop
       valentjn.vscode-ltex
@@ -34,20 +35,20 @@
       {
         name = "python";
         publisher = "ms-python";
-        version = "2022.20.1";
-        sha256 = "sha256-UJOIhd5fsxRCw0a9oNsfY+SJ4Hjyi96DkgHRINZDr84=";
+        version = "2023.4.0";
+        sha256 = "sha256-owQmPlTgcX6NmtfRrd9i8DMflP65smAmsedPYqV/Gzg=";
       }
       {
         name = "pylint";
         publisher = "ms-python";
-        version = "2022.7.13271012";
-        sha256 = "sha256-w2ygHMLX2Cd4zW8TtS1enPrg2N4ftCXliq5kCH2Hp5g=";
+        version = "2023.2.0";
+        sha256 = "sha256-2OR64NvuX1ybEvYYN6o4CYa6YBltPOpA90vmNl8xIwI=";
       }
       {
         name = "vscode-pylance";
         publisher = "ms-python";
-        version = "2022.12.21";
-        sha256 = "sha256-tM1wtc6k60i5hdfYRVs0wtvC+0aiN3xNavrJLYWedAI=";
+        version = "2023.3.21";
+        sha256 = "sha256-A49/m3YL9Hy7AGvYrCnZ7GT4VLIqKka4GLsFEytjCUY=";
       }
       {
         name = "volar";
