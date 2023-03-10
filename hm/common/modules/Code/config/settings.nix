@@ -175,17 +175,17 @@ in {
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nil";
     "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
-    "python.defaultInterpreterPath" = "${customPythonEnv}/bin/python";
-    "python.pipenvPath" = "${pkgs.pipenv}/bin/pipenv";
+    "python.defaultInterpreterPath" = "python";
+    "python.pipenvPath" = "pipenv";
     "python.linting.mypyEnabled" = true;
-    "python.linting.mypyPath" = "${pkgs.python310Packages.mypy}/bin/mypy";
+    "python.linting.mypyPath" = "mypy";
     "python.linting.mypyArgs" = [
       "--follow-imports=silent"
       #"--ignore-missing-imports",
       "--show-column-numbers"
       "--no-pretty"
     ];
-    "python.linting.pylintPath" = "${pkgs.pylint}/bin/pylint";
+    "python.linting.pylintPath" = "pylint";
     "python.autoComplete.extraPaths" = [
       "${customPythonEnv}/lib/python3.10/site-packages"
       "${customPythonEnv}/lib/python3.10/site-packages/matplotlib/"
@@ -200,9 +200,9 @@ in {
     ];
     "pylint.args" = ["--rcfile" "./.pylintrc"];
     "python.formatting.provider" = "black";
-    "python.formatting.blackPath" = "${pkgs.black}/bin/black";
+    "python.formatting.blackPath" = "black";
     "pylint.interpreter" = [
-      "${customPythonEnv}/bin/python"
+      "python"
     ];
   };
 }

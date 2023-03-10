@@ -34,19 +34,18 @@
     general {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        gaps_in = 1
+        gaps_in = 0
         gaps_out = 0
         border_size = 2
         col.active_border = rgba(eceff4ee)
         col.inactive_border = rgba(e5e9f0aa)
-
         layout = dwindle
     }
 
     decoration {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        rounding = 2
+        rounding = 0
         blur = false
         blur_size = 3
         blur_passes = 2
