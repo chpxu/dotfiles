@@ -83,7 +83,7 @@ in {
     "editor.wordWrap" = "wordWrapColumn";
     "editor.wordWrapColumn" = 120;
     "editor.renderWhitespace" = "all";
-    "editor.tabSize" = 4;
+    "editor.tabSize" = 2;
     "security.workspace.trust.untrustedFiles" = "open";
     "redhat.telemetry.enabled" = false;
     "telemetry.telemetryLevel" = "off";
@@ -121,13 +121,9 @@ in {
     "[nix]" = {
       "editor.defaultFormatter" = "kamadorueda.alejandra";
     };
-    "[python]" = {
-      "editor.defaultFormatter" = "black";
-    };
     "[latex]" = {
       "editor.defaultFormatter" = "James-Yu.latex-workshop";
     };
-    "editor.defaultFormatter" = "";
     # ESLint
     "eslint.enable" = false;
     "eslint.runtime" = "node";
@@ -142,23 +138,6 @@ in {
     "python.analysis.typeCheckingMode" = "off";
     "python.analysis.completeFunctionParens" = true;
     "python.analysis.autoImportCompletions" = true;
-    "python.analysis.packageIndexDepths" = [
-      {
-        "name" = "matplotlib";
-        "depth" = 5;
-        "includeAllSymbols" = true;
-      }
-      {
-        "name" = "scipy";
-        "depth" = 5;
-        "includeAllSymbols" = true;
-      }
-      {
-        "name" = "numpy";
-        "depth" = 5;
-        "includeAllSymbols" = true;
-      }
-    ];
     "ltex.enabled" = true;
     "ltex.language" = "en-GB";
     "ltex.dictionary" = {
@@ -176,7 +155,6 @@ in {
     "nix.serverPath" = "nil";
     "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
     "python.defaultInterpreterPath" = "python";
-    "python.pipenvPath" = "pipenv";
     "python.linting.mypyEnabled" = true;
     "python.linting.mypyPath" = "mypy";
     "python.linting.mypyArgs" = [
@@ -186,21 +164,8 @@ in {
       "--no-pretty"
     ];
     "python.linting.pylintPath" = "pylint";
-    "python.autoComplete.extraPaths" = [
-      "${customPythonEnv}/lib/python3.10/site-packages"
-      "${customPythonEnv}/lib/python3.10/site-packages/matplotlib/"
-      "${customPythonEnv}/lib/python3.10/site-packages/numpy/"
-      "${customPythonEnv}/lib/python3.10/site-packages/scipy/"
-    ];
-    "python.analysis.extraPaths" = [
-      "${customPythonEnv}/lib/python3.10/site-packages"
-      "${customPythonEnv}/lib/python3.10/site-packages/matplotlib/"
-      "${customPythonEnv}/lib/python3.10/site-packages/numpy/"
-      "${customPythonEnv}/lib/python3.10/site-packages/scipy/"
-    ];
     "pylint.args" = ["--rcfile" "./.pylintrc"];
     "python.formatting.provider" = "black";
-    "python.formatting.blackPath" = "black";
     "pylint.interpreter" = [
       "python"
     ];
