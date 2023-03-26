@@ -170,10 +170,11 @@
 
     misc {
         mouse_move_enables_dpms = true
+        key_press_enables_dpms = true
         animate_manual_resizes = false
         enable_swallow = true
         swallow_regex = "kitty"
-        vfr = false
+        vfr = true
         vrr = 0
     }
   '';
