@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  hardware.video.hidpi.enable = true;
   hardware.uinput.enable = true;
   # hardware.opentabletdriver = {
   #   enable = true;
