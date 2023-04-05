@@ -65,7 +65,7 @@ This setup uses home-manager as a standalone module, and so must be installed se
 
 ## Themes, Icons and Colour Palette
 
-These dotfiles use 2 themes.
+These dotfiles uses the Nord theme.
 
 1. The [Nord colour palette](https://nordtheme.com).
 2. The GTK theme [Nordic](https://www.gnome-look.org/p/1267246/) by @EliverLara.
@@ -74,26 +74,26 @@ These dotfiles use 2 themes.
 4. I use the [Nordzy](https://github.com/alvatip/Nordzy-icon) icon theme.
 5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme.
 
-## Applications
+Planning to make my own theme soon...
 
-These are the main applications and programs I use. Everything has been installed from`nixos-unstable` by default unless mentioned otherwise. WIP
+## Programs and Applications
+
+These are the main applications and programs I use. Everything has been 
+installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 
 ### Applications
 
 - firefox-wayland
-- thunderbird-wayland
 - gimp
 - inkscape
-- vscode (submodule resolution fails)
+- vscode
 - discord-canary
-- betterdiscordctl
+- betterdiscordctl # needs fixing
 - mpv
 - imv
-- rnote (nice to use, but memory intensive and scrolling lags on touch input. doesn't crash though!)
-- xournalpp (crash haven) (Custom derivation. See my [repo](https://github.com/chpxu/xournalpp))
+- rnote
 - zathura
 - libreoffice-fresh
-- osu-lazer
 
 ### Environment programs
 
@@ -113,6 +113,7 @@ Applications or programs which affect my workspace
 - zsh
 - wvkbd (custom derivation to add theming. See my [repo](https://github.com/chpxu/wvkbd))
 - nano
+- direnv
 
 ## Program-specific steps
 
@@ -131,18 +132,10 @@ Both CSS files have had my own slight modifications. To edit `userChrome.css` or
 #### To-Do
 
 - [ ] Fix theming. Going for a much cleaner look.
-- [ ] Multiple profiles, rather than using one profile and container tabs for better separation
+- [x] Multiple profiles, rather than using one profile and container tabs for 
+better separation
 - [x] The hover effect on the Tab Center Reborn is not of the correct colour.
 - [ ] Attempt to configure extensions declaratively. (BIG)
-
-### Thunderbird
-
-TBD.
-
-#### To-Do
-
-- [ ] Learn to theme Thunderbird with `userChrome`
-- [ ] Theme the rest of the UI and fix other colours
 
 ### VSCode
 
