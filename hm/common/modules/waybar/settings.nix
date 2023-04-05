@@ -28,7 +28,7 @@
         "battery"
         "hyprland/language"
         "clock"
-        "custom/poweroff"
+        #"custom/poweroff"
       ];
       # Modules configuration
       "wlr/workspaces" = {
