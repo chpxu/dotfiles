@@ -78,7 +78,7 @@ Planning to make my own theme soon...
 
 ## Programs and Applications
 
-These are the main applications and programs I use. Everything has been 
+These are the main applications and programs I use. Everything has been
 installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 
 ### Applications
@@ -105,7 +105,6 @@ Applications or programs which affect my workspace
 - swayidle
 - swaylock-effects (Using [this fork](https://github.com/jirutka/swaylock-effects)) (installed via `configuration.nix` due to auth issue)
 - mako
-- bemenu (planning to phase this out once I figure out a nice way to make cliphist work with wofi)
 - cliphist
 - wofi
 - wl-clipboard
@@ -132,8 +131,8 @@ Both CSS files have had my own slight modifications. To edit `userChrome.css` or
 #### To-Do
 
 - [ ] Fix theming. Going for a much cleaner look.
-- [x] Multiple profiles, rather than using one profile and container tabs for 
-better separation
+- [x] Multiple profiles, rather than using one profile and container tabs for
+      better separation
 - [x] The hover effect on the Tab Center Reborn is not of the correct colour.
 - [ ] Attempt to configure extensions declaratively. (BIG)
 

@@ -1,10 +1,5 @@
-{
-  pkgs,
-  needsNvidia ? false,
-  ...
-}: let
+{pkgs, ...}: let
   normalPackages = with pkgs; [
-    bemenu
     cliphist
     grim
     slurp
@@ -16,12 +11,8 @@
     xdg-utils
     unzip
     jmtpfs
-    wev
   ];
-  xprop = [pkgs.xorg.xprop];
+  # xprop = [pkgs.xorg.xprop];
 in {
-  home.packages =
-    if needsNvidia == false
-    then normalPackages ++ xprop
-    else normalPackages;
+  home.packages = normalPackages;
 }
