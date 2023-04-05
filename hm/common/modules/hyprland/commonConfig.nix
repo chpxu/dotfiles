@@ -6,11 +6,10 @@
     exec-once = waybar & hyprpaper
 
     exec = swayidle -w timeout 120 'swaylock -f' timeout 300 'hyprctl dispatch dpms off"' resume 'hyprctl dispatch dpms on"' before-sleep 'swaylock -f'
-    # exec-once = wl-paste -w cliphist store
+    exec-once = wl-paste --type text --watch cliphist store
+    exec-once = wl-paste --type image --watch cliphist store
     exec-once = hyprctl setcursor Nordzy-cursors 32
 
-    # $cliphistShow = cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '#3b4252' --nf '#eceff4' --tb '#3b4252' --tf '#eceff4' --fb '#2e3440' -ff '##eceff4'  --hb '#434c5e"  --hf '#bf616a' --sb '#4c566a' --fn 'FiraCode Nerd Font 12' | cliphist decode | wl-copy
-    # $cliphistDel = cliphist list | bemenu -p 'cliphist' -m  -1 -l 20 -H 40 -W 0.5 -i -f -w -n --nb '#3b4252' --nf '#eceff4' --tb '#3b4252' --tf '#eceff4' --fb '#2e3440' -ff '#eceff4'  --hb '##434c5e"  --hf '#bf616a' --sb '#4c566a' --fn 'FiraCode Nerd Font 12' | cliphist delete
     # Source a file (multi-file configs)
     # source = ~/.config/hypr/myColors.conf
 
@@ -109,7 +108,7 @@
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,
     bind = $mainMod, E, exec, krusader
-    #bind = $mainMod, V, exec, $cliphistShow
+    bind = $mainMod, V, exec, cliphist list | wofi --show=dmenu | cliphist decode | wl-copy
     bind = $mainMod, F, togglefloating,
     bind = $mainMod, R, exec, wofi --show=run
     bind = $mainMod, P, pseudo, # dwindle
