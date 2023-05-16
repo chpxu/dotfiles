@@ -1,16 +1,6 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  gitProjConfig = "git_projects/dotfiles/.config";
-in {
+{...}: {
   xdg = {
     enable = true;
-    # cacheHome = ~/.cache;
-    # dataHome = ~/.local/share;
-    # stateHome = ~/.local/state;
     systemDirs = {
       config = ["/etc/xdg"];
       data = ["/usr/share" "/usr/local/share"];
@@ -30,10 +20,26 @@ in {
         XDG_MISC_DIR = "$HOME/Misc";
       };
     };
+    desktopEntries = {
+      zathura = {
+        type = "Application";
+        name = "Zathura";
+        comment = "A minimalistic document viewer";
+        exec = "zathura %U";
+        icon = "org.pwmt.zathura";
+        terminal = false;
+        categories = ["Office" "Viewer"];
+        # Keywords = ["PDF" "PS" "PostScript" "DjVU" "document" "presentation" "viewer"];
+        mimeType = ["application/pdf"];
+      };
+    };
     mime.enable = true;
     mimeApps = {
       enable = true;
       # TO-DO: Mime associations where necessary
+      defaultApplications = {
+        "application/pdf" = ["org.pwmt.zathura.desktop"];
+      };
     };
   };
 }
