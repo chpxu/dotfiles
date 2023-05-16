@@ -14,16 +14,16 @@
     });
   };
   # Hyprpaper overlay since the nix flake does not work (issue with formatter/alejandra?)
-  hyprpaper = self: super: {
-    hyprpaper = super.hyprpaper.overrideAttrs (oldAttrs: {
-      src = super.fetchFromGitHub {
-        owner = "hyprwm";
-        repo = "hyprpaper";
-        rev = "83867464c523c3ac2f7ce53d2c4b8d4f9b7551cd";
-        sha256 = "sha256-wNooEHZpKMJN2jj2qPa1jRhi6f5q1yTYCxQcXEJ32eM=";
-      };
-    });
-  };
+  # hyprpaper = self: super: {
+  #   hyprpaper = super.hyprpaper.overrideAttrs (oldAttrs: {
+  #     src = super.fetchFromGitHub {
+  #       owner = "hyprwm";
+  #       repo = "hyprpaper";
+  #       rev = "83867464c523c3ac2f7ce53d2c4b8d4f9b7551cd";
+  #       sha256 = "sha256-wNooEHZpKMJN2jj2qPa1jRhi6f5q1yTYCxQcXEJ32eM=";
+  #     };
+  #   });
+  # };
   discord-canary = self: super: {
     discord-canary = super.discord-canary.overrideAttrs (oldAttrs: rec {
       # version = "0.0.140";

@@ -40,8 +40,7 @@
   };
   nixpkgs = {
     overlays = with outputs.overlays; [
-      clisp
-      hyprpaper
+      # clisp
       #xournalpp
       waybar
       #discord-canary
