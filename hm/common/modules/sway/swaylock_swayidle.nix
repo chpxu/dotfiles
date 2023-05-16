@@ -33,19 +33,13 @@
     ring-color = "2e3440";
     line-uses-ring = true;
     separator-color = "e5e9f022";
-    text-color = "d8dee9";
-    text-clear-color = "d8dee9";
-    text-caps-lock-color = "d8dee9";
+    text-color = "d8dee9ff";
+    layout-text-color = "d8dee9ff";
+    text-clear-color = "d8dee9ff";
+    text-caps-lock-color = "d8dee9ff";
     indicator-idle-visible = true;
     daemonize = true;
     image = "${config.xdg.configHome}/swaylock/blue_swirl.png";
     scaling = "fill";
-    # swaylock-effects specific
-    effect-blur = "20x2";
-    grace = 1;
-    fade-in = "0.2";
-    indicator = true;
-    datestr = "%F";
-    timestr = "%T";
   };
 }
