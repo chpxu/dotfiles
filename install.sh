@@ -28,7 +28,8 @@ etcNixos="/etc/nixos"
 sudo mkdir -p "$etcNixos/old"
 sudo mv -r $etcNixos/*.* $etcNixos/old/
 # 2
-sudo nixos-rebuild switch --flake .\#"$1" --impure --show-trace --upgrade
+sudo nixos-rebuild boot --flake .\#"$1" --impure --show-trace --upgrade
+sudo nixos-rebuild reboot
 echo "Successful system upgrade"
 
 # 3
