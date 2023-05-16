@@ -1,7 +1,5 @@
 {pkgs}: let
   editorDefaultFormatter = "esbenp.prettier-vscode";
-  pythonEnv = import ../../../packages/python/definePythonEnv.nix;
-  customPythonEnv = pkgs.python310.withPackages pythonEnv.my-python-pkgs;
 in {
   settings = {
     "window.titleBarStyle" = "custom";
@@ -87,7 +85,6 @@ in {
     "security.workspace.trust.untrustedFiles" = "open";
     "redhat.telemetry.enabled" = false;
     "telemetry.telemetryLevel" = "off";
-    "code-runner.enableAppInsights" = false;
     "typescript.suggest.paths" = false;
     "javascript.suggest.paths" = false;
     "workbench.editor.historyBasedLanguageDetection" = false;

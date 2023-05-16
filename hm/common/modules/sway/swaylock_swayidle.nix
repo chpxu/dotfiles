@@ -45,7 +45,6 @@
     grace = 1;
     fade-in = "0.2";
     indicator = true;
-    clock = true;
     datestr = "%F";
     timestr = "%T";
   };
