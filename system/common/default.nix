@@ -5,7 +5,7 @@
   lib,
   hostname,
   needsIntel,
-  needsNvidia,
+  needsNvidia ? false,
   needsScale,
   ...
 }: {

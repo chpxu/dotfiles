@@ -7,7 +7,6 @@
   ...
 }: let
   commonExtraPkgs = with pkgs; [
-    mesa.drivers
     glfw-wayland
     libvdpau
     libvdpau-va-gl
@@ -22,6 +21,7 @@
     nvidia-vaapi-driver
   ];
   intelPackages = with pkgs; [
+    mesa.drivers
     vaapiIntel
     intel-media-driver
   ];
