@@ -102,12 +102,13 @@
         ];
       };
       battery = {
+        interval = 60;
         states = {
           warning = 20;
           critical = 10;
         };
         format = "{icon} {capacity}%";
-        format-charging = " {capacity}%";
+        format-charging = " {capacity}%";
         format-plugged = " {capacity}%";
         format-alt = "{time} {icon}";
         format-icons = [
