@@ -120,8 +120,8 @@
     bind = ,XF86MonBrightnessDown,exec, light -U 5
 
     # ScreenShotting
-    bind = ,Print,exec, grim
-    bind = $mainMod,Print,exec, grim -g "$(slurp)"
+    bind = ,Print,exec, grim | wl-copy
+    bind = $mainMod,Print,exec, grim -g "$(slurp -d)" - | wl-copy
 
     # Audio
     bind = ,XF86AudioMicMute, exec, amixer set Capture toggle
