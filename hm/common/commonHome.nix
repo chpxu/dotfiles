@@ -57,6 +57,7 @@
     waybar
     hyprpaper
     wvkbd
+    zotero
   ];
   manual.manpages.enable = false;
   programs.home-manager.enable = true;

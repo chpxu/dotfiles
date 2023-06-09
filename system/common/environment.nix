@@ -7,10 +7,6 @@
     CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
     LIBSEAT_BACKEND = "logind";
     XCURSOR_SIZE = "32";
-    GDK_SCALE =
-      if needsScale
-      then "2"
-      else "1";
     EGL_PLATFORM = "wayland";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
