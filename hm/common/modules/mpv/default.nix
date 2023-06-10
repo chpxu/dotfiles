@@ -8,6 +8,7 @@
       ao = "pulse,alsa";
       audio-channels = "auto";
       ytdl-format = "bestvideo+bestaudio";
+      gpu-context = "wayland";
       # cache-default = 4000000;/
     };
   };
