@@ -14,7 +14,7 @@
     fontconfig = {
       hinting = {
         enable = true;
-        style = "hintmedium";
+        style = "medium";
       };
       defaultFonts = {
         serif = ["Times Newer Roman"];
