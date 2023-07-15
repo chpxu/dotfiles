@@ -1,4 +1,50 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  fetchExt = ext: (pkgs.vscode-utils.extensionFromVscodeMarketplace ext);
+  fetched = [
+    {
+      name = "vscode-stylelint";
+      publisher = "stylelint";
+      version = "1.2.4";
+      sha256 = "sha256-krJ8vC+przrHL3PIQrW0hQhL6ntp71nhudP4LxdDIno=";
+    }
+    {
+      name = "python";
+      publisher = "ms-python";
+      version = "2023.12.0";
+      sha256 = "sha256-JwduTEwOpfSi+Br1hLd9ush+RK+Yg7XVHHvpQKPa4V4=";
+    }
+    {
+      name = "pylint";
+      publisher = "ms-python";
+      version = "2023.6.0";
+      sha256 = "sha256-YDF6WJBQjv1+xbbzezCcGcv1BEefK0cYl1V1pqpC+98=";
+    }
+    {
+      name = "vscode-pylance";
+      publisher = "ms-python";
+      version = "2023.7.21";
+      sha256 = "sha256-dbGSC1WpFOj2/eJc0XyQgMVM8KJtM7LthKGIcSgLrWo=";
+    }
+    {
+      name = "volar";
+      publisher = "vue";
+      version = "1.8.5";
+      sha256 = "sha256-AEIQFglW6RiWusiciMUeXgMs+bIERI/oDY6GUEQTPKg=";
+    }
+    {
+      name = "path-intellisense";
+      publisher = "christian-kohler";
+      version = "2.8.4";
+      sha256 = "sha256-FEBYcjJHOwmxVHhhyxqOpk/V6hvtMkhkvLVpmJCMSZw=";
+    }
+    {
+      name = "cpptools";
+      publisher = "ms-vscode";
+      version = "1.16.3";
+      sha256 = "sha256-kOwCSqeqWPjx77pUSTFYbUGTsCEYVQun2Lh+WvjXrPo=";
+    }
+  ];
+in {
   extensions = with pkgs.vscode-extensions;
     [
       arcticicestudio.nord-visual-studio-code
@@ -10,7 +56,7 @@
       # TeX stuff
       james-yu.latex-workshop
       valentjn.vscode-ltex
-      eamodio.gitlens
+      # eamodio.gitlens
       bungcip.better-toml
       # Markup languages and CSS
       dotjoshjohnson.xml
@@ -25,42 +71,5 @@
       # Python
       ms-toolsai.jupyter
     ]
-    ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "vscode-stylelint";
-        publisher = "stylelint";
-        version = "1.2.3";
-        sha256 = "zs7tVrevvWNCpOrLyGIHeIpjRweVj9GG0KpV9j5NN0w=";
-      }
-      {
-        name = "python";
-        publisher = "ms-python";
-        version = "2023.4.0";
-        sha256 = "sha256-owQmPlTgcX6NmtfRrd9i8DMflP65smAmsedPYqV/Gzg=";
-      }
-      {
-        name = "pylint";
-        publisher = "ms-python";
-        version = "2023.2.0";
-        sha256 = "sha256-2OR64NvuX1ybEvYYN6o4CYa6YBltPOpA90vmNl8xIwI=";
-      }
-      {
-        name = "vscode-pylance";
-        publisher = "ms-python";
-        version = "2023.3.21";
-        sha256 = "sha256-A49/m3YL9Hy7AGvYrCnZ7GT4VLIqKka4GLsFEytjCUY=";
-      }
-      {
-        name = "volar";
-        publisher = "vue";
-        version = "1.0.18";
-        sha256 = "sha256-X4Wvu4jgLfbDE2DDb65iwcEE2uZb1vCTt2/zofMai9Q=";
-      }
-      {
-        name = "path-intellisense";
-        publisher = "christian-kohler";
-        version = "2.8.4";
-        sha256 = "sha256-FEBYcjJHOwmxVHhhyxqOpk/V6hvtMkhkvLVpmJCMSZw=";
-      }
-    ];
+    ++ (map (x: (fetchExt x)) fetched);
 }

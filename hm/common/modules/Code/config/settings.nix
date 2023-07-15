@@ -68,6 +68,7 @@ in {
       "-q"
     ];
     "latex-workshop.linting.lacheck.enabled" = true;
+    "editor.defaultFormatter" = null;
     "editor.guides.bracketPairs" = true;
     "editor.fontFamily" = "'FiraCode Nerd Font','Source Code Pro', 'monospace', monospace";
     "editor.fontLigatures" = true;
@@ -125,7 +126,7 @@ in {
     "eslint.enable" = false;
     "eslint.runtime" = "node";
     "eslint.lintTask.enable" = true;
-    # "eslint.format.enable" = true;
+    "eslint.format.enable" = true;
     # Python time!
     "python.languageServer" = "Pylance";
     "python.linting.pylintEnabled" = true;
@@ -150,7 +151,7 @@ in {
     "ltex.statusBarItem" = true;
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nil";
-    "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
+    "ltex.ltex-ls.path" = "ltex";
     "python.defaultInterpreterPath" = "python";
     "python.linting.mypyEnabled" = true;
     "python.linting.mypyPath" = "mypy";
