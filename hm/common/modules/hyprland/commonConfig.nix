@@ -45,7 +45,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         rounding = 0
-        blur = false
+        blur = true
         blur_size = 3
         blur_passes = 2
         blur_new_optimizations = true
@@ -174,7 +174,7 @@
         enable_swallow = true
         swallow_regex = "kitty"
         vfr = true
-        vrr = 0
+        vrr = 1
     }
   '';
 }
