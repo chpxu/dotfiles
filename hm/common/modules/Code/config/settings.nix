@@ -132,6 +132,9 @@ in {
     "python.linting.pylintEnabled" = true;
     "python.diagnostics.sourceMapsEnabled" = true;
     "python.globalModuleInstallation" = true;
+    "python.venvFolders" = [
+      "\${workspaceFolder}/mace-env"
+    ];
     ## Configure Pylance
     "python.analysis.typeCheckingMode" = "off";
     "python.analysis.completeFunctionParens" = true;
@@ -151,7 +154,7 @@ in {
     "ltex.statusBarItem" = true;
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nil";
-    "ltex.ltex-ls.path" = "ltex";
+    "ltex.ltex-ls.path" = "${pkgs.ltex-ls}/bin/ltex-ls";
     "python.defaultInterpreterPath" = "python";
     "python.linting.mypyEnabled" = true;
     "python.linting.mypyPath" = "mypy";
