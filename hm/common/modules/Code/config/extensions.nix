@@ -41,7 +41,7 @@
       name = "cpptools";
       publisher = "ms-vscode";
       version = "1.17.0";
-      sha256 = "sha256-kOwCSqeqWPjx77pUSTFYbUGTsCEYVQun2Lh+WvjXrPo=";
+      sha256 = "sha256-cwbGZHMCLvaduu+XsdoLYioqK7y8evMeQbpW3POOi4k=";
     }
   ];
 in {
