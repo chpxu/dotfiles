@@ -1,21 +1,23 @@
 {pkgs, ...}: {
   # Fonts
   fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
+    enableDefault = true;
+    packages = with pkgs; [
       # caudex
       (
         nerdfonts.override {
           fonts = ["FiraCode" "DejaVuSansMono" "SourceCodePro"];
         }
       )
-      pkgs.times-newer-roman
+      times-newer-roman
+      dejavu_fonts
     ];
     fontconfig = {
       hinting = {
         enable = true;
         style = "medium";
       };
+      subpixel.rgba = "rgb";
       defaultFonts = {
         serif = ["Times Newer Roman"];
         monospace = ["FiraCode Nerd Font"];

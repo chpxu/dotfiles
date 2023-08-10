@@ -12,7 +12,7 @@
     gimp
     neofetch
     bitwarden-cli
-    #teams # TODO: broken
+    teams # TODO: broken
     libreoffice-fresh
     onedrive
     rnote

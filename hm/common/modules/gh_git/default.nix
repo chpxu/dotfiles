@@ -1,16 +1,8 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.gh = {
     enable = true;
     package = pkgs.gh;
-    enableGitCredentialHelper = true;
-    # extensions = with unstable; [
-    #     gh-eco
-    # ];
+    gitCredentialHelper.enable = true;
     settings = {
       git_protocol = "https";
       editor = "code";
