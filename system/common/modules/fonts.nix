@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   # Fonts
   fonts = {
-    enableDefault = true;
+    enableDefaultPackages = true;
     packages = with pkgs; [
       # caudex
       (
