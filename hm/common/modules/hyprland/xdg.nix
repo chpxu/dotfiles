@@ -14,5 +14,10 @@
       target = "hypr/yor-forger.png";
       # credit: TODO
     };
+    "hypr/kafkasw.jpg"  ={
+		# https://twitter.com/jeonghee1414/status/1657279512424615938/photo/1
+			source = config.lib.file.mkOutOfStoreSymlink ./. + "/kafkasw.jpg";
+			target = "hypr/kafkasw.jpg";
+    };
   };
 }
