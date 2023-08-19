@@ -55,7 +55,6 @@
           {
             wayland.windowManager.hyprland = {
               enable = true;
-              nvidiaPatches = needsNvidia;
               systemdIntegration = true;
               recommendedEnvironment = true;
               extraConfig =
