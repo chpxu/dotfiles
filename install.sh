@@ -33,7 +33,7 @@ sudo nixos-rebuild reboot
 echo "Successful system upgrade"
 
 # 3
-home-manager switch --flake .\#"$2@$1" --impure --show-trace
+home-manager switch --flake .\#"$2@$1" --show-trace
 
 echo "Successful upgrade for home user $2"
 echo ""

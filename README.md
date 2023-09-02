@@ -74,7 +74,10 @@ These dotfiles uses the Nord theme.
 4. I use the [Nordzy](https://github.com/alvatip/Nordzy-icon) icon theme.
 5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme.
 
-Planning to make my own theme soon...
+## Things todo before/after installing
+
+1. Delete the networking settings and use your own.
+2. Adjust `flake.nix` to have correct users and hostnames. Probably will have to adjust installer script too
 
 ## Programs and Applications
 
@@ -88,7 +91,6 @@ installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 - inkscape
 - vscode
 - discord-canary
-- betterdiscordctl # needs fixing
 - mpv
 - imv
 - rnote
@@ -114,59 +116,6 @@ Applications or programs which affect my workspace
 - nano
 - direnv
 
-## Program-specific steps
-
-### Firefox
-
-Assuming Firefox is installed, follow these instructions:
-
-1. Enable the extensions. This is due to how Firefox handles extension side-loading.
-2. In the `Tab Center Reborn` extension preferences, copy and paste the contents of `./.config/nixpkgs/modules/firefox/config/tabCenterReborn-chpxu.css` inside the input box for Custom CSS.
-3. Ensure Custom CSS/Styles whatever checkbox is enabled and restart firefox (or the extension).
-<!-- 
-Credits to @ranmaru22 for the` verticaltabs.css` and the [setup](https://github.com/ranmaru22/firefox-vertical-tabs) and credits to FILL_IN for the `oneline.css`.
-
-Both CSS files have had my own slight modifications. To edit `userChrome.css` or `userContent.css`, see `firefox.nix` and appropriate subdirectories (an absolute mess right now). -->
-
-#### To-Do
-
-- [ ] Fix theming. Going for a much cleaner look.
-- [x] Multiple profiles, rather than using one profile and container tabs for
-      better separation
-- [x] The hover effect on the Tab Center Reborn is not of the correct colour.
-- [ ] Attempt to configure extensions declaratively. (BIG)
-
-### VSCode
-
-Self-advertisement: install my theme [Firefox Quantum Themes](https://marketplace.visualstudio.com/items?itemName=beastdestroyer.firefox-quantum-themes) :)
-
-#### To-Do
-
-- [x] Add the settings and extensions I use to `home.nix`
-- [ ] I plan to make my own Nord theme soon, after I update my theme to 2.0.0.
-
-### Discord
-
-NOTE: theming the main Discord client or using third-party client is against ToS and if discovered, could get your account banned. Do this at your own risk.
-
-1. Install [BetterDiscord](https://betterdiscord.app/)
-2. Ensure the CSS files in `./.config/BetterDiscord/themes` lie in the same directory but in your `$HOME`.
-3. Enable the `nord-zelk` theme.
-
-Credits to @schnensch0 for the [Zelk](https://github.com/schnensch0/zelk) theme which I modified.
-
-#### To-Do
-
-- [ ] Further modifications to make the theme consistent in colour.
-- [ ] BetterDiscord actually starts everytime.
-
-### GIMP
-
-1. Copy the files in the repo to the same location in your home. If the copying above was done correctly, this should be fine.
-2. In GIMP, go to _Edit > Preferences > Interface > Theme_ and select the theme containing the Nord styling.
-
-Note: I have the Icon theme set to `Symbolic - High Contrast`.
-
 ## Configuration Deep Dive
 
 This section is more information about the configuration, mainly for those who want to extend/use this configuration (though you're probably better off using Misterio77's boilerplate).
@@ -187,20 +136,3 @@ The `flake.nix` looks like quite a mess right now, most of it is due to my own i
    - `mkHomeConfiguration` a function which creates a home for a user and hostname. Creates a full-fledged user based off my specifications
    - `mkSystemConfiguration` a function which creates a NixOS system with given hostname, users and minimal modules.
 4. `outputs`. What the flake returns and allows you to access.
-
-#### Roadmap
-
-- [ ] Explore decomposing programs into _bundles_. Bundles consist of a list of programs. Current idea is:
-  - `env` for programs which set-up my display and system (e.g. Hyprland, wofi).
-  - `daily` for programs to do day-to-day tasks (e.g. LibreOffice, Thunderbird)
-  - `dev` for development purposes: python, front-end web development, vscode-extensions (finally)
-  - `misc` is self-explanatory
-- Properly parse inputs down to every nix file, to reduce the use of stray `import` statements
-
-### Why separate home-manager and system?
-
-This is a personal choice. Whilst it might make more sense to some people to have any change equal an entire system change (well, because any user change _is_ a system change), I prefer having user-only changes not have to affect the system. This allows me, for example, to:
-
-- Test package changes as user if necessary without risking 'breakage' of the system
-
-More stuff TBD
