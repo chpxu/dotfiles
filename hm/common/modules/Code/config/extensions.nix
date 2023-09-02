@@ -43,6 +43,24 @@
       version = "1.17.0";
       sha256 = "sha256-/q4cXLYgULPlHx50VE3t4xNNMI6x0Qp/haVSaWodI1Q=";
     }
+    {
+      name = "remote-ssh";
+      publisher = "ms-vscode-remote";
+      version = "0.102.0";
+      sha256 = "sha256-YQ0Dy1C+xEGtwh0z97ypIMUq8D7PozVRb6xXUVZsjBw=";
+    }
+    {
+      name = "remote-ssh-edit";
+      publisher = "ms-vscode-remote";
+      version = "0.86.0";
+      sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
+    }
+    {
+      name = "remote-explorer";
+      publisher = "ms-vscode";
+      version = "0.4.1";
+      sha256 = "sha256-E0QsXIpCUjpoX6GNtzbI8/UzxTwWMpQpzVvsPhA+3t4=";
+    }
   ];
 in {
   extensions = with pkgs.vscode-extensions;
@@ -57,7 +75,7 @@ in {
       james-yu.latex-workshop
       valentjn.vscode-ltex
       # eamodio.gitlens
-      bungcip.better-toml
+      tamasfe.even-better-toml
       # Markup languages and CSS
       dotjoshjohnson.xml
       formulahendry.auto-rename-tag

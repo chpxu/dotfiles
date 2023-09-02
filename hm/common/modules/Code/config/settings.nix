@@ -129,12 +129,7 @@ in {
     "eslint.format.enable" = true;
     # Python time!
     "python.languageServer" = "Pylance";
-    "python.linting.pylintEnabled" = true;
     "python.diagnostics.sourceMapsEnabled" = true;
-    "python.globalModuleInstallation" = true;
-    "python.venvFolders" = [
-      "\${workspaceFolder}/mace-env"
-    ];
     ## Configure Pylance
     "python.analysis.typeCheckingMode" = "off";
     "python.analysis.completeFunctionParens" = true;
@@ -156,19 +151,9 @@ in {
     "nix.serverPath" = "nil";
     "ltex.ltex-ls.path" = "${pkgs.ltex-ls}/bin/ltex-ls";
     "python.defaultInterpreterPath" = "python";
-    "python.linting.mypyEnabled" = true;
-    "python.linting.mypyPath" = "mypy";
-    "python.linting.mypyArgs" = [
-      "--follow-imports=silent"
-      #"--ignore-missing-imports",
-      "--show-column-numbers"
-      "--no-pretty"
-    ];
-    "python.linting.pylintPath" = "pylint";
     "pylint.args" = ["--rcfile" "./.pylintrc"];
-    "python.formatting.provider" = "black";
     "pylint.interpreter" = [
-      "python"
+      "python3"
     ];
   };
 }

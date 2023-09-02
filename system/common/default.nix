@@ -6,12 +6,11 @@
   hostname,
   needsIntel,
   needsNvidia ? false,
-  needsScale,
   ...
 }: {
   imports =
     [
-      (import ./environment.nix {inherit needsScale;})
+      ./environment.nix
       (import ./modules/default.nix {inherit hostname config builtins lib pkgs;})
       (import ./packages/default.nix {inherit pkgs needsNvidia needsIntel;})
       (import ./hardware/global {inherit pkgs;})

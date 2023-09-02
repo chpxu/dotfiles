@@ -18,10 +18,10 @@
   outputs = {
     self,
     nixpkgs,
-    sops-nix, # TODO work on pure secret evaluation
+    sops-nix,
     home-manager,
-    nur,
     hyprland,
+    nur,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -37,7 +37,6 @@
     mkHomeConfiguration = {
       extraSpecialArgs,
       hostname,
-      needsNvidia,
       username,
       stateVersion,
       ...
@@ -46,27 +45,17 @@
         inherit pkgs extraSpecialArgs;
         modules = [
           nur.nixosModules.nur
-          hyprland.homeManagerModules.default
-          ./hm/${hostname}/${username}/home.nix
-          (import ./hm/common/packages/default.nix {
-            inherit pkgs needsNvidia;
-          })
-          ./hm/common/modules
           {
-            wayland.windowManager.hyprland = {
-              enable = true;
-              systemdIntegration = true;
-              recommendedEnvironment = true;
-              extraConfig =
-                (import
-                  ./hm/${hostname}/common/modules/hyprland/hyprland.nix)
-                .extraConfig;
-            };
             home = {
               inherit username stateVersion;
               homeDirectory = "/home/${username}";
             };
           }
+          ./hm/common/commonHome.nix
+          (import ./hm/common/packages/default.nix {
+            inherit pkgs;
+          })
+          ./hm/common/modules
         ];
       };
     mkSystemConfiguration = {
@@ -80,8 +69,9 @@
           inherit inputs outputs needsIntel needsNvidia hostname;
         };
         modules = [
-          ./system/${hostname}/configuration.nix
+          nur.nixosModules.nur
           sops-nix.nixosModules.sops
+          ./system/${hostname}/configuration.nix
         ];
       };
   in {

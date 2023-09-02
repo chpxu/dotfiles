@@ -13,7 +13,6 @@
     ./hardware-configuration.nix
     (import ../common/default.nix {
       inherit config builtins pkgs lib needsIntel needsNvidia hostname;
-      needsScale = false;
     })
     (import ./modules/power/power.nix {inherit pkgs;})
   ];

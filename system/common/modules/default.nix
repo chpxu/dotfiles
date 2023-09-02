@@ -26,5 +26,6 @@
     ./opengl.nix
     ./time_i18n.nix
     ./pipewire.nix
+    ./hyprland.nix
   ];
 }

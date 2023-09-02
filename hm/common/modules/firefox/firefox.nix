@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
   programs.firefox = {
@@ -40,14 +39,14 @@
           auto-tab-discard
         ];
       };
-      dummy = {
-        id = 9999;
-        isDefault = false;
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          auto-tab-discard
-        ];
-      };
+      # dummy = {
+      #   id = 9999;
+      #   isDefault = false;
+      #   extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      #     ublock-origin
+      #     auto-tab-discard
+      #   ];
+      # };
     };
   };
 }

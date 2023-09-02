@@ -1,5 +1,10 @@
 {config, ...}: {
   xdg.configFile = {
+    "hypr/hyprland.conf" = {
+      # https://twitter.com/jeonghee1414/status/1657279512424615938/photo/1
+      source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprland.conf";
+      target = "hypr/hyprland.conf";
+    };
     "hypr/hyprpaper.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprpaper.conf";
       target = "hypr/hyprpaper.conf";
@@ -14,10 +19,10 @@
       target = "hypr/yor-forger.png";
       # credit: TODO
     };
-    "hypr/kafkasw.jpg"  ={
-		# https://twitter.com/jeonghee1414/status/1657279512424615938/photo/1
-			source = config.lib.file.mkOutOfStoreSymlink ./. + "/kafkasw.jpg";
-			target = "hypr/kafkasw.jpg";
+    "hypr/kafkasw.jpg" = {
+      # https://twitter.com/jeonghee1414/status/1657279512424615938/photo/1
+      source = config.lib.file.mkOutOfStoreSymlink ./. + "/kafkasw.jpg";
+      target = "hypr/kafkasw.jpg";
     };
   };
 }

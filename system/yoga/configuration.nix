@@ -16,7 +16,6 @@
     ./hardware-configuration.nix
     (import ../common/default.nix {
       inherit config builtins pkgs lib needsIntel needsNvidia hostname;
-      needsScale = true;
     })
     # tlp
     ./tlp.nix

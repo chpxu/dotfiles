@@ -1,4 +1,4 @@
-{needsScale, ...}: {
+{...}: {
   #Define environment variables used across systems
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "wayland";

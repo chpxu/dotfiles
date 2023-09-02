@@ -4,6 +4,9 @@
   outputs,
   ...
 }: {
+  imports = [
+    ./packages
+  ];
   gtk = {
     enable = true;
     theme = {
