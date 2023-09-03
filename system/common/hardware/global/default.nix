@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   hardware.uinput.enable = true;
   # hardware.opentabletdriver = {
   #   enable = true;

@@ -1,7 +1,5 @@
 {
   config,
-  builtins,
-  lib,
   hostname,
   ...
 }: {
@@ -42,14 +40,6 @@
         psk = "@uni_psk@";
         authProtocols = ["WPA-PSK"];
       };
-      # "@j_uuid@" = {
-      #   psk = "@j_psk@";
-      #   authProtocols = ["WPA-PSK"];
-      # };
-      # "@tft_uuid@" = {
-      #   psk = "@tft_psk@";
-      #   authProtocols = ["WPA-PSK"];
-      # };
       "@campus_uuid@" = {
         extraConfig = ''
           identity="@campus_identity@"

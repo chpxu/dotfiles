@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   systemd = {
     watchdog = {
       device = "/dev/watchdog";
