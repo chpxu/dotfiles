@@ -147,11 +147,10 @@ in {
       ];
     };
     "ltex.statusBarItem" = true;
+    "ltex.ltex-ls.path" = "ltex-ls";
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nil";
-    "ltex.ltex-ls.path" = "${pkgs.ltex-ls}/bin/ltex-ls";
     "python.defaultInterpreterPath" = "python";
-    "pylint.args" = ["--rcfile" "./.pylintrc"];
     "pylint.interpreter" = [
       "python3"
     ];
