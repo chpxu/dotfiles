@@ -72,6 +72,7 @@ in {
     "editor.guides.bracketPairs" = true;
     "editor.fontFamily" = "'FiraCode Nerd Font','Source Code Pro', 'monospace', monospace";
     "editor.fontLigatures" = true;
+    "editor.bracketPairColorization.enabled" = false;
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
     "editor.formatOnSave" = true;
     "editor.cursorSmoothCaretAnimation" = true;
