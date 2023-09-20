@@ -11,7 +11,7 @@
       modules-left = [
         "custom/launcher"
         "custom/keyboard"
-        "wlr/workspaces"
+        "hyprland/workspaces"
         "custom/separator"
         "tray"
       ];
@@ -31,7 +31,7 @@
         #"custom/poweroff"
       ];
       # Modules configuration
-      "wlr/workspaces" = {
+      "hyprland/workspaces" = {
         format = "{name}";
         on-scroll-up = "hyprctl dispatch workspace e+1";
         on-scroll-down = "hyprctl dispatch workspace e-1";

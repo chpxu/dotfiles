@@ -40,6 +40,10 @@
         psk = "@uni_psk@";
         authProtocols = ["WPA-PSK"];
       };
+      "@uni_uuid2@" = {
+         psk = "@uni_psk@";
+         authProtocols = ["WPA-PSK"];
+       };
       "@campus_uuid@" = {
         extraConfig = ''
           identity="@campus_identity@"

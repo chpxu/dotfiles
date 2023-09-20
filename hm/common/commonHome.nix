@@ -43,24 +43,17 @@
   };
   nixpkgs = {
     overlays = with outputs.overlays; [
-      # clisp
-      #xournalpp
-      waybar
-      #discord-canary
       wvkbd
-      # rnote
-      # bitwarden
     ];
   };
   home.packages = with pkgs; [
     # other applications may be in overlays
     #clisp
     discord-canary
-    # bitwarden
+    bitwarden
     waybar
     hyprpaper
     wvkbd
-    x2goclient
     #zotero
     #rpi-imager
   ];

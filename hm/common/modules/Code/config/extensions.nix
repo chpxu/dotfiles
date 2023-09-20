@@ -10,8 +10,8 @@
     {
       name = "python";
       publisher = "ms-python";
-      version = "2023.12.0";
-      sha256 = "sha256-JwduTEwOpfSi+Br1hLd9ush+RK+Yg7XVHHvpQKPa4V4=";
+      version = "2023.16.0";
+      sha256 = "sha256-JrXtDk3Cw8lxjSPd7RLF7u4FEEzjxoDvfT/YNQNLBFg=";
     }
     {
       name = "pylint";
@@ -22,14 +22,14 @@
     {
       name = "vscode-pylance";
       publisher = "ms-python";
-      version = "2023.7.21";
-      sha256 = "sha256-dbGSC1WpFOj2/eJc0XyQgMVM8KJtM7LthKGIcSgLrWo=";
+      version = "2023.9.12";
+      sha256 = "sha256-2OaKkzHxE/X3x5nyObFVwi/dRT5ri9KuXY85v+aMxds=";
     }
     {
       name = "volar";
       publisher = "vue";
-      version = "1.8.5";
-      sha256 = "sha256-AEIQFglW6RiWusiciMUeXgMs+bIERI/oDY6GUEQTPKg=";
+      version = "1.8.13";
+      sha256 = "sha256-qD+BqjhayYCjcX2gGE8yLjxsAqcpQ231e0CAGI+KEsE=";
     }
     {
       name = "path-intellisense";
