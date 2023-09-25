@@ -10,6 +10,7 @@
     ./nix.nix
     ./boot.nix
     (import ./console.nix {inherit pkgs;})
+    ./systemd.nix
     ./nano.nix
     ./zsh.nix
     ./security.nix
@@ -21,6 +22,5 @@
     ./time_i18n.nix
     ./pipewire.nix
     ./hyprland.nix
-    ./systemd.nix
   ];
 }

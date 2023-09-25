@@ -13,6 +13,7 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
@@ -71,6 +72,7 @@
         modules = [
           nur.nixosModules.nur
           sops-nix.nixosModules.sops
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
           ./system/${hostname}/configuration.nix
         ];
       };

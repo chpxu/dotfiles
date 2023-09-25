@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   outputs,
   ...
 }: {
@@ -46,17 +47,20 @@
       wvkbd
     ];
   };
-  home.packages = with pkgs; [
-    # other applications may be in overlays
-    #clisp
-    discord-canary
-    bitwarden
-    waybar
-    hyprpaper
-    wvkbd
-    #zotero
-    #rpi-imager
-  ];
+  home.packages = with pkgs;
+    [
+      # other applications may be in overlays
+      #clisp
+      discord-canary
+      bitwarden
+      waybar
+      hyprpaper
+      wvkbd
+      #zotero
+      #rpi-imagerstable
+    ]
+    ++ [inputs.nix-gaming.packages.${pkgs.system}.osu-stable]
+    ++ [inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin];
   manual.manpages.enable = false;
   programs.home-manager.enable = true;
 }
