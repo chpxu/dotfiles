@@ -7,9 +7,9 @@
     #keyMap = "us";
     #useXkbConfig = true; # use xkbOptions in tty.
   };
-  services.xserver.enable = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
-  services.xserver.autorun = false;
-  services.xserver.displayManager.startx.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.defaultSession = "hyprland";
+  # services.xserver.autorun = false;
+  # services.xserver.displayManager.startx.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
 }

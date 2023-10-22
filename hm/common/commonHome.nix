@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./packages
+    ./modules
   ];
   gtk = {
     enable = true;
@@ -47,20 +48,19 @@
       wvkbd
     ];
   };
-  home.packages = with pkgs;
-    [
-      # other applications may be in overlays
-      #clisp
-      discord-canary
-      bitwarden
-      waybar
-      hyprpaper
-      wvkbd
-      #zotero
-      #rpi-imagerstable
-    ]
-    ++ [inputs.nix-gaming.packages.${pkgs.system}.osu-stable]
-    ++ [inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin];
+  home.packages = with pkgs; [
+    # other applications may be in overlays
+    #clisp
+    discord-canary
+    bitwarden
+    waybar
+    hyprpaper
+    wvkbd
+    logseq
+    zotero
+    #rpi-imagerstable
+  ];
   manual.manpages.enable = false;
   programs.home-manager.enable = true;
+	home.stateVersion = "22.11";
 }

@@ -20,6 +20,7 @@
           tabcenter-reborn
           ublock-origin
           auto-tab-discard
+          # zotero
         ];
       };
       dev-edition-uni = {

@@ -26,8 +26,10 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    # Basic data
     system = "x86_64-linux";
     user = "chunix";
+    stateVersion = "22.11";
     colour-palette = import ./hm/common/nordtheme.nix;
     pkgs = import nixpkgs {
       inherit system;
@@ -63,6 +65,7 @@
       needsNvidia,
       needsIntel,
       hostname,
+      user,
     }:
       inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -70,10 +73,18 @@
           inherit inputs outputs needsIntel needsNvidia hostname;
         };
         modules = [
+          ./system/${hostname}/configuration.nix
           nur.nixosModules.nur
           sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager 
+          #{
+					#	home-manager.useGlobalPkgs = false;
+           # home-manager.useUserPackages = true;
+           # home-manager.users."${user}" = import ./hm/common/commonHome.nix;
+					#	home-manager.extraSpecialArgs = {inherit inputs outputs 
+					#	colour-palette;};
+          #}
           inputs.nix-gaming.nixosModules.pipewireLowLatency
-          ./system/${hostname}/configuration.nix
         ];
       };
   in {
@@ -84,13 +95,15 @@
         needsNvidia = false;
         needsIntel = true;
         hostname = "yoga";
+        user = user;
       };
       # Legion
-      legion = mkSystemConfiguration {
-        needsNvidia = true;
-        needsIntel = true;
-        hostname = "legion";
-      };
+      #legion = mkSystemConfiguration {
+       # needsNvidia = true;
+        #needsIntel = true;
+        #hostname = "legion";
+        #user = urser;
+      #};
     };
 
     homeConfigurations = {
@@ -103,13 +116,13 @@
         stateVersion = "22.11";
       };
       # Legion
-      "${user}@legion" = mkHomeConfiguration {
-        extraSpecialArgs = {inherit inputs outputs colour-palette;};
-        hostname = "legion";
-        needsNvidia = true;
-        username = user;
-        stateVersion = "22.11";
-      };
+      #"${user}@legion" = mkHomeConfiguration {
+      #  extraSpecialArgs = {inherit inputs outputs colour-palette;};
+      #  hostname = "legion";
+      #  needsNvidia = true;
+      #  username = user;
+      #  stateVersion = "22.11";
+      #};
     };
   };
 }

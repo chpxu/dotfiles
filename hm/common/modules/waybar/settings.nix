@@ -102,7 +102,7 @@
         ];
       };
       battery = {
-        interval = 60;
+        interval = 80;
         states = {
           warning = 20;
           critical = 10;
