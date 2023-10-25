@@ -17,4 +17,12 @@
     ]
     ++ lib.optional needsNvidia ./hardware/nvidia
     ++ lib.optional needsIntel ./hardware/intel;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.chunix = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "audio" "video" "input" "disk"];
+    hashedPassword = "$y$j9T$ZrsmB74qJZPIGnug4S9oK/$8oGAGKC3TYuo0nfouU9gzoIEjSS5c6rVtRcGye0QDf7";
+    shell = pkgs.zsh;
+  };
 }
