@@ -1,5 +1,4 @@
 {
-  # zsh
   programs.zsh = {
     enable = true;
     #loginExtra = "betterdiscordctl --d-modules ~/config/discordcanary/00136/modules/ install";
@@ -10,8 +9,9 @@
     #     enable = true;
     #   };
     # };
-    # programs.starship = {
-    #   enable = true;
-    #   settings = builtins.fromTOML (builtins.readFile ./starship/startship.toml);
+  };
+  programs.starship = {
+    enable = true;
+    settings = builtins.fromTOML (builtins.readFile ./starship/startship.toml);
   };
 }

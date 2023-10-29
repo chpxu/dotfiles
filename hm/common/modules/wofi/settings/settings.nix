@@ -13,7 +13,7 @@
     sort_order=alphabetical
     gtk_dark=true
     columns=3
-    prompt=run
+    prompt=drun
     layer=overlay
     matching=contains
     insensitive

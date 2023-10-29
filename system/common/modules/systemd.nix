@@ -4,16 +4,7 @@
       device = "/dev/watchdog";
     };
     extraConfig = ''
-      DefaultTimeoutStopSec=10s
+      DefaultTimeoutStopSec=5s
     '';
-    user.services = {
-      onedrive = {
-        description = "Run OneDrive Sync";
-        script = ''
-          onedrive --synchronize
-        '';
-        wantedBy = ["default.target"];
-      };
-    };
   };
 }

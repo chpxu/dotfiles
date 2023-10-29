@@ -6,10 +6,10 @@
   ...
 }: {
   imports = [
-    # ./wayfire
     (import ./hyprland/xdg.nix {inherit config;})
     ./zsh
-    ./starship
+    # ./starship
+    ./systemd
     ./Discord
     ./Code
     ./gh_git
@@ -18,12 +18,13 @@
     ./zathura
     ./mpv
     (import ./kitty {inherit pkgs colour-palette;})
+    ./rofi/rofi.nix
     ./mako
     ./sway
     ./xdg/xdg.nix
-    ./python
+    # ./python
     ./firefox
-    ./wofi
+    # ./wofi
     ./jq
   ];
   # imports = builtins.map (dir: (import (./. + "/${dir}") {inherit pkgs colour-palette;})) (builtins.attrNames (builtins.readDir (builtins.toPath ./. + "/")));

@@ -41,30 +41,30 @@
       src = super.fetchFromGitHub {
         owner = "chpxu";
         repo = "wvkbd";
-        rev = "6ee1764535a06b9888242ad4a9c42a7ac9821791";
-        sha256 = "TWd/CECWxZJ0WeFVjeuHWAq9fGKGOd6MLpjvzOpKGOo=";
+        rev = "312c03b94c1165924e0b20f7188aa11d41e363b3";
+        sha256 = "";
       };
     });
   };
-  xournalpp = self: super: {
-    xournalpp = super.xournalpp.overrideAttrs (oldAttrs: {
-      src = super.fetchFromGitHub {
-        owner = "chpxu";
-        repo = "xournalpp1";
-        rev = "a855de6fd90c26615787b47a8fcb29084003a4d3";
-        sha256 = "sha256-ltfyJGTAa14ze7+dTzvGmNQ+nqG/7a3kaMDWjrjTeUs=";
-      };
-    });
-  };
-  wayfire = self: super: {
-    wayfire = super.wayfire.overrideAttrs (oldAttrs: {
-      version = "0.7.4";
-      src = super.fetchFromGitHub {
-        owner = "WayfireWM";
-        repo = "wayfire";
-        rev = "a55a12291fe8d10a59c7ae35c4c958261998c465";
-        sha256 = "sha256-UkM/DPJixG75i3FJ88HCAglxajmcpYjxffhST8lsyZk=";
-      };
-    });
-  };
+  # xournalpp = self: super: {
+  #   xournalpp = super.xournalpp.overrideAttrs (oldAttrs: {
+  #     src = super.fetchFromGitHub {
+  #       owner = "chpxu";
+  #       repo = "xournalpp1";
+  #       rev = "a855de6fd90c26615787b47a8fcb29084003a4d3";
+  #       sha256 = "sha256-ltfyJGTAa14ze7+dTzvGmNQ+nqG/7a3kaMDWjrjTeUs=";
+  #     };
+  #   });
+  # };
+  # wayfire = self: super: {
+  #   wayfire = super.wayfire.overrideAttrs (oldAttrs: {
+  #     version = "0.7.4";
+  #     src = super.fetchFromGitHub {
+  #       owner = "WayfireWM";
+  #       repo = "wayfire";
+  #       rev = "a55a12291fe8d10a59c7ae35c4c958261998c465";
+  #       sha256 = "sha256-UkM/DPJixG75i3FJ88HCAglxajmcpYjxffhST8lsyZk=";
+  #     };
+  #   });
+  # };
 }

@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   settings = {
     mainBar = {
       layer = "top";
@@ -150,8 +150,9 @@
         tooltip-format = "{icon} {desc}\nVolume: {volume}\n{format_source}";
       };
       "custom/launcher" = {
-        format = " ";
-        on-click = "wofi --show=run";
+        # format = " ";
+        background-image = "url('${config.xdg.configHome}/waybar/white-snowflake.png')";
+        on-click = "rofi -show drun";
         max-length = 50;
         tooltip = false;
       };
