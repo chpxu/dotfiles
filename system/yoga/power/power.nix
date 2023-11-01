@@ -1,5 +1,6 @@
 {
   imports = [./tlp.nix];
+  powerManagement.enable = true;
   services = {
     auto-cpufreq.enable = true;
     thermald = {

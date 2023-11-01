@@ -151,7 +151,7 @@
       };
       "custom/launcher" = {
         # format = " ";
-        background-image = "url('${config.xdg.configHome}/waybar/white-snowflake.png')";
+        background-image = "url('$HOME/.config/waybar/white-snowflake.png')";
         on-click = "rofi -show drun";
         max-length = 50;
         tooltip = false;

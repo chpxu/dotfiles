@@ -43,7 +43,8 @@ in {
       "%PDF%"
     ];
     "latex-workshop.latex.rootFile.doNotPrompt" = true;
-    "latex-workshop.latex.autoBuild.run" = "never";
+    "latex-workshop.latex.autoBuild.run" = "onSave";
+    "latex-workshop.texcount.autorun" = "onSave";
     "latex-workshop.intellisense.citation.backend" = "biblatex";
     "latex-workshop.hover.preview.enabled" = true;
     "latex-workshop.hover.preview.mathjax.extensions" = [
@@ -148,12 +149,20 @@ in {
       ];
     };
     "ltex.statusBarItem" = true;
-    "ltex.ltex-ls.path" = "ltex-ls";
+    "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nil";
+    "jupyter.disableJupyterAutoStart" = true;
     "python.defaultInterpreterPath" = "python";
     "pylint.interpreter" = [
       "python3"
     ];
+    "evenBetterToml.formatter.allowedBlankLines" = 1;
+    "evenBetterToml.formatter.arrayAutoExpand" = true;
+    "evenBetterToml.formatter.columnWidth" = 80;
+    "C_Cpp.autocompleteAddParentheses" = true;
+    "C_Cpp.default.cppStandard" = "c++23";
+    "C_Cpp.default.cStandard" = "c99";
+    "C_Cpp.default.intelliSenseMode" = "linux-gcc-x64";
   };
 }

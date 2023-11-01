@@ -86,35 +86,37 @@ installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 
 ### Applications
 
-- firefox-wayland
-- gimp
-- inkscape
-- vscode
-- discord-canary
-- mpv
-- imv
-- rnote
-- zathura
-- libreoffice-fresh
+- [firefox-dev-edition](https://www.mozilla.org/en-GB/firefox/developer/)
+- [gimp](https://gimp.org)
+- [inkscape](https://inkscape.org)
+- [vscode](https://code.visualstudio.com)
+- [discord-canary](https://discord.com)
+- [mpv](https://mpv.io)
+- [imv](https://sr.ht/~exec64/imv/)
+- [rnote](https://github.com/flxzt/rnote)
+- [zathura](https://pwmt.org/projects/zathura/)
+- [libreoffice](https://libreoffice.org) (fresh branch)
+- [zotero](https://zotero.org)
+- [logseq](https://logseq.com)
+- [pdfarranger](https://github.com/pdfarranger/pdfarranger)
 
 ### Environment programs
 
 Applications or programs which affect my workspace
 
-- Hyprland
-- hyprpaper
-- waybar (built with `-Dexperimental=true`)
-- swayidle
-- swaylock-effects (Using [this fork](https://github.com/jirutka/swaylock-effects)) (installed via `configuration.nix` due to auth issue)
-- mako
-- cliphist
-- wofi
-- wl-clipboard
-- kitty
-- zsh
+- [Hyprland](https://hyprland.org)
+- [hyprpaper](https://github.com/hyprwm/hyprpaper)
+- [waybar](https://github.com/Alexays/Waybar) (built with `-Dexperimental=true`)
+- [swayidle](https://github.com/swaywm/swayidle)
+- [swaylock-effects](https://github.com/jirutka/swaylock-effects) (jirutka fork)
+- [mako](https://github.com/emersion/mako)
+- [cliphist](https://github.com/sentriz/cliphist) + [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
+- [rofi-wayland](https://github.com/lbonn/rofi#wayland-support)
+- [kitty](https://sw.kovidgoyal.net/kitty/)
+- [zsh](https://zsh.org) + [starship](https://starship.rs)
 - wvkbd (custom derivation to add theming. See my [repo](https://github.com/chpxu/wvkbd))
-- nano
-- direnv
+- [nano](https://nano-editor.org)
+- [direnv](https://direnv.net)
 
 ## Configuration Deep Dive
 

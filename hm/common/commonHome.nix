@@ -39,15 +39,6 @@
       };
     };
   };
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
-  };
-  nixpkgs = {
-    overlays = with outputs.overlays; [
-      wvkbd
-    ];
-  };
   home.packages = with pkgs; [
     # other applications may be in overlays
     #clisp
@@ -60,7 +51,6 @@
     zotero
     #rpi-imagerstable
   ];
-  manual.manpages.enable = false;
   programs.home-manager.enable = true;
-	home.stateVersion = "22.11";
+  home.stateVersion = "22.11";
 }

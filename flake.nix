@@ -35,6 +35,10 @@
       inherit system;
       config.allowUnfree = true;
       config.allowUnfreePredicate = _: true;
+      config.permittedInsecurePackages = [
+        "electron-24.8.6"
+        "zotero-6.0.27"
+      ];
       overlays = builtins.attrValues outputs.overlays;
     };
     mkHomeConfiguration = {
@@ -76,13 +80,13 @@
           ./system/${hostname}/configuration.nix
           nur.nixosModules.nur
           sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager 
+          home-manager.nixosModules.home-manager
           #{
-					#	home-manager.useGlobalPkgs = false;
-           # home-manager.useUserPackages = true;
-           # home-manager.users."${user}" = import ./hm/common/commonHome.nix;
-					#	home-manager.extraSpecialArgs = {inherit inputs outputs 
-					#	colour-palette;};
+          #	home-manager.useGlobalPkgs = false;
+          # home-manager.useUserPackages = true;
+          # home-manager.users."${user}" = import ./hm/common/commonHome.nix;
+          #	home-manager.extraSpecialArgs = {inherit inputs outputs
+          #	colour-palette;};
           #}
           inputs.nix-gaming.nixosModules.pipewireLowLatency
         ];
@@ -99,10 +103,10 @@
       };
       # Legion
       #legion = mkSystemConfiguration {
-       # needsNvidia = true;
-        #needsIntel = true;
-        #hostname = "legion";
-        #user = urser;
+      # needsNvidia = true;
+      #needsIntel = true;
+      #hostname = "legion";
+      #user = urser;
       #};
     };
 

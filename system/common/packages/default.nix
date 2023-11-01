@@ -20,7 +20,6 @@
     pciutils
     age
     alsa-utils
-    home-manager
     swaylock-effects
     starship
   ];
