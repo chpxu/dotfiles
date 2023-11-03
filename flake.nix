@@ -41,30 +41,30 @@
       ];
       overlays = builtins.attrValues outputs.overlays;
     };
-    mkHomeConfiguration = {
-      extraSpecialArgs,
-      hostname,
-      username,
-      stateVersion,
-      ...
-    }:
-      home-manager.lib.homeManagerConfiguration {
-        inherit pkgs extraSpecialArgs;
-        modules = [
-          nur.nixosModules.nur
-          {
-            home = {
-              inherit username stateVersion;
-              homeDirectory = "/home/${username}";
-            };
-          }
-          ./hm/common/commonHome.nix
-          (import ./hm/common/packages/default.nix {
-            inherit pkgs;
-          })
-          ./hm/common/modules
-        ];
-      };
+    # mkHomeConfiguration = {
+    #   extraSpecialArgs,
+    #   hostname,
+    #   username,
+    #   stateVersion,
+    #   ...
+    # }:
+    #   home-manager.lib.homeManagerConfiguration {
+    #     inherit pkgs extraSpecialArgs;
+    #     modules = [
+    #       nur.nixosModules.nur
+    #       {
+    #         home = {
+    #           inherit username stateVersion;
+    #           homeDirectory = "/home/${username}";
+    #         };
+    #       }
+    #       ./hm/common/commonHome.nix
+    #       (import ./hm/common/packages/default.nix {
+    #         inherit pkgs;
+    #       })
+    #       ./hm/common/modules
+    #     ];
+    #   };
     mkSystemConfiguration = {
       needsNvidia,
       needsIntel,
@@ -74,21 +74,27 @@
       inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs outputs needsIntel needsNvidia hostname;
+          inherit pkgs nur inputs outputs needsIntel needsNvidia hostname user;
         };
         modules = [
           ./system/${hostname}/configuration.nix
-          nur.nixosModules.nur
           sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          #{
-          #	home-manager.useGlobalPkgs = false;
-          # home-manager.useUserPackages = true;
-          # home-manager.users."${user}" = import ./hm/common/commonHome.nix;
-          #	home-manager.extraSpecialArgs = {inherit inputs outputs
-          #	colour-palette;};
-          #}
           inputs.nix-gaming.nixosModules.pipewireLowLatency
+          nur.nixosModules.nur
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."${user}" = import ./hm/${user}/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit
+                inputs
+                outputs
+                colour-palette
+                nur
+                ;
+            };
+          }
         ];
       };
   in {
@@ -99,7 +105,7 @@
         needsNvidia = false;
         needsIntel = true;
         hostname = "yoga";
-        user = user;
+        user = "chunix";
       };
       # Legion
       #legion = mkSystemConfiguration {
@@ -110,23 +116,23 @@
       #};
     };
 
-    homeConfigurations = {
-      # Yoga
-      "${user}@yoga" = mkHomeConfiguration {
-        extraSpecialArgs = {inherit inputs outputs colour-palette;};
-        hostname = "yoga";
-        needsNvidia = false;
-        username = user;
-        stateVersion = "22.11";
-      };
-      # Legion
-      #"${user}@legion" = mkHomeConfiguration {
-      #  extraSpecialArgs = {inherit inputs outputs colour-palette;};
-      #  hostname = "legion";
-      #  needsNvidia = true;
-      #  username = user;
-      #  stateVersion = "22.11";
-      #};
-    };
+    #homeConfigurations = {
+    # Yoga
+    # "${user}@yoga" = mkHomeConfiguration {
+    #   extraSpecialArgs = {inherit inputs outputs colour-palette;};
+    #   hostname = "yoga";
+    #   needsNvidia = false;
+    #   username = user;
+    #   stateVersion = "22.11";
+    # };
+    # Legion
+    #"${user}@legion" = mkHomeConfiguration {
+    #  extraSpecialArgs = {inherit inputs outputs colour-palette;};
+    #  hostname = "legion";
+    #  needsNvidia = true;
+    #  username = user;
+    #  stateVersion = "22.11";
+    #};
+    #};
   };
 }

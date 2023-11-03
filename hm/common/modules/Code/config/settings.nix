@@ -164,5 +164,7 @@ in {
     "C_Cpp.default.cppStandard" = "c++23";
     "C_Cpp.default.cStandard" = "c99";
     "C_Cpp.default.intelliSenseMode" = "linux-gcc-x64";
+    "http.experimental.systemCertificatesV2" = true;
+    "update.mode" = "none";
   };
 }
