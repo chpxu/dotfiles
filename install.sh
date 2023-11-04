@@ -8,7 +8,7 @@
 # 3. Go to home-manager configuration and run `home-manager switch --flake .#username@hostname --impure --show-trace`
 
 usernames="chunix"
-hostnames="legion yoga"
+hostnames="yoga"
 for hostname in $hostnames
 do
     if [ "$1" != "$hostname" ]; then
@@ -32,9 +32,4 @@ sudo nixos-rebuild boot --flake .\#"$1" --impure --show-trace --upgrade
 sudo nixos-rebuild reboot
 echo "Successful system upgrade"
 
-# 3
-home-manager switch --flake .\#"$2@$1" --show-trace
-
-echo "Successful upgrade for home user $2"
-echo ""
 echo "You may want to restart your PC, or at least logout and log back in to see changes applied"

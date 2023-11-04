@@ -41,30 +41,7 @@
       ];
       overlays = builtins.attrValues outputs.overlays;
     };
-    # mkHomeConfiguration = {
-    #   extraSpecialArgs,
-    #   hostname,
-    #   username,
-    #   stateVersion,
-    #   ...
-    # }:
-    #   home-manager.lib.homeManagerConfiguration {
-    #     inherit pkgs extraSpecialArgs;
-    #     modules = [
-    #       nur.nixosModules.nur
-    #       {
-    #         home = {
-    #           inherit username stateVersion;
-    #           homeDirectory = "/home/${username}";
-    #         };
-    #       }
-    #       ./hm/common/commonHome.nix
-    #       (import ./hm/common/packages/default.nix {
-    #         inherit pkgs;
-    #       })
-    #       ./hm/common/modules
-    #     ];
-    #   };
+
     mkSystemConfiguration = {
       needsNvidia,
       needsIntel,
@@ -87,12 +64,7 @@
             home-manager.useUserPackages = false;
             home-manager.users."${user}" = import ./hm/${user}/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit
-                inputs
-                outputs
-                colour-palette
-                nur
-                ;
+              inherit inputs outputs colour-palette;
             };
           }
         ];
@@ -115,24 +87,5 @@
       #user = urser;
       #};
     };
-
-    #homeConfigurations = {
-    # Yoga
-    # "${user}@yoga" = mkHomeConfiguration {
-    #   extraSpecialArgs = {inherit inputs outputs colour-palette;};
-    #   hostname = "yoga";
-    #   needsNvidia = false;
-    #   username = user;
-    #   stateVersion = "22.11";
-    # };
-    # Legion
-    #"${user}@legion" = mkHomeConfiguration {
-    #  extraSpecialArgs = {inherit inputs outputs colour-palette;};
-    #  hostname = "legion";
-    #  needsNvidia = true;
-    #  username = user;
-    #  stateVersion = "22.11";
-    #};
-    #};
   };
 }

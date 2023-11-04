@@ -18,7 +18,7 @@
     };
     gc = {
       automatic = true;
-      options = "--delete-older-than 3d";
+      options = "--delete-older-than 7d";
     };
   };
   # This value determines the NixOS release from which the default

@@ -27,7 +27,7 @@ This structure was heavily inspired, and has some code taken from [Misterio77's 
 │   ├── yoga # configuration for my Yoga C940
 │   └── legion # Configuration for my Legion 5 Pro Gen 7 (WIP)
 ├── docs/
-│   └── ...
+│   └── ... # website for dotfiles
 ├── Pictures/
 │   └── ...
 ├── flake.nix
@@ -37,31 +37,22 @@ This structure was heavily inspired, and has some code taken from [Misterio77's 
 
 ## Screenshots
 
-New SS coming soon.
-
-<!-- ![Desktop](https://github.com/chpxu/dotfiles/blob/void/Screenshots/desktop.png)
-![Firefox](https://github.com/chpxu/dotfiles/blob/void/Screenshots/firefox.png)
-![nwggrid](https://github.com/chpxu/dotfiles/blob/void/Screenshots/nwggrid.png)
-![VSCode](https://github.com/chpxu/dotfiles/blob/void/Screenshots/vscode.png)
-![Xournal++](https://github.com/chpxu/dotfiles/blob/void/Screenshots/xournalpp.png)
-![Alacritty](https://github.com/chpxu/dotfiles/blob/void/Screenshots/alacritty.png)
-![Zathura](https://github.com/chpxu/dotfiles/blob/void/Screenshots/zathura.png)
-![GIMP](https://github.com/chpxu/dotfiles/blob/void/Screenshots/gimp.png)
-![Inkscape](https://github.com/chpxu/dotfiles/blob/void/Screenshots/inkscape.png)
-![Thunderbird](https://github.com/chpxu/dotfiles/blob/void/Screenshots/thunderbird.png) -->
-<!--
-Notes:
-- Unfortunately GIMP is running in XWayland Mode :(
-- The yellow box in Zathura is the select colour. -->
+TBD
 
 ## Installation Instructions
 
-This setup uses home-manager as a standalone module, and so must be installed separately, alongside `git` to get the repo. Alternatively, one may have the repo on external storage, in which case skip to Step 4.
+This NixOS setup integrates `home-manager` into the system configuration so that all users can simply be updated with `sudo nixos-rebuild switch .#<hostname>`.
 
-1. Download and Install NixOS. No need to configure channels or extra users or anything (though you may wish to create a minimal, dummy user to check everything works, beware of bad reproducibility!)
-2. Install git temporarily and get the repo into current directory: `nix-shell -p git --run "git clone https://github.com/chpxu/dotfiles.git"`
-3. `cd` into `dotfiles`
-4. Run `install.sh`. You may need to give permissions to run as root.
+1. Whether you're booting from scratch or not, you need `git` (or just have the repo locally). If you don't have git, you can temporarily invoke it with `nix-shell -p git --run "git clone https://github.com/chpxu/dotfiles"` and it will clone the repo into a folder called `dotfiles` in your present working directory.
+2. Make any necessary changes to the configuration. For example:
+
+   - Secrets and networking. These will be invalid since they depend on SSH keys, so you will want to remove it and the configuration in `system/common/modules/networking.nix`.
+   - Hostnames and usernames.
+   - Installed programs and their settings.
+
+3. Make sure everything is saved. If you are intending to push to a git repo, make sure to `git add .` first. Then you can run `sudo nixos-rebuild switch .#<hostname>` or some variation to build.
+
+You will be successful if everything you wanted installed, installs and is configured appropriately. The home-manager configuration will also be successfully built if you see `home-manager.<user>.service` was successfully (re)started. You can check its status with `systemctl status home-manager.<user>.service`.
 
 ## Themes, Icons and Colour Palette
 
@@ -73,11 +64,6 @@ These dotfiles uses the Nord theme.
 3. I use the [Fira Code Retina Nerd](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) fonts. Both are TTFs.
 4. I use the [Nordzy](https://github.com/alvatip/Nordzy-icon) icon theme.
 5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme.
-
-## Things todo before/after installing
-
-1. Delete the networking settings and use your own.
-2. Adjust `flake.nix` to have correct users and hostnames. Probably will have to adjust installer script too
 
 ## Programs and Applications
 
@@ -120,21 +106,14 @@ Applications or programs which affect my workspace
 
 ## Configuration Deep Dive
 
-This section is more information about the configuration, mainly for those who want to extend/use this configuration (though you're probably better off using Misterio77's boilerplate).
-
-### Why have an installer script?
-
-Why not? Nix makes it easy to have a common configuration that is easy to _install_ after running a bunch of commands. The install script exists to have, in some ways, a much simpler interface to the flake. Please do check it to know what is happening (those commands are essential!)
+This section is more information about the configuration, mainly for those who want to extend/use this configuration (though you're probably better off using @Misterio77's boilerplate).
 
 ### `flake.nix` structure
-
-The `flake.nix` looks like quite a mess right now, most of it is due to my own inability to maintain and create a flexible, modular, declarative setup. There are however, multiple important sections as described by the NixOS wiki on [flake schema](https://nixos.wiki/wiki/Flakes):
 
 1. Description. Self-explanatory. Edit it to whatever `string` you want.
 2. `inputs` attribute set contain the flake inputs. Where possible, I have tried to use flake inputs or overlays for as many (environment) programs as possible.
 3. A bunch of `let` bindings. Namely:
    - `system`, `user`, `pkgs` for some easy reusable keywords
    - `colour-palette` which is the file containing the RGB hex codes for the Nord theme.
-   - `mkHomeConfiguration` a function which creates a home for a user and hostname. Creates a full-fledged user based off my specifications
-   - `mkSystemConfiguration` a function which creates a NixOS system with given hostname, users and minimal modules.
+   - `mkSystemConfiguration` a function which creates a NixOS system with given hostname and users.
 4. `outputs`. What the flake returns and allows you to access.
