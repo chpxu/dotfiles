@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./packages
     ./modules
   ];
   gtk = {

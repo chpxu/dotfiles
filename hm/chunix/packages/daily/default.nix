@@ -7,7 +7,8 @@
 }: {
   home.packages = with pkgs; [
     # thunderbird-wayland
-    betterdiscordctl
+    zotero
+    logseq
     inkscape-with-extensions
     gimp
     neofetch
@@ -17,7 +18,9 @@
     rnote
     pdfarranger
     yt-dlp
+    wvkbd
+    hyprpaper
     # obs-studio
-    # mathpix-snipping-tool
+    mathpix-snipping-tool
   ];
 }
