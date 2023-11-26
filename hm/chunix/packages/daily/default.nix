@@ -20,7 +20,10 @@
     yt-dlp
     wvkbd
     hyprpaper
-    # obs-studio
+    obs-studio
     mathpix-snipping-tool
+   #davinci-resolve
+   discord-canary
+   libsForQt5.kdenlive
   ];
 }

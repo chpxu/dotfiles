@@ -33,8 +33,10 @@
   # };
   xdg.configFile = {
     "firefox/chrome" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/chunix/dotfiles/hm/common/modules/firefox/chrome";
+      source = config.lib.file.mkOutOfStoreSymlink ./. + "/chrome";
       recursive = true;
+      executable = false;
+      target = "firefox/chrome";
     };
   };
   home.activation = {
