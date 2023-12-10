@@ -23,4 +23,8 @@
     ./pipewire.nix
     ./hyprland.nix
   ];
+  services.udisks2 = {
+		enable = true;
+		mountOnMedia = true;
+  };
 }

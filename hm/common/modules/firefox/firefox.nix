@@ -7,7 +7,7 @@
 }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-devedition-bin;
+    package = pkgs.firefox-devedition;
     profiles = {
       dev-edition-default = {
         path = "q7h52to1.dev-edition-default";

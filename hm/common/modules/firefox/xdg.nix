@@ -39,10 +39,11 @@
       target = "firefox/chrome";
     };
   };
-  home.activation = {
-    symlinkChrome = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      $DRY_RUN_CMD ln -s -f $VERBOSE_ARG \
-          "${config.xdg.configHome}/firefox/chrome" "$HOME/.mozilla/firefox/q7h52to1.dev-edition-default"
-    '';
-  };
+  #home.activation = {
+   # symlinkChrome = lib.hm.dag.entryAfter ["writeBoundary"] ''
+   #   $DRY_RUN_CMD ln -s -f $VERBOSE_ARG \
+   #       "${config.xdg.configHome}/firefox/chrome" 
+   #       "$HOME/.mozilla/firefox/q7h52to1.dev-edition-default"
+   # '';
+  #};
 }
