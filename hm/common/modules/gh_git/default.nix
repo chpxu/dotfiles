@@ -11,6 +11,7 @@
         pv = "pr view";
       };
       prompt = "enabled";
+      version = 1;
     };
   };
   programs.git = {
