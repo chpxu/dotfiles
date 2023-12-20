@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # Set up USER systemd services here. Other config reserved for system config
   systemd.user.services = {
     onedrive = {
@@ -7,7 +7,7 @@
       };
       Service = {
         ExecStart = ''
-          onedrive --synchronize
+          ${pkgs.onedrive} --synchronize
         '';
         Restart = "no";
         Type = "oneshot";
