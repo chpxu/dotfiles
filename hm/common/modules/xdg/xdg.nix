@@ -31,19 +31,6 @@ in {
         XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Screenshots";
       };
     };
-    # desktopEntries = {
-    # zathura = {
-    #   type = "Application";
-    #   name = "Zathura";
-    #   comment = "A minimalistic document viewer";
-    #   exec = "zathura %U";
-    #   icon = "org.pwmt.zathura";
-    #   terminal = false;
-    #   categories = ["Office" "Viewer"];
-    #   # Keywords = ["PDF" "PS" "PostScript" "DjVU" "document" "presentation" "viewer"];
-    #   mimeType = ["application/pdf"];
-    # };
-    # };
     mime.enable = true;
     mimeApps = {
       enable = true;
