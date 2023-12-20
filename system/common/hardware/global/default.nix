@@ -1,8 +1,8 @@
 {
   hardware.uinput.enable = true;
   hardware.opentabletdriver = {
-    enable = true;
-    daemon.enable = true;
+    enable = false;
+    daemon.enable = false;
   };
   # Enable PulseAudio sound.
   # sound.enable = true;

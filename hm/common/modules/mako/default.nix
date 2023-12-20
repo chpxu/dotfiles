@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  colour-palette,
-  ...
-}: {
+{colour-palette, ...}: {
   services.mako = {
     enable = true;
     # package = pkgs.mako;
