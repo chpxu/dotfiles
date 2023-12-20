@@ -21,5 +21,8 @@
     kernelParams = ["ibt=off" "module_blacklist=nouveau" "i915.enable_psr=0" "i915.enable_fbc=1" "i915.fastboot=0" "i915.enable_dc=0" "i915.enable_guc=3"];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];
+    kernel.sysctl = {
+			"fs.inotify.max_user_watches" = 524288;
+    };
   };
 }
