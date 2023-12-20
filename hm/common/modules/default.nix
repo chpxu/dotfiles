@@ -1,16 +1,14 @@
 {
   config,
   pkgs,
-  # lib,
+  lib,
   colour-palette,
   ...
 }: {
   imports = [
     (import ./hyprland/xdg.nix {inherit config;})
     ./zsh
-    # ./starship
     ./systemd
-    ./Discord
     ./Code
     ./gh_git
     ./direnv
@@ -22,10 +20,15 @@
     ./mako
     ./sway
     ./xdg/xdg.nix
-    # ./python
     ./firefox
-    # ./wofi
     ./jq
   ];
+  # Reset GPUCaches because they seem to break after upgrading
+  home.activation = {
+    deleteGPUCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      rm -rf ${config.xdg.configHome}/**/GPUCache
+    '';
+  };
+
   # imports = builtins.map (dir: (import (./. + "/${dir}") {inherit pkgs colour-palette;})) (builtins.attrNames (builtins.readDir (builtins.toPath ./. + "/")));
 }
