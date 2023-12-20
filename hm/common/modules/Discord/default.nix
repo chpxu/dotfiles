@@ -1,3 +1,2 @@
 {...}: {
-  imports = [./xdg.nix];
 }
