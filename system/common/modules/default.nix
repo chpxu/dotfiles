@@ -27,4 +27,6 @@
 		enable = true;
 		mountOnMedia = true;
   };
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 }

@@ -11,6 +11,7 @@
       )
       times-newer-roman
       dejavu_fonts
+      newcomputermodern
     ];
     fontconfig = {
       hinting = {
