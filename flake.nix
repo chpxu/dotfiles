@@ -82,7 +82,7 @@
       jingliu = mkSystemConfiguration {
         needsNvidia = true;
         needsIntel = true;
-        hostname = "legion";
+        hostname = "jingliu";
         user = "chunix";
       };
     };
