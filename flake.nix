@@ -13,7 +13,7 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
-   # nix-gaming.url = "github:fufexan/nix-gaming";
+    # nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
@@ -79,13 +79,12 @@
         hostname = "yoga";
         user = "chunix";
       };
-      # Legion
-      #legion = mkSystemConfiguration {
-      # needsNvidia = true;
-      #needsIntel = true;
-      #hostname = "legion";
-      #user = urser;
-      #};
+      jingliu = mkSystemConfiguration {
+        needsNvidia = true;
+        needsIntel = true;
+        hostname = "legion";
+        user = "chunix";
+      };
     };
   };
 }

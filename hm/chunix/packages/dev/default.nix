@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    ltex-ls
+    # ltex-ls
     nil
-    texlive.combined.scheme-full
-		#libsForQt5.qt5.qtwayland
+    # texlive.combined.scheme-full
+    #libsForQt5.qt5.qtwayland
   ];
 }
