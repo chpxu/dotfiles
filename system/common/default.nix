@@ -12,7 +12,15 @@
     [
       ./hardware/global
       ./environment.nix
-      (import ./modules/default.nix {inherit hostname config builtins lib pkgs;})
+      (import ./modules/default.nix {
+        inherit hostname config builtins lib pkgs;
+        IPU6 = {
+          enable =
+            if hostname == "jingliu"
+            then true
+            else false;
+        };
+      })
       (import ./packages/default.nix {inherit pkgs needsNvidia needsIntel;})
     ]
     ++ lib.optional needsNvidia ./hardware/nvidia

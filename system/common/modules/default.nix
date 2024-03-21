@@ -4,6 +4,10 @@
   lib,
   pkgs,
   hostname,
+  IPU6 ? {
+    enable = false;
+    platform = "ipu6ep";
+  },
   ...
 }: {
   imports = [
@@ -29,5 +33,6 @@
   };
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  hardware.ipu6.enable = true;
+  hardware.ipu6.enable = IPU6.enable;
+  hardware.ipu6.platform = IPU6.platform;
 }
