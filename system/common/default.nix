@@ -19,6 +19,7 @@
             if hostname == "jingliu"
             then true
             else false;
+          platform = "ipu6ep";
         };
       })
       (import ./packages/default.nix {inherit pkgs needsNvidia needsIntel;})
