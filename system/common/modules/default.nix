@@ -24,9 +24,10 @@
     ./hyprland.nix
   ];
   services.udisks2 = {
-		enable = true;
-		mountOnMedia = true;
+    enable = true;
+    mountOnMedia = true;
   };
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  hardware.ipu6.enable = true;
 }

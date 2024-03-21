@@ -7,11 +7,14 @@
       enable = true;
       finegrained = true;
     };
-    #nvidiaSettings = true;
+    open = false;
+    nvidiaSettings = true;
     nvidiaPersistenced = true;
     modesetting.enable = true;
+    dynamicBoost.enable = true;
     prime = {
       offload.enable = true;
+      enableOffloadCmd = true;
       #sync.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";

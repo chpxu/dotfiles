@@ -16,16 +16,16 @@
     '';
   };
 
-  home.activation.afterWriteBoundary = {
-    after = ["writeBoundary"];
-    before = [];
-    data = ''
-      userDir=${config.xdg.configHome}/Code/User
-      rm -rf $userDir/settings.json
-      cat \
-        ${(pkgs.formats.json {}).generate "blabla"
-        config.programs.vscode.userSettings} \
-        > $userDir/settings.json
-    '';
-  };
+  #home.activation.afterWriteBoundary = {
+   # after = ["writeBoundary"];
+    #before = [];
+    #data = ''
+    #  userDir=${config.xdg.configHome}/Code/User
+    #  rm -rf $userDir/settings.json
+    #  cat \
+    #    ${(pkgs.formats.json {}).generate "blabla"
+    #    config.programs.vscode.userSettings} \
+    #    > $userDir/settings.json
+    #'';
+  #};
 }
