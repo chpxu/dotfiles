@@ -120,7 +120,7 @@
       };
       network = {
         format-wifi = " {essid}";
-        format-ethernet = " {essid}";
+        format-ethernet = " {essid}";
         tooltip-format = "SSID: {essid}\nInterface: {ifname} via {gwaddr}\nIP: {ipaddr}\nSubnetmask: {netmask}-{cidr}\nConnection Strength: {signalStrength}%\nFrequency: {frequency}GHz\nUp Speed: {bandwidthUpBits}\nDown Speed: {bandwidthDownBits}";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "(No Internet)";

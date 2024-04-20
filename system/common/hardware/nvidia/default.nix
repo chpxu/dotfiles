@@ -1,10 +1,9 @@
 {config, ...}: {
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
-    #uses beta drivers
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     powerManagement = {
-      enable = true;
+      enable = false;
       finegrained = true;
     };
     open = false;

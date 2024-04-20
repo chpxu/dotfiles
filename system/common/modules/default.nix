@@ -4,6 +4,7 @@
   lib,
   pkgs,
   hostname,
+  needsNvidia,
   IPU6 ? {
     enable = false;
     platform = "ipu6ep";
@@ -12,7 +13,14 @@
 }: {
   imports = [
     ./nix.nix
-    ./boot.nix
+    (import ./boot.nix {
+      inherit
+        config
+        pkgs
+        lib
+        needsNvidia
+        ;
+    })
     (import ./console.nix {inherit pkgs;})
     ./systemd.nix
     ./nano.nix

@@ -13,7 +13,7 @@
       ./hardware/global
       ./environment.nix
       (import ./modules/default.nix {
-        inherit hostname config builtins lib pkgs;
+        inherit hostname config builtins lib pkgs needsNvidia;
         IPU6 = {
           enable =
             if hostname == "jingliu"
