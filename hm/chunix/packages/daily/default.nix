@@ -7,11 +7,10 @@
 }: {
   home.packages = with pkgs; [
     # thunderbird-wayland
-    zotero
+    zotero_7
     logseq
     inkscape-with-extensions
     gimp
-    neofetch
     bitwarden-cli
     libreoffice-fresh
     onedrive
@@ -20,10 +19,10 @@
     yt-dlp
     wvkbd
     hyprpaper
-    obs-studio
-    mathpix-snipping-tool
+    #obs-studio
+    #mathpix-snipping-tool
    #davinci-resolve
    discord-canary
-   libsForQt5.kdenlive
+   #libsForQt5.kdenlive
   ];
 }
