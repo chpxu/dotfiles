@@ -37,8 +37,7 @@
       config.allowUnfree = true;
       config.allowUnfreePredicate = _: true;
       config.permittedInsecurePackages = [
-        "electron-25.9.0"
-        "zotero-6.0.27"
+        "electron-27.3.11"
       ];
       overlays = builtins.attrValues outputs.overlays;
     };

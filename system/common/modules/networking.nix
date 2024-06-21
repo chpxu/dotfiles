@@ -27,7 +27,7 @@
     hostName = hostname;
     firewall.enable = true;
     wireless.enable = true;
-    wireless.scanOnLowSignal = false;
+    wireless.scanOnLowSignal = true;
     wireless.environmentFile = config.sops.secrets."wireless.env".path;
     wireless.networks = {
       "@home_uuid@" = {
@@ -43,6 +43,7 @@
       "@uni_uuid2@" = {
          psk = "@uni_psk@";
          authProtocols = ["WPA-PSK"];
+         priority = 2;
        };
       "@campus_uuid@" = {
         extraConfig = ''
@@ -53,6 +54,7 @@
           phase1="peaplabel=0"
           phase2="auth=MSCHAPV2"
           ca_cert="/etc/ssl/certs/ca-bundle.crt"
+          priority=1
         '';
       };
     };

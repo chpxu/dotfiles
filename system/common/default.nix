@@ -17,7 +17,7 @@
         IPU6 = {
           enable =
             if hostname == "jingliu"
-            then true
+            then false
             else false;
           platform = "ipu6ep";
         };
