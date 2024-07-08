@@ -5,6 +5,6 @@
       # sgx.provision.enable = true;
     };
   };
-  powerManagement.cpuFreqGovernor = "powersave";
-  powerManagement.cpufreq.min = 300000;
+  #powerManagement.cpuFreqGovernor = "powersave";
+  #powerManagement.cpufreq.min = 300000;
 }
