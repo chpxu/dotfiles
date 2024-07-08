@@ -27,8 +27,7 @@ in {
   # OpenGL
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    #driSupport32Bit = true;
     extraPackages =
       commonExtraPkgs
       ++ lib.optionals needsNvidia nvidiaPackages
