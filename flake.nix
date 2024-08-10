@@ -10,11 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      #url = "github:hyprwm/Hyprland";
-      url= "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-    # nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
@@ -22,7 +18,6 @@
     nixpkgs,
     sops-nix,
     home-manager,
-    hyprland,
     nur,
     ...
   } @ inputs: let
@@ -41,7 +36,7 @@
       ];
       overlays = builtins.attrValues outputs.overlays;
     };
-
+    nixosModules = import ./modules/nixos;
     mkSystemConfiguration = {
       needsNvidia,
       needsIntel,
@@ -56,6 +51,7 @@
         modules = [
           ./system/${hostname}/configuration.nix
           sops-nix.nixosModules.sops
+          # nixosModules.VESTA
           #inputs.nix-gaming.nixosModules.pipewireLowLatency
           nur.nixosModules.nur
           home-manager.nixosModules.home-manager

@@ -30,7 +30,7 @@
     ./fonts.nix
     ./xdg.nix
     ./gtk_qt.nix
-    ./opengl.nix
+    ./graphics.nix
     ./time_i18n.nix
     ./pipewire.nix
     ./hyprland.nix

@@ -24,6 +24,7 @@
     starship
   ];
 in {
+  # imports = [outputs.nixosModules.VESTA];
   # List packages installed in system profile.
   # Trying to keep as lean as possible.
   environment.systemPackages =

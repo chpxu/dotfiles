@@ -21,8 +21,10 @@
     hyprpaper
     #obs-studio
     #mathpix-snipping-tool
-   #davinci-resolve
-   discord-canary
-   #libsForQt5.kdenlive
+    #davinci-resolve
+    discord-canary
+    remmina
+    #libsForQt5.kdenlive
+    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];
 }
