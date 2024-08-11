@@ -7,6 +7,7 @@
     config = {
       whitelist = {
         prefix = [
+          "$XDG_CONFIG_HOME/projects"
           "$XDG_CONFIG_HOME/git_projects"
           "$XDG_CONFIG_HOME/OneDrive"
         ];
