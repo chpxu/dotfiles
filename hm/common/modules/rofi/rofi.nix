@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -86,7 +82,11 @@
             spacing: 0;
             children: [ inputbar, message, listview ];
         }
-
+        textbox {
+          background-color:            inherit;
+          text-color:                  inherit;
+          padding:                     inherit;
+        }
         message {
             color: @nord0;
             padding: 5;
