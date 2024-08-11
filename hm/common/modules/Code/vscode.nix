@@ -3,6 +3,6 @@
     enable = true;
     package = vscode-fhs;
     extensions = (import ./config/extensions.nix {inherit pkgs;}).extensions;
-    userSettings = (import ./config/settings.nix {inherit pkgs;}).settings;
+    # userSettings = (import ./config/settings.nix {inherit pkgs;}).settings;
   };
 }

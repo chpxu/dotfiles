@@ -12,24 +12,20 @@
     before = ["checkLinkTargets"];
     data = ''
       userDir=${config.xdg.configHome}/Code/User
-      if [ -if "$userDir"];
-        rm -rf $userDir/settings.json
-      fi
+      rm -rf $userDir/settings.json
     '';
   };
 
-  home.activation.afterWriteBoundary = {
+  home.activation.afterWriteBoundary = let
+    userSettings = import ./config/settings.nix;
+  in {
     after = ["writeBoundary"];
     before = [];
     data = ''
       userDir=${config.xdg.configHome}/Code/User
-      if [ -if "$userDir"];
-        rm -rf $userDir/settings.json
-      fi
-      cat \
-        ${(pkgs.formats.json {}).generate "blabla"
-        config.programs.vscode.userSettings} \
-        > $userDir/settings.json
+      rm -rf $userDir/settings.json
+      cat ${pkgs.writeText "tmp_vscode_settings" (builtins.toJSON userSettings)} | jq --monochrome-output > $userDir/settings.json
+
     '';
   };
 }
