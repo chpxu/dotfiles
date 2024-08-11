@@ -43,24 +43,24 @@
     #   version = "1.20.1";
     #   sha256 = "";
     # }
-    # {
-    #   name = "remote-ssh";
-    #   publisher = "ms-vscode-remote";
-    #   version = "0.102.0";
-    #   sha256 = "sha256-YQ0Dy1C+xEGtwh0z97ypIMUq8D7PozVRb6xXUVZsjBw=";
-    # }
-    # {
-    #   name = "remote-ssh-edit";
-    #   publisher = "ms-vscode-remote";
-    #   version = "0.86.0";
-    #   sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
-    # }
-    # {
-    #   name = "remote-explorer";
-    #   publisher = "ms-vscode";
-    #   version = "0.4.1";
-    #   sha256 = "sha256-E0QsXIpCUjpoX6GNtzbI8/UzxTwWMpQpzVvsPhA+3t4=";
-    # }
+    {
+      name = "remote-ssh";
+      publisher = "ms-vscode-remote";
+      version = "0.114.0";
+      sha256 = "";
+    }
+    {
+      name = "remote-ssh-edit";
+      publisher = "ms-vscode-remote";
+      version = "0.86.0";
+      sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
+    }
+    {
+      name = "remote-explorer";
+      publisher = "ms-vscode";
+      version = "0.5.2024070409";
+      sha256 = "";
+    }
   ];
 in {
   extensions = with pkgs.vscode-extensions;
@@ -72,22 +72,22 @@ in {
       kamadorueda.alejandra # Nix formatter
       mkhl.direnv
       # TeX stuff
-      james-yu.latex-workshop
-      valentjn.vscode-ltex
+      # james-yu.latex-workshop
+      # valentjn.vscode-ltex
       # eamodio.gitlens
       tamasfe.even-better-toml
       # Markup languages and CSS
       dotjoshjohnson.xml
-      formulahendry.auto-rename-tag
-      formulahendry.auto-close-tag
-      gencer.html-slim-scss-css-class-completion
+      # formulahendry.auto-rename-tag
+      # formulahendry.auto-close-tag
+      # gencer.html-slim-scss-css-class-completion
       #  JS & TS
-      dbaeumer.vscode-eslint
-      esbenp.prettier-vscode
+      # dbaeumer.vscode-eslint
+      # esbenp.prettier-vscode
       # Shell
       timonwong.shellcheck
       # Python
-      ms-toolsai.jupyter
+      # ms-toolsai.jupyter
     ]
     ++ (map (x: (fetchExt x)) fetched);
 }
