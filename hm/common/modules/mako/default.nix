@@ -16,7 +16,7 @@
     markup = true;
     icons = true;
     iconPath = "/usr/share/icons:~/.local/share/icons:/usr/share/pixmaps";
-    font = "FiraCode Nerd Font 12";
+    font = "FiraCode Nerd Font 16";
     height = 110;
     width = 300;
     sort = "-priority";
@@ -32,7 +32,7 @@
 
       [urgency=high]
       border-color=${colour-palette.nord12}
-      default-timeout=0
+      default-timeout=2000
 
       [category=mpd]
       default-timeout=2000
