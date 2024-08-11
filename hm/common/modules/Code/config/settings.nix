@@ -1,4 +1,4 @@
-{pkgs}: {
+{
   settings = {
     "window.titleBarStyle" = "custom";
     # "latex-workshop.latex.recipes" = [
