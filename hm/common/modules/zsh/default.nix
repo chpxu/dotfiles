@@ -1,7 +1,7 @@
 {...}: {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autocd = true;
@@ -9,7 +9,7 @@
       eval "$(direnv hook zsh)"
       export GRIM_DEFAULT_DIR=$HOME/Screenshots
     '';
-    oh-my-zsh.enable = true;
+    oh-my-zsh.enable = false;
     shellAliases = {
       dotfiles = ''
         if [ -d "$HOME/dotfiles" ]; then
