@@ -4,8 +4,8 @@
     package = pkgs.mpv;
     config = {
       profile = "gpu-hq";
-      vo = "gpu";
-      ao = "pulse,alsa";
+      vo = "gpu-next";
+      ao = "pipewire,alsa/pipewire,pulse";
       audio-channels = "auto";
       ytdl-format = "bestvideo+bestaudio";
       gpu-context = "wayland";
