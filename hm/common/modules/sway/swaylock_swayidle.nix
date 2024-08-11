@@ -26,8 +26,8 @@
   programs.swaylock.settings = {
     font = "FiraCode Nerd Font";
     font-size = 50;
-    indicator-radius = 384;
-    indicator-thickness = 75;
+    indicator-radius = 100;
+    indicator-thickness = 10;
     inside-color = "ffffff00";
     key-hl-color = "5e81ac";
     ring-color = "2e3440";
@@ -39,7 +39,8 @@
     text-caps-lock-color = "d8dee9ff";
     indicator-idle-visible = true;
     daemonize = true;
-    image = "${config.xdg.configHome}/swaylock/blue_swirl.png";
+    image = "${config.xdg.configHome}/swaylock/blue_swirl_nix.png";
     scaling = "fill";
+    fade-in = 0.2;
   };
 }

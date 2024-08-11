@@ -4,7 +4,7 @@
   #   target = "swaylock/config";
   # };
   xdg.configFile."swaylock/blue_swirl.png" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./. + "/blue_swirl.png";
-    target = "swaylock/blue_swirl.png";
+    source = config.lib.file.mkOutOfStoreSymlink ./. + "/blue_swirl_nix.png";
+    target = "swaylock/blue_swirl_nix.png";
   };
 }
