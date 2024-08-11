@@ -74,7 +74,7 @@
     "editor.bracketPairColorization.enabled" = false;
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
     "editor.formatOnSave" = true;
-    "editor.cursorSmoothCaretAnimation" = true;
+    "editor.cursorSmoothCaretAnimation" = "on";
     "editor.smoothScrolling" = true;
     "editor.cursorBlinking" = "smooth";
     "editor.lineHeight" = 22;

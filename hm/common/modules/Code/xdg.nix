@@ -17,7 +17,7 @@
   };
 
   home.activation.afterWriteBoundary = let
-    userSettings = import ./config/settings.nix;
+    userSettings = (import ./config/settings.nix).settings;
   in {
     after = ["writeBoundary"];
     before = [];
