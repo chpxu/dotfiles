@@ -4,7 +4,7 @@
       device = "/dev/watchdog";
     };
     extraConfig = ''
-      DefaultTimeoutStopSec=5s
+      DefaultTimeoutStopSec=2s
     '';
   };
 }
