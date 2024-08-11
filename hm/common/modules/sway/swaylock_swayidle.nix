@@ -41,6 +41,5 @@
     daemonize = true;
     image = "${config.xdg.configHome}/swaylock/blue_swirl_nix.png";
     scaling = "fill";
-    fade-in = 0.2;
   };
 }
