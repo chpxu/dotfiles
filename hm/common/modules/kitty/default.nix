@@ -82,6 +82,8 @@
       "ctrl+tab" = "next_tab";
       "kitty_mod+v" = "paste_from_clipboard";
       "kitty_mod+c" = "copy_to_clipboard";
+      #"ctrl+left" = "send_text all \x1b\x62";
+      #"ctrl+right"= "send_text all \x1b\x66";
     };
   };
 }
