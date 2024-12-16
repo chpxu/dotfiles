@@ -27,28 +27,23 @@
     hostName = hostname;
     firewall.enable = true;
     wireless.enable = true;
-    wireless.scanOnLowSignal = true;
-    wireless.environmentFile = config.sops.secrets."wireless.env".path;
+    wireless.scanOnLowSignal = false;
+    wireless.secretsFile = config.sops.secrets."wireless.env".path;
     wireless.networks = {
-      "@home_uuid@" = {
+      "ext:home_uuid" = {
         hidden = true;
-        psk = "@home_psk@";
+        psk = "ext:home_psk";
         authProtocols = ["WPA-PSK"];
       };
       #Uni
-      "@uni_uuid@" = {
-        psk = "@uni_psk@";
+      "ext:uni_uuid" = {
+        psk = "ext:uni_psk";
         authProtocols = ["WPA-PSK"];
       };
-      "@uni_uuid2@" = {
-         psk = "@uni_psk@";
-         authProtocols = ["WPA-PSK"];
-         priority = 2;
-       };
-      "@campus_uuid@" = {
+      "ext:campus_uuid" = {
         extraConfig = ''
-          identity="@campus_identity@"
-          password="@campus_psk@"
+          identity="ext:campus_identity"
+          password="ext:campus_psk"
           key_mgmt=WPA-EAP
           eap=PEAP
           phase1="peaplabel=0"

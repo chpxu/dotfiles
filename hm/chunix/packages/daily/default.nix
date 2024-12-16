@@ -4,8 +4,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    betterbird
-    zotero_7
+    thunderbird
+    zotero
     logseq
     inkscape-with-extensions
     gimp
@@ -19,9 +19,9 @@
     hyprpaper
     #obs-studio
     #davinci-resolve
-    discord-canary
+    #discord-canary
     vesktop
     #libsForQt5.kdenlive
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];
 }

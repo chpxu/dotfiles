@@ -22,6 +22,7 @@
     alsa-utils
     swaylock-effects
     starship
+    openconnect
   ];
 in {
   # imports = [outputs.nixosModules.VESTA];

@@ -33,6 +33,8 @@
       config.allowUnfreePredicate = _: true;
       config.permittedInsecurePackages = [
         "electron-27.3.11"
+       "dotnet-runtime-6.0.36"
+				"dotnet-sdk-wrapped-6.0.428"
       ];
       overlays = builtins.attrValues outputs.overlays;
     };
