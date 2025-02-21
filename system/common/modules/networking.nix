@@ -43,7 +43,7 @@
       "ext:campus_uuid" = {
         extraConfig = ''
           identity="ext:campus_identity"
-          password="ext:campus_psk"
+          password=ext:campus_psk
           key_mgmt=WPA-EAP
           eap=PEAP
           phase1="peaplabel=0"

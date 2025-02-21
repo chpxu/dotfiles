@@ -21,6 +21,9 @@
     #davinci-resolve
     #discord-canary
     vesktop
+    skypeforlinux
+    kdePackages.okular
+    libsForQt5.xwaylandvideobridge
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];
