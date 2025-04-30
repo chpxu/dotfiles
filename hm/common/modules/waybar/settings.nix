@@ -21,6 +21,7 @@
       modules-right = [
         "idle_inhibitor"
         "pulseaudio"
+        "bluetooth"
         "network"
         "cpu"
         "memory"
@@ -62,6 +63,16 @@
         tooltip = true;
         tooltip-format = "Sleep: {status}";
       };
+      bluetooth = {
+        "format" = " {status}";
+        "format-connected" = " {device_alias}";
+        "format-connected-battery" = " {device_alias} {device_battery_percentage}%";
+        "format-device-preference" = ["device1" "device2"];
+        "tooltip-format" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+        "tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+        "tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
+        "tooltip-format-enumerate-connected-battery" = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+      };
       tray = {
         icon-size = 20;
         spacing = 15;
@@ -102,7 +113,7 @@
         ];
       };
       battery = {
-        interval = 80;
+        interval = 60;
         states = {
           warning = 20;
           critical = 10;
@@ -124,6 +135,7 @@
         tooltip-format = "SSID: {essid}\nInterface: {ifname} via {gwaddr}\nIP: {ipaddr}\nSubnetmask: {netmask}-{cidr}\nConnection Strength: {signalStrength}%\nFrequency: {frequency}GHz\nUp Speed: {bandwidthUpBits}\nDown Speed: {bandwidthDownBits}";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "(No Internet)";
+        on-click = "kitty -e nmtui";
       };
       pulseaudio = {
         format = "{icon} {volume}% {format_source}";

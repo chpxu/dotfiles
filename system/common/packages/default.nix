@@ -23,7 +23,8 @@
     swaylock-effects
     starship
     openconnect
-  ];
+    gpclient
+     ];
 in {
   # imports = [outputs.nixosModules.VESTA];
   # List packages installed in system profile.

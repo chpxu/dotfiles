@@ -92,7 +92,8 @@ in {
     #tray,
     #clock,
     #idle_inhibitor,
-    #pulseaudio
+    #pulseaudio,
+    #bluetooth
     {
       padding: 0 5px 0 5px;
       margin: 5px 5px 5px 0;
@@ -117,7 +118,8 @@ in {
     #tray {
         color: ${nord.nord15};
     }
-    #pulseaudio {
+    #pulseaudio,
+    #bluetooth {
         color: ${nord.nord10};
     }
 

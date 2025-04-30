@@ -21,9 +21,13 @@
     #davinci-resolve
     #discord-canary
     vesktop
-    skypeforlinux
+    #skypeforlinux
+    siyuan
     kdePackages.okular
     libsForQt5.xwaylandvideobridge
+   	#ladybird
+   	#ghostty
+   	pfetch-rs
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];

@@ -10,6 +10,7 @@
       times-newer-roman
       dejavu_fonts
       newcomputermodern
+			stix-two
     ];
     fontconfig = {
       hinting = {

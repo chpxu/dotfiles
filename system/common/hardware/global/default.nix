@@ -6,5 +6,5 @@
   # };
   # Enable PulseAudio sound.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 }
