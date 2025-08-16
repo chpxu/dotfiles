@@ -9,7 +9,6 @@
     logseq
     inkscape-with-extensions
     gimp
-    bitwarden-cli
     libreoffice-fresh
     onedrive
     rnote
@@ -22,12 +21,12 @@
     #discord-canary
     vesktop
     #skypeforlinux
-    siyuan
     kdePackages.okular
     libsForQt5.xwaylandvideobridge
-   	#ladybird
-   	#ghostty
-   	pfetch-rs
+    #ladybird
+    #ghostty
+    pfetch-rs
+    bitwarden-desktop
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];

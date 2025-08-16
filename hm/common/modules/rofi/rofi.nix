@@ -13,7 +13,7 @@
                 configuration {
                   location: 0;
                   matching: "fuzzy";
-                  modi: "combi";
+                  modi: ["combi", "window","drun","run"];
                   combi-modes: ["window","drun","run"];
                   no-steal-focus: true;
                   normal-window: true;

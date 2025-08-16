@@ -3,10 +3,13 @@
   pkgs,
   lib,
   colour-palette,
+  hostname,
   ...
 }: {
   imports = [
-    (import ./hyprland/xdg.nix {inherit config;})
+    (import ./hyprland/xdg.nix {
+      inherit config hostname;
+    })
     ./zsh
     ./systemd
     ./Code

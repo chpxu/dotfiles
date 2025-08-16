@@ -3,8 +3,8 @@
     watchdog = {
       device = "/dev/watchdog";
     };
-    extraConfig = ''
-      DefaultTimeoutStopSec=2s
-    '';
+    #extraConfig = ''
+    #  DefaultTimeoutStopSec=2s
+   # '';
   };
 }

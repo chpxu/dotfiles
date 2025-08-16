@@ -31,7 +31,7 @@
         "dotnet-runtime-6.0.36"
         "dotnet-sdk-wrapped-6.0.428"
       ];
-      overlays = builtins.attrValues outputs.overlays;
+      #overlays = builtins.attrValues outputs.overlays;
     };
     mkSystemConfiguration = {
       needsNvidia,
@@ -41,11 +41,12 @@
     }:
       inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit pkgs nur inputs outputs needsIntel needsNvidia hostname user;
+          inherit nur inputs outputs needsIntel needsNvidia hostname user;
         };
         modules = [
           ./system/${hostname}/configuration.nix
-          nixpkgs.nixosModules.readOnlyPkgs
+          #nixpkgs.nixosModules.readOnlyPkgs
+          {nixpkgs.pkgs = pkgs;}
           sops-nix.nixosModules.sops
           nur.modules.nixos.default
           home-manager.nixosModules.home-manager
@@ -54,15 +55,14 @@
             home-manager.useUserPackages = false;
             home-manager.users."${user}" = import ./hm/${user}/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs outputs colour-palette;
+              inherit inputs outputs colour-palette hostname;
             };
           }
         ];
       };
   in {
-    overlays = import ./overlays;
+    #overlays = import ./overlays;
     nixosConfigurations = {
-      # Yoga
       yoga = mkSystemConfiguration {
         needsNvidia = false;
         needsIntel = true;
@@ -73,6 +73,12 @@
         needsNvidia = true;
         needsIntel = true;
         hostname = "jingliu";
+        user = "chunix";
+      };
+      saitama = mkSystemConfiguration {
+        needsNvidia = true;
+        needsIntel = false;
+        hostname = "saitama";
         user = "chunix";
       };
     };

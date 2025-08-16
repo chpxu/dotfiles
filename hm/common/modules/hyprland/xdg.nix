@@ -1,10 +1,25 @@
-{config, ...}: {
+{
+  config,
+  hostname,
+  ...
+}: {
   xdg.configFile = {
+    "hypr/base.conf" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./. + "/configs/base.conf";
+      target = "hypr/base.conf";
+    };
+    "hypr/saitama.conf" = {
+      source =
+        if hostname == "saitama"
+        then config.lib.file.mkOutOfStoreSymlink ./. + "/configs/saitama.conf"
+        else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
+      target = "hypr/saitama.conf";
+    };
     "hypr/hyprland.conf" = {
-      # https://twitter.com/jeonghee1414/status/1657279512424615938/photo/1
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprland.conf";
       target = "hypr/hyprland.conf";
     };
+
     "hypr/hyprpaper.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprpaper.conf";
       target = "hypr/hyprpaper.conf";
