@@ -29,6 +29,7 @@ in {
       extraConfig = {
         XDG_MISC_DIR = "${config.home.homeDirectory}/Misc";
         XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Screenshots";
+        XDG_WALLPAPER_DIR = "${config.home.homeDirectory}/Pictures/Wallpapers";
       };
     };
     mime.enable = true;

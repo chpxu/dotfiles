@@ -15,7 +15,7 @@
     pdfarranger
     yt-dlp
     wvkbd
-    hyprpaper
+    wpaperd
     #obs-studio
     #davinci-resolve
     #discord-canary

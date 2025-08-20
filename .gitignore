@@ -4,6 +4,6 @@ fontawe*/
 system/modified
 **/secrets.nix
 **/*.env
-**/wpa*
+**/wpa_*
 secrets/keys.txt
 **/obsolete

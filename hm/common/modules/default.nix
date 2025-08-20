@@ -7,9 +7,11 @@
   ...
 }: {
   imports = [
+    ./xdg/xdg.nix
     (import ./hyprland/xdg.nix {
       inherit config hostname;
     })
+    ./wpaperd
     ./zsh
     ./systemd
     ./Code
@@ -22,7 +24,6 @@
     ./rofi/rofi.nix
     ./mako
     ./sway
-    ./xdg/xdg.nix
     ./firefox
     ./jq
   ];
