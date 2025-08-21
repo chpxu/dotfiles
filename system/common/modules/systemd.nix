@@ -1,10 +1,7 @@
 {
   systemd = {
-    watchdog = {
-      device = "/dev/watchdog";
+    settings = {
+      Manager.WatchdogDevice = "/dev/watchdog";
     };
-    #extraConfig = ''
-    #  DefaultTimeoutStopSec=2s
-   # '';
   };
 }

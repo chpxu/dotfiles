@@ -7,7 +7,7 @@
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["brackets" "line"];
     autocd = true;
-    initExtra = ''
+    initContent = ''
       eval "$(direnv hook zsh)"
       export GRIM_DEFAULT_DIR=$HOME/Screenshots
       zstyle ':completion:*' menu select

@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./vscode.nix];
+  imports = [./vscode.nix ./xdg.nix];
 }
