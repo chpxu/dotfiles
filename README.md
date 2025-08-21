@@ -85,13 +85,15 @@ installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 - [zotero](https://zotero.org)
 - [logseq](https://logseq.com)
 - [pdfarranger](https://github.com/pdfarranger/pdfarranger)
+- [thunderbird](https://www.thunderbird.net)
+- [bitwarden](https://bitwarden.com/)
 
 ### Environment programs
 
 Applications or programs which affect my workspace
 
 - [Hyprland](https://hyprland.org)
-- [hyprpaper](https://github.com/hyprwm/hyprpaper)
+- [wpaperd](https://github.com/danyspin97/wpaperd)
 - [waybar](https://github.com/Alexays/Waybar) (built with `-Dexperimental=true`)
 - [swayidle](https://github.com/swaywm/swayidle)
 - [swaylock-effects](https://github.com/jirutka/swaylock-effects) (jirutka fork)
@@ -117,3 +119,10 @@ This section is more information about the configuration, mainly for those who w
    - `colour-palette` which is the file containing the RGB hex codes for the Nord theme.
    - `mkSystemConfiguration` a function which creates a NixOS system with given hostname and users.
 4. `outputs`. What the flake returns and allows you to access.
+
+### `system` folder
+
+- `common` folder contains configuration for hardware and shared system packages across all devices. It contains conditional config for Intel CPU and NVIDIA GPU packages as well as set some environment vairables
+- Each other folder is config for specific hosts (namely a default `configuration.nix` and `hardware-configuration.nix`) as well as any other specific config (e.g. power for my laptops).
+
+Rest TBD, may upload onto actual website instead.

@@ -69,6 +69,12 @@ in {
       border-radius: 5px;
       color: inherit;
     }
+    #custom-launcher {
+      background-image: url('/home/chunix/.config/waybar/nixoslogo.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
     #window {
       margin-left: 5px;
       color: ${nord.nord15};

@@ -9,7 +9,7 @@
     autocd = true;
     initContent = ''
       eval "$(direnv hook zsh)"
-      export GRIM_DEFAULT_DIR=$HOME/Screenshots
+      export GRIM_DEFAULT_DIR=$XDG_SCREENSHOTS_DIR
       zstyle ':completion:*' menu select
     '';
     oh-my-zsh.enable = false;

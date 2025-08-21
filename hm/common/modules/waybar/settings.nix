@@ -140,7 +140,7 @@
         tooltip-format = "SSID: {essid}\nInterface: {ifname} via {gwaddr}\nIP: {ipaddr}\nSubnetmask: {netmask}-{cidr}\nConnection Strength: {signalStrength}%\nFrequency: {frequency}GHz\nUp Speed: {bandwidthUpBits}\nDown Speed: {bandwidthDownBits}";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "(No Internet)";
-        on-click = "kitty -e nmtui";
+        on-click = "hyprctl dispatch exec '[float]kitty -e nmtui'";
       };
       pulseaudio = {
         format = "{icon} {volume}% {format_source}";
@@ -162,13 +162,14 @@
             ""
           ];
         };
-        on-click = "kitty -e alsamixer";
+        on-click = "hyprctl dispatch exec '[float]kitty -e 'alsamixer'";
         tooltip = true;
         tooltip-format = "{icon} {desc}\nVolume: {volume}\n{format_source}";
       };
       "custom/launcher" = {
         # format = " ";
-        background-image = "url('$HOME/.config/waybar/white-snowflake.png')";
+        format = "    ";
+        background-image = "url('/home/chunix/.config/waybar/nixoslogo.svg')";
         on-click = "rofi -show drun";
         max-length = 50;
         tooltip = false;

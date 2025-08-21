@@ -22,11 +22,11 @@
                   xoffset: 0;
                   yoffset: 0;
                   click-to-exit: true;
-                  display-ssh:    "";
-                  display-run:    "";
-                  display-drun:   "";
-                  display-window: "";
-                  display-combi:  "";
+                  display-ssh:    " ";
+                  display-run:    " ";
+                  display-drun:   " ";
+                  display-window: " ";
+                  display-combi:  " ";
                   }
                   @theme"/dev/null"
                                   /**
@@ -112,7 +112,7 @@
         }
         prompt {
             margin: 0px 1em 0em 0em;
-            background-color: @nord0;
+            background-color: @nord1;
         }
 
         listview {
