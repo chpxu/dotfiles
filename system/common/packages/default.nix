@@ -24,14 +24,11 @@
     starship
     openconnect
     gpclient
-     ];
+  ];
 in {
-  # imports = [outputs.nixosModules.VESTA];
-  # List packages installed in system profile.
-  # Trying to keep as lean as possible.
   environment.systemPackages =
     if needsNvidia
-    then systemPackages ++ [nvidia-offload]
+    then systemPackages ++ [nvidia-offload pkgs.tuxclocker]
     else systemPackages;
 
   programs = {
