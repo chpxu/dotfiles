@@ -8,7 +8,7 @@
     zotero
     logseq
     inkscape-with-extensions
-    gimp
+    gimp3
     libreoffice-fresh
     onedrive
     rnote
@@ -27,7 +27,7 @@
     #ghostty
     pfetch-rs
     bitwarden-desktop
-    syncthing
+
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];
