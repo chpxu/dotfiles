@@ -27,6 +27,7 @@
     #ghostty
     pfetch-rs
     bitwarden-desktop
+    syncthing
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];
