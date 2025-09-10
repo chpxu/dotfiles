@@ -24,6 +24,7 @@
     starship
     openconnect
     gpclient
+    pavucontrol
   ];
 in {
   environment.systemPackages =

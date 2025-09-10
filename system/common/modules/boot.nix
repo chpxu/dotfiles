@@ -7,12 +7,11 @@
 }: {
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
       efi.canTouchEfiVariables = true;
-      grub.devices = ["/dev/nvme0n1"];
-      grub.theme = pkgs.nixos-grub2-theme;
-      grub.efiSupport = true;
-      grub.useOSProber = true;
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = ["uinput" "acpi_call"];
