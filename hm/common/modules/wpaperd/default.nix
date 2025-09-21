@@ -15,10 +15,16 @@ in {
     "AOC AG276QZD2 2OMR5JA003095" = {
       mode = "stretch";
       path = "${config.home.homeDirectory}/Pictures/Wallpapers";
+      transition."cross-warp" = {};
+      transition-time = 1000;
     };
     "AOC 24G2W1G4 0x00004A8B" = {
-      mode = "stretch";
+      mode = "center";
       path = "${config.home.homeDirectory}/Pictures/Wallpapers";
+      transition-time = 2000;
+      transition.doom = {
+        bars = 50;
+      };
     };
   };
   home.file = {

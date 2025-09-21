@@ -54,8 +54,8 @@
       };
       "hyprland/language" = {
         format = "  {}";
-        "format-en" = "ENG US";
-        # "format-en" = "ENG GB";
+        # "format-en" = "ENG US";
+        "format-en" = "ENG GB";
         keyboard-name = "at-translated-set-2-keyboard";
       };
       idle_inhibitor = {
@@ -162,7 +162,7 @@
             ""
           ];
         };
-        on-click = "hyprctl dispatch exec '[float]kitty -e 'alsamixer'";
+        on-click = "hyprctl dispatch exec '[float]pavucontrol'";
         tooltip = true;
         tooltip-format = "{icon} {desc}\nVolume: {volume}\n{format_source}";
       };

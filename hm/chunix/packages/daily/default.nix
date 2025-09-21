@@ -21,7 +21,7 @@
     #discord-canary
     vesktop
     #skypeforlinux
-    kdePackages.okular
+    # kdePackages.okular
     libsForQt5.xwaylandvideobridge
     #ladybird
     #ghostty
