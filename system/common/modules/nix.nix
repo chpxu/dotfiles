@@ -12,7 +12,12 @@
     };
     optimise = {
       automatic = true;
-      dates = ["weekly"];
+      dates = ["03:45"];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 10d";
     };
   };
   # This value determines the NixOS release from which the default
