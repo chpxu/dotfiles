@@ -15,19 +15,17 @@
     pdfarranger
     yt-dlp
     wvkbd
-    wpaperd
     #obs-studio
     #davinci-resolve
     #discord-canary
     vesktop
     #skypeforlinux
     # kdePackages.okular
-    libsForQt5.xwaylandvideobridge
     #ladybird
     #ghostty
     pfetch-rs
     bitwarden-desktop
-
+    hyprland-qtutils
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];

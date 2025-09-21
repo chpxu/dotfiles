@@ -11,6 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nix-gaming.url = "github:fufexan/nix-gaming";
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {
@@ -18,6 +24,8 @@
     nixpkgs,
     sops-nix,
     home-manager,
+    hyprland,
+    hyprland-plugins,
     nur,
     ...
   } @ inputs: let

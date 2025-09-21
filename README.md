@@ -99,7 +99,7 @@ Applications or programs which affect my workspace
 - [swaylock-effects](https://github.com/jirutka/swaylock-effects) (jirutka fork)
 - [mako](https://github.com/emersion/mako)
 - [cliphist](https://github.com/sentriz/cliphist) + [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
-- [rofi-wayland](https://github.com/lbonn/rofi#wayland-support)
+- [rofi](https://github.com/lbonn/rofi#wayland-support)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [zsh](https://zsh.org) + [starship](https://starship.rs)
 - wvkbd (custom derivation to add theming. See my [repo](https://github.com/chpxu/wvkbd))

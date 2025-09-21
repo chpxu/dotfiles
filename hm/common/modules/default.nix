@@ -4,12 +4,13 @@
   lib,
   colour-palette,
   hostname,
+  inputs,
   ...
 }: {
   imports = [
     ./xdg/xdg.nix
     (import ./hyprland/xdg.nix {
-      inherit config hostname;
+      inherit config hostname pkgs inputs;
     })
     ./wpaperd
     ./zsh

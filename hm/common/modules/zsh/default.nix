@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -7,6 +7,12 @@
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["brackets" "line"];
     autocd = true;
+    dirHashes = {
+      docs = "${config.home.homeDirectory}/Documents";
+      vids = "${config.home.homeDirectory}/Videos";
+      dl = "${config.home.homeDirectory}/Downloads";
+    };
+
     initContent = ''
       eval "$(direnv hook zsh)"
       export GRIM_DEFAULT_DIR=$XDG_SCREENSHOTS_DIR
@@ -20,6 +26,7 @@
         else
             cd $HOME/git_projects/dotfiles
         fi'';
+      upgrade = ''sudo nixos-rebuild switch --flake .#$(hostname) --impure'';
     };
   };
 }

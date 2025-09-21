@@ -1,8 +1,14 @@
 {
   config,
   hostname,
+  pkgs,
+  inputs,
   ...
 }: {
+  wayland.windowManager.hyprland.plugins = [
+    inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+  ];
+
   xdg.configFile = {
     "hypr/base.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/configs/base.conf";
