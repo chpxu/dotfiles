@@ -7,10 +7,10 @@
     wl-clipboard
     wofi
     imv
-    krusader
     xdg-utils
     unzip
     jmtpfs
+    dragon-drop
   ];
   # xprop = [pkgs.xorg.xprop];
 in {

@@ -7,7 +7,7 @@
   excel = "calc.desktop";
   ppt = "impress.desktop";
   office = ["startcenter.desktop" word excel ppt "math.desktop" "draw.desktop" "base.desktop"];
-  files = ["krusader.desktop"];
+  files = ["yazi.desktop"];
 in {
   xdg = {
     enable = true;
