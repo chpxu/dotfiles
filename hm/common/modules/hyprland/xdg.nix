@@ -21,6 +21,13 @@
         else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
       target = "hypr/saitama.conf";
     };
+    "hypr/yoga.conf" = {
+      source =
+        if hostname == "yoga"
+        then config.lib.file.mkOutOfStoreSymlink ./. + "/configs/yoga.conf"
+        else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
+      target = "hypr/yoga.conf";
+    };
     "hypr/hyprland.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprland.conf";
       target = "hypr/hyprland.conf";
