@@ -22,6 +22,8 @@
     hyprland-qtutils
     #libsForQt5.kdenlive
     #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    prismlauncher
+  	via
   ];
   programs.yazi = {
     enable = true;

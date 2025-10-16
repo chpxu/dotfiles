@@ -29,7 +29,7 @@
 in {
   environment.systemPackages =
     if needsNvidia
-    then systemPackages ++ [nvidia-offload pkgs.tuxclocker]
+    then systemPackages ++ [nvidia-offload]
     else systemPackages;
 
   programs = {

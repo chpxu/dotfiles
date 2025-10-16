@@ -33,4 +33,5 @@ in {
       ++ lib.optionals needsNvidia nvidiaPackages
       ++ lib.optionals needsIntel intelPackages;
   };
+  services.lact.enable = true;
 }
