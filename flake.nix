@@ -52,11 +52,12 @@
           inherit nur inputs outputs needsIntel needsNvidia hostname user;
         };
         modules = [
+          {nixpkgs.pkgs = pkgs;}
           ./system/${hostname}/configuration.nix
           #nixpkgs.nixosModules.readOnlyPkgs
-          {nixpkgs.pkgs = pkgs;}
           sops-nix.nixosModules.sops
           nur.modules.nixos.default
+          hyprland.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

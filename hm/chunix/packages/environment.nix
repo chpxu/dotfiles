@@ -1,6 +1,5 @@
 {pkgs, ...}: let
   normalPackages = with pkgs; [
-    cliphist
     grim
     slurp
     swayidle
@@ -14,5 +13,6 @@
   ];
   # xprop = [pkgs.xorg.xprop];
 in {
+  services.cliphist.enable = true;
   home.packages = normalPackages;
 }

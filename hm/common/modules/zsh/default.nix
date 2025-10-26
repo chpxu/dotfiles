@@ -26,7 +26,8 @@
         else
             cd $HOME/git_projects/dotfiles
         fi'';
-      upgrade = ''sudo nixos-rebuild switch --flake .#$(hostname) --impure'';
+      switch = ''sudo nixos-rebuild switch --flake .#$(hostname) --impure'';
+      upgrade = ''dotfiles; nix flake update'';
     };
   };
 }

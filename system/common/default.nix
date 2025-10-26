@@ -27,7 +27,6 @@
     ++ lib.optional needsNvidia ./hardware/nvidia
     ++ lib.optional needsIntel ./hardware/intel;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chunix = {
     isNormalUser = true;
     extraGroups = ["wheel" "audio" "video" "input" "disk" "networkmanager"];

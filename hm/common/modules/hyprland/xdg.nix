@@ -2,36 +2,45 @@
   config,
   hostname,
   pkgs,
+  lib,
   inputs,
   ...
 }: {
-  wayland.windowManager.hyprland.plugins = [
-    inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-  ];
+  wayland.windowManager.hyprland = let
+    base = (import ./configs/base.nix {inherit pkgs;}).settings;
+  in {
+    enable = true;
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    ];
+    package = null;
+    portalPackage = null;
+    settings = lib.recursiveUpdates base (import "./configs/${config.hostname}.nix");
+  };
 
   xdg.configFile = {
-    "hypr/base.conf" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./. + "/configs/base.conf";
-      target = "hypr/base.conf";
-    };
-    "hypr/saitama.conf" = {
-      source =
-        if hostname == "saitama"
-        then config.lib.file.mkOutOfStoreSymlink ./. + "/configs/saitama.conf"
-        else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
-      target = "hypr/saitama.conf";
-    };
+    # "hypr/base.conf" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink ./. + "/configs/base.conf";
+    #   target = "hypr/base.conf";
+    # # };
+    # "hypr/saitama.conf" = {
+    #   source =
+    #     if hostname == "saitama"
+    #     then config.lib.file.mkOutOfStoreSymlink ./. + "/configs/saitama.conf"
+    #     else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
+    #   target = "hypr/saitama.conf";
+    # };
     "hypr/yoga.conf" = {
       source =
         if hostname == "yoga"
         then config.lib.file.mkOutOfStoreSymlink ./. + "/configs/yoga.conf"
         else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
       target = "hypr/yoga.conf";
-    };
-    "hypr/hyprland.conf" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprland.conf";
-      target = "hypr/hyprland.conf";
-    };
+    # };
+    # "hypr/hyprland.conf" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprland.conf";
+    #   target = "hypr/hyprland.conf";
+    # };
 
     "hypr/hyprpaper.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprpaper.conf";
