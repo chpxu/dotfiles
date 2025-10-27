@@ -10,7 +10,7 @@
   imports = [
     ./xdg/xdg.nix
     (import ./hyprland/xdg.nix {
-      inherit config hostname pkgs inputs;
+      inherit config hostname pkgs inputs lib;
     })
     ./wpaperd
     ./zsh

@@ -1,15 +1,12 @@
 {pkgs, ...}: {
   settings = {
     "$mod" = "SUPER";
-    xwayland = {
-      enable = true;
-    };
     bindm = [
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
     ]; #
     exec-once = [
-      "${pkgs.swayidle}/bin/swayidle -w timeout 60 '${pkgs.swaylock}/bin/swaylock -f' timeout 120 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f'"
+      "${pkgs.swayidle}/bin/swayidle -w timeout 120 '${pkgs.swaylock}/bin/swaylock -f' timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f'"
       "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"
       "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
       "hyprctl setcursor Nordzy-cursors 32"
@@ -32,8 +29,8 @@
       gaps_in = 1;
       gaps_out = 0;
       border_size = 1;
-      col.inactive_border = "rgba(d8dee9dd)";
-      col.active_border = "rgba(81a1c1aa)";
+      "col.inactive_border" = "rgba(d8dee9dd)";
+      "col.active_border" = "rgba(81a1c1aa)";
       layout = "dwindle";
       resize_on_border = true;
     };
@@ -64,7 +61,7 @@
         "windowsOut, 1, 3, default, popin 70%"
         "border, 1, 5, default"
         "fade, 1, 3, fading"
-        "workspaeces, 1, 2, workspaceSlide, slide"
+        "workspaces, 1, 2, workspaceSlide, slide"
       ];
       workspace_wraparound = true;
     };
@@ -124,6 +121,7 @@
         "$mod, down, movefocus, d"
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
+        "ALT, Tab, hyprexpo:expo, toggle"
       ]
       ++ (
         # workspaces
@@ -149,6 +147,6 @@
       };
     };
 
-    # bind = ALT, Tab, hyprexpo, toggle
+    # bind =
   };
 }

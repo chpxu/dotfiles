@@ -8,14 +8,19 @@
 }: {
   wayland.windowManager.hyprland = let
     base = (import ./configs/base.nix {inherit pkgs;}).settings;
+    extraSettings = (import ./configs/${hostname}.nix).settings;
   in {
     enable = true;
     plugins = [
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
+    xwayland = {
+      enable = true;
+    };
+    systemd.enable = true;
     package = null;
     portalPackage = null;
-    settings = lib.recursiveUpdates base (import "./configs/${config.hostname}.nix");
+    settings = lib.recursiveUpdate base extraSettings;
   };
 
   xdg.configFile = {
@@ -36,7 +41,7 @@
         then config.lib.file.mkOutOfStoreSymlink ./. + "/configs/yoga.conf"
         else config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
       target = "hypr/yoga.conf";
-    # };
+    };
     # "hypr/hyprland.conf" = {
     #   source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprland.conf";
     #   target = "hypr/hyprland.conf";

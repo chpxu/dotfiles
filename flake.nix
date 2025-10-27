@@ -10,7 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:fufexan/nix-gaming";
     hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
@@ -27,6 +27,7 @@
     hyprland,
     hyprland-plugins,
     nur,
+    nix-gaming,
     ...
   } @ inputs: let
     inherit (self) outputs;
