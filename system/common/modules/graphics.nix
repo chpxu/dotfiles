@@ -14,6 +14,7 @@
     libGL
     libGLU
     libglvnd
+    egl-wayland
   ];
   nvidiaPackages = with pkgs; [
     nvidia-vaapi-driver
@@ -27,7 +28,7 @@ in {
   # OpenGL
   hardware.graphics = {
     enable = true;
-    #driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages =
       commonExtraPkgs
       ++ lib.optionals needsNvidia nvidiaPackages

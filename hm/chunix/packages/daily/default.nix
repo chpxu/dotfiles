@@ -3,7 +3,9 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = with pkgs; let
+    gamePkgs = inputs.nix-gaming.packages.${pkgs.hostPlatform.system};
+  in [
     thunderbird
     zotero
     logseq
@@ -21,7 +23,9 @@
     bitwarden-desktop
     hyprland-qtutils
     #libsForQt5.kdenlive
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    (gamePkgs.osu-lazer-bin.override {
+      releaseStream = "tachyon";
+    })
     prismlauncher
     via
   ];

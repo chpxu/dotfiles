@@ -32,7 +32,7 @@
     ./gtk_qt.nix
     ./graphics.nix
     ./time_i18n.nix
-    ./pipewire.nix
+    (import ./pipewire.nix {inherit pkgs lib;})
     ./hyprland.nix
   ];
   services.udisks2 = {

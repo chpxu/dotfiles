@@ -73,7 +73,7 @@
     };
     render = {
       expand_undersized_textures = false;
-      direct_scanout = 2;
+      direct_scanout = 0;
     };
     misc = {
       mouse_move_enables_dpms = true;
@@ -114,7 +114,7 @@
         ",XF86AudioMicMute, exec, amixer set Capture toggle"
         ",XF86AudioMute, exec, amixer set Master toggle"
         ",XF86AudioRaiseVolume, exec, amixer set Master 5%+"
-        ",XF86AudioLowerVolume, exec, amixer set Master"
+        ",XF86AudioLowerVolume, exec, amixer set Master 5%-"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
