@@ -36,7 +36,7 @@ in {
     light.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
-
+    steam.enable = true;
     #Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     mtr.enable = true;

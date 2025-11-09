@@ -8,7 +8,7 @@
   commonExtraPkgs = with pkgs; [
     libvdpau
     libvdpau-va-gl
-    vaapiVdpau
+    libva-vdpau-driver
     libva
     libdrm
     libGL
@@ -20,7 +20,6 @@
     nvidia-vaapi-driver
   ];
   intelPackages = with pkgs; [
-    mesa.drivers
     intel-vaapi-driver
     intel-media-driver
   ];
