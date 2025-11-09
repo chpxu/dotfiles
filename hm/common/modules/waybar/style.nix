@@ -99,7 +99,8 @@ in {
     #clock,
     #idle_inhibitor,
     #pulseaudio,
-    #bluetooth
+    #bluetooth,
+    #custom-mullvadvpn
     {
       padding: 0 5px 0 5px;
       margin: 5px 5px 5px 0;

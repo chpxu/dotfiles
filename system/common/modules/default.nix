@@ -23,16 +23,16 @@
     })
     (import ./console.nix {inherit pkgs;})
     ./systemd.nix
-    ./nano.nix
-    ./zsh.nix
     ./security.nix
-    (import ./networking.nix {inherit hostname config lib builtins;})
+    (import ./networking.nix {inherit hostname pkgs;})
+    (import ./pipewire.nix {inherit pkgs lib;})
+    ./zsh.nix
+    ./graphics.nix
+    ./nano.nix
     ./fonts.nix
     ./xdg.nix
     ./gtk_qt.nix
-    ./graphics.nix
     ./time_i18n.nix
-    (import ./pipewire.nix {inherit pkgs lib;})
     ./hyprland.nix
   ];
   services.udisks2 = {

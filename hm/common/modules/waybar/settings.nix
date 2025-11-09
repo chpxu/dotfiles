@@ -26,6 +26,7 @@
         "idle_inhibitor"
         "pulseaudio"
         "bluetooth"
+        "custom/mullvadvpn"
         "network"
         "cpu"
         "memory"
@@ -190,6 +191,16 @@
         tooltip = false;
         on-click = "poweroff";
         exec-on-event = false;
+      };
+      "custom/mullvadvpn" = {
+        "interval" = 1;
+        "format" = "{}";
+        "exec" = "mullvad status -j | jq -r '.details.location.hostname' | grep -qF wg && echo 🔒 $(mullvad status -j | jq -r '.details.location.hostname') || echo 'VPN: D'";
+        "max-length" = 100;
+        "on-click" = "mullvad connect";
+        "on-click-right" = "mullvad disconnect";
+        "on-click-middle" = "mullvad-vpn";
+        "tooltip-format" = "Left click: connect\nRight click: disconnect\nMiddle click: open gui";
       };
     };
   };
