@@ -13,7 +13,7 @@
     overrideDevices = false;
     overrideFolders = false;
     tray = {
-      enable = true;
+      enable = false;
     };
   };
 }

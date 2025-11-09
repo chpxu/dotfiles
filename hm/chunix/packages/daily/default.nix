@@ -5,6 +5,7 @@
 }: {
   home.packages = with pkgs; let
     gamePkgs = inputs.nix-gaming.packages.${pkgs.hostPlatform.system};
+		materialPkgs = inputs.materials.packages.${pkgs.hostPlatform.system}; 
   in [
     thunderbird
     zotero
@@ -26,6 +27,7 @@
     (gamePkgs.osu-lazer-bin.override {
       releaseStream = "tachyon";
     })
+    materialPkgs.VESTA
     prismlauncher
     via
   ];

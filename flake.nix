@@ -17,6 +17,9 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    materials = {
+			url = "github:chpxu/materials-flake";
+    };
   };
 
   outputs = {
@@ -28,6 +31,7 @@
     hyprland-plugins,
     nur,
     nix-gaming,
+    materials,
     ...
   } @ inputs: let
     inherit (self) outputs;
