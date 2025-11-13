@@ -1,4 +1,4 @@
-{...}: {
+{needsNvidia, ...}: {
   #Define environment variables used across systems
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "wayland";
@@ -9,6 +9,14 @@
     XCURSOR_SIZE = "32";
     EGL_PLATFORM = "wayland";
     WLR_NO_HARDWARE_CURSORS = "1";
+  };
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
+    NVD_BACKEND =
+      if needsNvidia
+      then "direct"
+      else "";
   };
   environment.pathsToLink = ["/share/zsh"];
 }
