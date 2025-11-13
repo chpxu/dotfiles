@@ -3,30 +3,30 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-    };
+    # sops-nix = {
+    #   url = "github:Mic92/sops-nix";
+    # };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
     hyprland.url = "github:hyprwm/Hyprland";
-
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
     materials = {
-			url = "github:chpxu/materials-flake";
+      url = "github:chpxu/materials-flake";
     };
   };
 
   outputs = {
     self,
     nixpkgs,
-    sops-nix,
     home-manager,
+    chaotic,
     hyprland,
     hyprland-plugins,
     nur,
@@ -58,9 +58,8 @@
         };
         modules = [
           {nixpkgs.pkgs = pkgs;}
+          chaotic.nixosModules.default
           ./system/${hostname}/configuration.nix
-          #nixpkgs.nixosModules.readOnlyPkgs
-          sops-nix.nixosModules.sops
           nur.modules.nixos.default
           hyprland.nixosModules.default
           home-manager.nixosModules.home-manager

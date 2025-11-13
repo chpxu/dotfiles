@@ -13,7 +13,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
     kernelModules = ["uinput" "acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     blacklistedKernelModules = ["nouveau"];

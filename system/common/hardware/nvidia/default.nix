@@ -8,7 +8,7 @@
     };
     open = true;
     nvidiaSettings = true;
-    nvidiaPersistenced = true;
+    nvidiaPersistenced = false;
     modesetting.enable = true;
     dynamicBoost.enable = true;
     prime = {
