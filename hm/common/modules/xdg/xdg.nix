@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
   editorRequired = ["code.desktop"];
   pdf = ["org.pwmt.zathura.desktop"];
   image = ["imv.desktop" "org.inkscape.Inkscape.desktop" "gimp.desktop"];
@@ -56,6 +61,20 @@ in {
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = office;
         };
       };
+    };
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      config = {
+        common.default = ["gtk"];
+        hyprland.default = [
+          "hyprland"
+          "gtk"
+        ];
+      };
+      extraPortals = [
+        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      ];
     };
   };
 }

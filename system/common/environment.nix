@@ -17,6 +17,7 @@
       if needsNvidia
       then "direct"
       else "";
+    #GDK_BACKEND="wayland";
   };
   environment.pathsToLink = ["/share/zsh"];
 }

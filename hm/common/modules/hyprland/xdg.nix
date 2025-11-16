@@ -18,8 +18,8 @@
       enable = true;
     };
     systemd.enable = true;
-    package = null;
-    portalPackage = null;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     settings = lib.recursiveUpdate base extraSettings;
   };
 

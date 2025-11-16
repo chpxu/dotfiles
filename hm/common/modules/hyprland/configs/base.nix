@@ -88,14 +88,23 @@
     };
 
     ecosystem = {
-      no_update_news = false;
-      no_donation_nag = false;
+      no_update_news = true;
+      no_donation_nag = true;
       enforce_permissions = true;
     };
-    windowrule = ["float,class:kitty,title:.*alsamixer.*" "float,size 480 480, class:kitty,title:.*nmtui.*" "float,size 960 680, title:.*yazi.*" "float,size 960 680,title:.*Bluetooth.*" "float,size 720 680,title:.*Bitwarden.*"];
+    windowrule = [
+      "float,class:kitty,title:.*alsamixer.*"
+      "float,size 480 480, class:kitty,title:.*nmtui.*"
+      "float,size 960 680, class:kitty,title:.*Yazi.*"
+      "float,size 960 680,title:.*Bluetooth.*"
+      "float,size 720 680,title:.*Bitwarden.*"
+      "float,title:.*Open.*"
+      "float,title:.*open.*"
+    ];
     permission = [
       "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+      "/nix/store/[a-z0-9]{32}-hyprland-([0-9.]*)\\+date^\\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$_([a-z0-9]{7})/bin/hyprctl, plugin, allow" # technically bad for sec, but since plugins must be explicitly specified, should be ok.
     ];
     bind =
       [
@@ -113,8 +122,8 @@
         ",XF86MonBrightnessDown,exec, light -U 5"
         ",XF86AudioMicMute, exec, amixer set Capture toggle"
         ",XF86AudioMute, exec, amixer set Master toggle"
-        ",XF86AudioRaiseVolume, exec, amixer set Master 5%+"
-        ",XF86AudioLowerVolume, exec, amixer set Master 5%-"
+        ",XF86AudioRaiseVolume, exec, amixer set Master 1%+"
+        ",XF86AudioLowerVolume, exec, amixer set Master 1%-"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
