@@ -108,7 +108,7 @@
     ];
     bind =
       [
-        "$mod,W ,exec, pkill -SIGUSR1 waybar || waybar"
+        "$mod, B,exec, pkill -SIGUSR1 waybar || waybar"
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
@@ -117,6 +117,7 @@
         "$mod, F, togglefloating"
         "$mod, R, exec, rofi -show drun"
         "$mod, L, exec, swaylock"
+        "$mod, G, split:grabroguewindows"
         "SUPER_SHIFT,S,exec, grim -g \"$(slurp -d)\" - | wl-copy"
         ",XF86MonBrightnessUp,exec, light -A 5"
         ",XF86MonBrightnessDown,exec, light -U 5"
@@ -128,8 +129,8 @@
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
+        "$mod, mouse_down, split:workspace, r+1"
+        "$mod, mouse_up, split:workspace, r-1"
         "ALT, Tab, hyprexpo:expo, toggle"
       ]
       ++ (
@@ -139,8 +140,8 @@
             i: let
               ws = i + 1;
             in [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              "$mod, code:1${toString i}, split:workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, split:movetoworkspace, ${toString ws}"
             ]
           )
           9)
@@ -154,8 +155,9 @@
 
         gesture_distance = 300; # how far is the "max" for the gesture
       };
+      hyprsplit = {
+        num_workspaces = 10;
+      };
     };
-
-    # bind =
   };
 }

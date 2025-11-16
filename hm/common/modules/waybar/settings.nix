@@ -38,10 +38,34 @@
       ];
       # Modules configuration
       "hyprland/workspaces" = {
-        format = "{name}";
-        on-scroll-up = "hyprctl dispatch workspace e+1";
-        on-scroll-down = "hyprctl dispatch workspace e-1";
+        "format" = "{icon}";
+        "format-icons" = {
+          "11" = "1";
+          "12" = "2";
+          "13" = "3";
+          "14" = "4";
+          "15" = "5";
+          "16" = "6";
+          "17" = "7";
+          "18" = "8";
+          "19" = "9";
+          "20" = "10";
+          "21" = "1";
+          "22" = "2";
+          "23" = "3";
+          "24" = "4";
+          "25" = "5";
+          "26" = "6";
+          "27" = "7";
+          "28" = "8";
+          "29" = "9";
+          "30" = "10";
+        };
+        on-scroll-up = "hyprctl dispatch split:workspace m+1";
+        on-scroll-down = "hyprctl dispatch split:workspace m-1";
         on-click = "activate";
+        "all-outputs" = false;
+        "active-only" = false;
       };
       "wlr/taskbar" = {
         all-outputs = true;
