@@ -61,8 +61,10 @@
           "29" = "9";
           "30" = "10";
         };
-        on-scroll-up = "hyprctl dispatch split:workspace m+1";
-        on-scroll-down = "hyprctl dispatch split:workspace m-1";
+        on-scroll-up = "hyprctl dispatch split:workspace r+1";
+        on-scroll-down = "hyprctl dispatch split:workspace r-1";
+        "disable-scroll" = false;
+        "persistent-workspaces" = {};
         on-click = "activate";
         "all-outputs" = false;
         "active-only" = false;
