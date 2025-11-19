@@ -93,13 +93,13 @@
       enforce_permissions = true;
     };
     windowrule = [
-      "float,class:kitty,title:.*alsamixer.*"
-      "float,size 480 480, class:kitty,title:.*nmtui.*"
-      "float,size 960 680, class:kitty,title:.*Yazi.*"
-      "float,size 960 680,title:.*Bluetooth.*"
-      "float,size 720 680,title:.*Bitwarden.*"
-      "float,title:.*Open.*"
-      "float,title:.*open.*"
+      "match:class kitty, match:title .*alsamixer.*, float on"
+      "match:class kitty,match:title .*nmtui.*, float on,size 480 480,"
+      "match:class kitty,match:title .*[yY]azi.*, float on, size 960 680"
+      "match:title .*Bluetooth.*, float on, size 720 680,"
+      "match:title .*Bitwarden.*, float on, size 720 680,"
+      "match:title .*Open.*, size 960 680"
+      "match:title .*open.*, size 960 680"
     ];
     permission = [
       "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow"

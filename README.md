@@ -4,9 +4,14 @@ This repository hosts my dotfiles and configs for various applications on NixOS.
 
 I will try to remember to give credits and links where possible but I'll probably forget.
 
+
+## Screenshots
+
+TBD
+
 ## How the repository is structured
 
-This structure was heavily inspired, and has some code taken from [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-starter-configs). This was extremely helpful in getting me to have a refactored and cleaner NixOS setup.
+This structure was heavily inspired, and was based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-starter-configs). This was extremely helpful in getting me to have a refactored and cleaner NixOS setup.
 
 ```
 .
@@ -32,12 +37,9 @@ This structure was heavily inspired, and has some code taken from [Misterio77's 
 │   └── ...
 ├── flake.nix
 ├── flake.lock
-└── install.sh
+└── install.sh # OBSOLETE
 ```
 
-## Screenshots
-
-TBD
 
 ## Installation Instructions
 
@@ -88,12 +90,14 @@ installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 - [thunderbird](https://www.thunderbird.net)
 - [bitwarden](https://bitwarden.com/)
 - [yazi](https://yazi-rs.github.io/)
-
+- [steam](https://store.steampowered.com/)
+- [Mullvad](https://mullvad.net)
 ### Environment programs
 
 Applications or programs which affect my workspace
 
 - [Hyprland](https://hyprland.org)
+   - Plugins: [hyprsplit](https://github.com/shezdy/hyprsplit). [hyprexpo](https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo)
 - [wpaperd](https://github.com/danyspin97/wpaperd)
 - [waybar](https://github.com/Alexays/Waybar) (built with `-Dexperimental=true`)
 - [swayidle](https://github.com/swaywm/swayidle)
