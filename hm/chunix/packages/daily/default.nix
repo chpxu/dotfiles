@@ -4,8 +4,8 @@
   ...
 }: {
   home.packages = with pkgs; let
-    gamePkgs = inputs.nix-gaming.packages.${pkgs.hostPlatform.system};
-    materialPkgs = inputs.materials.packages.${pkgs.hostPlatform.system};
+    gamePkgs = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system};
+    materialPkgs = inputs.materials.packages.${pkgs.stdenv.hostPlatform.system};
   in [
     thunderbird
     zotero
