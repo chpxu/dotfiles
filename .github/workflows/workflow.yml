@@ -1,0 +1,20 @@
+name: update-flake-lock
+on:
+  workflow_dispatch: # allows manual triggering
+  pull_request: # triggers on every Pull Request
+  schedule:
+    - cron: '0 0 * * 0' # runs weekly on Sunday at 00:00
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Determinate Nix
+        uses: DeterminateSystems/determinate-nix-action@v3
+      - name: Update flake.lock
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: DeterminateSystems/update-flake-lock@main
+
+# Credits: https://github.com/DeterminateSystems/update-flake-lock
