@@ -30,6 +30,7 @@
     materialPkgs.VESTA
     prismlauncher
     via
+    filezilla
   ];
   programs.yazi = {
     enable = true;
