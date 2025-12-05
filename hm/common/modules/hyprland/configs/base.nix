@@ -82,7 +82,6 @@
       key_press_enables_dpms = true;
       animate_manual_resizes = false;
       vfr = true;
-      vrr = 2;
     };
 
     ecosystem = {
