@@ -25,6 +25,7 @@
     openconnect
     gpclient
     pavucontrol
+    btop-cuda
   ];
 in {
   environment.systemPackages =
