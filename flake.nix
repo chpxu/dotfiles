@@ -6,7 +6,10 @@
     # sops-nix = {
     #   url = "github:Mic92/sops-nix";
     # };
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    cachy = {
+    	url = "github:xddxdd/nix-cachyos-kernel"; 
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +34,7 @@
     self,
     nixpkgs,
     home-manager,
-    chaotic,
+    cachy,
     hyprland,
     hyprland-plugins,
     hyprsplit,
@@ -50,7 +53,6 @@
         "dotnet-runtime-6.0.36"
         "dotnet-sdk-wrapped-6.0.428"
       ];
-      #overlays = builtins.attrValues outputs.overlays;
     };
     mkSystemConfiguration = {
       needsNvidia,
@@ -63,8 +65,8 @@
           inherit nur inputs outputs needsIntel needsNvidia hostname user;
         };
         modules = [
-          {nixpkgs.pkgs = pkgs;}
-          chaotic.nixosModules.default
+          {nixpkgs.pkgs = pkgs; nixpkgs.overlays = [cachy.overlay]; }
+          
           ./system/${hostname}/configuration.nix
           nur.modules.nixos.default
           hyprland.nixosModules.default
