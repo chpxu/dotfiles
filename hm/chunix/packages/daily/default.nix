@@ -20,9 +20,9 @@
     wvkbd
     #obs-studio
     vesktop
-    pfetch-rs
+    fastfetch
     bitwarden-desktop
-    hyprland-qtutils
+    #hyprland-qtutils
     #libsForQt5.kdenlive
     (gamePkgs.osu-lazer-bin.override {
       releaseStream = "tachyon";
