@@ -8,13 +8,15 @@
     # };
     #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     cachy = {
-    	url = "github:xddxdd/nix-cachyos-kernel"; 
+    	url = 
+    	"github:xddxdd/nix-cachyos-kernel/"; 
     };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = 
+    "github:fufexan/nix-gaming/849a92316e19aaba4a1618a9195ec637b59d81ee";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
