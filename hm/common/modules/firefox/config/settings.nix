@@ -36,7 +36,7 @@
     # "doh-rollout.doneFirstRun" = true;
     # "doh-rollout.home-region" = "GB";
     # "dom.forms.autocomplete.formautofill" = false;
-    # "dom.security.https_only_mode" = true;
+    "dom.security.https_only_mode" = true;
     # "dom.security.https_only_mode_ever_enabled" = true;
     # "dom.security.https_only_mode_ever_enabled_pbm" = true;
     "dom.webgpu.enabled" = true;
@@ -60,8 +60,8 @@
     # "extensions.webcompat.perform_injections" = true;
     # "extensions.webcompat.perform_ua_overrides" = true;
     # "fission.experiment.max-origins.qualified" = true;
-    # "font.name.monospace.x-western" = "FiraCode Nerd Font";
-    # "font.name.serif.x-western" = "Times Newer Roman";
+    "font.name.monospace.x-western" = "FiraCode Nerd Font";
+    "font.name.serif.x-western" = "Times Newer Roman";
     # "gecko.handlerService.defaultHandlersVersion" = 1;
     # "gfx.canvas.accelerated" = true;
     # "gfx.font_rendering.ahem_antialias_none" = true;
@@ -69,7 +69,7 @@
     "gfx.webrender.compositor" = true;
     "gfx.webrender.enabled" = true;
     "gfx.x11-egl.force-enabled" = true;
-    # "layers.acceleration.force-enabled" = true;
+    #"layers.acceleration.force-enabled" = true;
     # "layers.force-active" = true;
     "layers.offmainthreadcomposition.enabled" = true;
     "layers.offmainthreadcomposition.frame-rate" = 240;
@@ -99,8 +99,8 @@
     # "privacy.sanitize.pending" = "[{'id':'newtab-container','itemsToClear':[],'options':{}}]";
     "privacy.userContext.enabled" = true;
     "privacy.userContext.ui.enabled" = true;
-    "privacy.resistFingerprinting" = true;
-    "privacy.resistFingerprinting.letterboxing" = true;
+    "privacy.resistFingerprinting" = false;
+    "privacy.resistFingerprinting.letterboxing" = false;
     "privacy.trackingprotection.enabled" = true;
     "privacy.trackingprotection.socialtracking.enabled" = true;
     "privacy.partition.network_state.ocsp_cache" = true;
@@ -117,7 +117,7 @@
     "toolkit.telemetry.unified" = false;
     "toolkit.telemetry.updatePing.enabled" = false;
     "identity.fxaccounts.toolbar.pxiToolbarEnabled" = false;
-    # "webgl.dxgl.enabled" = true;
+    	"webgl.dxgl.enabled" = true;
     # "webgl.disabled" = false;
     "widget.dmabuf.force-enabled" = true;
     "widget.wayland-dmabuf-webgl.enabled" = true;

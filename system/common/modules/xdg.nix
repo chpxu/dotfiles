@@ -1,8 +1,11 @@
-{
+{pkgs, ...}: {
   xdg = {
     icons.enable = true;
     portal = {
-      enable = true;
+      enable = true; #
+      wlr.enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
   };
 }

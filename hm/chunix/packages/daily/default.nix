@@ -31,6 +31,8 @@
     prismlauncher
     via
     filezilla
+    lsfg-vk
+    lsfg-vk-ui
   ];
   programs.yazi = {
     enable = true;
