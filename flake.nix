@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming.url = 
-    "github:fufexan/nix-gaming/849a92316e19aaba4a1618a9195ec637b59d81ee";
+    "github:fufexan/nix-gaming/";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
