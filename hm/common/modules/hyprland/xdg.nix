@@ -12,7 +12,6 @@
   in {
     enable = true;
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
       inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplit
     ];
     xwayland = {
