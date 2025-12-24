@@ -9,7 +9,7 @@
     #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     cachy = {
     	url = 
-    	"github:xddxdd/nix-cachyos-kernel/"; 
+    	"github:xddxdd/nix-cachyos-kernel/release"; 
     };
     home-manager = {
       url = "github:nix-community/home-manager";
