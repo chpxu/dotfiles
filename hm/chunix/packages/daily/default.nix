@@ -25,7 +25,7 @@
     #hyprland-qtutils
     #libsForQt5.kdenlive
     (gamePkgs.osu-lazer-bin.override {
-      releaseStream = "tachyon";
+      releaseStream = "lazer";
     })
     materialPkgs.VESTA
     prismlauncher
