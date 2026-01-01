@@ -11,7 +11,7 @@
     useTextGreeter = true;
     settings = {
       default_session = {
-        command = ''${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland --greeting "With great power, comes great responsibility." '';
+        command = ''${pkgs.tuigreet}/bin/tuigreet --time --cmd "start-hyprland" --greeting "With great power, comes great responsibility." '';
         user = "greeter";
       };
     };

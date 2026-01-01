@@ -24,8 +24,7 @@
         #"i915.enable_psr=0"
         #"i915.enable_fbc=1"
         #"i915.fastboot=0"
-      ]
-      ++ lib.optional needsNvidia "NVreg_OpenRmEnableUnsupportedGpus=1";
+      ];
     initrd.supportedFilesystems = ["btrfs"];
     supportedFilesystems = ["ntfs" "btrfs"];
     kernel.sysctl = {
