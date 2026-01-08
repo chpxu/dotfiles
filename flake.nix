@@ -6,17 +6,14 @@
     # sops-nix = {
     #   url = "github:Mic92/sops-nix";
     # };
-    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     cachy = {
-    	url = 
-    	"github:xddxdd/nix-cachyos-kernel/release"; 
+      url = "github:xddxdd/nix-cachyos-kernel/release";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-gaming.url = 
-    "github:fufexan/nix-gaming/";
+    nix-gaming.url = "github:fufexan/nix-gaming/";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -67,8 +64,11 @@
           inherit nur inputs outputs needsIntel needsNvidia hostname user;
         };
         modules = [
-          {nixpkgs.pkgs = pkgs; nixpkgs.overlays = [cachy.overlay]; }
-          
+          {
+            nixpkgs.pkgs = pkgs;
+            nixpkgs.overlays = [cachy.overlay];
+          }
+
           ./system/${hostname}/configuration.nix
           nur.modules.nixos.default
           hyprland.nixosModules.default

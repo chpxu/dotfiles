@@ -13,9 +13,18 @@
   ppt = "impress.desktop";
   office = ["startcenter.desktop" word excel ppt "math.desktop" "draw.desktop" "base.desktop"];
   files = ["yazi.desktop"];
+  browser = ["firefox-devedition.desktop"];
 in {
   xdg = {
     enable = true;
+    terminal-exec = {
+      enable = true;
+      settings = {
+        default = [
+          "kitty.desktop"
+        ];
+      };
+    };
     systemDirs = {
       config = ["/etc/xdg"];
       data = ["/usr/share" "/usr/local/share"];
@@ -59,6 +68,21 @@ in {
         added = {
           "application/msword" = office;
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = office;
+          "application/x-extension-shtml" = browser;
+          "application/x-extension-xhtml" = browser;
+          "application/x-extension-html" = browser;
+          "application/x-extension-xht" = browser;
+          "application/x-extension-htm" = browser;
+          "x-scheme-handler/unknown" = browser;
+          "x-scheme-handler/mailto" = browser;
+          "x-scheme-handler/chrome" = browser;
+          "x-scheme-handler/about" = browser;
+          "x-scheme-handler/https" = browser;
+          "x-scheme-handler/http" = browser;
+          "application/xhtml+xml" = browser;
+          "application/json" = browser;
+          "text/plain" = browser;
+          "text/html" = browser;
         };
       };
     };
