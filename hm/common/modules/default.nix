@@ -28,6 +28,7 @@
     ./firefox
     ./jq
     ./syncthing
+    ./easyeffects
   ];
   # Reset GPUCaches because they seem to break after upgrading
   home.activation = {

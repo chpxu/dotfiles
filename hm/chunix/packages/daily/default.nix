@@ -33,6 +33,7 @@
     filezilla
     lsfg-vk
     lsfg-vk-ui
+    mangohud
   ];
   programs.yazi = {
     enable = true;

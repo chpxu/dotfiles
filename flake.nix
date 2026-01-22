@@ -66,7 +66,7 @@
         modules = [
           {
             nixpkgs.pkgs = pkgs;
-            nixpkgs.overlays = [cachy.overlay];
+            nixpkgs.overlays = [cachy.overlays.pinned];
           }
 
           ./system/${hostname}/configuration.nix
