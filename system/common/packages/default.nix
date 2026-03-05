@@ -34,7 +34,6 @@ in {
     else systemPackages;
 
   programs = {
-    light.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
     steam = {
