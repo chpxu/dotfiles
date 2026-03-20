@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   colour-palette,
   ...
@@ -30,8 +29,8 @@
       inputbar-fg = "${colour-palette.nord4}";
       statusbar-bg = "${colour-palette.nord0}";
       statusbar-fg = "${colour-palette.nord4}";
-      highlight-color = "${colour-palette.nord12}";
-      highlight-active-color = "${colour-palette.nord15}";
+      highlight-color = "${colour-palette.nord1105}";
+      highlight-active-color = "${colour-palette.nord1505}";
       default-bg = "${colour-palette.nord0}";
       default-fg = "${colour-palette.nord4}";
       render-loading = true;

@@ -97,6 +97,7 @@
     # "privacy.donottrackheader.enabled" = true;
     # "privacy.purge_trackers.date_in_cookie_database" = 0;
     # "privacy.sanitize.pending" = "[{'id':'newtab-container','itemsToClear':[],'options':{}}]";
+    "security.tls.version.max" = 3;
     "privacy.userContext.enabled" = true;
     "privacy.userContext.ui.enabled" = true;
     "privacy.resistFingerprinting" = false;
@@ -117,7 +118,7 @@
     "toolkit.telemetry.unified" = false;
     "toolkit.telemetry.updatePing.enabled" = false;
     "identity.fxaccounts.toolbar.pxiToolbarEnabled" = false;
-    	"webgl.dxgl.enabled" = true;
+    "webgl.dxgl.enabled" = true;
     # "webgl.disabled" = false;
     "widget.dmabuf.force-enabled" = true;
     "widget.wayland-dmabuf-webgl.enabled" = true;

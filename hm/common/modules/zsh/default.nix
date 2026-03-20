@@ -2,7 +2,8 @@
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
-    #autosuggestion.highlight="fg=#5e81ac,bold";
+    autosuggestion.highlight = "fg=#5e81ac,bold";
+    dotDir = "${config.xdg.configHome}/zsh";
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["brackets" "line"];
@@ -16,9 +17,18 @@
     initContent = ''
       eval "$(direnv hook zsh)"
       export GRIM_DEFAULT_DIR=$XDG_SCREENSHOTS_DIR
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
       zstyle ':completion:*' menu select
+      autoload -U colors && colors
     '';
     oh-my-zsh.enable = false;
+    prezto = {
+      enable = false;
+      editor = {
+        dotExpansion = true;
+        keymap = "vi";
+      };
+    };
     shellAliases = {
       dotfiles = ''
         if [ -d "$HOME/dotfiles" ]; then

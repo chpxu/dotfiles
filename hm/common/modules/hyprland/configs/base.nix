@@ -1,5 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   settings = {
+    env = [
+      "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_SESSION_TYPE,wayland"
+      "XDG_SESSION_DESKTOP,Hyprland"
+    ];
     "$mod" = "SUPER";
     bindm = [
       "$mod, mouse:272, movewindow"
@@ -91,14 +101,17 @@
     };
     windowrule = [
       "match:class kitty, match:title .*alsamixer.*, float on"
-      "match:class kitty,match:title .*nmtui.*, float on,size 480 480,"
-      "match:class kitty,match:title .*[yY]azi.*, float on, size 960 680"
+      "match:class kitty,match:title .*nmtui.*, float on, size 480 480,"
+      "match:class kitty,match:title .*Yazi.*, float on, size 960 680"
       "match:title .*Bluetooth.*, float on, size 720 680,"
       "match:title .*Bitwarden.*, float on, size 720 680,"
       "match:title .*Open.*, size 960 680"
       "match:title .*open.*, size 960 680"
     ];
     permission = [
+      "${lib.getExe pkgs.grim}, screencopy, allow"
+      "${lib.escapeRegex (lib.getExe config.programs.hyprlock.package)}, screencopy, allow"
+      "${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-wrapped-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-hyprland-([0-9.]*)\\+date^\\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$_([a-z0-9]{7})/bin/hyprctl, plugin, allow" # technically bad for sec, but since plugins must be explicitly specified, should be ok.
@@ -126,8 +139,8 @@
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
-        "$mod, mouse_down, split:workspace, r+1"
-        "$mod, mouse_up, split:workspace, r-1"
+        "$mod, mouse_down, split:workspace, r-1"
+        "$mod, mouse_up, split:workspace, r+1"
       ]
       ++ (
         # workspaces

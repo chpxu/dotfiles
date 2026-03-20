@@ -41,6 +41,7 @@
     extraPackages = with pkgs; [
       dragon-drop
     ];
+    shellWrapperName = "y";
     keymap = {
       mgr.prepend_keymap = [
         {
@@ -77,6 +78,124 @@
         tab_size = 1;
         max_width = 600;
         max_height = 900;
+      };
+      opener = {
+        play = [
+          {
+            run = ''mpv "$@"'';
+            orphan = true;
+            for = "unix";
+          }
+        ];
+        edit = [
+          {
+            run = ''"$EDITOR" "$@" '';
+            block = true;
+            for = "unix";
+          }
+        ];
+        pic = [
+          {
+            run = ''imv "$@" '';
+            orphan = true;
+            for = "unix";
+          }
+        ];
+        open = [
+          {
+            run = ''xdg-open "$@"'';
+            desc = "Open";
+          }
+        ];
+        code = [
+          {
+            run = ''code "$@"'';
+            desc = "Open in VSCode";
+          }
+        ];
+      };
+
+      open = {
+        prepend_rules = [
+          {
+            name = "*.json";
+            use = "edit";
+          }
+          {
+            name = "*.sh";
+            use = "edit";
+          }
+          {
+            name = "*.toml";
+            use = "edit";
+          }
+          {
+            name = "*.y*ml";
+            use = "edit";
+          }
+          {
+            name = "*config";
+            use = "edit";
+          }
+          {
+            name = "*.cfg";
+            use = "edit";
+          }
+          {
+            name = "*env";
+            use = "edit";
+          }
+          {
+            name = "*.d";
+            use = "edit";
+          }
+          {
+            name = "*.md";
+            use = "edit";
+          }
+          {
+            name = "*.txt";
+            use = "edit";
+          }
+          {
+            name = ".zsh*";
+            use = "edit";
+          }
+          {
+            name = "*.ini";
+            use = "edit";
+          }
+          {
+            name = "*.lua";
+            use = "edit";
+          }
+          {
+            name = "*.xml";
+            use = "edit";
+          }
+          {
+            name = "*.log";
+            use = "edit";
+          }
+          {
+            name = "*.ods";
+            use = "open";
+          }
+          {
+            name = "*.pdf";
+            use = "open";
+          }
+          {
+            name = "*.mp3";
+            use = "play";
+          }
+        ];
+        append_rules = [
+          {
+            name = "*";
+            use = "code";
+          }
+        ];
       };
     };
   };
