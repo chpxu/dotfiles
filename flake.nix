@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # sops-nix = {
     #   url = "github:Mic92/sops-nix";
     # };
@@ -14,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming.url = "github:fufexan/nix-gaming/";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/59f9f2688ac508a0584d1462151195a6c4992f99";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -33,6 +35,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixos-hardware,
     cachy,
     hyprland,
     hyprland-plugins,
@@ -63,28 +66,31 @@
         specialArgs = {
           inherit nur inputs outputs needsIntel needsNvidia hostname user;
         };
-        modules = [
-          {
-            nixpkgs.pkgs = pkgs;
-            nixpkgs.overlays = [cachy.overlays.pinned];
-          }
-
-          ./system/${hostname}/configuration.nix
-          nur.modules.nixos.default
-          hyprland.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = false;
-            home-manager.users."${user}" = import ./hm/${user}/home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit inputs outputs colour-palette hostname;
-            };
-          }
-        ];
+        modules =
+          [
+            {
+              nixpkgs.pkgs = pkgs;
+              nixpkgs.overlays = [cachy.overlays.pinned];
+            }
+            ./system/${hostname}/configuration.nix
+            nur.modules.nixos.default
+            hyprland.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = false;
+              home-manager.users."${user}" = import ./hm/${user}/home.nix;
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs colour-palette hostname;
+              };
+            }
+          ]
+          ++ pkgs.lib.optionals (hostname
+            == "jingliu") [nixos-hardware.nixosModules.lenovo-legion-16iah7h];
       };
   in {
     #overlays = import ./overlays;
+
     nixosConfigurations = {
       yoga = mkSystemConfiguration {
         needsNvidia = false;
