@@ -16,8 +16,9 @@
     })
     (import ./modules/power/power.nix {inherit pkgs;})
   ];
-
-  # Enable CUPS to print documents.
+	hardware.nvidia.prime = {
+    offload.enable = true;
+};  # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system

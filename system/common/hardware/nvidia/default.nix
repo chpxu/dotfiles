@@ -1,5 +1,5 @@
 {config, ...}: {
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["modesetting" "nvidia"];
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     powerManagement = {
