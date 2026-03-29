@@ -16,9 +16,13 @@
     })
     (import ./modules/power/power.nix {inherit pkgs;})
   ];
-	hardware.nvidia.prime = {
+  hardware.nvidia.prime = {
     offload.enable = true;
-};  # Enable CUPS to print documents.
+  };
+  environment.systemPackages = [
+    pkgs.lenovo-legion
+  ];
+  # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system

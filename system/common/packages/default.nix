@@ -26,13 +26,13 @@
     gpclient
     pavucontrol
     btop-cuda
+    brightnessctl
   ];
 in {
   environment.systemPackages =
     if needsNvidia
     then systemPackages ++ [nvidia-offload]
     else systemPackages;
-  hardware.acpilight.enable = true;
   programs = {
     dconf.enable = true;
 

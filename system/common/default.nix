@@ -14,13 +14,6 @@
       ./environment.nix
       (import ./modules/default.nix {
         inherit hostname config builtins lib pkgs needsNvidia;
-        IPU6 = {
-          enable =
-            if hostname == "jingliu"
-            then false
-            else false;
-          platform = "ipu6ep";
-        };
       })
       (import ./packages/default.nix {inherit pkgs needsNvidia needsIntel;})
     ]

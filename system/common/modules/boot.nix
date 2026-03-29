@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  hostname,
   needsNvidia,
   ...
 }: {
@@ -18,7 +19,6 @@
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     blacklistedKernelModules = ["nouveau"];
     kernelParams = [
-      "ibt=off"
       "module_blacklist=nouveau"
       #"i915.enable_psr=0"
       #"i915.enable_fbc=1"

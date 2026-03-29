@@ -7,7 +7,7 @@
   ...
 }: {
   wayland.windowManager.hyprland = let
-    base = (import ./configs/base.nix {inherit pkgs config lib;}).settings;
+    base = (import ./configs/base.nix {inherit pkgs config lib inputs;}).settings;
     extraSettings = (import ./configs/${hostname}.nix).settings;
     touchpad = (import ./configs/touchpad.nix).settings;
   in {

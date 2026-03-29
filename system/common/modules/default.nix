@@ -1,6 +1,5 @@
 {
   config,
-  builtins,
   lib,
   pkgs,
   hostname,
@@ -19,6 +18,7 @@
         pkgs
         lib
         needsNvidia
+        hostname
         ;
     })
     (import ./console.nix {inherit pkgs;})
