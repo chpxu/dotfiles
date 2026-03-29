@@ -2,7 +2,7 @@
   description = "My NixOS setup";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
+    # nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # sops-nix = {
@@ -17,10 +17,10 @@
     };
     nix-gaming.url = "github:fufexan/nix-gaming/";
     hyprland.url = "github:hyprwm/Hyprland/59f9f2688ac508a0584d1462151195a6c4992f99";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     hyprsplit = {
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
@@ -38,9 +38,8 @@
     nixos-hardware,
     cachy,
     hyprland,
-    hyprland-plugins,
     hyprsplit,
-    nur,
+    # nur,
     nix-gaming,
     materials,
     ...
@@ -64,7 +63,7 @@
     }:
       inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit nur inputs outputs needsIntel needsNvidia hostname user;
+          inherit inputs outputs needsIntel needsNvidia hostname user;
         };
         modules =
           [
@@ -73,7 +72,6 @@
               nixpkgs.overlays = [cachy.overlays.pinned];
             }
             ./system/${hostname}/configuration.nix
-            nur.modules.nixos.default
             hyprland.nixosModules.default
             home-manager.nixosModules.home-manager
             {

@@ -9,6 +9,7 @@
   wayland.windowManager.hyprland = let
     base = (import ./configs/base.nix {inherit pkgs config lib;}).settings;
     extraSettings = (import ./configs/${hostname}.nix).settings;
+    touchpad = (import ./configs/touchpad.nix).settings;
   in {
     enable = true;
     plugins = [
@@ -18,7 +19,7 @@
     systemd.enableXdgAutostart = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    settings = lib.recursiveUpdate base extraSettings;
+    settings = lib.recursiveUpdate base (extraSettings // touchpad);
   };
 
   xdg.configFile = {

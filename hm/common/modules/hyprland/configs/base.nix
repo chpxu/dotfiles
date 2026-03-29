@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   settings = {
@@ -14,9 +15,9 @@
     bindm = [
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
-    ]; #
+    ]; #1
     exec-once = [
-      "${pkgs.swayidle}/bin/swayidle -w timeout 120 '${pkgs.swaylock}/bin/swaylock -f' timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f'"
+      "${lib.getExe pkgs.swayidle} -w timeout 120 '${lib.getExe pkgs.swaylock} -f' timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f'"
       "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"
       "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
       "hyprctl setcursor Nordzy-cursors 32"
@@ -110,8 +111,9 @@
     ];
     permission = [
       "${lib.getExe pkgs.grim}, screencopy, allow"
+      "${lib.getExe pkgs.slurp}, screencopy, allow"
       "${lib.escapeRegex (lib.getExe config.programs.hyprlock.package)}, screencopy, allow"
-      "${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+      "${lib.getExe inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland}, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-wrapped-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-hyprland-([0-9.]*)\\+date^\\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$_([a-z0-9]{7})/bin/hyprctl, plugin, allow" # technically bad for sec, but since plugins must be explicitly specified, should be ok.
@@ -122,15 +124,15 @@
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-        "$mod, E, exec, yazi"
+        "$mod, E, exec, kitty -e yazi"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, F, togglefloating"
         "$mod, R, exec, rofi -show drun"
         "$mod, L, exec, swaylock"
         "$mod, G, split:grabroguewindows"
         "SUPER_SHIFT,S,exec, grim -g \"$(slurp -d)\" - | wl-copy"
-        ",XF86MonBrightnessUp,exec, light -A 5"
-        ",XF86MonBrightnessDown,exec, light -U 5"
+        ",XF86MonBrightnessUp,exec, xbacklight -inc 5"
+        ",XF86MonBrightnessDown,exec, xbacklight -dec 5"
         ",XF86AudioMicMute, exec, amixer set Capture toggle"
         ",XF86AudioMute, exec, amixer set Master toggle"
         ",XF86AudioRaiseVolume, exec, amixer set Master 1%+"
