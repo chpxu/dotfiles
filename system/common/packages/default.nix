@@ -27,6 +27,7 @@
     pavucontrol
     btop-cuda
     brightnessctl
+    
   ];
 in {
   environment.systemPackages =

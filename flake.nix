@@ -9,7 +9,7 @@
     #   url = "github:Mic92/sops-nix";
     # };
     cachy = {
-      url = "github:xddxdd/nix-cachyos-kernel/856b12c3db3cb7a2531d4f26eac6f2129284f7e1";
+      url = "github:xddxdd/nix-cachyos-kernel/ea07123367e63d106bed7f1b6e964d444c808988";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
