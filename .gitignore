@@ -7,3 +7,4 @@ system/modified
 **/wpa_*
 secrets/keys.txt
 **/obsolete
+*qcow*

@@ -117,7 +117,7 @@
     #   "editor.defaultFormatter" = editorDefaultFormatter;
     # };
     "[nix]" = {
-      "editor.defaultFormatter" = "kamadorueda.alejandra";
+      "editor.defaultFormatter" = "jnoortheen.nix-ide";
     };
     # "[latex]" = {
     #   "editor.defaultFormatter" = "James-Yu.latex-workshop";
