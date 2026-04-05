@@ -1,10 +1,11 @@
 # defines all hosts + users + homes.
 # then config their aspects in as many files you want
-{ den, ... }:
 {
-
+  den,
+  inputs,
+  ...
+}: {
   den.hosts.x86_64-linux.jingliu.users.chunix = {
-
   };
 
   # define an standalone home-manager for tux
@@ -12,26 +13,30 @@
 
   den.aspects.jingliu = {
     # host NixOS configuration
-    # includes = [
-    #   den.provides.define-user
-    #   den.provides.primary-user
-    #   (den.provides.user-shell "zsh")
-    # ];
-    nixos =
-      { pkgs, ... }:
-      {
-        environment.systemPackages = [ pkgs.hello ];
+    includes = [
+      #   den.provides.define-user
+      #   den.provides.primary-user
+      #   (den.provides.user-shell "zsh")
+      den.ful.hardware.nvidia
+      den.aspects.graphics
+    ];
+    nixos = {pkgs, ...}: {
+      imports = [inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h];
+      environment.systemPackages = [pkgs.hello];
+      hardware.nvidia.prime = {
+        # Bus IDs set by nixos-hardware
+        offload.enable = true;
+        offload.enableOffloadCmd = true;
       };
+    };
 
     # host provides default home environment for its users
-    provides.to-users.homeManager =
-      { pkgs, ... }:
-      {
-        home.packages = [
-          pkgs.vim
-          pkgs.btop-cuda
-        ];
-      };
+    provides.to-users.homeManager = {pkgs, ...}: {
+      home.packages = [
+        pkgs.vim
+        pkgs.btop-cuda
+      ];
+    };
   };
 
   # be sure to add nix-darwin input for this:

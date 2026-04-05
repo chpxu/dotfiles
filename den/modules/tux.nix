@@ -1,5 +1,6 @@
 {den, ...}: {
   # user aspect
+  den.ctx.user.includes = [den._.mutual-provider];
   den.aspects.chunix = {
     includes = [
       den.provides.define-user
@@ -14,6 +15,8 @@
 
     # user can provide NixOS configurations
     # to any host it is included on
-    provides.to-hosts.nixos = {pkgs, ...}: {};
+    provides.to-hosts = {host, ...}: {
+      nixos.programs.nh.enable = true;
+    };
   };
 }
