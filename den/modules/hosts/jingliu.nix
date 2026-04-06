@@ -22,6 +22,7 @@
       den.aspects.hardware._.nvidia
       den.aspects.hardware._.nvidia-offload
       den.aspects.graphics
+      den.aspects.starship
     ];
     nixos = {pkgs, ...}: {
       imports = [inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h];
