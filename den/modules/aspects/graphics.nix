@@ -15,9 +15,6 @@
       libglvnd
       egl-wayland
     ];
-    nvidiaPackages = with pkgs; [
-      nvidia-vaapi-driver
-    ];
     intelPackages = with pkgs; [
       intel-vaapi-driver
       intel-media-driver
@@ -29,11 +26,9 @@
         enable32Bit = true;
         extraPackages =
           commonExtraPkgs
-          ++ nvidiaPackages
           ++ intelPackages;
       };
       services.lact.enable = true;
     };
   };
-  # OpenGL
 }

@@ -7,6 +7,8 @@
 }: {
   den.hosts.x86_64-linux.jingliu.users.chunix = {
   };
+  gpu = "nvidia";
+  offload = true;
 
   # define an standalone home-manager for tux
   # den.homes.x86_64-linux.chunix = { };
@@ -17,17 +19,13 @@
       #   den.provides.define-user
       #   den.provides.primary-user
       #   (den.provides.user-shell "zsh")
-      den.ful.hardware.nvidia
+      den.aspects.hardware._.nvidia
+      den.aspects.hardware._.nvidia-offload
       den.aspects.graphics
     ];
     nixos = {pkgs, ...}: {
       imports = [inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h];
       environment.systemPackages = [pkgs.hello];
-      hardware.nvidia.prime = {
-        # Bus IDs set by nixos-hardware
-        offload.enable = true;
-        offload.enableOffloadCmd = true;
-      };
     };
 
     # host provides default home environment for its users

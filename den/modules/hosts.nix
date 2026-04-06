@@ -1,11 +1,7 @@
 {
   den.hosts.x86_64-linux.jingliu = {
-    users.chunix = { };
-    hybrid-gpu = {
-      enable = true;
-      nvidiaBusID = "";
-      intelBusID = "";
-    };
+    users.chunix = {};
+    gpu = "nvidia";
+    offload = true;
   };
-
 }
