@@ -23,6 +23,7 @@
       {
         imports = [ inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h ];
         environment.systemPackages = [ pkgs.hello ];
+        networking.hostName = "jingliu";
       };
     gpu = "nvidia";
     offload = true;

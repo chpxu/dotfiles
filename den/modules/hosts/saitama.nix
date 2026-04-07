@@ -19,15 +19,22 @@
     # host NixOS configuration
     includes = [
       den.aspects.boot
-
+      den.aspects.console
+      den.aspects.fonts
+      den.aspects.networking
+      den.aspects.security
       den.aspects.hardware._.nvidia
       den.aspects.graphics
+      # den.aspects.greeter
+      den.aspects.sound
       den.aspects.starship
     ];
     nixos =
       { pkgs, ... }:
       {
+        networking.hostName = "saitama";
         environment.systemPackages = [ pkgs.hello ];
+
       };
 
     # # host provides default home environment for its users
