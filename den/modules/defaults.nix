@@ -1,8 +1,13 @@
-{ lib, den, ... }:
+{
+  lib,
+  den,
+  inputs,
+  ...
+}:
 {
   den.default.nixos.system.stateVersion = "25.11";
   den.default.homeManager.home.stateVersion = "25.11";
-
+  # den.default.nixos.modules.nixpkgs.overlays = [ inputs.cachy.overlay.pinned ];
   # enable hm by default
   den.schema.user.classes = lib.mkDefault [ "homeManager" ];
 

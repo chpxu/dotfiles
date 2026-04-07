@@ -1,7 +1,8 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
-    (inputs.flake-file.flakeModules.dendritic or {})
-    (inputs.den.flakeModules.dendritic or {})
+    (inputs.flake-file.flakeModules.dendritic or { })
+    (inputs.den.flakeModules.dendritic or { })
   ];
 
   # other inputs may be defined at a module using them.
@@ -22,5 +23,8 @@
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    cachy = {
+      url = "github:xddxdd/nix-cachyos-kernel/beaf7a533ae106c2681de2624da94707f9857f1f";
+    };
   };
 }

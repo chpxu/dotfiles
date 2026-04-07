@@ -6,32 +6,34 @@
   ...
 }:
 {
-  den.hosts.x86_64-linux.jingliu.users.chunix = {
+  den.hosts.x86_64-linux.saitama.users.chunix = {
   };
 
-  den.aspects.jingliu = {
+  # define an standalone home-manager for tux
+  # den.homes.x86_64-linux.chunix = { };
+
+  den.aspects.saitama = {
+    gpu = "nvidia";
+    offload = false;
+
     # host NixOS configuration
     includes = [
       den.aspects.boot
+
       den.aspects.hardware._.nvidia
-      den.aspects.hardware._.nvidia-offload
       den.aspects.graphics
       den.aspects.starship
     ];
     nixos =
       { pkgs, ... }:
       {
-        imports = [ inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h ];
         environment.systemPackages = [ pkgs.hello ];
       };
-    gpu = "nvidia";
-    offload = true;
 
-    # host provides default home environment for its users
+    # # host provides default home environment for its users
     # provides.to-users.homeManager = {pkgs, ...}: {
     #   home.packages = [
     #     pkgs.vim
-    #     pkgs.btop-cuda
     #   ];
     # };
   };

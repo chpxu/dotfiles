@@ -8,3 +8,4 @@ system/modified
 secrets/keys.txt
 **/obsolete
 *qcow*
+*result*

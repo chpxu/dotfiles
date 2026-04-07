@@ -5,6 +5,7 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
+    cachy.url = "github:xddxdd/nix-cachyos-kernel/beaf7a533ae106c2681de2624da94707f9857f1f";
     den.url = "github:vic/den";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
