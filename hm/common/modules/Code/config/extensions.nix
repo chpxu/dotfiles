@@ -69,15 +69,15 @@ in {
       # Nix
       #bbenoist.nix # Better Nix Syntax highlighting
       jnoortheen.nix-ide
-      kamadorueda.alejandra # Nix formatter
+      # kamadorueda.alejandra # Nix formatter
       mkhl.direnv
       # TeX stuff
       # james-yu.latex-workshop
       # valentjn.vscode-ltex
       # eamodio.gitlens
-      tamasfe.even-better-toml
+      # tamasfe.even-better-toml
       # Markup languages and CSS
-      dotjoshjohnson.xml
+      # dotjoshjohnson.xml
       # formulahendry.auto-rename-tag
       # formulahendry.auto-close-tag
       # gencer.html-slim-scss-css-class-completion
@@ -85,7 +85,7 @@ in {
       # dbaeumer.vscode-eslint
       # esbenp.prettier-vscode
       # Shell
-      timonwong.shellcheck
+      # timonwong.shellcheck
       # Python
       # ms-toolsai.jupyter
     ]
