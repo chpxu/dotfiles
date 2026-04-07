@@ -43,15 +43,16 @@
   };
   # enable hm by default
   den.schema.user.classes = lib.mkDefault [ "homeManager" ];
-
+  den.schema.hosts = {
+    includes = [
+      den.provides.define-user
+      den.provides.hostname
+      den.provides.inputs'
+      den.provides.self'
+    ];
+  };
   # host<->user provides
   den.ctx.user.includes = [ den._.mutual-provider ];
-  # includes = [
-  #   den.provides.define-user
-  #   den.provides.hostname
-  #   den.provides.inputs'
-  #   den.provides.self'
-  # ];
 
   # User TODO: REMOVE THIS
   # den.aspects.tux.nixos = {
