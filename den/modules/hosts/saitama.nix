@@ -7,6 +7,7 @@
 }:
 {
   den.hosts.x86_64-linux.saitama.users.chunix = {
+
   };
 
   # define an standalone home-manager for tux
@@ -23,8 +24,8 @@
       den.aspects.fonts
       den.aspects.networking
       den.aspects.security
-      den.aspects.hardware._.nvidia
       den.aspects.graphics
+      den.aspects.hardware._.nvidia
       # den.aspects.greeter
       den.aspects.sound
       den.aspects.starship
@@ -32,17 +33,18 @@
     nixos =
       { pkgs, ... }:
       {
-        networking.hostName = "saitama";
         environment.systemPackages = [ pkgs.hello ];
 
       };
 
     # # host provides default home environment for its users
-    # provides.to-users.homeManager = {pkgs, ...}: {
-    #   home.packages = [
-    #     pkgs.vim
-    #   ];
-    # };
+    provides.to-users.homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = [
+          pkgs.fresh-editor
+        ];
+      };
   };
 
   # be sure to add nix-darwin input for this:

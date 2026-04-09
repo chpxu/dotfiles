@@ -25,7 +25,7 @@
               host = inputs.self.nixosConfigurations.${hostname}.config;
             in
             ''
-              ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@" -device virtio-gpu-pci
+              ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@" -m 4096
             '';
         };
     in

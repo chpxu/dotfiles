@@ -5,10 +5,27 @@
   ...
 }:
 {
-  den.default.homeManager.home.stateVersion = "25.11";
+  den.default.includes = [
+    # den.provides.home-manager
+    den.provides.define-user
+
+    (
+      { host, ... }:
+      {
+        ${host.class}.networking.hostName = host.name;
+      }
+    )
+  ];
+  den.default.homeManager = {
+    programs.home-manager.enable = true;
+    home.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
+    home.stateVersion = "25.11";
+  };
   # den.default.nixos.modules.nixpkgs.overlays = [ inputs.cachy.overlay.pinned ];
   den.default.nixos = {
     system.stateVersion = "25.11";
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = false;
     nix = {
       settings = {
         experimental-features = [
@@ -37,15 +54,17 @@
       gc = {
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 10d";
+        options = "--delete-older-than 30d";
       };
     };
   };
   # enable hm by default
-  den.schema.user.classes = lib.mkDefault [ "homeManager" ];
+  den.schema.user.classes = lib.mkDefault [
+    "homeManager"
+    "nixos"
+  ];
   den.schema.hosts = {
     includes = [
-      den.provides.define-user
       den.provides.hostname
       den.provides.inputs'
       den.provides.self'
