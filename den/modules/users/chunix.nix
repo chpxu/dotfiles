@@ -1,4 +1,4 @@
-{ den, ... }:
+{ den, inputs, ... }:
 {
 
   den.aspects.chunix = {
@@ -41,6 +41,9 @@
 
     homeManager =
       { config, pkgs, ... }:
+      let
+        materialPkgs = inputs.materials.packages.${pkgs.stdenv.hostPlatform.system};
+      in
       {
         home.packages = with pkgs; [
           grim
@@ -52,6 +55,7 @@
           unzip
           jmtpfs
           dragon-drop
+          materialPkgs.VESTA
         ];
         programs.git.settings = {
           user = {

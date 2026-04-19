@@ -26,5 +26,8 @@
     cachy = {
       url = "github:xddxdd/nix-cachyos-kernel/beaf7a533ae106c2681de2624da94707f9857f1f";
     };
+    materials = {
+      url = "github:chpxu/materials-flake";
+    };
   };
 }
