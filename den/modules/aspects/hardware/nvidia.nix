@@ -5,9 +5,15 @@
 }:
 {
   den.aspects.hardware = den.lib.parametric {
+
     provides.nvidia =
       { gpu, ... }:
       lib.optionalAttrs (gpu == "nvidia") {
+        includes = [
+          (den.provides.unfree [
+            "nvidia-x11"
+          ])
+        ];
         nixos =
           { config, ... }:
           {

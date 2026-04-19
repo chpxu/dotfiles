@@ -1,10 +1,22 @@
-{ }:
+{ inputs, ... }:
 {
   den.aspects.chunix-xdg = {
+    nixos =
+      { pkgs, ... }:
+      {
+        xdg = {
+          icons.enable = true;
+          portal = {
+            enable = true;
+            wlr.enable = true;
+            xdgOpenUsePortal = true;
+            extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+          };
+        };
+      };
     homeManager =
       {
         config,
-        inputs,
         pkgs,
         ...
       }:
@@ -52,6 +64,7 @@
           };
           userDirs = {
             enable = true;
+            setSessionVariables = true;
             createDirectories = true;
             desktop = "${config.home.homeDirectory}/Desktop";
             documents = "${config.home.homeDirectory}/Documents";
@@ -62,9 +75,9 @@
             templates = null;
             publicShare = null;
             extraConfig = {
-              XDG_MISC_DIR = "${config.home.homeDirectory}/Misc";
-              XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Screenshots";
-              XDG_WALLPAPER_DIR = "${config.home.homeDirectory}/Pictures/Wallpapers";
+              MISC = "${config.home.homeDirectory}/Misc";
+              SCREENSHOTS = "${config.home.homeDirectory}/Screenshots";
+              WALLPAPER = "${config.home.homeDirectory}/Pictures/Wallpapers";
             };
           };
           mime.enable = true;

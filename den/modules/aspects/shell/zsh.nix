@@ -27,7 +27,6 @@ _: {
             zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
             zstyle ':completion:*' menu select
             autoload -U colors && colors
-            export DOTFILESDIR=$(find "$HOME" -maxdepth 2 -type d -name "dotfiles" -print -quit 2>/dev/null)
             [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
           '';
           oh-my-zsh.enable = false;
@@ -39,7 +38,10 @@ _: {
             };
           };
           shellAliases = {
-            dotfiles = ''cd "$DOTFILESDIR"'';
+            dotfiles = ''
+              export DOTFILESDIR=$(find "$HOME" -maxdepth 2 -type d -name "dotfiles" -print -quit 2>/dev/null)
+              cd "$DOTFILESDIR"
+            '';
             switch = "sudo nixos-rebuild switch --flake .#$(hostname)";
             alldeps = "dotfiles; nix flake update";
             updep = "dotfiles; nix flake update $1";

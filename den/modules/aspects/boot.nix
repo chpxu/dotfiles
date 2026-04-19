@@ -11,8 +11,8 @@
             };
             efi.canTouchEfiVariables = true;
           };
-          kernelPackages = pkgs.linuxPackages;
-          # kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+          # kernelPackages = pkgs.linuxPackages;
+          kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
           kernelModules = [
             "uinput"
             "acpi_call"

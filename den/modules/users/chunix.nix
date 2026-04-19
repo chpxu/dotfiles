@@ -18,21 +18,67 @@
       den.aspects.waybar
       den.aspects.wpaperd
       den.aspects.git
+      den.aspects.yazi
 
       den.aspects.sound._.easyeffects
       den.aspects.zathura
+      den.aspects.dev
       den.aspects.dev._.neovim
       den.aspects.dev._.vscode
+      den.aspects.productivity
+      den.aspects.art
+
     ];
 
     homeManager =
-      { pkgs, ... }:
+      { config, pkgs, ... }:
       {
-        home.packages = [ pkgs.fresh-editor ];
+        home.packages = with pkgs; [
+          grim
+          slurp
+          swayidle
+          wl-clipboard
+          wofi
+          imv
+          xdg-utils
+          unzip
+          jmtpfs
+          dragon-drop
+        ];
         programs.git.settings = {
           user = {
             name = "chpxu";
             email = "dev.chpxu@outlook.com";
+          };
+        };
+        gtk = {
+          enable = true;
+          theme = {
+            name = "Nordic";
+            package = pkgs.nordic;
+          };
+          iconTheme = {
+            name = "Nordzy";
+            package = pkgs.nordzy-icon-theme;
+          };
+          cursorTheme = {
+            name = "Nordzy-cursors";
+            package = pkgs.nordzy-cursor-theme;
+            size = 32;
+          };
+          gtk2 = {
+            configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
+          };
+        };
+        dconf = {
+          settings = {
+            "org/gnome/desktop/interface" = {
+              gtk-theme = "${config.gtk.theme.name}";
+              cursor-theme = "${config.gtk.cursorTheme.name}";
+            };
+            "org/gnome/desktop/wm/preferences" = {
+              theme = "${config.gtk.theme.name}";
+            };
           };
         };
       };
@@ -42,14 +88,28 @@
     provides.to-hosts =
       { host, ... }:
       {
-        nixos = {
-          programs.nh = {
-            enable = true;
-            clean.enable = true;
-            clean.extraArgs = "--keep-since 30d --keep 3";
-            flake = "$(dotfiles)";
+        nixos =
+          { pkgs, ... }:
+          {
+            programs.nh = {
+              enable = true;
+              clean.enable = true;
+              clean.extraArgs = "--keep-since 30d --keep 3";
+              flake = "$(dotfiles)";
+            };
+            environment.systemPackages = with pkgs; [
+              openconnect
+              gpclient
+            ];
+            programs = {
+              dconf.enable = true;
+              mtr.enable = true;
+              gnupg.agent = {
+                enable = true;
+                enableSSHSupport = true;
+              };
+            };
           };
-        };
 
       };
     user = _: {

@@ -1,21 +1,47 @@
-{den, ...}: {
+{ den, inputs, ... }:
+{
   den.aspects.gaming = {
-    nixos = {
-      pkgs,
-      lib,
-      ...
-    }: {
-      programs.steam = {
-        enable = lib.mkDefault false;
-        remotePlay.openFirewall = lib.mkDefault false; # Open ports in the firewall for Steam Remote Play
-        dedicatedServer.openFirewall = lib.mkDefault false;
-        extraCompatPackages = with pkgs; [
-          proton-ge-bin
-        ];
+    includes = [
+      (den.provides.unfree [
+        "steam"
+      ])
+    ];
+    nixos =
+      {
+        pkgs,
+        lib,
+        ...
+      }:
+      {
+
+        programs.steam = {
+          enable = lib.mkDefault false;
+          remotePlay.openFirewall = lib.mkDefault false; # Open ports in the firewall for Steam Remote Play
+          dedicatedServer.openFirewall = lib.mkDefault false;
+          extraCompatPackages = with pkgs; [
+            proton-ge-bin
+          ];
+        };
+        # home.packages = [
+        #   inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
+        # ];
       };
-      # home.packages = [
-      #   inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
-      # ];
+    provides.minecraft = {
+      homeManager =
+        { pkgs, ... }:
+        {
+          home.packages = [ pkgs.prismlauncher ];
+        };
+    };
+    provides.osu = {
+      homeManager =
+        { pkgs, ... }:
+        let
+          gamePkgs = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system};
+        in
+        {
+          home.packages = [ gamePkgs.osu-lazer-bin ];
+        };
     };
   };
 }
