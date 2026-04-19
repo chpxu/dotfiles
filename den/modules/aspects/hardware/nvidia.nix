@@ -35,7 +35,7 @@
       lib.optionalAttrs (host ? offload) {
         nixos = _: {
           hardware.nvidia.prime = {
-            # Bus IDs set by nixos-hardware
+            # Bus IDs set by nixos-hardware or host
             offload = {
               enable = true;
               enableOffloadCmd = true;

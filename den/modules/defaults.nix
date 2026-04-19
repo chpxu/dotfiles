@@ -6,7 +6,6 @@
 }:
 {
   den.default.includes = [
-    # den.provides.home-manager
     den.provides.define-user
 
     (
@@ -26,6 +25,9 @@
     system.stateVersion = "25.11";
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = false;
+    home-manager.extraSpecialArgs = let nordtheme = import ./_nordtheme.nix; in {
+       inherit nordtheme;
+     };
     nix = {
       settings = {
         experimental-features = [
@@ -52,7 +54,7 @@
         dates = [ "03:45" ];
       };
       gc = {
-        automatic = true;
+        automatic = false;
         dates = "weekly";
         options = "--delete-older-than 30d";
       };

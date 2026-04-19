@@ -1,0 +1,121 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"LaTeX Notes Template": {
+		"scope": "tex,latex",
+		"prefix": "rootNote",
+		"description": "This produces a new LaTeX notes template for the root document of a LaTeX Notes project",
+		"body": [
+			"\\documentclass{book}",
+			"\\usepackage[utf8]{inputenc}",
+			"\\pagestyle{headings}",
+			"%===Other Packages",
+			"\\usepackage{tikz, amsmath, amssymb, amsthm, esint, xr-hyper, hyperref, siunitx, mathtools, pgfplots, graphicx, float, biblatex, subfiles, tabularx, polynom}",
+			"\\usepackage[compat=1.1.0]{tikz-feynman}",
+			"\\usepackage[most]{tcolorbox}",
+			"\\usepackage[margin=1.0in]{geometry}",
+			"\\pgfplotsset{compat=1.18}",
+			"\\usepackage[export]{adjustbox}",
+			
+			"%Centering and Graphics",
+			"\\makeatletter",
+			"\\g@addto@macro\\@floatboxreset\\centering",
+			"\\makeatother",
+			"\\DeclareMathOperator{\\lcm}{lcm}",
+			"\\graphicspath{./img/}",
+			
+			"% Define floor and ceil",
+			"\\DeclarePairedDelimiter\\ceil{\\lceil}{\\rceil}",
+			"\\DeclarePairedDelimiter\\floor{\\lfloor}{\\rfloor}",
+			
+			"%AMSTHM stuff for backup",
+			"\\theoremstyle{definition}",
+			"\\newtheorem{definition}{Definition}[section]",
+			
+			"\\theoremstyle{definition}",
+			"\\newtheorem{axiom}{Axiom}[section]",
+			"\\theoremstyle{plain}",
+			"\\newtheorem{proposition}{Proposition}[section]",
+			
+			"\\theoremstyle{remark}",
+			"\\newtheorem*{remark}{Remark}",
+			
+			"\\theoremstyle{definition}",
+			"\\newtheorem{theorem}{Theorem}[section]",
+			
+			"\\theoremstyle{definition}",
+			"\\newtheorem{corollary}{Corollary}[section]",
+			
+			"\\theoremstyle{definition}",
+			"\\newtheorem{lemma}{Lemma}[section]",
+			"%===tcb environments",
+			"\\tcbuselibrary{theorems}",
+			"\\newtcbtheorem[number within=section]{Theorem}{Theorem}{colback=black!10!white,colframe=red!80!black}{theorem}",
+			
+			"\\newtcbtheorem[number within=section]{Lemma}{Lemma}{colback=black!10!white,colframe=red!40!black}{theorem}",
+			
+			"\\newtcbtheorem[number within=section]{Proposition}{Proposition}{colback=black!10!white,colframe=red!60!black}{theorem}",
+			
+			"\\newtcbtheorem[number within=section]{Corollary}{Corollary}{colback=black!10!white,colframe=red!20!black}{theorem}",
+			
+			"\\newtcbtheorem[number within=section]{Definition}{Definition}{colback=black!10!white,colframe=black}{theorem}",
+			
+			"\\newtcbtheorem{Remark}{Remark}{colback=white,colframe=black}{theorem}",
+			
+			"\\newtcolorbox{tBox}{colback=black!10!white,colframe=black}",
+			"% This is to set up xr for cross-referencing. This hopefully fixes many cross-referencing issues. Need to change how I label though in reference.",
+			
+			"\\makeatletter",
+			"\\newcommand*{\\addFileDependency}[1]{% argument=file name and extension",
+			  "\t\\typeout{(#1)}",
+			  "\t\\@addtofilelist{#1}",
+			  "\t\\IfFileExists{#1}{}{\\typeout{No file #1.}}",
+			"}",
+			"\\makeatother",
+			
+			"\\newcommand*{\\myexternaldocument}[1]{%",
+				"\t\\externaldocument{#1}%",
+				"\t\\addFileDependency{#1.tex}%",
+				"%\t\\addFileDependency{#1.aux}",
+			"}",
+			"% Insert subfiles here with \\myexternaldocument",
+			"${1:subfile}",
+			"\\title{${2:title}}",
+			"\\author{${3:author}}",
+			"\\date{${4:date}}",
+			"\\begin{document}",
+			"\\maketitle",
+			"\\tableofcontents",
+			"${5:subfile}",
+			"\\end{document}"
+		]
+		
+	},
+	"LaTeX Subfiles Template": {
+		"scope": "tex,latex",
+		"prefix": "subfile",
+		"description": "A template for LaTeX subfile",
+		"body": [
+			"\\documentclass[${1:rootDoc}]{subfiles}",
+			"\\externaldocument[I-]{${1:rootDoc}} ",
+			"\\graphicspath{{${2:imgFolderPath}}}",
+			"\\begin{document}",
+			"${3:doc}",
+			"\\end{document}"
+		]
+	}
+}

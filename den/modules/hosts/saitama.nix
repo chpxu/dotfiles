@@ -26,34 +26,24 @@
       den.aspects.security
       den.aspects.graphics
       den.aspects.hardware._.nvidia
-      # den.aspects.greeter
+      den.aspects.greeter
       den.aspects.sound
-      den.aspects.starship
     ];
-    nixos =
-      { pkgs, ... }:
-      {
-        environment.systemPackages = [ pkgs.hello ];
+    # nixos =
+    #   { pkgs, ... }:
+    #   {
+    #     environment.systemPackages = [ pkgs.hello ];
 
-      };
+    #   };
 
-    # # host provides default home environment for its users
-    provides.to-users.homeManager =
-      { pkgs, ... }:
-      {
-        home.packages = [
-          pkgs.fresh-editor
-        ];
-      };
+    # # # host provides default home environment for its users
+    # provides.to-users.homeManager =
+    #   { pkgs, ... }:
+    #   {
+    #     # home.packages = [
+    #     #   # pkgs.fresh-editor
+    #     # ];
+    #   };
   };
 
-  # be sure to add nix-darwin input for this:
-  # den.hosts.aarch64-darwin.apple.users.alice = { };
-
-  # other hosts can also have user tux.
-  # den.hosts.x86_64-linux.south = {
-  #   wsl = { }; # add nixos-wsl input for this.
-  #   users.tux = { };
-  #   users.orca = { };
-  # };
 }

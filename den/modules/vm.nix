@@ -10,8 +10,8 @@
 
 {
   # USER TODO: remove this tty-autologin used for the VM
-  den.aspects.jingliu.includes = [ (den.provides.tty-autologin "chunix") ];
-  den.aspects.saitama.includes = [ (den.provides.tty-autologin "chunix") ];
+  # den.aspects.jingliu.includes = [ (den.provides.tty-autologin "chunix") ];
+  # den.aspects.saitama.includes = [ (den.provides.tty-autologin "chunix") ];
 
   perSystem =
     { pkgs, ... }:
