@@ -1,5 +1,5 @@
 _: {
-  den.aspects.git = {
+  den.aspects.dev.provides.git = {
     homeManager =
       { pkgs, ... }:
       {

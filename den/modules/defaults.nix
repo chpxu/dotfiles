@@ -67,13 +67,11 @@
       environment.systemPackages = with pkgs; [
         curl
         cacert
-        dconf
         linux-pam
         pciutils
         age
         swaylock-effects
         btop-cuda
-
       ];
     };
   # enable hm by default
@@ -87,6 +85,12 @@
       den.provides.inputs'
       den.provides.self'
     ];
+    nixos = {
+      environment.sessionVariables = {
+        CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"; # try to fix curl cannot self-sign error
+
+      };
+    };
   };
   # host<->user provides
   den.ctx.user.includes = [ den._.mutual-provider ];

@@ -27,6 +27,12 @@
       };
     gpu = "nvidia";
     offload = true;
+    hardware.cpu = {
+      intel = {
+        updateMicrocode = true;
+        # sgx.provision.enable = true;
+      };
+    };
 
     # host provides default home environment for its users
     # provides.to-users.homeManager = {pkgs, ...}: {

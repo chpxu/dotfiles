@@ -22,15 +22,18 @@
       den.aspects.networking
       den.aspects.security
       den.aspects.graphics
+      den.aspects.hardware
       den.aspects.hardware._.nvidia
       den.aspects.overlays
-      # den.aspects.greeter
+      den.aspects.greeter
       den.aspects.sound
+      den.aspects.disks
+      den.aspects.time
     ];
     nixos =
       { pkgs, ... }:
       {
-        #     environment.systemPackages = [ pkgs.hello ];
+        hardware.cpu.amd.updateMicrocode = true;
         fileSystems."/" = {
           device = "/dev/disk/by-uuid/3e86524a-64ec-4784-bb8f-61301a6586d9";
           fsType = "btrfs";

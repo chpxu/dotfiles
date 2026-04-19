@@ -17,6 +17,10 @@
         nixos =
           { config, ... }:
           {
+            environment.variables = {
+              LIBVA_DRIVER_NAME = "nvidia";
+              NVD_BACKEND = "direct";
+            };
             services.xserver.videoDrivers = [
               "modesetting"
               "nvidia"

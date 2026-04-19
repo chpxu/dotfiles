@@ -6,6 +6,7 @@
       den.provides.primary-user
       den._.mutual-provider
       (den.provides.user-shell "zsh")
+      den.aspects.hardware._.tablet
       den.aspects.chunix-xdg
       den.aspects.hyprland
       den.aspects.starship
@@ -16,17 +17,25 @@
       den.aspects.direnv
       den.aspects.jq
       den.aspects.waybar
+      den.aspects.sway
       den.aspects.wpaperd
-      den.aspects.git
       den.aspects.yazi
 
+      den.aspects.sound._.pipewire
       den.aspects.sound._.easyeffects
       den.aspects.zathura
       den.aspects.dev
+      den.aspects.dev._.git
       den.aspects.dev._.neovim
       den.aspects.dev._.vscode
       den.aspects.productivity
+      den.aspects.mpv
+      den.aspects.syncthing
       den.aspects.art
+      den.aspects.gaming
+      den.aspects.gaming._.minecraft
+      den.aspects.gaming._.osu
+      den.aspects.browsers._.firefox
 
     ];
 
@@ -38,7 +47,6 @@
           slurp
           swayidle
           wl-clipboard
-          wofi
           imv
           xdg-utils
           unzip
@@ -95,12 +103,15 @@
               enable = true;
               clean.enable = true;
               clean.extraArgs = "--keep-since 30d --keep 3";
-              flake = "$(dotfiles)";
             };
             environment.systemPackages = with pkgs; [
               openconnect
               gpclient
             ];
+            environment.sessionVariables = {
+              LIBSEAT_BACKEND = "logind";
+              XCURSOR_SIZE = "32";
+            };
             programs = {
               dconf.enable = true;
               mtr.enable = true;
@@ -109,6 +120,14 @@
                 enableSSHSupport = true;
               };
             };
+
+            gtk.iconCache.enable = true;
+            qt = {
+              enable = true;
+              style = "gtk2";
+              platformTheme = "gtk2";
+            };
+
           };
 
       };

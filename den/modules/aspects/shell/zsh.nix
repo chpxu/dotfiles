@@ -1,5 +1,8 @@
 _: {
   den.aspects.zsh = {
+    nixos = {
+      environment.pathsToLink = [ "/share/zsh" ];
+    };
     homeManager =
       { config, ... }:
       {
@@ -41,8 +44,10 @@ _: {
             dotfiles = ''
               export DOTFILESDIR=$(find "$HOME" -maxdepth 2 -type d -name "dotfiles" -print -quit 2>/dev/null)
               cd "$DOTFILESDIR"
+              export NH_FLAKE="$DOTFILESDIR"
             '';
             switch = "sudo nixos-rebuild switch --flake .#$(hostname)";
+            nhos = "nh os switch";
             alldeps = "dotfiles; nix flake update";
             updep = "dotfiles; nix flake update $1";
           };
