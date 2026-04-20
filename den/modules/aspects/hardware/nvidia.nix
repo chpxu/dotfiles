@@ -7,8 +7,7 @@
   den.aspects.hardware = {
 
     provides.nvidia =
-      { host, ... }:
-      lib.optionalAttrs (host.gpu == "nvidia") {
+      { host, ... }: {
         includes = [
           (den.provides.unfree [
             "nvidia-x11"

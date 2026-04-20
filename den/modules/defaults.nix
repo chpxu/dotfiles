@@ -19,10 +19,10 @@
     home.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
     home.stateVersion = "25.11";
   };
-  # den.default.nixos.modules.nixpkgs.overlays = [ inputs.cachy.overlay.pinned ];
   den.default.nixos =
     { pkgs, config, ... }:
     {
+      networking.useDHCP = true;
       system.stateVersion = "25.11";
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = false;
