@@ -21,7 +21,7 @@
   };
   # den.default.nixos.modules.nixpkgs.overlays = [ inputs.cachy.overlay.pinned ];
   den.default.nixos =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       system.stateVersion = "25.11";
       home-manager.useGlobalPkgs = true;
@@ -32,6 +32,7 @@
         in
         {
           inherit nordtheme;
+          hostname = config.networking.hostName;
         };
       nix = {
         settings = {

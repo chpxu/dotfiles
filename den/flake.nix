@@ -22,7 +22,8 @@
     };
     import-tree.url = "github:vic/import-tree";
     materials.url = "github:chpxu/materials-flake";
+    nix-gaming.url = "github:fufexan/nix-gaming/";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 }

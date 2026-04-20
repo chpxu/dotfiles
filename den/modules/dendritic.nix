@@ -7,6 +7,7 @@
 
   # other inputs may be defined at a module using them.
   flake-file.inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     den.url = "github:vic/den";
     flake-file.url = "github:vic/flake-file";
     home-manager = {
@@ -18,6 +19,7 @@
     #   url = "github:hyprwm/hyprland-plugins";
     #   inputs.hyprland.follows = "hyprland";
     # };
+    nix-gaming.url = "github:fufexan/nix-gaming/";
     hyprsplit = {
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended

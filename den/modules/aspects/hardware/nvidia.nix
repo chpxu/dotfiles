@@ -4,11 +4,11 @@
   ...
 }:
 {
-  den.aspects.hardware = den.lib.parametric {
+  den.aspects.hardware = {
 
     provides.nvidia =
-      { gpu, ... }:
-      lib.optionalAttrs (gpu == "nvidia") {
+      { host, ... }:
+      lib.optionalAttrs (host.gpu == "nvidia") {
         includes = [
           (den.provides.unfree [
             "nvidia-x11"
@@ -42,7 +42,7 @@
       };
     provides.nvidia-offload =
       { host, ... }:
-      lib.optionalAttrs (host ? offload) {
+      lib.optionalAttrs (host ? offload && host.offload) {
         nixos = _: {
           hardware.nvidia.prime = {
             # Bus IDs set by nixos-hardware or host

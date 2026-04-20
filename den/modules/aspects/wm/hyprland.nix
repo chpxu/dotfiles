@@ -33,7 +33,7 @@
       {
         config,
         pkgs,
-        host,
+        hostname,
         ...
       }:
       {
@@ -44,8 +44,8 @@
               pkgs
               inputs
               lib
+              hostname
               ;
-            hostname = host.hostName;
           })
         ];
       };
