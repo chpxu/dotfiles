@@ -1,71 +1,11 @@
-# dotfiles
+# dotfiles 
+My dotfiles for NixOS. Based on `vic/den`. Personalised for gaming, software and scientific development.
 
-This repository hosts my dotfiles and configs for various applications on NixOS. Heavily WIP and continually evolving.
+## Hosts
 
-I will try to remember to give credits and links where possible but I'll probably forget.
-
-
-## Screenshots
-
-TBD
-
-## How the repository is structured
-
-This structure was heavily inspired, and was based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-starter-configs). This was extremely helpful in getting me to have a refactored and cleaner NixOS setup.
-
-```
-.
-├── hm/
-│   ├── common/
-│   │   ├── packages/
-│   │   │   └── # A set of common packages I share across my users where no configuration is required
-│   │   └── modules/
-│   │       └── # A set of common configurations for programs I share across my users
-│   ├── chunix/
-│       ├── home.nix
-│       └── ...
-│
-├── overlays # a set of overlays
-├── system/
-│   ├── common/
-│   │   └── # A set of common packages/configurations I share across my systems
-│   ├── yoga # configuration for my Yoga C940
-│   └── legion # Configuration for my Legion 5 Pro Gen 7 (WIP)
-├── docs/
-│   └── ... # website for dotfiles
-├── Pictures/
-│   └── ...
-├── flake.nix
-├── flake.lock
-└── install.sh # OBSOLETE
-```
-
-
-## Installation Instructions
-
-This NixOS setup integrates `home-manager` into the system configuration so that all users can simply be updated with `sudo nixos-rebuild switch .#<hostname>`.
-
-1. Whether you're booting from scratch or not, you need `git` (or just have the repo locally). If you don't have git, you can temporarily invoke it with `nix-shell -p git --run "git clone https://github.com/chpxu/dotfiles"` and it will clone the repo into a folder called `dotfiles` in your present working directory.
-2. Make any necessary changes to the configuration. For example:
-
-   - Secrets and networking. These will be invalid since they depend on SSH keys, so you will want to remove it and the configuration in `system/common/modules/networking.nix`.
-   - Hostnames and usernames.
-   - Installed programs and their settings.
-
-3. Make sure everything is saved. If you are intending to push to a git repo, make sure to `git add .` first. Then you can run `sudo nixos-rebuild switch .#<hostname>` or some variation to build.
-
-You will be successful if everything you wanted installed, installs and is configured appropriately. The home-manager configuration will also be successfully built if you see `home-manager.<user>.service` was successfully (re)started. You can check its status with `systemctl status home-manager.<user>.service`.
-
-## Themes, Icons and Colour Palette
-
-These dotfiles uses the Nord theme.
-
-1. The [Nord colour palette](https://nordtheme.com).
-2. The GTK theme [Nordic](https://www.gnome-look.org/p/1267246/) by @EliverLara.
-   Follow the instructions on the page to use the GTK3/4 theme.
-3. I use the [Fira Code Retina Nerd](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) fonts. Both are TTFs.
-4. I use the [Nordzy](https://github.com/alvatip/Nordzy-icon) icon theme.
-5. I use [Nordzy-cursors](https://www.gnome-look.org/p/1571937) as my cursor theme.
+- `saitama`: AMD Ryzen 5600X + RTX 5070 Ti
+- `jingliu`: Intel + Nvidia optimus laptop
+- `yoga`: Lenovo Yoga C940
 
 ## Programs and Applications
 
@@ -92,12 +32,13 @@ installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
 - [yazi](https://yazi-rs.github.io/)
 - [steam](https://store.steampowered.com/)
 - [Mullvad](https://mullvad.net)
+
 ### Environment programs
 
 Applications or programs which affect my workspace
 
 - [Hyprland](https://hyprland.org)
-   - Plugins: [hyprsplit](https://github.com/shezdy/hyprsplit). [hyprexpo](https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo)
+   - Plugins: [hyprsplit](https://github.com/shezdy/hyprsplit).
 - [wpaperd](https://github.com/danyspin97/wpaperd)
 - [waybar](https://github.com/Alexays/Waybar) (built with `-Dexperimental=true`)
 - [swayidle](https://github.com/swaywm/swayidle)
@@ -111,24 +52,36 @@ Applications or programs which affect my workspace
 - [nano](https://nano-editor.org)
 - [direnv](https://direnv.net)
 - [dragon-drop](https://github.com/mwh/dragon)
+<!-- # Getting Started Guide
 
-<!-- ## Configuration Deep Dive
+Steps you can follow after cloning this template:
 
-This section is more information about the configuration, mainly for those who want to extend/use this configuration (though you're probably better off using @Misterio77's boilerplate).
+- Be sure to read the [den documentation](https://vic.github.io/den)
 
-### `flake.nix` structure
+- Update den input.
 
-1. Description. Self-explanatory. Edit it to whatever `string` you want.
-2. `inputs` attribute set contain the flake inputs. Where possible, I have tried to use flake inputs or overlays for as many (environment) programs as possible.
-3. A bunch of `let` bindings. Namely:
-   - `system`, `user`, `pkgs` for some easy reusable keywords
-   - `colour-palette` which is the file containing the RGB hex codes for the Nord theme.
-   - `mkSystemConfiguration` a function which creates a NixOS system with given hostname and users.
-4. `outputs`. What the flake returns and allows you to access.
+```console
+nix flake update den
+```
 
-### `system` folder
+- Edit [modules/hosts.nix](modules/hosts.nix)
 
-- `common` folder contains configuration for hardware and shared system packages across all devices. It contains conditional config for Intel CPU and NVIDIA GPU packages as well as set some environment vairables
-- Each other folder is config for specific hosts (namely a default `configuration.nix` and `hardware-configuration.nix`) as well as any other specific config (e.g. power for my laptops).
+- Build
 
-Rest TBD, may upload onto actual website instead. -->
+```console
+# default action is build
+nix run .#igloo
+
+# pass any other nh action
+nix run .#igloo -- switch
+```
+
+- Run the VM
+
+We recommend to use a VM develop cycle so you can play with the system before applying to your hardware.
+
+See [modules/vm.nix](modules/vm.nix)
+
+```console
+nix run .#vm
+``` -->

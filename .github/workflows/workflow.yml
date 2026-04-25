@@ -1,21 +1,27 @@
-name: update-flake-lock
 on:
-  workflow_dispatch: # allows manual triggering
-  pull_request: # triggers on every Pull Request
-  #push: # Triggers on every push 
-  schedule:
-    - cron: '0 0 * * *' # runs daily  at 00:00
-
+  pull_request:
+  push:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  lockfile:
-    runs-on: ubuntu-latest
+  flake-check:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    name: Nix flake check ${{matrix.os}}
+    runs-on: ${{matrix.os}}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Install Determinate Nix
-        uses: DeterminateSystems/determinate-nix-action@v3
-      - name: Update flake.lock
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: DeterminateSystems/update-flake-lock@main
-
-# Credits: https://github.com/DeterminateSystems/update-flake-lock
+      - uses: wimpysworld/nothing-but-nix@main
+        if: matrix.os == 'ubuntu-latest'
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: actions/checkout@v5
+      - run: nix flake metadata
+      - run: |
+          cat <<-EOF > modules/ci-runtime.nix
+          {
+            _module.args.CI = true;
+          }
+          EOF
+      - run: nix flake check
