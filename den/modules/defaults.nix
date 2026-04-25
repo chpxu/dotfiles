@@ -22,7 +22,6 @@
   den.default.nixos =
     { pkgs, config, ... }:
     {
-      networking.useDHCP = true;
       system.stateVersion = "25.11";
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = false;
