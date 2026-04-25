@@ -16,7 +16,7 @@ These are the main applications and programs I use. Everything has been installe
 - [firefox-dev-edition](https://www.mozilla.org/en-GB/firefox/developer/)
 - [gimp 3.x](https://gimp.org)
 - [inkscape](https://inkscape.org)
-- [vscode-fhs](https://code.visualstudio.com)
+- [vscodium-fhs](https://github.com/VSCodium/vscodium)
 - [discord-canary](https://discord.com)
 - [mpv](https://mpv.io)
 - [imv](https://sr.ht/~exec64/imv/)
