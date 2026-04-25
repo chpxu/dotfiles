@@ -71,7 +71,7 @@
     "editor.guides.bracketPairs" = true;
     "editor.fontFamily" = "'FiraCode Nerd Font','Source Code Pro', 'monospace', monospace";
     "editor.fontLigatures" = true;
-    "editor.bracketPairColorization.enabled" = false;
+    "editor.bracketPairColorization.enabled" = true;
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
     "editor.formatOnSave" = true;
     "editor.cursorSmoothCaretAnimation" = "on";
@@ -97,11 +97,13 @@
     "workbench.reduceMotion" = "off";
     "workbench.startupEditor" = "none";
     "workbench.tips.enabled" = false;
-    "workbench.colorTheme" = "Nord";
+    "workbench.colorTheme" = "Nord Deep";
     "window.title" = "\${dirty}\${activeEditorShort}\${separator}\${rootName}\${separator}";
     "window.titleSeparator" = " - ";
     "explorer.fileNesting.enabled" = true;
     "git.confirmSync" = false;
+    "extensions.autoCheckUpdates" = false;
+    "extensions.autoUpdate" = false;
 
     # Formatters
     # "[html]" = {

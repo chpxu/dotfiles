@@ -36,7 +36,7 @@
         {
           programs.vscode = {
             enable = true;
-            package = pkgs.vscode-fhs;
+            package = pkgs.vscodium-fhs;
             profiles.default.extensions = (import ./_vscode/extensions.nix { inherit pkgs; }).extensions;
             profiles.default.userSettings = (import ./_vscode/settings.nix).settings;
           };
