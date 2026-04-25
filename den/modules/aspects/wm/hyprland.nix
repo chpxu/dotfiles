@@ -37,6 +37,7 @@
         ...
       }:
       {
+        services.cliphist.enable = true;
         imports = [
           (import ./_hyprland/xdg.nix {
             inherit

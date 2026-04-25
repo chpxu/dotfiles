@@ -46,8 +46,8 @@ _: {
               cd "$DOTFILESDIR"
               export NH_FLAKE="$DOTFILESDIR"
             '';
-            switch = "sudo nixos-rebuild switch --flake .#$(hostname)";
-            nhos = "nh os switch";
+            switch = "nh os switch";
+            boot = "nh os boot";
             alldeps = "dotfiles; nix flake update";
             updep = "dotfiles; nix flake update $1";
           };
