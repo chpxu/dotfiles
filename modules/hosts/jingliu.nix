@@ -13,10 +13,19 @@
     # host NixOS configuration
     includes = [
       den.aspects.boot
+      den.aspects.console
+      den.aspects.fonts
+      den.aspects.networking
+      den.aspects.security
+      den.aspects.graphics
+      den.aspects.hardware
       den.aspects.hardware._.nvidia
       den.aspects.hardware._.nvidia-offload
-      den.aspects.graphics
-      den.aspects.starship
+      den.aspects.overlays
+      den.aspects.greeter
+      den.aspects.sound
+      den.aspects.disks
+      den.aspects.time
     ];
     nixos =
       { pkgs, ... }:
@@ -24,15 +33,29 @@
         imports = [ inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h ];
         environment.systemPackages = with pkgs; [ brightnessctl ];
         networking.hostName = "jingliu";
+        fileSystems."/" = {
+          device = "/dev/disk/by-uuid/04f82933-1cfa-4758-9fbe-fa48d96677ec";
+          fsType = "btrfs";
+        };
+
+        fileSystems."/boot" = {
+          device = "/dev/disk/by-uuid/60A8-85AE";
+          fsType = "vfat";
+          options = [
+            "fmask=0077"
+            "dmask=0077"
+          ];
+        };
+
+        swapDevices = [ ];
+        hardware.cpu = {
+          intel = {
+            updateMicrocode = true;
+          };
+        };
       };
     gpu = "nvidia";
     offload = true;
-    hardware.cpu = {
-      intel = {
-        updateMicrocode = true;
-        # sgx.provision.enable = true;
-      };
-    };
 
     # host provides default home environment for its users
     # provides.to-users.homeManager = {pkgs, ...}: {

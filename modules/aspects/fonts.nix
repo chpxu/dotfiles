@@ -1,5 +1,4 @@
-{ den, ... }:
-{
+_: {
   # Fonts
   den.aspects.fonts = {
     nixos =

@@ -3,7 +3,6 @@
 # # instead of having to reboot each time.
 {
   inputs,
-  den,
   lib,
   ...
 }:

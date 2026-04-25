@@ -39,13 +39,12 @@ function generateContent(id, voidPaths, nixPaths, voidFilenames, nixFilenames) {
   generateOSContent(divNix, nixPaths, nixFilenames);
 }
 
-
 // Alacritty
 const alacrittyURLs = [
   [
-    "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/alacritty/alacritty.yml"
+    "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/alacritty/alacritty.yml",
   ],
-  [""]
+  [""],
   // [
   //   "https://raw.githubusercontent.com/chpxu/dotfiles/void/.config/alacritty/alacritty.yml"
   // ]
@@ -55,7 +54,7 @@ generateContent(
   alacrittyURLs[0],
   alacrittyURLs[1],
   ["alacritty.yml"],
-  [""]
+  [""],
 );
 
 // Waybar, since it has 3 items
@@ -68,14 +67,12 @@ const waybarURLs = [
     "https://raw.githubusercontent.com/chpxu/dotfiles/nixfiles/.config/waybar/config.jsonc",
     "https://raw.githubusercontent.com/chpxu/dotfiles/nixfiles/.config/waybar/style.css",
     "https://raw.githubusercontent.com/chpxu/dotfiles/nixfiles/.config/waybar/ydotool.sh",
-  ]
+  ],
 ];
 generateContent(
   "waybar",
   waybarURLs[0],
   waybarURLs[1],
   ["void-config.jsonc", "void-style.css"],
-  ["nixos-config.jsonc", "nixos-style.css", "nixos-ydotool.sh"]
+  ["nixos-config.jsonc", "nixos-style.css", "nixos-ydotool.sh"],
 );
-
-

@@ -26,7 +26,7 @@
       den.aspects.zathura
       den.aspects.dev
       den.aspects.dev._.git
-      den.aspects.dev._.neovim
+      den.aspects.dev._.helix
       den.aspects.dev._.vscode
       den.aspects.productivity
       den.aspects.mpv
@@ -65,6 +65,7 @@
         };
         gtk = {
           enable = true;
+          gtk4.theme = config.gtk.theme;
           theme = {
             name = "Nordic";
             package = pkgs.nordic;
@@ -97,44 +98,43 @@
 
     # user can provide NixOS configurations
     # to any host it is included on
-    provides.to-hosts =
-      { host, ... }:
-      {
-        nixos =
-          { pkgs, ... }:
-          {
-            programs.nh = {
+    provides.to-hosts = _: {
+      nixos =
+        { pkgs, ... }:
+        {
+          programs.nh = {
+            enable = true;
+            clean.enable = true;
+            clean.extraArgs = "--keep-since 30d --keep 3";
+          };
+          environment.systemPackages = with pkgs; [
+            openconnect
+            gpclient
+          ];
+          environment.sessionVariables = {
+            LIBSEAT_BACKEND = "logind";
+            XCURSOR_SIZE = "32";
+          };
+          programs = {
+            dconf.enable = true;
+            mtr.enable = true;
+            gnupg.agent = {
               enable = true;
-              clean.enable = true;
-              clean.extraArgs = "--keep-since 30d --keep 3";
+              enableSSHSupport = true;
             };
-            environment.systemPackages = with pkgs; [
-              openconnect
-              gpclient
-            ];
-            environment.sessionVariables = {
-              LIBSEAT_BACKEND = "logind";
-              XCURSOR_SIZE = "32";
-            };
-            programs = {
-              dconf.enable = true;
-              mtr.enable = true;
-              gnupg.agent = {
-                enable = true;
-                enableSSHSupport = true;
-              };
-            };
-
-            gtk.iconCache.enable = true;
-            qt = {
-              enable = true;
-              style = "gtk2";
-              platformTheme = "gtk2";
-            };
-
           };
 
-      };
+          gtk.iconCache.enable = true;
+
+          qt = {
+            enable = true;
+            style = "gtk2";
+            platformTheme = "gtk2";
+          };
+
+        };
+
+    };
     user = _: {
       isNormalUser = true;
       extraGroups = [

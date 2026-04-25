@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+_: {
   services.tlp = {
     enable = true;
     settings = {

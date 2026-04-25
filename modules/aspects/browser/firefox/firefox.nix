@@ -3,17 +3,19 @@
     homeManager =
       {
         pkgs,
+        config,
         ...
       }:
       {
         programs.firefox = {
           enable = true;
           package = pkgs.firefox-devedition;
+          configPath = "${config.xdg.configHome}/mozilla/firefox";
           profiles = {
             dev-edition-default = {
               path = "q7h52to1.dev-edition-default";
               isDefault = true;
-              settings = (import ./_settings.nix).settings;
+              inherit ((import ./_settings.nix)) settings;
               # extensions = with config.nur.repos.rycee.firefox-addons; [
               #   # Main issue is configuring extensions declaratively
               #   # 1. The .xpi file must be extracted
@@ -30,7 +32,7 @@
               id = 1;
               name = "University";
               path = "uni";
-              settings = (import ./_settings.nix).settings;
+              inherit ((import ./_settings.nix)) settings;
               userChrome = "";
               # extensions = with config.nur.repos.rycee.firefox-addons; [
               #   bitwarden

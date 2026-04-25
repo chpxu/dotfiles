@@ -8,10 +8,6 @@
           enable = true;
         };
         xdg.configFile = {
-          # "rofi/themes/nord.rasi" = {
-          #   text = config.lib.file.mkOutOfStoreSymlink ./. + "./nord.rasi";
-          #   target = "rofi/themes/nord.rasi";
-          # };qqhrgduwj
           "rofi/config.rasi" = {
             text = ''
                       configuration {

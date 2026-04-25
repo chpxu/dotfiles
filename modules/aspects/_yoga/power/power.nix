@@ -5,7 +5,7 @@
     auto-cpufreq.enable = true;
     thermald = {
       enable = true;
-     # configFile = "/etc/thermald.xml";
+      # configFile = "/etc/thermald.xml";
     };
     power-profiles-daemon.enable = false;
   };
@@ -15,9 +15,9 @@
       source = ./auto-cpufreq.conf;
     };
     #"thermal-conf.xml" = {
-     # enable = true;
-      #source = ./thermal-conf.xml;
-      #target = "thermald.xml";
+    # enable = true;
+    #source = ./thermal-conf.xml;
+    #target = "thermald.xml";
     #};
   };
 }

@@ -14,16 +14,11 @@ _: {
         services.swayidle = {
           enable = true;
           package = pkgs.swayidle;
-          events = [
-            {
-              event = "before-sleep";
-              command = "swaylock";
-            }
-            {
-              event = "lock";
-              command = "swaylock";
-            }
-          ];
+          events = {
+            before-sleep = "swaylock";
+            lock = "swaylock";
+          };
+
           timeouts = [
             {
               timeout = 60;

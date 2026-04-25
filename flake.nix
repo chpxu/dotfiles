@@ -11,6 +11,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix/b68b780b69702a090c8bb1b973bab13756cc7a27";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,5 +29,9 @@
     nix-gaming.url = "github:fufexan/nix-gaming/";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

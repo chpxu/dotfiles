@@ -26,12 +26,12 @@ _: {
               yp = pkgs.yaziPlugins;
             in
             {
-              git = yp.git;
-              ouch = yp.ouch;
-              mount = yp.mount;
-              starship = yp.starship;
-              rich-preview = yp.rich-preview;
-              full-border = yp.full-border;
+              inherit (yp) git;
+              inherit (yp) ouch;
+              inherit (yp) mount;
+              inherit (yp) starship;
+              inherit (yp) rich-preview;
+              inherit (yp) full-border;
             };
           settings = {
             manager = {

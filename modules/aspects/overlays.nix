@@ -1,12 +1,10 @@
-{ inputs, den, ... }:
+{ inputs, ... }:
 {
   den.aspects.overlays = {
-    nixos =
-      { ... }:
-      {
-        nixpkgs.overlays = [
-          inputs.cachy.overlays.pinned
-        ];
-      };
+    nixos = _: {
+      nixpkgs.overlays = [
+        inputs.cachy.overlays.pinned
+      ];
+    };
   };
 }

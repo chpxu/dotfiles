@@ -1,8 +1,4 @@
-{
-
-  ...
-}:
-{
+_: {
   den.aspects.mako = {
     homeManager =
       { nordtheme, ... }:

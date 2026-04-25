@@ -16,15 +16,13 @@
           withPython3 = true;
         };
       };
-      homeManager =
-        { ... }:
-        {
-          programs.neovide.enable = true;
-          programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-          };
+      homeManager = _: {
+        programs.neovide.enable = true;
+        programs.neovim = {
+          enable = true;
+          defaultEditor = true;
         };
+      };
     };
     provides.vscode = {
       includes = [

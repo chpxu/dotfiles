@@ -11,8 +11,8 @@ _: {
         programs.waybar = {
           enable = true;
           package = pkgs.waybar;
-          settings = (import ./_settings.nix).settings;
-          style = (import ./_style.nix { inherit nordtheme; }).style;
+          inherit ((import ./_settings.nix)) settings;
+          inherit ((import ./_style.nix { inherit nordtheme; })) style;
         };
         xdg.configFile."waybar/wvkbd.sh" = {
           source = config.lib.file.mkOutOfStoreSymlink ./. + "/_config/wvkbd.sh";
