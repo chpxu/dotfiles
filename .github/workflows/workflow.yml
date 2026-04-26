@@ -24,4 +24,5 @@ jobs:
             _module.args.CI = true;
           }
           EOF
+      - run: nix fmt
       - run: nix flake check

@@ -27,6 +27,8 @@
       den.aspects.sound
       den.aspects.disks
       den.aspects.time
+      den.aspects.overlays
+
     ];
     nixos = {pkgs, ...}: {
       hardware.cpu.amd.updateMicrocode = true;

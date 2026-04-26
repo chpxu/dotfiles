@@ -6,6 +6,7 @@
 {
   den.default.includes = [
     den.provides.define-user
+    den.aspects.overlays
     (
       { host, ... }:
       {
@@ -83,7 +84,7 @@
       den.provides.hostname
       den.provides.inputs'
       den.provides.self'
-            den.aspects.overlays
+      den.aspects.overlays
 
     ];
     nixos = {

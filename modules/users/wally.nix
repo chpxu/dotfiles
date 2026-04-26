@@ -8,22 +8,22 @@
       (den.provides.user-shell "zsh")
       # den.aspects.hardware._.tablet
       # den.aspects.chunix-xdg
-      den.aspects.hyprland
+      # den.aspects.hyprland
       den.aspects.starship
       den.aspects.zsh
-      den.aspects.kitty
-      den.aspects.mako
-      den.aspects.rofi
+      # den.aspects.kitty
+      # den.aspects.mako
+      # den.aspects.rofi
       den.aspects.direnv
-      den.aspects.jq
-      den.aspects.waybar
-      den.aspects.sway
-      den.aspects.wpaperd
-      den.aspects.yazi
+      # den.aspects.jq
+      # den.aspects.waybar
+      # den.aspects.sway
+      # den.aspects.wpaperd
+      # den.aspects.yazi
 
       # den.aspects.sound._.pipewire
       # den.aspects.sound._.easyeffects
-      den.aspects.zathura
+      # den.aspects.zathura
       den.aspects.dev
       den.aspects.dev._.git
       den.aspects.dev._.helix
