@@ -23,14 +23,14 @@
       den.aspects.graphics
       den.aspects.hardware
       den.aspects.hardware._.nvidia
-      den.aspects.overlays
       den.aspects.greeter
       den.aspects.sound
       den.aspects.disks
       den.aspects.time
     ];
-    nixos = _: {
+    nixos = {pkgs, ...}: {
       hardware.cpu.amd.updateMicrocode = true;
+      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
       fileSystems."/" = {
         device = "/dev/disk/by-uuid/3e86524a-64ec-4784-bb8f-61301a6586d9";
         fsType = "btrfs";

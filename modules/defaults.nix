@@ -12,6 +12,7 @@
         ${host.class}.networking.hostName = host.name;
       }
     )
+    
   ];
   den.default.homeManager = {
     programs.home-manager.enable = true;
@@ -82,6 +83,8 @@
       den.provides.hostname
       den.provides.inputs'
       den.provides.self'
+            den.aspects.overlays
+
     ];
     nixos = {
       environment.sessionVariables = {

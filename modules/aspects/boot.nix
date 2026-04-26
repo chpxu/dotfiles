@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   den.aspects.boot = {
     nixos =
       { pkgs, ... }:
@@ -11,7 +11,7 @@
             };
             efi.canTouchEfiVariables = true;
           };
-          kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+          kernelPackages = lib.mkDefault pkgs.linuxPackages;
           kernelModules = [
             "uinput"
             "acpi_call"

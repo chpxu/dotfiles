@@ -32,6 +32,8 @@
       {
         imports = [ inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h ];
         environment.systemPackages = with pkgs; [ brightnessctl ];
+      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+
         networking.hostName = "jingliu";
         fileSystems."/" = {
           device = "/dev/disk/by-uuid/04f82933-1cfa-4758-9fbe-fa48d96677ec";
