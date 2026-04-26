@@ -12,7 +12,7 @@
             efi.canTouchEfiVariables = true;
           };
           kernelPackages = lib.mkDefault pkgs.linuxPackages;
-          kernelModules = [
+          kernelModules = lib.mkDefault [
             "uinput"
             "acpi_call"
           ];

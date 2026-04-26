@@ -66,6 +66,7 @@
             "*.conf"
             "*.ini"
             "docs/fonts/*"
+            "**/*.conf"
           ];
           formatter = {
             deadnix.priority = 1;
