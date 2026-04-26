@@ -5,7 +5,7 @@
   ...
 }:
 {
-  den.hosts.x86_64-linux.yogha.users.chunix = {
+  den.hosts.x86_64-linux.yoga.users.chunix = {
 
   };
 
@@ -40,7 +40,7 @@
       environment.etc = {
         "auto-cpufreq.conf" = {
           enable = true;
-          source = ../power/auto-cpufreq.conf;
+          source = ../aspects/power/auto-cpufreq.conf;
         };
         #"thermal-conf.xml" = {
         # enable = true;

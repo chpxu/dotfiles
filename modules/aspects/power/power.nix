@@ -1,4 +1,4 @@
-{
+{lib, ...}:{
   den.aspects.power = {
   nixos = _: {
   powerManagement.enable = false;
