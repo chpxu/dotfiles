@@ -23,6 +23,7 @@
             "modesetting"
             "nvidia"
           ];
+          services.lact.enable = true;
           hardware.nvidia = {
             package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
             powerManagement = {

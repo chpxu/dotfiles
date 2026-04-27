@@ -17,7 +17,7 @@
         environment.sessionVariables = {
           NIXOS_OZONE_WL = "wayland";
           EGL_PLATFORM = "wayland";
-          SDL_VIDEODRIVER = "wayland";
+          # SDL_VIDEODRIVER = "wayland";
           WLR_NO_HARDWARE_CURSORS = "1";
         };
         imports = [ inputs.hyprland.nixosModules.default ];
