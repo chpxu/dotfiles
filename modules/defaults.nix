@@ -11,9 +11,10 @@
       { host, ... }:
       {
         ${host.class}.networking.hostName = host.name;
+
       }
     )
-    
+
   ];
   den.default.homeManager = {
     programs.home-manager.enable = true;

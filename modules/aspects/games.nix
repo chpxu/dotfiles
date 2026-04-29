@@ -22,9 +22,6 @@
             proton-ge-bin
           ];
         };
-        # home.packages = [
-        #   inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
-        # ];
       };
     provides.minecraft = {
       homeManager =
