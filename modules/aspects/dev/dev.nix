@@ -44,14 +44,20 @@
     };
     provides.helix = {
       homeManager =
-        { pkgs, ... }:
+        { pkgs, config, ... }:
         {
           programs.helix = {
             enable = true;
             package = pkgs.steelix;
             defaultEditor = true;
             settings = {
-              theme = "nord";
+              theme = "nordic";
+            };
+          };
+          xdg.configFile = {
+            "nordic.toml" = {
+              source = config.lib.file.mkOutOfStoreSymlink ./. + /nordic.toml;
+              target = "${config.xdg.configHome}/helix/themes/nordic.toml";
             };
           };
         };
