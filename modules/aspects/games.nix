@@ -4,6 +4,7 @@
     includes = [
       (den.provides.unfree [
         "steam"
+        "steam-unwrapped"
       ])
     ];
     nixos =

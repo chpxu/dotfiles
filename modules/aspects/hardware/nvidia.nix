@@ -25,10 +25,11 @@
           ];
           services.lact.enable = true;
           hardware.nvidia = {
-            package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+            #package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.stable;
             powerManagement = {
               enable = lib.mkDefault true;
               finegrained = lib.mkDefault false;
+              kernelSuspendNotifier = lib.mkForce false;
             };
             open = true;
             nvidiaSettings = false;

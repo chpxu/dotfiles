@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   den.aspects.systemd = {
-    nixos = { };
+    #nixos = { };
     homeManager =
       { pkgs, ... }:
       {

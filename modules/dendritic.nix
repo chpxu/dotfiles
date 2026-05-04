@@ -14,7 +14,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland/59f9f2688ac508a0584d1462151195a6c4992f99";
+    hyprland.url = "github:hyprwm/Hyprland/521ece463c4a9d3d128670688a34756805a4328f";
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";
     #   inputs.hyprland.follows = "hyprland";
@@ -26,7 +26,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     cachy = {
-      url = "github:xddxdd/nix-cachyos-kernel/a26503528b4a4ab7310c6167da549f8fbee91f30";
+      url = "github:xddxdd/nix-cachyos-kernel/d6b88f7dd99022d5757b912337d7fe416170d35d";
     };
     materials = {
       url = "github:chpxu/materials-flake";

@@ -1,4 +1,4 @@
-_: {
+{lib, ...}: {
   den.aspects.dev.provides.git = {
     homeManager =
       { pkgs, ... }:
@@ -23,8 +23,12 @@ _: {
           package = pkgs.git;
 
         };
-        programs.delta = {
-          enable = true;
+        
+      };
+    provides.delta = {
+      homeManager = {
+programs.delta = {
+          enable = lib.mkDefault false;
           options = {
             decorations = {
               commit-decoration-style = "bold yellow box ul";
@@ -37,6 +41,6 @@ _: {
           enableGitIntegration = true;
         };
       };
-
+    };  
   };
 }

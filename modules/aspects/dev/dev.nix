@@ -34,11 +34,15 @@
       homeManager =
         { pkgs, ... }:
         {
-          programs.vscode = {
+          imports = [
+            ./_vscode/xdg.nix
+          ];
+          programs.vscodium = {
             enable = true;
             package = pkgs.vscodium-fhs;
-            profiles.default.extensions = (import ./_vscode/extensions.nix { inherit pkgs; }).extensions;
-            profiles.default.userSettings = (import ./_vscode/settings.nix).settings;
+            mutableExtensionsDir = true;
+            # profiles.default.extensions = (import ./_vscode/extensions.nix { inherit pkgs; }).extensions;
+            # profiles.default.userSettings = (import ./_vscode/settings.nix).settings;
           };
         };
     };
