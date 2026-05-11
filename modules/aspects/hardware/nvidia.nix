@@ -25,7 +25,8 @@
           ];
           services.lact.enable = true;
           hardware.nvidia = {
-            #package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.stable;
+            # enabled = lib.mkDefault false;
+            branch = lib.mkDefault "stable";
             powerManagement = {
               enable = lib.mkDefault true;
               finegrained = lib.mkDefault false;

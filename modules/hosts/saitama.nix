@@ -22,7 +22,7 @@
       den.aspects.security
       den.aspects.graphics
       den.aspects.hardware
-      den.aspects.hardware._.nvidia
+      den.aspects.hardware.provides.nvidia
       den.aspects.greeter
       den.aspects.sound
       den.aspects.disks
@@ -36,6 +36,30 @@
       { pkgs, ... }:
       {
         hardware.cpu.amd.updateMicrocode = true;
+        environment.variables = {
+          LIBVA_DRIVER_NAME = "nvidia";
+          NVD_BACKEND = "direct";
+        };
+        services.xserver.videoDrivers = [
+          "modesetting"
+          "nvidia"
+        ];
+        services.lact.enable = true;
+        hardware.nvidia = {
+          # enabled = true;
+          branch = "stable";
+          powerManagement = {
+            enable = true;
+            finegrained = false;
+            kernelSuspendNotifier = false;
+          };
+          open = true;
+          nvidiaSettings = false;
+          nvidiaPersistenced = true;
+          modesetting.enable = true;
+          dynamicBoost.enable = true;
+          videoAcceleration = true;
+        };
         boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
         fileSystems."/" = {
           device = "/dev/disk/by-uuid/3e86524a-64ec-4784-bb8f-61301a6586d9";
