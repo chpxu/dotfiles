@@ -60,7 +60,7 @@
           dynamicBoost.enable = true;
           videoAcceleration = true;
         };
-        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
         fileSystems."/" = {
           device = "/dev/disk/by-uuid/3e86524a-64ec-4784-bb8f-61301a6586d9";
           fsType = "btrfs";
