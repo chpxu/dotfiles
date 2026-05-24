@@ -81,20 +81,19 @@
 
     dwindle = {
       # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-      pseudotile = true; # master switch for pseudotiling.
       preserve_split = true;
+      smart_split = true;
     };
     render = {
       expand_undersized_textures = false;
       direct_scanout = 0;
-      cm_fs_passthrough = 1;
       cm_auto_hdr = 1;
     };
     misc = {
       mouse_move_enables_dpms = true;
       key_press_enables_dpms = true;
       animate_manual_resizes = false;
-      vfr = true;
+      enable_swallow = true;
     };
 
     ecosystem = {
