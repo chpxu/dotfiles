@@ -1,4 +1,4 @@
-{ den, ... }:
+{ den, inputs, ... }:
 {
   den.aspects.dev = {
     homeManager =
@@ -21,6 +21,31 @@
         programs.neovim = {
           enable = true;
           defaultEditor = true;
+        };
+      };
+    };
+    provides.nvchad = {
+      homeManager = {pkgs, ...}: {
+        imports = [inputs.nvchad.homeManagerModules.default];
+        programs.nvchad = {
+          enable = true;
+          extraPackages = with pkgs; [
+            ripgrep
+            nixfmt
+            fortls
+            fprettify
+            vimPlugins.nvim-treesitter-parsers.typescript
+            prettier
+          ];
+          chadrcConfig = ''
+              local M = {}
+              M.ui = {
+                theme = "nord",
+               transparency = true,
+              }
+              return M
+            '';
+          extraPlugins = builtins.readFile ./_nvchad/plugins.lua;
         };
       };
     };

@@ -5,7 +5,7 @@
 
   inputs = {
     cachy.url = "github:xddxdd/nix-cachyos-kernel/d6b88f7dd99022d5757b912337d7fe416170d35d";
-    den.url = "github:vic/den";
+    den.url = "github:denful/den/8f1a59448043677ac8bc7854348c1b8ee6889c0b";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -29,6 +29,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming/";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";

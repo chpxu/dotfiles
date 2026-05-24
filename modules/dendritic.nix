@@ -8,7 +8,7 @@
   # other inputs may be defined at a module using them.
   flake-file.inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    den.url = "github:vic/den";
+    den.url = "github:denful/den/8f1a59448043677ac8bc7854348c1b8ee6889c0b";
     flake-file.url = "github:vic/flake-file";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -30,6 +30,10 @@
     };
     materials = {
       url = "github:chpxu/materials-flake";
+    };
+    nvchad={
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

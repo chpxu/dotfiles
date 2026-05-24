@@ -28,6 +28,7 @@
       den.aspects.dev._.git
       den.aspects.dev._.helix
       den.aspects.dev._.vscode
+      den.aspects.dev._.nvchad
       den.aspects.productivity
       den.aspects.mpv
       den.aspects.syncthing
