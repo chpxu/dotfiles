@@ -25,19 +25,21 @@
       };
     };
     provides.nvchad = {
-      homeManager = {pkgs, ...}: {
-        imports = [inputs.nvchad.homeManagerModules.default];
-        programs.nvchad = {
-          enable = true;
-          extraPackages = with pkgs; [
-            ripgrep
-            nixfmt
-            fortls
-            fprettify
-            vimPlugins.nvim-treesitter-parsers.typescript
-            prettier
-          ];
-          chadrcConfig = ''
+      homeManager =
+        { pkgs, ... }:
+        {
+          imports = [ inputs.nvchad.homeManagerModules.default ];
+          programs.nvchad = {
+            enable = true;
+            extraPackages = with pkgs; [
+              ripgrep
+              nixfmt
+              fortls
+              fprettify
+              vimPlugins.nvim-treesitter-parsers.typescript
+              prettier
+            ];
+            chadrcConfig = ''
               local M = {}
               M.ui = {
                 theme = "nord",
@@ -45,9 +47,9 @@
               }
               return M
             '';
-          extraPlugins = builtins.readFile ./_nvchad/plugins.lua;
+            extraPlugins = builtins.readFile ./_nvchad/plugins.lua;
+          };
         };
-      };
     };
     provides.vscode = {
       includes = [

@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   den.aspects.dev.provides.git = {
     homeManager =
       { pkgs, ... }:
@@ -23,11 +24,11 @@
           package = pkgs.git;
 
         };
-        
+
       };
     provides.delta = {
       homeManager = {
-programs.delta = {
+        programs.delta = {
           enable = lib.mkDefault false;
           options = {
             decorations = {
@@ -41,6 +42,6 @@ programs.delta = {
           enableGitIntegration = true;
         };
       };
-    };  
+    };
   };
 }

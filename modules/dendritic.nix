@@ -31,7 +31,7 @@
     materials = {
       url = "github:chpxu/materials-flake";
     };
-    nvchad={
+    nvchad = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };

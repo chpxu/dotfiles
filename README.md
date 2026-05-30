@@ -1,4 +1,5 @@
-# dotfiles 
+# dotfiles
+
 My dotfiles for NixOS. Based on `vic/den`. Personalised for gaming, software and scientific development.
 
 ## Hosts
@@ -37,7 +38,7 @@ These are the main applications and programs I use. Everything has been installe
 Applications or programs which affect my workspace
 
 - [Hyprland](https://hyprland.org)
-   - Plugins: [hyprsplit](https://github.com/shezdy/hyprsplit).
+  - Plugins: [hyprsplit](https://github.com/shezdy/hyprsplit).
 - [wpaperd](https://github.com/danyspin97/wpaperd)
 - [waybar](https://github.com/Alexays/Waybar) (built with `-Dexperimental=true`)
 - [swayidle](https://github.com/swaywm/swayidle)
@@ -51,6 +52,7 @@ Applications or programs which affect my workspace
 - [nano](https://nano-editor.org)
 - [direnv](https://direnv.net)
 - [dragon-drop](https://github.com/mwh/dragon)
+
 <!-- # Getting Started Guide
 
 Steps you can follow after cloning this template:

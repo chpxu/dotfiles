@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   den.aspects.boot = {
     nixos =
       { pkgs, ... }:

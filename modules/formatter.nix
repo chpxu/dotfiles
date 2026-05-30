@@ -48,6 +48,7 @@
           json-sort-cli.enable = lib.mkDefault true;
           xmllint.enable = lib.mkDefault true;
           shellcheck.enable = lib.mkDefault true;
+          stylua.enable = lib.mkDefault true;
         };
         settings = {
           on-unmatched = lib.mkDefault "fatal";

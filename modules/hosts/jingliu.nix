@@ -32,7 +32,7 @@
       {
         imports = [ inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h ];
         environment.systemPackages = with pkgs; [ brightnessctl ];
-      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
 
         networking.hostName = "jingliu";
         fileSystems."/" = {

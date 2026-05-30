@@ -14,7 +14,6 @@ _: {
           yt-dlp
           wvkbd
           #obs-studio
-          vesktop
           fastfetch
           bitwarden-desktop
         ];

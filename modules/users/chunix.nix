@@ -33,6 +33,7 @@
       den.aspects.mpv
       den.aspects.syncthing
       den.aspects.art
+      den.aspects.discord
       den.aspects.gaming
       den.aspects.gaming._.minecraft
       den.aspects.gaming._.osu
