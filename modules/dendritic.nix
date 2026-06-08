@@ -35,5 +35,8 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tuigreet = {
+      url = "github:NotAShelf/tuigreet";
+    };
   };
 }

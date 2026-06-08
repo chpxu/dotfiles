@@ -23,7 +23,7 @@ _: {
         hardware.graphics = {
           enable = true;
           enable32Bit = true;
-          extraPackages = commonExtraPkgs ++ intelPackages;
+          extraPackages = commonExtraPkgs;
         };
         services.lact.enable = true;
       };

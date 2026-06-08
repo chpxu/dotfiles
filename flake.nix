@@ -37,5 +37,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tuigreet.url = "github:NotAShelf/tuigreet";
   };
 }

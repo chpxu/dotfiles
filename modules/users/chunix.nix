@@ -5,6 +5,7 @@
     includes = [
       den.provides.primary-user
       den._.mutual-provider
+      den.aspects.greeter
       (den.provides.user-shell "zsh")
       den.aspects.hardware._.tablet
       den.aspects.chunix-xdg
@@ -107,7 +108,7 @@
           programs.nh = {
             enable = true;
             clean.enable = true;
-            clean.extraArgs = "--keep-since 30d --keep 3";
+            clean.extraArgs = "--keep-since 30d --keep 3 --no-gcroots";
           };
           environment.systemPackages = with pkgs; [
             openconnect
