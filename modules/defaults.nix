@@ -64,6 +64,7 @@
           automatic = false;
           dates = "weekly";
           options = "--delete-older-than 30d";
+          persistent = false;
         };
       };
       environment.systemPackages = with pkgs; [

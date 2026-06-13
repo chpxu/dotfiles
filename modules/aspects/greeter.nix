@@ -13,12 +13,19 @@
     nixos =
       { pkgs, ... }:
       {
+        environment.etc = {
+          tuigreetconfig = {
+            target = "tuigreet/config.toml";
+            text = builtins.readFile ./environment/tuigreet/config.toml;
+          };
+        };
+        environment.systemPackages = [ pkgs.tuigreet ];
         services.greetd = {
           enable = true;
           useTextGreeter = true;
           settings = {
             default_session = {
-              command = ''${lib.getExe pkgs.tuigreet} --time --cmd "start-hyprland" --config "$HOME/.config/tuigreet/config.toml'';
+              command = ''${pkgs.tuigreet}/bin/tuigreet --cmd "start-hyprland" --config /etc/tuigreet/config.toml'';
               user = "greeter";
             };
             terminal = {
