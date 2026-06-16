@@ -1,46 +1,10 @@
-[display]
-show_time = true
-greeting = "With great power, comes great responsibility."
-align_greeting = "center"
-issue = true
-
-[layout]
-width = 80
-window_padding = 2
-container_padding = 1
-prompt_padding = 1
-
-[layout.widgets]
-time_position = "top"      # "top", "bottom", "default", "hidden"
-status_position = "bottom" # "top", "bottom", "default", "hidden"
-
-[remember]
-username = true
-session = false
-user_session = true
-
-[user_menu]
-enabled = true
-min_uid = 1000
-max_uid = 60000
-
-[secret]
-mode = "characters" # "hidden" or "characters"
-characters = "*"
-
-[keybindings]
-command = 2    # F2
-sessions = 3   # F3
-background = 4 # F4
-power = 12     # F12
-
 [background]
 kind = "doom" # or "none" to disable
 fps = 30
 
 [background.doom]
-height = 6               # 1-9, taller flames at higher values
-spread = 2               # 0-4, horizontal jitter
+height = 6 # 1-9, taller flames at higher values
+spread = 2 # 0-4, horizontal jitter
 top_color = "#9F2707"
 middle_color = "#C78F17"
 bottom_color = "#FFFFFF"
@@ -51,17 +15,31 @@ bright_color = "#33FF66"
 dim_color = "#006622"
 min_length = 6
 max_length = 18
-min_speed = 0.30         # rows per frame
+min_speed = 0.30 # rows per frame
 max_speed = 1.10
-mutate_chance = 0.02     # per-cell glyph shimmer probability
+mutate_chance = 0.02 # per-cell glyph shimmer probability
 
-[session]
-sessions_dirs = ["/usr/share/wayland-sessions", "/usr/share/xsessions"]
-xsessions_dirs = []
-environments = []
+[display]
+show_time = true
+greeting = "With great power, comes great responsibility."
+align_greeting = "center"
+issue = true
 
-[power]
-use_setsid = false
+[keybindings]
+command = 2 # F2
+sessions = 3 # F3
+background = 4 # F4
+power = 12 # F12
+
+[layout]
+width = 80
+window_padding = 2
+container_padding = 1
+prompt_padding = 1
+
+[layout.widgets]
+time_position = "top" # "top", "bottom", "default", "hidden"
+status_position = "bottom" # "top", "bottom", "default", "hidden"
 
 [[outputs]]
 connector = "DP-1"
@@ -74,3 +52,25 @@ enabled = false
 [[outputs]]
 connector = "HDMI-A-2"
 enabled = false
+
+[power]
+use_setsid = false
+
+[remember]
+username = true
+session = false
+user_session = true
+
+[secret]
+mode = "characters" # "hidden" or "characters"
+characters = "*"
+
+[session]
+sessions_dirs = ["/usr/share/wayland-sessions", "/usr/share/xsessions"]
+xsessions_dirs = []
+environments = []
+
+[user_menu]
+enabled = true
+min_uid = 1000
+max_uid = 60000

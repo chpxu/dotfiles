@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   den.aspects.greeter = {
     homeManager = {
       xdg.configFile = {

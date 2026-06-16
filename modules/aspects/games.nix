@@ -38,7 +38,10 @@
           gamePkgs = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system};
         in
         {
-          home.packages = [ gamePkgs.osu-lazer-bin ];
+          home.packages = [
+            gamePkgs.osu-lazer-bin
+            gamePkgs.osu-stable
+          ];
         };
     };
   };

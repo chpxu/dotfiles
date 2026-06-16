@@ -4,7 +4,7 @@
     nixos = _: {
       nixpkgs.overlays = [
         inputs.cachy.overlays.pinned
-        (final: prev: {
+        (_final: prev: {
           tuigreet = inputs.tuigreet.packages.${prev.hostPlatform.system}.tuigreet;
         })
       ];

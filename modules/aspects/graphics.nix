@@ -13,10 +13,6 @@ _: {
         libglvnd
         egl-wayland
       ];
-      intelPackages = with pkgs; [
-        intel-vaapi-driver
-        intel-media-driver
-      ];
     in
     {
       nixos = _: {
