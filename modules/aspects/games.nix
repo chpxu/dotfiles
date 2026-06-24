@@ -39,8 +39,9 @@
         in
         {
           home.packages = [
-            gamePkgs.osu-lazer-bin
-            gamePkgs.osu-stable
+            (gamePkgs.osu-lazer-bin.override {
+              releaseStream = "lazer";
+            })
           ];
         };
     };
