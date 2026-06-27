@@ -4,8 +4,8 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    cachy.url = "github:xddxdd/nix-cachyos-kernel/86d7051a5694db99f4db6165bcaf15e7bba8672a";
-    den.url = "github:denful/den/8f1a59448043677ac8bc7854348c1b8ee6889c0b";
+    cachy.url = "github:xddxdd/nix-cachyos-kernel/release";
+    den.url = "github:denful/den/5df0987658d6e44268abba953406480e9f066928";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -28,7 +28,7 @@
     materials.url = "github:chpxu/materials-flake";
     nix-gaming.url = "github:fufexan/nix-gaming/";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/331800de5053fcebacf6813adb5db9c9dca22a0c";
     nvchad = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";

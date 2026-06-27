@@ -89,6 +89,12 @@
                 "*.jsonc"
               ];
             };
+            prettier = {
+              includes = [
+                "*.css"
+                "*.md"
+              ];
+            };
             nixf-diagnose = {
               priority = 99;
             };

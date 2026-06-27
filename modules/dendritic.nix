@@ -7,8 +7,8 @@
 
   # other inputs may be defined at a module using them.
   flake-file.inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    den.url = "github:denful/den/8f1a59448043677ac8bc7854348c1b8ee6889c0b";
+    nixpkgs.url = "github:nixos/nixpkgs/331800de5053fcebacf6813adb5db9c9dca22a0c";
+    den.url = "github:denful/den/5df0987658d6e44268abba953406480e9f066928";
     flake-file.url = "github:vic/flake-file";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,7 +26,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     cachy = {
-      url = "github:xddxdd/nix-cachyos-kernel/86d7051a5694db99f4db6165bcaf15e7bba8672a";
+      url = "github:xddxdd/nix-cachyos-kernel/release";
     };
     materials = {
       url = "github:chpxu/materials-flake";

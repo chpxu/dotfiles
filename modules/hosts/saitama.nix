@@ -28,6 +28,10 @@
 
       den.aspects.gaming
 
+      (den.provides.unfree [
+        "nvidia-x11"
+        "nvidia-x11-610.43.02"
+      ])
     ];
     nixos =
       { pkgs, config, ... }:
