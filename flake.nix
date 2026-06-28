@@ -28,7 +28,7 @@
     materials.url = "github:chpxu/materials-flake";
     nix-gaming.url = "github:fufexan/nix-gaming/";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixpkgs.url = "github:nixos/nixpkgs/331800de5053fcebacf6813adb5db9c9dca22a0c";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvchad = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";

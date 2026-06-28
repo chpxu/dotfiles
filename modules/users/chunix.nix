@@ -27,7 +27,6 @@
       den.aspects.zathura
       den.aspects.dev
       den.aspects.dev._.git
-      den.aspects.dev._.helix
       den.aspects.dev._.vscode
       den.aspects.dev._.nvchad
       den.aspects.productivity

@@ -9,7 +9,6 @@ _: {
           logseq
           libreoffice-fresh
           onedrive
-          rnote
           pdfarranger
           yt-dlp
           wvkbd
