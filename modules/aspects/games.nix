@@ -5,6 +5,7 @@
       (den.provides.unfree [
         "steam"
         "steam-unwrapped"
+        "osu-lazer-bin"
       ])
     ];
     nixos =
@@ -23,6 +24,10 @@
             proton-ge-bin
           ];
         };
+        programs.gamemode = {
+          enable = true;
+          enableRenice = true;
+        };
       };
     provides.minecraft = {
       homeManager =
@@ -39,9 +44,10 @@
         in
         {
           home.packages = [
-            (gamePkgs.osu-lazer-bin.override {
-              releaseStream = "lazer";
-            })
+            #(gamePkgs.osu-lazer-bin.override {
+            #  releaseStream = "lazer";
+            #})
+pkgs.osu-lazer-bin
           ];
         };
     };

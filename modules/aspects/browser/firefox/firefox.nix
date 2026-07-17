@@ -32,7 +32,7 @@
               id = 1;
               name = "University";
               path = "uni";
-              inherit ((import ./_settings.nix)) settings;
+              inherit ((import ./_settings.nix)) settings;              
               userChrome = "";
               # extensions = with config.nur.repos.rycee.firefox-addons; [
               #   bitwarden

@@ -22,6 +22,10 @@
       "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"
       "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
       "hyprctl setcursor Nordzy-cursors 32"
+      "awww-daemon"
+    ];
+    exec = [
+      "awww_rand_bg.sh $XDG_WALLPAPER_DIR"
     ];
     input = {
       kb_layout = "gb,us";

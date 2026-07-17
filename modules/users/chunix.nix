@@ -19,7 +19,7 @@
       den.aspects.jq
       den.aspects.waybar
       den.aspects.sway
-      den.aspects.wpaperd
+      # den.aspects.wpaperd
       den.aspects.yazi
 
       den.aspects.sound._.pipewire
@@ -38,7 +38,13 @@
       den.aspects.gaming._.minecraft
       den.aspects.gaming._.osu
       den.aspects.browsers._.firefox
-      (den.batteries.insecure [ "electron-39.8.10" ])
+      den.aspects.wallpaper
+      den.aspects.wallpaper._.awww
+      (den.batteries.insecure [
+        "electron-39.8.10"
+        "electron-40.10.5"
+        "pnpm-10.29.2"
+      ])
     ];
 
     homeManager =
