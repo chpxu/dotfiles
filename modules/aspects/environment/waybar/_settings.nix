@@ -1,6 +1,8 @@
 {
   settings = {
     mainBar = {
+      "on-sigusr1" = "toggle";
+      "on-sigusr2" = "show";
       layer = "top";
       position = "top";
       height = 35;

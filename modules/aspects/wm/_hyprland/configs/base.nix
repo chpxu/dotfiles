@@ -23,6 +23,7 @@
       "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
       "hyprctl setcursor Nordzy-cursors 32"
       "awww-daemon"
+      "waybar_auto_hide --side top --always-hidden &"
     ];
     exec = [
       "awww_rand_bg.sh $XDG_WALLPAPER_DIR"

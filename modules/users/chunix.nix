@@ -64,6 +64,7 @@
           jmtpfs
           dragon-drop
           materialPkgs.VESTA
+          (callPackage ../_packages/waybar_auto_hide.nix { })
         ];
         programs.git.settings = {
           user = {
