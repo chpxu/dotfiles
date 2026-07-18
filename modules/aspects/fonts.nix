@@ -15,6 +15,9 @@ _: {
             dejavu_fonts
             newcomputermodern
             stix-two
+            noto-fonts-cjk-serif
+            noto-fonts-cjk-sans
+            libertinus
           ];
           fontconfig = {
             hinting = {
@@ -23,9 +26,21 @@ _: {
             };
             subpixel.rgba = "rgb";
             defaultFonts = {
-              serif = [ "NewComputerModern" ];
-              monospace = [ "FiraCode Nerd Font" ];
-              sansSerif = [ "DejaVu Sans Mono" ];
+              serif = [
+                "NewComputerModern10"
+                "Times Newer Roman"
+                "Noto Serif CJK SC"
+                "Noto Serif CJK TC"
+              ];
+              monospace = [
+                "FiraCode Nerd Font"
+                "SauceCodePro Nerd Font"
+              ];
+              sansSerif = [
+                "DejaVu Sans"
+                "Noto Sans CJK SC"
+                "Noto Sans CJK TC"
+              ];
             };
           };
         };
