@@ -5,7 +5,7 @@
       nixpkgs.overlays = [
         inputs.cachy.overlays.pinned
         (_final: prev: {
-          tuigreet = inputs.tuigreet.packages.${prev.hostPlatform.system}.tuigreet;
+          tuigreet = inputs.tuigreet.packages.${prev.stdenv.hostPlatform.system}.tuigreet;
         })
         # Source: https://github.com/darkone-linux/darkone-nixos-framework/commit/85861f7fc026a82bda847d90e82ec5fc97b466b3
         (

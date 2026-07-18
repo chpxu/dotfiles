@@ -1,16 +1,17 @@
 # dotfiles
 
-My dotfiles for NixOS. Based on `vic/den`. Personalised for gaming, software and scientific development.
+My dotfiles for NixOS, with a focus on simplicity. Based on [`denful/den`](https://github.com/denful/den). Personalised for gaming, software and scientific development.
 
 ## Hosts
 
-- `saitama`: AMD Ryzen 5600X + RTX 5070 Ti
-- `jingliu`: Intel + Nvidia optimus laptop
-- `yoga`: Lenovo Yoga C940
+- `saitama`: AMD Ryzen 5600X + RTX 5070
+- `jingliu`: Intel i7-12700H + Nvidia RTX 3070 Ti "Advanced Optimus" laptop
+- `yoga`: Lenovo Yoga C940 (i7-1065G7)
+- `walworth`: work device (WSL)
 
 ## Programs and Applications
 
-These are the main applications and programs I use. Everything has been installed from `nixos-unstable` by default unless mentioned otherwise. WIP.
+These are the main applications and programs I use. Everything has been installed from `nixos-unstable` by default unless mentioned otherwise.
 
 ### Applications
 
@@ -29,7 +30,6 @@ These are the main applications and programs I use. Everything has been installe
 - [pdfarranger](https://github.com/pdfarranger/pdfarranger)
 - [thunderbird](https://www.thunderbird.net)
 - [bitwarden](https://bitwarden.com/)
-- [yazi](https://yazi-rs.github.io/)
 - [steam](https://store.steampowered.com/)
 - [Mullvad](https://mullvad.net)
 
@@ -39,8 +39,9 @@ Applications or programs which affect my workspace
 
 - [Hyprland](https://hyprland.org)
   - Plugins: [hyprsplit](https://github.com/shezdy/hyprsplit).
-- [wpaperd](https://github.com/danyspin97/wpaperd)
+- [awww](https://codeberg.org/LGFae/awww)
 - [waybar](https://github.com/Alexays/Waybar) (built with `-Dexperimental=true`)
+- [yazi](https://yazi-rs.github.io/)
 - [swayidle](https://github.com/swaywm/swayidle)
 - [swaylock-effects](https://github.com/jirutka/swaylock-effects) (jirutka fork)
 - [mako](https://github.com/emersion/mako)
@@ -49,40 +50,18 @@ Applications or programs which affect my workspace
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [zsh](https://zsh.org) + [starship](https://starship.rs)
 - [wvkbd](https://github.com/jjsullivan5196/wvkbd) (custom derivation to add theming. See my [repo](https://github.com/chpxu/wvkbd))
-- [nano](https://nano-editor.org)
 - [direnv](https://direnv.net)
 - [dragon-drop](https://github.com/mwh/dragon)
+- [tuigreet](https://github.com/NotAShelf/tuigreet)
 
-<!-- # Getting Started Guide
+### Other things I use
 
-Steps you can follow after cloning this template:
+- [devflake](https://github.com/chpxu/development-flake)
+- [materials-flake](https://github.com/chpxu/materials-flake)
+- [fufexan/nix-gaming](https://github.com/fufexan/nix-gaming)
+- [CachyOS Kernels](https://github.com/xddxdd/nix-cachyos-kernel)
 
-- Be sure to read the [den documentation](https://vic.github.io/den)
+## Screenshots
 
-- Update den input.
-
-```console
-nix flake update den
-```
-
-- Edit [modules/hosts.nix](modules/hosts.nix)
-
-- Build
-
-```console
-# default action is build
-nix run .#igloo
-
-# pass any other nh action
-nix run .#igloo -- switch
-```
-
-- Run the VM
-
-We recommend to use a VM develop cycle so you can play with the system before applying to your hardware.
-
-See [modules/vm.nix](modules/vm.nix)
-
-```console
-nix run .#vm
-``` -->
+![Dev screenshot](docs/img/dev.png)
+![alt text](docs/img/waybar2.png)

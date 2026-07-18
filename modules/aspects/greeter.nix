@@ -1,4 +1,4 @@
-_: {
+{ inputs, ... }: {
   den.aspects.greeter = {
     homeManager = {
       xdg.configFile = {
@@ -18,7 +18,9 @@ _: {
             text = builtins.readFile ./environment/tuigreet/config.toml;
           };
         };
-        environment.systemPackages = [ pkgs.tuigreet ];
+        environment.systemPackages = [
+          inputs.tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.tuigreet
+        ];
         services.greetd = {
           enable = true;
           useTextGreeter = true;

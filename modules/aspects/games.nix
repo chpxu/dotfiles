@@ -1,4 +1,4 @@
-{ den, inputs, ... }:
+{ den, ... }:
 {
   den.aspects.gaming = {
     includes = [
@@ -39,15 +39,12 @@
     provides.osu = {
       homeManager =
         { pkgs, ... }:
-        let
-          gamePkgs = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system};
-        in
         {
           home.packages = [
             #(gamePkgs.osu-lazer-bin.override {
             #  releaseStream = "lazer";
             #})
-pkgs.osu-lazer-bin
+            pkgs.osu-lazer-bin
           ];
         };
     };

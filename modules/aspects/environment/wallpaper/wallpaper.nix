@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+_: {
   den.aspects.wallpaper = {
 
     homeManager =
@@ -30,7 +30,6 @@
     nixos =
       {
         pkgs,
-        config,
         ...
       }:
       let

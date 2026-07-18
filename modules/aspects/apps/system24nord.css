@@ -2526,7 +2526,7 @@ body {
 }
 
 @container body style(--top-bar-button-position: hide) {
-  .trailing_c38106>a[href='https://support.discord.com'],
+  .trailing_c38106 > a[href="https://support.discord.com"],
   .recentsIcon_c99c29,
   .winButtons_c38106::before {
     display: none;
@@ -2535,7 +2535,7 @@ body {
 
 @container body style(--top-bar-button-position: serverlist) {
   /* remove help button */
-  .trailing_c38106>a[href='https://support.discord.com'],
+  .trailing_c38106 > a[href="https://support.discord.com"],
   .winButtons_c38106::before {
     display: none;
   }
@@ -2622,8 +2622,7 @@ body {
   }
 
   .title_c38106,
-  .trailing_c38106>a[href='https://support.discord.com']
-  {
+  .trailing_c38106 > a[href="https://support.discord.com"] {
     display: none;
   }
 
