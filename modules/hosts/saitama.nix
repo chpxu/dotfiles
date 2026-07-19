@@ -49,21 +49,8 @@
         services.lact.enable = true;
         hardware.nvidia = {
           # enabled = true;
-          #branch = "stable";
-          #package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+          branch = "latest";
 
-          # version = "610.43.02";
-
-          #sha256_64bit = "sha256:0qvllxnb20arjhw3bxdz0hw521di9ib75hldzx97gpscpdaa0d1h";
-
-          #sha256_aarch64 = "sha256:0qvllxnb20arjhw3bxdz0hw521di9ib75hldzx97gpscpdaa0d1h";
-
-          #openSha256 = "sha256-hP5NVZZ4vGsACHLmUDKq4uckpd/kn1GxCSYnnJfAuBs=";
-
-          #settingsSha256 = "sha256-0YAhufRgjDW+uR+kjaTb154fibpcDw8QowfrucoZsKE=";
-
-          #            persistencedSha256 = "sha256-Whgv9X+v2fRhzliOl2LzltY9v1SxDafFfv3IUPqj/hk=";
-          #        };
           powerManagement = {
             enable = true;
             finegrained = false;

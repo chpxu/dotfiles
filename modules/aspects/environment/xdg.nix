@@ -81,6 +81,7 @@
             };
           };
           mime.enable = true;
+          configFile."mimeapps.list".force = true;
           mimeApps = {
             enable = true;
             # TO-DO: Mime associations where necessary

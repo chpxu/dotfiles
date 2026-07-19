@@ -30,12 +30,20 @@
     "datareporting.policy.dataSubmissionPolicyAcceptedVersion" = 2;
     "datareporting.sessions.current.clean" = true;
     # "devtools.debugger.prefs-schema-version" = 11;
-    # "devtools.everOpened" = true;
+    "devtools.everOpened" = true;
     # "doh-rollout.balrog-migration-done" = true;
     # "doh-rollout.disable-heuristics" = true;
     # "doh-rollout.doneFirstRun" = true;
     # "doh-rollout.home-region" = "GB";
     # "dom.forms.autocomplete.formautofill" = false;
+    "browser.discovery.enabled" = false;
+    "extensions.htmlaboutaddons.discover.enabled" = false;
+    "extensions.htmlaboutaddons.recommendations.enabled" = false;
+    "extensions.webservice.discoverURL" = "";
+    "extensions.getAddons.discovery.api_url" = "";
+    "extensions.getAddons.showPane" = false;
+    "browser.dataFeatureRecommendations.enabled" = false;
+    "pfs.datasource.url" = "";
     "dom.security.https_only_mode" = true;
     # "dom.security.https_only_mode_ever_enabled" = true;
     # "dom.security.https_only_mode_ever_enabled_pbm" = true;
@@ -54,14 +62,16 @@
     # "extensions.systemAddonSet" = "{'schema':1,'addons':{}}";
     # "extensions.ui.dictionary.hidden" = true;
     # "extensions.ui.extension.hidden" = false;
-    # "extensions.ui.locale.hidden" = true;
+    "extensions.ui.locale.hidden" = true;
     # "extensions.ui.sitepermission.hidden" = true;
     # "extensions.webcompat.enable_shims" = true;
     # "extensions.webcompat.perform_injections" = true;
     # "extensions.webcompat.perform_ua_overrides" = true;
     # "fission.experiment.max-origins.qualified" = true;
-    "font.name.monospace.x-western" = "FiraCode Nerd Font";
-    "font.name.serif.x-western" = "Times Newer Roman";
+    "font.name.monospace.x-western" = "FiraCode Nerd Font, Sauce Code Pro Nerd Font, monospace";
+    "font.name.serif.x-western" = "New Computer Modern 10, Times Newer Roman, serif";
+    "font.name-list.serif.x-math" =
+      "New Computer Modern 10, Latin Modern Math, STIX Two Math, XITS Math, Cambria Math, Libertinus Math, DejaVu Math TeX Gyre, TeX Gyre Bonum Math, TeX Gyre Pagella Math, TeX Gyre Schola, TeX Gyre Termes Math, STIX Math, Asana Math, STIXGeneral, DejaVu Serif, DejaVu Sans, serif";
     # "gecko.handlerService.defaultHandlersVersion" = 1;
     # "gfx.canvas.accelerated" = true;
     # "gfx.font_rendering.ahem_antialias_none" = true;
@@ -74,6 +84,7 @@
     "layers.offmainthreadcomposition.enabled" = true;
     "layers.offmainthreadcomposition.frame-rate" = 240;
     "layout.frame_rate" = 240;
+    "layout.css.has-selector.enabled" = true;
     # "layout.css.osx-font-smoothing.enabled" = true;
     # "layout.css.prefers-color-scheme.content-override" = 0;
     # "layout.spellcheckDefault" = 0;
@@ -97,7 +108,7 @@
     # "privacy.donottrackheader.enabled" = true;
     # "privacy.purge_trackers.date_in_cookie_database" = 0;
     # "privacy.sanitize.pending" = "[{'id':'newtab-container','itemsToClear':[],'options':{}}]";
-
+    "svg.context-properties.content.enabled" = true;
     "privacy.userContext.enabled" = true;
     "privacy.userContext.ui.enabled" = true;
     "privacy.resistFingerprinting" = false;
@@ -120,17 +131,30 @@
     "identity.fxaccounts.toolbar.pxiToolbarEnabled" = false;
     "webgl.dxgl.enabled" = true;
     # "webgl.disabled" = false;
-    # "widget.dmabuf.force-enabled" = true;
-    # "widget.wayland-dmabuf-webgl.enabled" = true;
-    # "widget.wayland-dmabuf-textures.enabled" = true;
-    # "widget.dmabuf-textures.enabled" = true;
-    # "widget.wayland-dmabuf-vaapi.enabled" = true;
 
     "browser.ml.enable" = false;
+    "browser.ai.control.default" = "blocked";
     "browser.ml.chat.enabled" = false;
+    "browser.ai.control.sidebarChatbot" = "blocked";
+    "browser.ml.chat.sidebar" = false;
+    "browser.ml.chat.menu" = false;
+    "browser.ml.chat.page" = false;
     "extensions.ml.enabled" = false;
+    "browser.ai.control.linkPreviewKeyPoints" = "blocked";
     "browser.ml.linkPreview.enabled" = false;
+    "browser.ml.pageAssist.enabled" = false;
+    "browser.ml.smartAssist.enabled" = false;
+    "browser.ai.control.smartTabGroups" = "blocked";
     "browser.tabs.groups.smart.enabled" = false;
     "browser.tabs.groups.smart.userEnabled" = false;
+    "browser.ai.control.translations" = "blocked";
+    "browser.ai.control.pdfjsAltText" = "blocked";
+    "pdfjs.enableAltTextModelDownload" = false;
+    "pdfjs.enableGuessAltText" = false;
+  };
+  experimental = {
+    "widget.dmabuf.force-enabled" = false;
+    "media.hardware-video-decoding.force-enabled" = true;
+    "widget.wayland-dmabuf-vaapi.enabled" = true;
   };
 }

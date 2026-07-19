@@ -1,21 +1,25 @@
 { inputs, ... }: {
   den.aspects.greeter = {
-    homeManager = {
-      xdg.configFile = {
-        "tuigreet/config.toml" = {
-          target = "tuigreet/config.toml";
-          force = true;
-          text = builtins.readFile ./environment/tuigreet/config.toml;
+    provides.to-users = { user, ... }: {
+      homeManager = {
+        xdg.configFile = {
+          "tuigreet/config.toml" = {
+            target = "tuigreet/config.toml";
+            force = true;
+            source = ./environment/tuigreet/config.toml;
+            recursive = true;
+          };
         };
       };
     };
+
     nixos =
       { pkgs, ... }:
       {
         environment.etc = {
-          tuigreetconfig = {
+          "tuigreet/config.toml" = {
             target = "tuigreet/config.toml";
-            text = builtins.readFile ./environment/tuigreet/config.toml;
+            source = ./environment/tuigreet/config.toml;
           };
         };
         environment.systemPackages = [
@@ -26,7 +30,9 @@
           useTextGreeter = true;
           settings = {
             default_session = {
-              command = ''${pkgs.tuigreet}/bin/tuigreet --cmd "start-hyprland" --config /etc/tuigreet/config.toml'';
+              command = ''${
+                inputs.tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.tuigreet
+              }/bin/tuigreet --cmd "start-hyprland" --config /etc/tuigreet/config.toml --time --greeting "With great power, comes great responsibility"'';
               user = "greeter";
             };
             terminal = {

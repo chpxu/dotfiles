@@ -38,5 +38,7 @@
     tuigreet = {
       url = "github:NotAShelf/tuigreet";
     };
+    textfox.url = "github:adriankarlen/textfox";
+
   };
 }

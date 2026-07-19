@@ -5,7 +5,6 @@
     includes = [
       den.provides.primary-user
       den._.mutual-provider
-      den.aspects.greeter
       (den.provides.user-shell "zsh")
       den.aspects.hardware._.tablet
       den.aspects.chunix-xdg
@@ -19,7 +18,6 @@
       den.aspects.jq
       den.aspects.waybar
       den.aspects.sway
-      # den.aspects.wpaperd
       den.aspects.yazi
 
       den.aspects.sound._.pipewire
