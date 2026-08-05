@@ -43,6 +43,11 @@
         "electron-40.10.5"
         "pnpm-10.29.2"
       ])
+      (den.provides.unfree [
+        "mathematica"
+        "Wolfram_15.sh"
+        "mathematica-15.0.0"
+      ])
     ];
 
     homeManager =
@@ -59,10 +64,11 @@
           imv
           xdg-utils
           unzip
-          jmtpfs
           dragon-drop
           materialPkgs.VESTA
           (callPackage ../_packages/waybar_auto_hide.nix { })
+          # openconnect-sso
+          #mathematica
         ];
         programs.git.settings = {
           user = {
@@ -74,8 +80,8 @@
           enable = true;
           gtk4.theme = config.gtk.theme;
           theme = {
-            name = "Nordic";
-            package = pkgs.nordic;
+            name = "Juno";
+            package = pkgs.juno-theme;
           };
           iconTheme = {
             name = "Nordzy";

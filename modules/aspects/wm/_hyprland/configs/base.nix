@@ -126,13 +126,13 @@
       "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-wrapped-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-hyprland-([0-9.]*)\\+date^\\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$_([a-z0-9]{7})/bin/hyprctl, plugin, allow" # technically bad for sec, but since plugins must be explicitly specified, should be ok.
     ];
-    device = [
-      {
-        name = "opentabletdriver-virtual-tablet";
-        enabled = true;
-        absolute_region_position = true;
-      }
-    ];
+    #device = [
+     # {
+     #   name = "opentabletdriver-virtual-tablet";
+     #   enabled = true;
+     #   absolute_region_position = true;
+     # }
+    #];
     bind = [
       "$mod, B,exec, pkill -SIGUSR1 waybar || waybar"
       "$mod, RETURN, exec, kitty"

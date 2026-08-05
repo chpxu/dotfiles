@@ -32,7 +32,7 @@
             default_session = {
               command = ''${
                 inputs.tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.tuigreet
-              }/bin/tuigreet --cmd "start-hyprland" --config /etc/tuigreet/config.toml --time --greeting "With great power, comes great responsibility"'';
+              }/bin/tuigreet --cmd "start-hyprland" --config /etc/tuigreet/config.toml --time --greeting "With great power, comes great responsibility" --background doom'';
               user = "greeter";
             };
             terminal = {
