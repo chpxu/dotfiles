@@ -38,6 +38,7 @@
       den.aspects.browsers._.firefox
       den.aspects.wallpaper
       den.aspects.wallpaper._.awww
+      den.aspects.flameshot
       (den.batteries.insecure [
         "electron-39.8.10"
         "electron-40.10.5"

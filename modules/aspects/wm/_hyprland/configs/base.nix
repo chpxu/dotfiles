@@ -108,6 +108,7 @@
     };
     windowrule = [
       "match:class kitty, match:title .*alsamixer.*, float on"
+      "match:class kitty, match:title .*flameshot.*, float on"
       "match:class kitty,match:title .*nmtui.*, float on, size 480 480,"
       "match:class kitty,match:title .*Yazi.*, float on, size 960 680"
       "match:title .*Bluetooth.*, float on, size 720 680,"
@@ -119,11 +120,12 @@
       "${lib.getExe pkgs.grim}, screencopy, allow"
       "${lib.getExe pkgs.slurp}, screencopy, allow"
       "${lib.escapeRegex (lib.getExe config.programs.hyprlock.package)}, screencopy, allow"
-      "${
-        lib.getExe inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
-      }, screencopy, allow"
-      "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow"
       "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-wrapped-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+      "${
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
+      }/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+      "${lib.getExe pkgs.flameshot}, screencopy, allow"
+
       "/nix/store/[a-z0-9]{32}-hyprland-([0-9.]*)\\+date^\\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$_([a-z0-9]{7})/bin/hyprctl, plugin, allow" # technically bad for sec, but since plugins must be explicitly specified, should be ok.
     ];
     #device = [
@@ -144,7 +146,9 @@
       "$mod, R, exec, rofi -show drun"
       "$mod, L, exec, swaylock"
       "$mod, G, split:grabroguewindows"
-      "SUPER_SHIFT,S,exec, grim -g \"$(slurp -d)\" - | wl-copy"
+      #"SUPER_SHIFT,S,exec, grim -g \"$(slurp -d)\" - | wl-copy"
+      "SUPER_SHIFT,S,exec,flameshot gui --clipboard --accept-on-select"
+      "SUPER_SHIFT,A,exec, flameshot screen --clipboard"
       ",XF86MonBrightnessUp,exec, brightnessctl -d \"$(brightnessctl --list | awk -F\"'\" '/class .backlight/ && /Device/ && $2 !~ /nvidia/ {print $2; exit}')\" s 5%+"
       ",XF86MonBrightnessDown,exec, brightnessctl -d \"$(brightnessctl --list | awk -F\"'\" '/class .backlight/ && /Device/ && $2 !~ /nvidia/ {print $2; exit}')\" s 5%-"
       ",XF86AudioMicMute, exec, amixer set Capture toggle"
