@@ -118,7 +118,7 @@
           programs.nh = {
             enable = true;
             clean.enable = true;
-            clean.extraArgs = "--keep-since 30d --keep 3 --no-gcroots";
+            clean.extraArgs = "--keep-since 30d --keep 3 --no-gcroots --no-direnv";
           };
           environment.systemPackages = with pkgs; [
             openconnect

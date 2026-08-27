@@ -4,9 +4,6 @@
     nixos = _: {
       nixpkgs.overlays = [
         inputs.cachy.overlays.pinned
-        (_final: prev: {
-          tuigreet = inputs.tuigreet.packages.${prev.stdenv.hostPlatform.system}.tuigreet;
-        })
         # (import "${
         #   builtins.fetchTarball {
         #     url = "https://github.com/active-group/openconnect-sso/archive/master.tar.gz";
@@ -23,7 +20,7 @@
 
             src = final.fetchurl {
               url = "https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x86_64-2.0.1.AppImage";
-              hash = "sha256-Qgd0R9V7hyQ+M1BKsNBtIrNOgbwL+uwd9fnUgeWOU6c=";
+              hash = "sha256-KuFy7YpqEUVut3NCk6qlQZmgRG4pMOtm8g3774IeBBY=";
             };
 
             # Extracted tree: source of the `.desktop` entry and the hicolor icons.

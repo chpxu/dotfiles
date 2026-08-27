@@ -73,7 +73,7 @@
         };
       in
       {
-        imports = [ inputs.textfox.homeManagerModules.default ];
+        #imports = [ inputs.textfox.homeManagerModules.default ];
         home.activation.unclobberSearchMZML = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           userDir=${config.xdg.configHome}/mozilla/firefox
 
@@ -113,17 +113,17 @@
             };
           };
         };
-        textfox = {
-          enable = false;
+        #textfox = {
+         # enable = false;
           # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
-          profiles = [
-            "dev-edition-default"
-            "uni"
-          ];
-          config = {
+          #profiles = [
+           # "dev-edition-default"
+            #"uni"
+          #];
+          #config = {
             # Optional config
-          };
-        };
+          #};
+        #};
       };
   };
 }
