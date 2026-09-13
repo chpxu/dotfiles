@@ -61,8 +61,6 @@
               # Python
               basedpyright
               mypy
-              pytest
-              flake8
             ];
             chadrcConfig = ''
               local M = {}

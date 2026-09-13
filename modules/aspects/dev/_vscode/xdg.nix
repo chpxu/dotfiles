@@ -41,7 +41,7 @@ in
       before = [ ];
       data = ''
         userDir=${config.xdg.configHome}/${configDirName}/User
-        rm -rf $userDir/settings.json
+        rm -rf $userDir/settings.json | exit 0
         cat ${pkgs.writeText "tmp_vscode_settings" (builtins.toJSON userSettings)} | jq --monochrome-output > $userDir/settings.json
 
       '';

@@ -32,9 +32,15 @@
       {
         imports = [ inputs.nixos-hardware.nixosModules.lenovo-legion-16iah7h ];
         environment.systemPackages = with pkgs; [ brightnessctl ];
-        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
-
-        networking.hostName = "jingliu";
+        environment.variables = {
+		LIBVA_DRIVER_NAME = "nvidia"; 
+		NVD_BACKEND = "direct";
+	};
+	boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+	boot.kernelParams = ["i915.enable_guc=3" "i915.force_probe=46a6"];	
+	services.xserver.videoDrivers = ["modesetting"  "nvidia"];
+        hardware.graphics.extraPackages = [pkgs.intel-media-driver];
+	networking.hostName = "jingliu";
         fileSystems."/" = {
           device = "/dev/disk/by-uuid/04f82933-1cfa-4758-9fbe-fa48d96677ec";
           fsType = "btrfs";

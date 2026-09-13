@@ -116,10 +116,10 @@
       nixos =
         { pkgs, ... }:
         {
-          nix.settings.trusted-users = [
-            "root"
-            "chunix"
-          ];
+          #nix.settings.trusted-users = [
+          #  "root"
+          #  "chunix"
+          #];
           programs.nh = {
             enable = true;
             clean.enable = true;
