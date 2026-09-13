@@ -19,7 +19,6 @@
             ;
         }).settingsLua;
       extraSettings = (import ./configs/${hostname}.nix { inherit lib; }).settingsLua;
-      touchpad = (import ./configs/touchpad.nix).settings;
     in
     {
       enable = true;
@@ -32,7 +31,7 @@
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-      settings = lib.recursiveUpdate base (extraSettings);
+      settings = lib.recursiveUpdate base extraSettings;
       extraConfig = ''
         hl.on("hyprland.start", function () 
           hl.exec_cmd("awww_rand_bg.sh $XDG_WALLPAPER_DIR")

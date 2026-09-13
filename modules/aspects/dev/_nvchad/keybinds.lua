@@ -1,2 +1,1 @@
-vim.keymap.set('n', 'Gdd', '<Plug>(doge-generate)')
-
+vim.keymap.set("n", "Gdd", "<Plug>(doge-generate)")

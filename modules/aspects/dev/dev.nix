@@ -31,23 +31,38 @@
     };
     provides.nvchad = {
       homeManager =
-        { pkgs, ... }:  
+        { pkgs, ... }:
         {
           imports = [ inputs.nvchad.homeManagerModules.default ];
           programs.nvchad = {
             enable = true;
             extraPackages = with pkgs; [
+              # Other
+              lazygit
               ripgrep
+              # Lua
               stylua
+              # Nix
               nixfmt
+              # Fortran
               fortls
               fprettify
+              # Web
               vimPlugins.nvim-treesitter-parsers.typescript
               prettier
+              # C
               clang-tools
+              # Typst/latex
               tinymist
               typstyle
-              lazygit
+              # Shell and bash
+              shellcheck
+              shfmt
+              # Python
+              basedpyright
+              mypy
+              pytest
+              flake8
             ];
             chadrcConfig = ''
               local M = {}

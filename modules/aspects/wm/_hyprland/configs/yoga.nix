@@ -1,3 +1,3 @@
-lib: {
+_lib: {
   settings = { };
 }
