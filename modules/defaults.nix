@@ -24,10 +24,14 @@
   den.default.nixos =
     { pkgs, config, ... }:
     {
-      #hardware.deviceTree.enable = false;
       system.stateVersion = "25.11";
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = false;
+      home-manager.backupCommand = ''
+        rm -r $HOME/mozilla/firefox/**/search.json.mozlz4
+        ${pkgs.trash-cli}/bin/trash
+      '';
+
       home-manager.extraSpecialArgs =
         let
           nordtheme = import ./_nordtheme.nix;

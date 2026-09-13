@@ -31,18 +31,23 @@
     };
     provides.nvchad = {
       homeManager =
-        { pkgs, ... }:
+        { pkgs, ... }:  
         {
           imports = [ inputs.nvchad.homeManagerModules.default ];
           programs.nvchad = {
             enable = true;
             extraPackages = with pkgs; [
               ripgrep
+              stylua
               nixfmt
               fortls
               fprettify
               vimPlugins.nvim-treesitter-parsers.typescript
               prettier
+              clang-tools
+              tinymist
+              typstyle
+              lazygit
             ];
             chadrcConfig = ''
               local M = {}
@@ -53,6 +58,8 @@
               return M
             '';
             extraPlugins = builtins.readFile ./_nvchad/plugins.lua;
+            extraConfig = builtins.readFile ./_nvchad/keybinds.lua;
+            backup = false;
           };
         };
     };

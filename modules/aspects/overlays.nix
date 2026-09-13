@@ -20,7 +20,8 @@
 
             src = final.fetchurl {
               url = "https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x86_64-2.0.1.AppImage";
-              hash = "sha256-KuFy7YpqEUVut3NCk6qlQZmgRG4pMOtm8g3774IeBBY=";
+              hash = "sha256-YXUlTlKgg5LmPELNEJVWHnG5RvFN8Le7wQVGEZ+KwbI=";
+
             };
 
             # Extracted tree: source of the `.desktop` entry and the hicolor icons.

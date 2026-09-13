@@ -24,7 +24,7 @@
           package = pkgs.git;
 
         };
-
+        programs.lazygit.enable = true;
       };
     provides.delta = {
       homeManager = {

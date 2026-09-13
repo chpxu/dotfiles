@@ -34,7 +34,9 @@
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       settings = lib.recursiveUpdate base (extraSettings);
       extraConfig = ''
-        hl.exec_cmd([[awww_rand_bg.sh $XDG_WALLPAPER_DIR]])
+        hl.on("hyprland.start", function () 
+          hl.exec_cmd("awww_rand_bg.sh $XDG_WALLPAPER_DIR")
+        end)
       '';
 
       # ---------------------------------------------------------------------

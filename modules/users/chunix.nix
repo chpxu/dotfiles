@@ -116,6 +116,7 @@
       nixos =
         { pkgs, ... }:
         {
+          nix.settings.trusted-users=["root" "chunix"];
           programs.nh = {
             enable = true;
             clean.enable = true;
@@ -147,7 +148,10 @@
           };
 
         };
+      homeManager = {config, ...}: {
+        xdg.configFile."mimeapps.list".force = true;
 
+      };
     };
     user = _: {
       isNormalUser = true;

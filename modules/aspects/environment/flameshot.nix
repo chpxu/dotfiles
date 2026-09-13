@@ -27,7 +27,7 @@
             # Whether to enable legacy (pre-xdg-desktop-portal) screenshotting on X11
             useX11LegacyScreenshot = true;
             # Whether to skip display selection prompt (X11-only)
-            captureActiveMonitor = true;
+            #captureActiveMonitor = true;
 
             # Color Customization
             uiColor = "#740096";
