@@ -123,7 +123,7 @@
           programs.nh = {
             enable = true;
             clean.enable = true;
-            clean.extraArgs = "--keep-since 30d --keep 3 --no-gcroots --no-direnv";
+            clean.extraArgs = "--keep-since 30d --keep 3";
           };
           environment.systemPackages = with pkgs; [
             openconnect
@@ -146,8 +146,8 @@
 
           qt = {
             enable = true;
-            style = "gtk2";
-            platformTheme = "gtk2";
+            style = "adwaita-dark";
+            platformTheme = "gnome";
           };
 
         };

@@ -5,7 +5,7 @@
 
   inputs = {
     cachy.url = "github:xddxdd/nix-cachyos-kernel/release";
-    den.url = "github:denful/den/5df0987658d6e44268abba953406480e9f066928";
+    den.url = "github:denful/den/d0d80faa36f735c9390c1f6e0a3a481ae7ae31d0";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
