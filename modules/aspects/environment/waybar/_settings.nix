@@ -63,8 +63,9 @@
           "29" = "9";
           "30" = "10";
         };
-        on-scroll-up = "hyprctl dispatch split:workspace r+1";
-        on-scroll-down = "hyprctl dispatch split:workspace r-1";
+
+        on-scroll-up = "hyprctl dispatch 'hl.dsp.exec_cmd(\"split:workspace r+1\")'";
+        on-scroll-down = "hyprctl dispatch 'hl.dsp.exec_cmd(\"split:workspace r-1\")'";
         "disable-scroll" = false;
         "persistent-workspaces" = { };
         on-click = "activate";
@@ -174,7 +175,7 @@
         tooltip-format = "SSID: {essid}\nInterface: {ifname} via {gwaddr}\nIP: {ipaddr}\nSubnetmask: {netmask}-{cidr}\nConnection Strength: {signalStrength}%\nFrequency: {frequency}GHz\nUp Speed: {bandwidthUpBits}\nDown Speed: {bandwidthDownBits}";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "(No Internet)";
-        on-click = "hyprctl dispatch exec '[float]kitty -e nmtui'";
+        on-click = "hyprctl dispatch 'hl.dsp.exec_cmd(\"kitty -e nmtui\", {float = true, size = \"600 400\" })'";
       };
       pulseaudio = {
         format = "{icon} {volume}% {format_source}";
@@ -196,7 +197,9 @@
             ""
           ];
         };
-        on-click = "hyprctl dispatch exec '[float]pavucontrol'";
+        #on-click = "hyprctl dispatch exec '[float]pavucontrol'";
+
+        on-click = "hyprctl dispatch 'hl.dsp.exec_cmd(\"pavucontrol\", {float = true, size = \"720 480\" })'";
         tooltip = true;
         tooltip-format = "{icon} {desc}\nVolume: {volume}\n{format_source}";
       };
