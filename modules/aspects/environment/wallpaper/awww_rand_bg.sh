@@ -5,14 +5,14 @@
 DEFAULT_INTERVAL=300 # In seconds
 
 if [ $# -lt 1 ] || [ ! -d "$1" ]; then
-	printf "Usage:\n\t\e[1m%s\e[0m \e[4mDIRECTORY\e[0m [\e[4mINTERVAL\e[0m]\n" "$0"
-	printf "\tChanges the wallpaper to a randomly chosen image in DIRECTORY every\n\tINTERVAL seconds (or every %d seconds if unspecified)." "$DEFAULT_INTERVAL"
+	printf "Usage: %s  DIRECTORY INTERVAL\n" "$0"
+	printf "Changes the wallpaper to a randomly chosen image in DIRECTORY every INTERVAL seconds (or every %d seconds if unspecified)." "$DEFAULT_INTERVAL"
 	exit 1
 fi
 
 # See awww-img(1)
 RESIZE_TYPE="crop"
-export AWWW_TRANSITION_FPS="${AWWW_TRANSITION_FPS:-60}"
+export AWWW_TRANSITION_FPS="${AWWW_TRANSITION_FPS:-30}"
 export AWWW_TRANSITION_STEP="${AWWW_TRANSITION_STEP:-2}"
 
 while true; do

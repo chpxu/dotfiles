@@ -111,17 +111,17 @@ return {
 			},
 		},
 	},
-{
-  'chomosuke/typst-preview.nvim',
-  lazy = false, -- or ft = 'typst'
-  version = '1.*',
-  opts = {
-    debug=true,
-    open_cmd = "firefox-devedition %s -P typst-preview --class typst-preview",
-    dependencies_bin = {
-      tinymist = "@TINYMIST_PATH@",
-      websocat = "@WEBSOCAT_PATH@"
-    }
-  }, -- lazy.nvim will implicitly calls `setup {}`
-}
+	{
+		"chomosuke/typst-preview.nvim",
+		lazy = false, -- or ft = 'typst'
+		version = "1.*",
+		opts = {
+			debug = true,
+			open_cmd = "firefox-devedition %s -P typst-preview --class typst-preview",
+			dependencies_bin = {
+				tinymist = "@TINYMIST_PATH@",
+				websocat = "@WEBSOCAT_PATH@",
+			},
+		}, -- lazy.nvim will implicitly calls `setup {}`
+	},
 }

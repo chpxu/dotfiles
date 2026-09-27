@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   den.aspects.greeter = {
     provides.to-users = _: {
       homeManager = {
@@ -27,9 +27,7 @@
           useTextGreeter = true;
           settings = {
             default_session = {
-              command = ''${
-                lib.getExe pkgs.tuigreet
-              } --cmd "start-hyprland" --config /etc/tuigreet/config.toml --time --greeting "With great power, comes great responsibility" --background doom'';
+              command = ''${lib.getExe pkgs.tuigreet} --cmd "start-hyprland" --config /etc/tuigreet/config.toml --time --greeting "With great power, comes great responsibility" --background doom'';
               user = "greeter";
             };
             terminal = {

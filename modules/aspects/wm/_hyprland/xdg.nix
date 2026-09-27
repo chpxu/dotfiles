@@ -22,9 +22,9 @@
     in
     {
       enable = true;
-      plugins = [
-        inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplit
-      ];
+      #plugins = [
+      #  inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplit.hyprsplitlua
+      #];
       configType = "lua";
       systemd.enable = true;
       systemd.enableXdgAutostart = true;
@@ -75,19 +75,4 @@
       };
     };
 
-  xdg.configFile = {
-    # "hypr/yoga.conf" = {
-    #   source =
-    #     if hostname == "yoga" then
-    #       config.lib.file.mkOutOfStoreSymlink ./. + "/configs/yoga.conf"
-    #     else
-    #       config.lib.file.mkOutOfStoreSymlink ./. + "/configs/default.conf";
-    #   target = "hypr/yoga.conf";
-    # };
-
-    # "hypr/hyprpaper.conf" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink ./. + "/hyprpaper.conf";
-    #   target = "hypr/hyprpaper.conf";
-    # };
-  };
-}
+ }

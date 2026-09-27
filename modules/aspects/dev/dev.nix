@@ -72,12 +72,13 @@
               return M
             '';
             #extraPlugins = builtins.readFile ./_nvchad/plugins.lua;
-            
-            extraPlugins = builtins.replaceStrings
-      
-  [ "@TINYMIST_PATH@" "@WEBSOCAT_PATH@" ]
-  [ "${lib.getExe pkgs.tinymist}" "${lib.getExe pkgs.websocat}" ]
-  (builtins.readFile ./_nvchad/plugins.lua); 
+
+            extraPlugins =
+              builtins.replaceStrings
+
+                [ "@TINYMIST_PATH@" "@WEBSOCAT_PATH@" ]
+                [ "${lib.getExe pkgs.tinymist}" "${lib.getExe pkgs.websocat}" ]
+                (builtins.readFile ./_nvchad/plugins.lua);
             extraConfig = builtins.readFile ./_nvchad/keybinds.lua;
             backup = false;
           };

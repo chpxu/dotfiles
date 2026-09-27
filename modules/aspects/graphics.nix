@@ -20,7 +20,7 @@ _: {
           enable = true;
           enable32Bit = true;
           extraPackages = commonExtraPkgs;
-	 enableRedistributableFirmware = true;
+          enableRedistributableFirmware = true;
         };
         services.lact.enable = true;
       };

@@ -188,7 +188,7 @@
     let
       lua = lib.generators.mkLuaInline;
       mod = "SUPER";
-
+      XDG_WALLPAPER_DIR = "~/Pictures/Wallpapers";
       # --- the helper function, as discussed ---
       # keys:   a plain "SUPER + X" style string
       # action: a raw Lua expression (as a string) - dispatcher call, function, etc.
@@ -369,7 +369,7 @@
           ${run "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"}
           ${run "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"}
           ${run "hyprctl setcursor Nordzy-cursors 32"}
-          ${run "awww-daemon"}
+          ${run "awww-daemon; awww_rand_bg.sh ${XDG_WALLPAPER_DIR} > ~/log.txt 2>&1"}
           ${run "waybar_auto_hide --side top --always-hidden"}
         '')
       ];
@@ -377,6 +377,11 @@
       # ---- window rules ----
       # (was `windowrule = "match:x v, match:y v, ACTION VAL"`)
       window_rule = [
+        {
+          _args = [
+            (lua ''{ match = { class = "xdg-desktop-portal-gtk", title = ".*File.*" }, float = true }'')
+          ];
+        }
         { _args = [ (lua ''{ match = { class = "kitty", title = ".*alsamixer.*" }, float = true }'') ]; }
         { _args = [ (lua ''{ match = { title = "flameshot" }, float = true }'') ]; }
         {
@@ -390,7 +395,7 @@
           ];
         }
         { _args = [ (lua ''{ match = { title = ".*Bluetooth.*" }, float = true, size = "720 680" }'') ]; }
-        { _args = [ (lua ''{ match = { title = ".*Bitwarden.*" }, float = true, size = "720 680" }'') ]; }
+        { _args = [ (lua ''{ match = { title = ".*Bitwarden.*" }, float = true, size = "800 680" }'') ]; }
         { _args = [ (lua ''{ match = { title = ".*Open.*" }, size = "960 680" }'') ]; }
         { _args = [ (lua ''{ match = { title = ".*open.*" }, size = "960 680" }'') ]; }
       ];
@@ -423,6 +428,15 @@
           _args = [
             "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-wrapped-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped"
             "screencopy"
+            "allow"
+          ];
+        }
+        {
+          _args = [
+            (lib.escapeRegex "${
+              inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.default
+            }/lib/libhyprsplit.so")
+            "plugin"
             "allow"
           ];
         }
