@@ -16,16 +16,16 @@
           let
             # Use Logseq DB
             pname = "logseq";
-            version = "2.0.1";
+            version = "2.0.2";
 
-            src = final.fetchurl {
-              url = "https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x86_64-2.0.1.AppImage";
-              hash = "sha256-pljM0+HKmctMFjgxzsFxjwJqn/fEGSBpjsTu53UQ4Dc=";
+            src = final.fetchurl  {
+              url = "https://github.com/logseq/logseq/releases/download/${version}/Logseq-linux-x86_64-${version}.AppImage";
+              hash = "sha256-EzVyVib2y/vzsAt3Q6YDVtLX2tEjzwC7+XSpvu9VaHA=";
 
             };
 
             # Extracted tree: source of the `.desktop` entry and the hicolor icons.
-            contents = final.appimageTools.extractType2 { inherit pname version src; };
+            contents = final.appimageTools.extract { inherit pname version src; };
 
             inherit (final.lib) licenses sourceTypes;
           in

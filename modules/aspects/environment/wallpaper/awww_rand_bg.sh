@@ -18,7 +18,7 @@ export AWWW_TRANSITION_STEP="${AWWW_TRANSITION_STEP:-2}"
 while true; do
 	find "$1" -type l \
 	| while read -r img; do
-		echo "$(</dev/urandom tr -dc a-zA-Z0-9 | head -c 8):$img"
+		echo "$(</dev/urandom tr -dc 'a-zA-Z0-9' 2>/dev/null | head -c 8):$img"
 	done \
 	| sort -n | cut -d':' -f2- \
 	| while read -r img; do

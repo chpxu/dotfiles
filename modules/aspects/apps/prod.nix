@@ -7,12 +7,11 @@ _: {
           thunderbird
           zotero
           logseq
-          libreoffice-fresh
+          libreoffice
           onedrive
           pdfarranger
           yt-dlp
           wvkbd
-          #obs-studio
           fastfetch
           bitwarden-desktop
         ];

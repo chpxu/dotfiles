@@ -6,6 +6,7 @@
         "steam"
         "steam-unwrapped"
         "osu-lazer-bin"
+        "vintagestory"
       ])
     ];
     nixos =
@@ -33,7 +34,10 @@
       homeManager =
         { pkgs, ... }:
         {
-          home.packages = [ pkgs.prismlauncher ];
+          home.packages = [
+            pkgs.prismlauncher
+            pkgs.vintagestory
+          ];
         };
     };
     provides.osu = {

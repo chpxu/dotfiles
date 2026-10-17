@@ -44,6 +44,8 @@
               stylua
               # Nix
               nixfmt
+              statix
+              deadnix
               # Fortran
               fortls
               fprettify

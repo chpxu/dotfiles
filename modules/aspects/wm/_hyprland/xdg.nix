@@ -41,38 +41,38 @@
       # ---------------------------------------------------------------------
       # hyprsplit
       # ---------------------------------------------------------------------
-      extraLuaFiles = {
-        "hyprsplit/init" = {
-          autoLoad = false;
-          content = builtins.readFile "${
-            inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplitlua
-          }/share/hyprsplit/init.lua";
-        };
-        "hyprsplit-setup" =
-          let
-            mod = "SUPER";
-            num_workspaces = 9;
-          in
-          {
-            autoLoad = true;
-            content = ''
-              local hs = require("hyprsplit")
-              hs.config({ num_workspaces = ${toString num_workspaces} })
+      #extraLuaFiles = {
+      #  "hyprsplit/init" = {
+      #    autoLoad = false;
+      #    content = builtins.readFile "${
+      #      inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplitlua
+      #    }/share/hyprsplit/init.lua";
+      #  };
+      #  "hyprsplit-setup" =
+      #    let
+      #      mod = "SUPER";
+      #      num_workspaces = 9;
+      #    in
+      #    {
+      #      autoLoad = true;
+      #      content = ''
+      #        local hs = require("hyprsplit")
+      #        hs.config({ num_workspaces = ${toString num_workspaces} })
 
-              hl.bind("${mod} + G", hs.dsp.grab_rogue_windows())
-              hl.bind("${mod} + mouse_down", hs.dsp.focus({ workspace = "r-1" }))
-              hl.bind("${mod} + mouse_up", hs.dsp.focus({ workspace = "r+1" }))
+      #        hl.bind("${mod} + G", hs.dsp.grab_rogue_windows())
+      #        hl.bind("${mod} + mouse_down", hs.dsp.focus({ workspace = "r-1" }))
+      #        hl.bind("${mod} + mouse_up", hs.dsp.focus({ workspace = "r+1" }))
 
-              for i = 1, ${toString num_workspaces} do
-                local key = "code:1" .. tostring(i - 1)
-                hl.bind("${mod} + " .. key, hs.dsp.focus({ workspace = i }))
-                hl.bind("${mod} + SHIFT + " .. key, hs.dsp.window.move({ workspace = i, follow = false }))
-              end
-              hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+      #        for i = 1, ${toString num_workspaces} do
+      #          local key = "code:1" .. tostring(i - 1)
+      #          hl.bind("${mod} + " .. key, hs.dsp.focus({ workspace = i }))
+      #          hl.bind("${mod} + SHIFT + " .. key, hs.dsp.window.move({ workspace = i, follow = false }))
+      #        end
+      #        hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
 
-            '';
-          };
-      };
+      #      '';
+      #    };
+      #};
     };
 
- }
+}

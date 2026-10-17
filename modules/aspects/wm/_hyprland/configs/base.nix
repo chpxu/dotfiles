@@ -431,15 +431,15 @@
             "allow"
           ];
         }
-        {
-          _args = [
-            (lib.escapeRegex "${
-              inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.default
-            }/lib/libhyprsplit.so")
-            "plugin"
-            "allow"
-          ];
-        }
+        #{
+        #  _args = [
+        #    (lib.escapeRegex "${
+        #      inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.default
+        #    }/lib/libhyprsplit.so")
+        #    "plugin"
+        #    "allow"
+        #  ];
+        #}
         {
           _args = [
             "${
