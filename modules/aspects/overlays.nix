@@ -55,6 +55,30 @@
           }
 
         )
+        # UIpdate typst-preview for nvim 
+        (
+          final: prev:
+          let
+            pname = "typst-preview.nvim";
+            version = "1.5.0";
+
+            
+      src = final.fetchFromGitHub {
+            owner = "chomosuke";
+      repo = "typst-preview.nvim";
+      rev = "1c2e19486397be1c580b560fc50ee36abe329c46";
+      hash = "sha256-UTugVfydwGTmf5RomQ0R72Yf6fSz8gGeY/fg51qW454=";
+    };
+
+          in
+          {
+
+            typst-preview = final.vimPlugins.typst-preview-nvim.overrideAttrs {
+              inherit pname version src;
+            };
+          }
+
+        )
       ];
     };
   };

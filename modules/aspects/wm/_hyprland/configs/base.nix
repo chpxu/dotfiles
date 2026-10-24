@@ -175,7 +175,7 @@
             "$mod, code:1${toString i}, split:workspace, ${toString ws}"
             "$mod SHIFT, code:1${toString i}, split:movetoworkspace, ${toString ws}"
           ]
-        ) 9
+        ) 
       )
     );
     plugin = {
@@ -275,7 +275,7 @@
             new_optimizations = true;
             size = 5;
             passes = 1;
-            xray = false;
+            xray = true;
           };
           rounding = 0;
           shadow.enabled = false;
@@ -369,7 +369,7 @@
           ${run "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"}
           ${run "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"}
           ${run "hyprctl setcursor Nordzy-cursors 32"}
-          ${run "awww-daemon; awww_rand_bg.sh ${XDG_WALLPAPER_DIR} > ~/log.txt 2>&1"}
+          ${run "awww-daemon; sleep 1; awww_rand_bg.sh ${XDG_WALLPAPER_DIR} > ~/log.txt 2>&1"}
           ${run "waybar_auto_hide --side top --always-hidden"}
         '')
       ];
@@ -396,8 +396,8 @@
         }
         { _args = [ (lua ''{ match = { title = ".*Bluetooth.*" }, float = true, size = "720 680" }'') ]; }
         { _args = [ (lua ''{ match = { title = ".*Bitwarden.*" }, float = true, size = "800 680" }'') ]; }
-        { _args = [ (lua ''{ match = { title = ".*Open.*" }, size = "960 680" }'') ]; }
-        { _args = [ (lua ''{ match = { title = ".*open.*" }, size = "960 680" }'') ]; }
+        { _args = [ (lua ''{ match = { title = ".*Open.*" }, size = "960 680", float = true }'') ]; }
+        { _args = [ (lua ''{ match = { title = ".*open.*" }, size = "960 680", float = true }'') ]; }
       ];
 
       # ---- permissions (was `permission = "REGEX, TYPE, ACTION"`) ----
@@ -496,7 +496,19 @@
         # mouse move/resize (was bindm)
         (bind "${mod} + mouse:272" "hl.dsp.window.drag()")
         (bind "${mod} + mouse:273" "hl.dsp.window.resize()")
-      ];
+      ] ++ (
+builtins.concatLists (
+    builtins.genList (
+      i:
+      let
+        ws = toString (i + 1);
+      in
+      [
+        (bind "${mod} + code:1${toString i}" "hl.dsp.focus({ workspace = ${ws} })")
+        (bind "${mod} + SHIFT + code:1${toString i}" "hl.dsp.window.move({ workspace = ${ws} })")
+      ]
+    ) 9
+  ));
     };
 
 }

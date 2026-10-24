@@ -26,7 +26,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     cachy = {
-      url = "github:xddxdd/nix-cachyos-kernel/release";
+      url = "github:xddxdd/nix-cachyos-kernel/master";
     };
     materials = {
       url = "github:chpxu/materials-flake";

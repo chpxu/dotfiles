@@ -42,15 +42,19 @@
               ripgrep
               # Lua
               stylua
-              # Nix
+              lua-language-server
+                # Nix
               nixfmt
               statix
               deadnix
+              nixd
               # Fortran
               fortls
               fprettify
               # Web
-              vimPlugins.nvim-treesitter-parsers.typescript
+
+typescript-language-server
+  vue-language-server
               prettier
               # C
               clang-tools
@@ -60,11 +64,12 @@
               # Shell and bash
               shellcheck
               shfmt
+bash-language-server
               # Python
               basedpyright
               mypy
-              vimPlugins.typst-preview-nvim
-            ];
+              typst-preview
+              ];
             chadrcConfig = ''
               local M = {}
               M.ui = {

@@ -32,6 +32,9 @@ direnvSetup = {
 
 local conformSetup = {
 	formatters_by_ft = {
+
+sh = { "shfmt" },
+		bash = { "shfmt" },
 		-- Nix
 		nix = { "nixfmt" },
 		-- Fortran
@@ -55,18 +58,13 @@ local conformSetup = {
 
 	-- Format on save (remove if you prefer manual triggering)
 	format_on_save = {
-		lsp_fallback = true,
-		timeout_ms = 2000,
+    -- lsp_fallback = true	
+lsp_format = "fallback",
+		timeout_ms = 500,
 	},
 }
 
 return {
-	{
-		"voldikss/vim-floaterm",
-		config = function()
-			require("vim-floaterm")
-		end,
-	},
 	{
 		"stevearc/conform.nvim",
 		config = function()
@@ -80,27 +78,32 @@ return {
 		end,
 	},
 	{
-		"andymass/vim-matchup",
-		init = function()
-			-- or call the setup function provided as a helper. It defines the
-			-- configuration vars for you
-			require("match-up").setup({
-				treesitter = {
-					stopline = 500,
-				},
-			})
-		end,
-		opts = {
-			treesitter = {
-				stopline = 500,
-			},
-		},
-	},
-	{
-		"kkoomen/vim-doge",
-		init = function()
-			vim.api.nvim_set_var("doge_enable_mappings", 1)
-		end,
+  'andymass/vim-matchup',
+  init = function()
+    -- modify your configuration vars here
+    vim.g.matchup_treesitter_stopline = 500
+
+    -- or call the setup function provided as a helper. It defines the
+    -- configuration vars for you
+    require('match-up').setup({
+      treesitter = {
+        stopline = 500
+      }
+    })
+  end,
+  -- or use the `opts` mechanism built into `lazy.nvim`. It calls
+  -- `require('match-up').setup` under the hood
+  ---@type matchup.Config
+  opts = {
+    treesitter = {
+      stopline = 500,
+    }
+  }
+},
+{
+		"danymat/neogen",
+		cmd = "Neogen",
+		opts = {},
 	},
 	{
 
@@ -116,7 +119,7 @@ return {
 		lazy = false, -- or ft = 'typst'
 		version = "1.*",
 		opts = {
-			debug = true,
+			debug = false,
 			open_cmd = "firefox-devedition %s -P typst-preview --class typst-preview",
 			dependencies_bin = {
 				tinymist = "@TINYMIST_PATH@",
