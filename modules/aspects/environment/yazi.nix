@@ -34,7 +34,7 @@ _: {
               inherit (yp) full-border;
             };
           settings = {
-            manager = {
+            mgr = {
               sort_by = "natural";
               sort_sensitive = true;
               sort_reverse = false;
@@ -87,86 +87,29 @@ _: {
             };
 
             open = {
-              prepend_rules = [
-                {
-                  name = "*.json";
-                  use = "edit";
-                }
-                {
-                  name = "*.sh";
-                  use = "edit";
-                }
-                {
-                  name = "*.toml";
-                  use = "edit";
-                }
-                {
-                  name = "*.y*ml";
-                  use = "edit";
-                }
-                {
-                  name = "*config";
-                  use = "edit";
-                }
-                {
-                  name = "*.cfg";
-                  use = "edit";
-                }
-                {
-                  name = "*env";
-                  use = "edit";
-                }
-                {
-                  name = "*.d";
-                  use = "edit";
-                }
-                {
-                  name = "*.md";
-                  use = "edit";
-                }
-                {
-                  name = "*.txt";
-                  use = "edit";
-                }
-                {
-                  name = ".zsh*";
-                  use = "edit";
-                }
-                {
-                  name = "*.ini";
-                  use = "edit";
-                }
-                {
-                  name = "*.lua";
-                  use = "edit";
-                }
-                {
-                  name = "*.xml";
-                  use = "edit";
-                }
-                {
-                  name = "*.log";
-                  use = "edit";
-                }
-                {
-                  name = "*.ods";
-                  use = "open";
-                }
-                {
-                  name = "*.pdf";
-                  use = "open";
-                }
-                {
-                  name = "*.mp3";
-                  use = "play";
-                }
-              ];
-              append_rules = [
-                {
-                  name = "*";
-                  use = "code";
-                }
-              ];
+               prepend_rules = [
+    { url = "*.json"; use = "edit"; }
+    { url = "*.sh";   use = "edit"; }
+    { url = "*.toml"; use = "edit"; }
+    { url = "*.y*ml"; use = "edit"; }
+    { url = "*config"; use = "edit"; }
+    { url = "*.cfg";  use = "edit"; }
+    { url = "*env";   use = "edit"; }
+    { url = "*.d";    use = "edit"; }
+    { url = "*.md";   use = "edit"; }
+    { url = "*.txt";  use = "edit"; }
+    { url = ".zsh*";  use = "edit"; }
+    { url = "*.ini";  use = "edit"; }
+    { url = "*.lua";  use = "edit"; }
+    { url = "*.xml";  use = "edit"; }
+    { url = "*.log";  use = "edit"; }
+    { url = "*.ods";  use = "open"; }
+    { url = "*.pdf";  use = "open"; }
+    { url = "*.mp3";  use = "play"; }
+  ];
+  append_rules = [
+    { url = "*"; use = "code"; }
+  ];
             };
           };
         };

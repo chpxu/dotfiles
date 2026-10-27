@@ -35,5 +35,5 @@
           value = mkVM hostname;
         }) (builtins.attrNames inputs.self.nixosConfigurations)
       );
-    };
+          };
 }

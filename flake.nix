@@ -20,13 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland/6c6ec3acce5cb4de3c6319122fa9dad689e49f2a";
-    hyprsplit = {
-      url = "github:shezdy/hyprsplit";
-      inputs.hyprland.follows = "hyprland";
-    };
     import-tree.url = "github:denful/import-tree";
     materials.url = "github:chpxu/materials-flake";
-    nix-gaming.url = "github:fufexan/nix-gaming/";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvchad = {

@@ -19,14 +19,14 @@
     #   url = "github:hyprwm/hyprland-plugins";
     #   inputs.hyprland.follows = "hyprland";
     # };
-    nix-gaming.url = "github:fufexan/nix-gaming/";
-    hyprsplit = {
-      url = "github:shezdy/hyprsplit";
-      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
-    };
+    #nix-gaming.url = "github:fufexan/nix-gaming/";
+    #hyprsplit = {
+    #  url = "github:shezdy/hyprsplit";
+    #  inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    #};
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     cachy = {
-      url = "github:xddxdd/nix-cachyos-kernel/master";
+      url = "github:xddxdd/nix-cachyos-kernel/release";
     };
     materials = {
       url = "github:chpxu/materials-flake";
