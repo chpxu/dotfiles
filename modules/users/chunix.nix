@@ -55,6 +55,7 @@
       { config, pkgs, ... }:
       let
         materialPkgs = inputs.materials.packages.${pkgs.stdenv.hostPlatform.system};
+        nordicPackage = inputs.nordic.packages.${pkgs.stdenv.hostPlatform.system};
       in
       {
         programs.obs-studio = {
@@ -98,8 +99,8 @@
           enable = true;
           gtk4.theme = config.gtk.theme;
           theme = {
-            name = "Juno";
-            package = pkgs.juno-theme;
+            name = "Nordic";
+            package = nordicPackage.nordic;
           };
           iconTheme = {
             name = "Nordzy";

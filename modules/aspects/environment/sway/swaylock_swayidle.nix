@@ -10,6 +10,7 @@ _: {
         xdg.configFile."swaylock/blue_swirl.png" = {
           source = config.lib.file.mkOutOfStoreSymlink ./. + "/blue_swirl_nix.png";
           target = "swaylock/blue_swirl_nix.png";
+          force = true;
         };
         services.swayidle = {
           enable = true;

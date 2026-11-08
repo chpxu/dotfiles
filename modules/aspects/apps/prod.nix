@@ -1,9 +1,13 @@
-{den, ...}: {
+{ den, ... }: {
   den.aspects.productivity = {
-     includes = [
+    includes = [
       (den.batteries.insecure [
-"firefox-esr-140-bin-unwrapped"
-"firefox-esr-140-bin-unwrapped-140.17.0esr"
+        "firefox-esr-140-bin-unwrapped"
+        "firefox-esr-140-bin-unwrapped-140.17.0esr"
+      ])
+      (den.provides.unfree [
+        "firefox-esr-140-bin-unwrapped"
+        "firefox-esr-140-bin-unwrapped-140.17.0esr"
       ])
     ];
 
@@ -21,6 +25,8 @@
           wvkbd
           fastfetch
           bitwarden-desktop
+          keepassxc
+          yubikey-manager
         ];
       };
   };

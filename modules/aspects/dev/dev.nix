@@ -43,7 +43,7 @@
               # Lua
               stylua
               lua-language-server
-                # Nix
+              # Nix
               nixfmt
               statix
               deadnix
@@ -53,8 +53,8 @@
               fprettify
               # Web
 
-typescript-language-server
-  vue-language-server
+              typescript-language-server
+              vue-language-server
               prettier
               # C
               clang-tools
@@ -64,12 +64,12 @@ typescript-language-server
               # Shell and bash
               shellcheck
               shfmt
-bash-language-server
+              bash-language-server
               # Python
               basedpyright
               mypy
               typst-preview
-              ];
+            ];
             chadrcConfig = ''
               local M = {}
               M.ui = {

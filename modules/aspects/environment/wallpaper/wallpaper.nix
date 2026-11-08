@@ -3,19 +3,16 @@ _: {
 
     homeManager =
       { config, ... }:
-      let
-        XDG_WALLPAPER_DIR = "${config.home.homeDirectory}/Pictures/Wallpapers";
-      in
       {
         home.file = {
           "wallpaper1" = {
-            source = config.lib.file.mkOutOfStoreSymlink ./. + "/john-towner1.jpg";
-            target = "${XDG_WALLPAPER_DIR}/john-towner1.jpg";
+            source = config.lib.file.mkOutOfStoreSymlink (./. + "/john-towner1.jpg");
+            target = "Pictures/Wallpapers/john-towner1.jpg";
             force = true;
           };
           "wallpaper2" = {
-            source = config.lib.file.mkOutOfStoreSymlink ./. + "/pexels-eberhardgross.jpg";
-            target = "${XDG_WALLPAPER_DIR}/pexels-eberhardgross.jpg";
+            source = config.lib.file.mkOutOfStoreSymlink (./. + "/pexels-eberhardgross.jpg");
+            target = "Pictures/Wallpapers/pexels-eberhardgross.jpg";
             force = true;
           };
           # "awww" = {

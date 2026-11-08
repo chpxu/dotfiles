@@ -36,6 +36,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #textfox.url = "github:adriankarlen/textfox";
-
+    nordic.url = "github:chpxu/nordic";
   };
 }

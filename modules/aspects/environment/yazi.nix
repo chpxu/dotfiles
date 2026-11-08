@@ -87,29 +87,86 @@ _: {
             };
 
             open = {
-               prepend_rules = [
-    { url = "*.json"; use = "edit"; }
-    { url = "*.sh";   use = "edit"; }
-    { url = "*.toml"; use = "edit"; }
-    { url = "*.y*ml"; use = "edit"; }
-    { url = "*config"; use = "edit"; }
-    { url = "*.cfg";  use = "edit"; }
-    { url = "*env";   use = "edit"; }
-    { url = "*.d";    use = "edit"; }
-    { url = "*.md";   use = "edit"; }
-    { url = "*.txt";  use = "edit"; }
-    { url = ".zsh*";  use = "edit"; }
-    { url = "*.ini";  use = "edit"; }
-    { url = "*.lua";  use = "edit"; }
-    { url = "*.xml";  use = "edit"; }
-    { url = "*.log";  use = "edit"; }
-    { url = "*.ods";  use = "open"; }
-    { url = "*.pdf";  use = "open"; }
-    { url = "*.mp3";  use = "play"; }
-  ];
-  append_rules = [
-    { url = "*"; use = "code"; }
-  ];
+              prepend_rules = [
+                {
+                  url = "*.json";
+                  use = "edit";
+                }
+                {
+                  url = "*.sh";
+                  use = "edit";
+                }
+                {
+                  url = "*.toml";
+                  use = "edit";
+                }
+                {
+                  url = "*.y*ml";
+                  use = "edit";
+                }
+                {
+                  url = "*config";
+                  use = "edit";
+                }
+                {
+                  url = "*.cfg";
+                  use = "edit";
+                }
+                {
+                  url = "*env";
+                  use = "edit";
+                }
+                {
+                  url = "*.d";
+                  use = "edit";
+                }
+                {
+                  url = "*.md";
+                  use = "edit";
+                }
+                {
+                  url = "*.txt";
+                  use = "edit";
+                }
+                {
+                  url = ".zsh*";
+                  use = "edit";
+                }
+                {
+                  url = "*.ini";
+                  use = "edit";
+                }
+                {
+                  url = "*.lua";
+                  use = "edit";
+                }
+                {
+                  url = "*.xml";
+                  use = "edit";
+                }
+                {
+                  url = "*.log";
+                  use = "edit";
+                }
+                {
+                  url = "*.ods";
+                  use = "open";
+                }
+                {
+                  url = "*.pdf";
+                  use = "open";
+                }
+                {
+                  url = "*.mp3";
+                  use = "play";
+                }
+              ];
+              append_rules = [
+                {
+                  url = "*";
+                  use = "code";
+                }
+              ];
             };
           };
         };

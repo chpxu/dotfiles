@@ -11,6 +11,7 @@
         boot.initrd.systemd.network.wait-online.enable = false;
         services.openssh.enable = true;
         services.nscd.enableNsncd = true;
+        services.pcscd.enable = true;
         networking = {
           wireless.enable = true;
           firewall.enable = true;
@@ -23,25 +24,6 @@
 
             dhcp = "dhcpcd";
 
-            ensureProfiles = {
-              profiles.ucl = {
-                connection = {
-                  id = "UCL VPN";
-                  type = "vpn";
-                };
-                vpn = rec {
-                  # set these to your params
-                  gateway = "vpn.ucl.ac.uk";
-                  remote = gateway;
-                  username = "ucqncxu@ucl.ac.uk";
-
-                  service-type = "org.freedesktop.NetworkManager.openconnect";
-                  protocol = "anyconnect";
-                  useragent = "AnyConnect";
-                  authtype = "password";
-                };
-              };
-            };
           };
           useDHCP = lib.mkDefault true;
           dhcpcd.enable = true;

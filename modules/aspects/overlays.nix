@@ -18,7 +18,7 @@
             pname = "logseq";
             version = "2.0.2";
 
-            src = final.fetchurl  {
+            src = final.fetchurl {
               url = "https://github.com/logseq/logseq/releases/download/${version}/Logseq-linux-x86_64-${version}.AppImage";
               hash = "sha256-EzVyVib2y/vzsAt3Q6YDVtLX2tEjzwC7+XSpvu9VaHA=";
 
@@ -55,20 +55,19 @@
           }
 
         )
-        # UIpdate typst-preview for nvim 
+        # UIpdate typst-preview for nvim
         (
-          final: prev:
+          final: _prev:
           let
             pname = "typst-preview.nvim";
             version = "1.5.0";
 
-            
-      src = final.fetchFromGitHub {
-            owner = "chomosuke";
-      repo = "typst-preview.nvim";
-      rev = "1c2e19486397be1c580b560fc50ee36abe329c46";
-      hash = "sha256-UTugVfydwGTmf5RomQ0R72Yf6fSz8gGeY/fg51qW454=";
-    };
+            src = final.fetchFromGitHub {
+              owner = "chomosuke";
+              repo = "typst-preview.nvim";
+              rev = "1c2e19486397be1c580b560fc50ee36abe329c46";
+              hash = "sha256-UTugVfydwGTmf5RomQ0R72Yf6fSz8gGeY/fg51qW454=";
+            };
 
           in
           {
